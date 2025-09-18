@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="sytlesheet.css"/>
+  <link rel="stylesheet" href="team_region.css"/>
+  <link rel="stylesheet" href="bracket.css"/>
+  <title>Major 2</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>RLCS 2026</h1>
+      <ul class="nav-links" id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Split 1</a>
+            <div class="dropdown-content">
+              <a href="regional_1.html">Regional 1</a>
+              <a href="regional_2.html">Regional 2</a>
+              <a href="regional_3.html">Regional 3</a>
+              <a href="major_1.html">Major 1</a>
+            </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Split 2</a>
+            <div class="dropdown-content">
+              <a href="regional_4.html">Regional 4</a>
+              <a href="regional_5.html">Regional 5</a>
+              <a href="regional_6.html">Regional 6</a>
+              <a href="major_2.html">Major 2</a>
+            </div>
+        </li>
+        <li><a href="championship.html">Championship</a></li>
+        <li><a href="players_stats.html">Player Stats</a></li>
+        <li><a href="teams_rankings.html">Rankings</a></li>
+        <li><a href="drafting.html">Drafting</a></li>
+        <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
+        <li><a href="info.html">Rules</a></li>
+      </ul>
+      <div class="menu-icon">
+          <button onclick="toggleMenu()">Menu</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1>Major 2</h1>
+    <div class="center_vertical_container"> <!--Only here for the title text-->
+      <h2>Team Placements</h2>
+      <div class="placements_horizontal_container" id="data_box"> <!-- columns of data displayed flex -->
+        <div class="section">
+          <h3>Qualified Teams</h3>
+          <ul>
+            <li class="team" id=""><span id="points">36</span></li>
+            <li class="team" id=""><span id="points">24</span></li>
+            <li class="team" id=""><span id="points">16</span></li>
+            <li class="team" id=""><span id="points">16</span></li>
+            <li class="team" id=""><span id="points">12</span></li>
+            <li class="team" id=""><span id="points">12</span></li>
+            <li class="team" id=""><span id="points">8</span></li>
+            <li class="team" id=""><span id="points">8</span></li>
+            <li class="team" id=""><span id="points">6</span></li>
+            <li class="team" id=""><span id="points">6</span></li>
+            <li class="team" id=""><span id="points">6</span></li>
+            <li class="team" id=""><span id="points">5</span></li>
+            <li class="team" id=""><span id="points">5</span></li>
+            <li class="team" id=""><span id="points">5</span></li>
+            <li class="team" id=""><span id="points">4</span></li>
+            <li class="team" id=""><span id="points">4</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tops_horizontal_container">
+      <div class="center_vertical_container"> <!--Only here for the title text-->
+        <h2>Top Players</h2>
+        <div class="horizontal_container" id="data_box"> <!-- columns of data displayed flex -->
+          <div class="tops_section"> <!-- full column of data -->
+            <h3>Overall Points</h3>
+            <ul>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+            </ul>
+          </div>
+          <div class="tops_section">
+            <h3>Goals</h3>
+            <ul>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+            </ul>
+          </div>
+          <div class="tops_section">
+            <h3>Assists</h3>
+            <ul>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+            </ul>
+          </div>
+          <div class="tops_section">
+            <h3>Saves</h3>
+            <ul>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+            </ul>
+          </div>
+          <div class="tops_section">
+            <h3>Shots</h3>
+            <ul>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+              <li class="team"><span id="points">0</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="center_vertical_container">
+        <h2>&nbsp;</h2>
+        <table class="home_tables">
+          <tbody>
+            <tr>
+              <th>Team</th><th>Points</th>
+            </tr>
+            <tr class="player-data" id="teamflip" data-player="flip">
+              <td>Flip Lord</td><td class="stat-value"></td>
+            </tr>
+            <tr class="player-data" id="teamdoof" data-player="doof">
+              <td>Doofenschmirtz Inc.</td><td class="stat-value"></td>
+            </tr>
+            <tr class="player-data" id="teamgoof" data-player="goof">
+              <td>Goofy Goobers</td><td class="stat-value"></td>
+            </tr>
+            <tr class="player-data" id="teamgold" data-player="gold">
+              <td>24 Karat Gold</td><td class="stat-value"></td>
+            </tr>
+            <tr class="player-data" id="teamskib" data-player="skib">
+              <td>Skibideeznuts</td><td class="stat-value"></td>
+            </tr>
+            <tr class="player-data" id="teamcana" data-player="cana">
+              <td>Team Canada</td><td class="stat-value"></td>
+            </tr>
+            <tr class="player-data" id="teampots" data-player="pots">
+              <td>Potus</td><td class="stat-value"></td>
+            </tr>
+            <tr class="player-data" id="teamyuri" data-player="yuri">
+              <td>Brother Yuri</td><td class="stat-value"></td>
+            </tr>
+            <tr class="player-data" id="teammaht" data-player="maht">
+              <td>Mahtoose</td><td class="stat-value"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <h1 class="bracket_titles">Swiss Stage</h1>
+    <div class="bracket">
+      <div class="bracket_section">
+        <div class="swiss">
+          <div class="swiss_bracket_round"><!-- Round 1 -->
+            <div id="swiss-round-details">Round 1<br/></div>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1">Team A<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1">Team B<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1">Team C<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1">Team D<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1">Team E<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1">Team F<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1">Team G<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1">Team H<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1">Team I<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1">Team J<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1">Team K<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1">Team L<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1">Team M<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1">Team N<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1">Team O<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1">Team P<span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="swiss_bracket_round"><!-- Round 2 -->
+            <div id="swiss-round-details">Round 2<br/></div>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1Upper">Team A<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1Upper">Team B<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1Upper">Team C<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1Upper">Team D<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1Upper">Team E<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1Upper">Team F<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1Upper">Team G<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1Upper">Team H<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1Lower">Team I<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1Lower">Team J<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1Lower">Team K<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1Lower">Team L<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1Lower">Team M<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1Lower">Team N<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="round1Lower">Team O<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="round1Lower">Team P<span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="swiss_bracket_round"><!-- Round 3 -->
+            <div id="swiss-round-details">Round 3<br/></div>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundUpper">Team A<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundUpper">Team B<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundUpper">Team C<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundUpper">Team D<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundMiddle">Team E<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundMiddle">Team F<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundMiddle">Team G<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundMiddle">Team H<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundMiddle">Team I<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundMiddle">Team J<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundMiddle">Team K<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundMiddle">Team L<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundLower">Team M<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundLower">Team N<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundLower">Team O<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundLower">Team P<span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="swiss_bracket_round"><!-- Round 4 -->
+            <div id="swiss-round-details">Round 4<br/></div>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="qualified">Team A<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="qualified">Team B<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundMiddle">Team C<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundMiddle">Team D<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundMiddle">Team E<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundMiddle">Team F<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundMiddle">Team G<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundMiddle">Team H<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundLower">Team I<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundLower">Team J<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundLower">Team K<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundLower">Team L<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundLower">Team M<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundLower">Team N<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="disqualified">Team O<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="disqualified">Team P<span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="swiss_bracket_round" id="round5"><!-- Round 5 -->
+            <div id="swiss-round-details">Round 5<br/></div>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="qualified">Team C<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="qualified">Team D<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="qualified">Team E<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundLower">Team G<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundLower">Team H<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundLower">Team I<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundLower">Team J<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="roundLower">Team K<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="roundLower">Team F<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="disqualified">Team L<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="disqualified">Team M<span class="score"></span></li>
+              <li class="swiss_bracket_team" id="disqualified">Team N<span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="swiss_bracket_round" id="round6"><!-- qualified -->
+            <div id="swiss-round-details">Qualified<br/></div>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="qualified">Team G<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="qualified">Team H<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="qualified">Team I<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="disqualified">Team J<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="disqualified">Team K<span class="score"></span></li>
+            </ul>
+            <ul class="swiss_matchup">
+              <li class="swiss_bracket_team" id="disqualified">Team F<span class="score"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bracket_section">
+        <h1 class="bracket_titles">Group Stage: Group A</h1>
+        <div class="upper">
+          <div class="quarterfinals" id="bracket_round">
+            <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup">
+              <li class="bracket_team"><span class="score"></span></li>
+              <li class="bracket_team"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team"><span class="score"></span></li>
+              <li class="bracket_team"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team"><span class="score"></span></li>
+              <li class="bracket_team"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team"><span class="score"></span></li>
+              <li class="bracket_team"><span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="semifinals" id="bracket_round">
+            <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gauq1"><span class="score"></span></li>
+              <li class="bracket_team" id="w_gauq2"><span class="score"></span></li>
+            </ul> 
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gauq3"><span class="score"></span></li>
+              <li class="bracket_team" id="w_gauq4"><span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="quals" id="bracket_round">
+            <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+              <ul class="matchup">
+                <li class="bracket_team" id="w_gaus1"><span class="score"></span></li>
+              </ul>
+              <ul class="matchup">
+                <li class="bracket_team" id="w_gaus2"><span class="score"></span></li>
+              </ul>
+          </div>
+        </div>
+        <div class="lower">
+          <div class="quarterfinals" id="bracket_round">
+            <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup">
+              <li class="bracket_team" id="l_gauq1"><span class="score"></span></li>
+              <li class="bracket_team" id="l_gauq2"><span class="score"></span></li>
+            </ul> 
+            <ul class="matchup">
+              <li class="bracket_team" id="l_gauq3"><span class="score"></span></li>
+              <li class="bracket_team" id="l_gauq4"><span class="score"></span></li>
+            </ul>              
+          </div>
+          <div class="semifinals" id="bracket_round">
+            <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>  
+            <ul class="matchup">
+              <li class="bracket_team" id="l_gaus2"><span class="score"></span></li>
+              <li class="bracket_team" id="w_galq1"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="l_gaus1"><span class="score"></span></li>
+              <li class="bracket_team" id="w_galq2"><span class="score"></span></li>
+            </ul>  
+          </div>
+          <div class="quals" id="bracket_round">
+            <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gals1"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gals2"><span class="score"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bracket_section">
+        <h1 class="bracket_titles">Group Stage: Group B</h1>
+        <div class="upper">
+          <div class="quarterfinals" id="bracket_round">
+            <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup">
+              <li class="bracket_team"><span class="score"></span></li>
+              <li class="bracket_team"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team"><span class="score"></span></li>
+              <li class="bracket_team"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team"><span class="score"></span></li>
+              <li class="bracket_team"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team"><span class="score"></span></li>
+              <li class="bracket_team"><span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="semifinals" id="bracket_round">
+            <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gbuq1"><span class="score"></span></li>
+              <li class="bracket_team" id="w_gbuq2"><span class="score"></span></li>
+            </ul> 
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gbuq3"><span class="score"></span></li>
+              <li class="bracket_team" id="w_gbuq4"><span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="quals" id="bracket_round">
+            <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+              <ul class="matchup">
+                <li class="bracket_team" id="w_gbus1"><span class="score"></span></li>
+              </ul>
+              <ul class="matchup">
+                <li class="bracket_team" id="w_gbus2"><span class="score"></span></li>
+              </ul>
+          </div>
+        </div>
+        <div class="lower">
+          <div class="quarterfinals" id="bracket_round">
+            <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup">
+              <li class="bracket_team" id="l_gbuq1"><span class="score"></span></li>
+              <li class="bracket_team" id="l_gbuq2"><span class="score"></span></li>
+            </ul> 
+            <ul class="matchup">
+              <li class="bracket_team" id="l_gbuq3"><span class="score"></span></li>
+              <li class="bracket_team" id="l_gbuq4"><span class="score"></span></li>
+            </ul>              
+          </div>
+          <div class="semifinals" id="bracket_round">
+            <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>  
+            <ul class="matchup">
+              <li class="bracket_team" id="l_gbus2"><span class="score"></span></li>
+              <li class="bracket_team" id="w_gblq1"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="l_gbus1"><span class="score"></span></li>
+              <li class="bracket_team" id="w_gblq2"><span class="score"></span></li>
+            </ul>  
+          </div>
+          <div class="quals" id="bracket_round">
+            <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gbls1"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gbls2"><span class="score"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bracket_section">
+        <div class="playoffs">
+          <h1 class="bracket_titles">Playoffs</h1>
+          <div class="upper">
+            <div class="semifinals" id="bracket_round"> <!-- Upper Quarterfinals -->
+              <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>     
+              <ul class="matchup">
+                <li class="bracket_team" id="gauhs"><span class="score"></span></li>
+                <li class="bracket_team" id="gbuls"><span class="score"></span></li>
+              </ul> 
+              <ul class="matchup">
+                <li class="bracket_team" id="gbuhs"><span class="score"></span></li>
+                <li class="bracket_team" id="gauls"><span class="score"></span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="lower">
+            <div class="semifinals" id="bracket_round"> <!-- Lower Round One -->
+              <div class="round-details">Round 1<br/><span class="date">TBD</span></div>
+              <ul class="matchup">
+                <li class="bracket_team" id="galhs"><span class="score"></span></li>
+                <li class="bracket_team" id="gblls"><span class="score"></span></li>
+              </ul> 
+              <ul class="matchup">
+                <li class="bracket_team" id="gblhs"><span class="score"></span></li>
+                <li class="bracket_team" id="galls"><span class="score"></span></li>
+              </ul>              
+            </div>
+            <div class="semifinals" id="bracket_round"> <!-- Lower Quarterfinals -->
+              <div class="round-details">Quarterfinals<br/><span class="date">TBD</span></div>  
+              <ul class="matchup">
+                <li class="bracket_team" id="l_pouq1"><span class="score"></span></li>
+                <li class="bracket_team" id="w_polr1"><span class="score"></span></li>
+              </ul>
+              <ul class="matchup">
+                <li class="bracket_team" id="l_pouq2"><span class="score"></span></li>
+                <li class="bracket_team" id="w_polr2"><span class="score"></span></li>
+              </ul>  
+            </div>
+            <div class="quals" id="bracket_round"> <!-- Lower Semifinals -->
+              <div class="round-details">Semifinals<br/><span class="date">TBD</span></div>     
+              <ul class="matchup">
+                <li class="bracket_team" id="w_pouq2"><span class="score"></span></li>
+                <li class="bracket_team" id="w_polq1"><span class="score"></span></li>
+              </ul>
+              <ul class="matchup">
+                <li class="bracket_team" id="w_pouq1"><span class="score"></span></li>
+                <li class="bracket_team" id="w_polq2"><span class="score"></span></li>
+              </ul>
+            </div>
+            <div class="final" id="bracket_round"> <!-- Lower Finals -->
+              <div class="round-details">Finals<br/><span class="date">TBD</span></div>     
+              <ul class="matchup">
+                <li class="bracket_team" id="w_pols1"><span class="score"></span></li>
+                <li class="bracket_team" id="w_pols2"><span class="score"></span></li>
+                <li class="bracket_team_empty">Winner</li>
+                <li class="bracket_team" id="winner"><span class="score"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<script src="main.js"></script>
+<script type="module" src="home_page.js"></script>
+<footer>
+  <p>©Comet Productions.</p>
+  <div id="socials">
+    <p>Socials: </p>
+    <a href="https://docs.google.com/spreadsheets/">Spreadsheet</a>
+    <a href="https://www.discord.gg/Tn5a63K">Discord</a>
+    <a href="https://x.com/rlcomet">Twitter</a>
+    <a href="https://www.youtube.com/@iacomet">YouTube</a>
+    <a href="https://www.twitch.tv/iacomet">Twitch</a>
+  </div>
+</footer>
+</html>

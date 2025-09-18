@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="sytlesheet.css"/>
+  <link rel="stylesheet" href="team_region.css"/>
+  <title>RLCS Fantasy 2026</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>RLCS 2026</h1>
+      <ul class="nav-links" id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Split 1</a>
+            <div class="dropdown-content">
+              <a href="regional_1.html">Regional 1</a>
+              <a href="regional_2.html">Regional 2</a>
+              <a href="regional_3.html">Regional 3</a>
+              <a href="major_1.html">Major 1</a>
+            </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Split 2</a>
+            <div class="dropdown-content">
+              <a href="regional_4.html">Regional 4</a>
+              <a href="regional_5.html">Regional 5</a>
+              <a href="regional_6.html">Regional 6</a>
+              <a href="major_2.html">Major 2</a>
+            </div>
+        </li>
+        <li><a href="championship.html">Championship</a></li>
+        <li><a href="players_stats.html">Player Stats</a></li>
+        <li><a href="teams_rankings.html">Rankings</a></li>
+        <li><a href="drafting.html">Drafting</a></li>
+        <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
+        <li><a href="info.html">Rules</a></li>
+      </ul>
+      <div class="menu-icon">
+          <button onclick="toggleMenu()">Menu</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1>Scores</h1>
+    <table class="home_tables">
+      <tbody>
+        <tr>
+          <th>Team</th><th>Regional 1</th><th>Regional 2</th><th>Regional 3</th><th>Major 1</th><th>Split 1 Total</th><th>Regional 4</th><th>Regional 5</th><th>Regional 6</th><th>Major 2</th><th>Split 2 Total</th><th>Championship</th><th>Total</th>
+        </tr>
+        <tr class="player-data" id="teamflip" data-player="flip">
+          <td>Flip Lord</td>
+          <td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+        <tr class="player-data" id="teamdoof" data-player="doof">
+          <td>Doofenschmirtz Inc.</td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+        <tr class="player-data" id="teamgoof" data-player="goof">
+          <td>Goofy Goobers</td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+        <tr class="player-data" id="teamgold" data-player="gold">
+          <td>24 Karat Gold</td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+        <tr class="player-data" id="teamskib" data-player="skib">
+          <td>Skibideeznuts</td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+        <tr class="player-data" id="teamcana" data-player="cana">
+          <td>Team Canada</td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+        <tr class="player-data" id="teampots" data-player="pots">
+          <td>Potus</td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+        <tr class="player-data" id="teamyuri" data-player="yuri">
+          <td>Brother Yuri</td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+        <tr class="player-data" id="teammaht" data-player="maht">
+          <td>Mahtoose</td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td><td class="stat-value"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>Winnings</h1>
+    <table class="home_tables">
+      <tbody>
+        <tr>
+          <th>Team</th><th>Split 1</th><th>Split 2</th><th>Championship</th><th>Total Winnings</th>
+        </tr>
+        <tr id="teamflip">
+          <td>Flip Lord</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr id="teamdoof">
+          <td>Doofenschmirtz Inc.</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr id="teamgoof">
+          <td>Goofy Goobers</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr id="teamgold">
+          <td>24 Karat Gold</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr id="teamskib">
+          <td>Skibideeznuts</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr id="teamcana">
+          <td>Team Canada</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr id="teampots">
+          <td>Potus</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr id="teamyuri">
+          <td>Brother Yuri</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr id="teammaht">
+          <td>Mahtoose</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+        <tr>
+          <td>Pool</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+<script src="main.js"></script>
+<script type="module" src="home_page.js"></script>
+<script type="module" src="events_data.js"></script>
+<footer>
+  <p>©Comet Productions.</p>
+  <div id="socials">
+    <p>Socials: </p>
+    <a href="https://docs.google.com/spreadsheets/">Spreadsheet</a>
+    <a href="https://www.discord.gg/Tn5a63K">Discord</a>
+    <a href="https://x.com/rlcomet">Twitter</a>
+    <a href="https://www.youtube.com/@iacomet">YouTube</a>
+    <a href="https://www.twitch.tv/iacomet">Twitch</a>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="sytlesheet.css"/>
+  <link rel="stylesheet" href="team_region.css"/>
+  <title>Team Rankings</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>RLCS 2026</h1>
+      <ul class="nav-links" id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Split 1</a>
+            <div class="dropdown-content">
+              <a href="regional_1.html">Regional 1</a>
+              <a href="regional_2.html">Regional 2</a>
+              <a href="regional_3.html">Regional 3</a>
+              <a href="major_1.html">Major 1</a>
+            </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Split 2</a>
+            <div class="dropdown-content">
+              <a href="regional_4.html">Regional 4</a>
+              <a href="regional_5.html">Regional 5</a>
+              <a href="regional_6.html">Regional 6</a>
+              <a href="major_2.html">Major 2</a>
+            </div>
+        </li>
+        <li><a href="championship.html">Championship</a></li>
+        <li><a href="players_stats.html">Player Stats</a></li>
+        <li><a href="teams_rankings.html">Rankings</a></li>
+        <li><a href="drafting.html">Drafting</a></li>
+        <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
+        <li><a href="info.html">Rules</a></li>
+      </ul>
+      <div class="menu-icon">
+          <button onclick="toggleMenu()">Menu</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="center_horizontal_container" style="gap: 20px;">
+      <div class="vertical_container" id="split_border">
+        <h3>Split 1</h3>
+        <div class="horizontal_container">
+          <ul id="hide_list">
+            <li><span id="event_points">Regional</span></li>
+            <li><span id="event_points">14</span></li>
+            <li><span id="event_points">10</span></li>
+            <li><span id="event_points">7</span></li>
+            <li><span id="event_points">7</span></li>
+            <li><span id="event_points">5</span></li>
+            <li><span id="event_points">5</span></li>
+            <li><span id="event_points">3</span></li>
+            <li><span id="event_points">3</span></li>
+            <li><span id="event_points">2</span></li>
+            <li><span id="event_points">2</span></li>
+            <li><span id="event_points">2</span></li>
+            <li><span id="event_points">2</span></li>
+            <li><span id="event_points">1</span></li>
+            <li><span id="event_points">1</span></li>
+            <li><span id="event_points">1</span></li>
+            <li><span id="event_points">1</span></li>
+          </ul>
+          <ul id="hide_list">
+            <li><span id="event_points">Major</span></li>
+            <li><span id="event_points">30</span></li>
+            <li><span id="event_points">20</span></li>
+            <li><span id="event_points">14</span></li>
+            <li><span id="event_points">14</span></li>
+            <li><span id="event_points">10</span></li>
+            <li><span id="event_points">10</span></li>
+            <li><span id="event_points">6</span></li>
+            <li><span id="event_points">6</span></li>
+            <li><span id="event_points">5</span></li>
+            <li><span id="event_points">5</span></li>
+            <li><span id="event_points">5</span></li>
+            <li><span id="event_points">4</span></li>
+            <li><span id="event_points">4</span></li>
+            <li><span id="event_points">4</span></li>
+            <li><span id="event_points">3</span></li>
+            <li><span id="event_points">3</span></li>
+          </ul>
+        </div>
+      </div> <!-- split 1 points both reigonal and major -->
+      <div class="vertical_container" id="split_border">
+        <h3>Split 2</h3>
+        <div class="horizontal_container">
+          <ul id="hide_list">
+            <li><span id="event_points">Regional</span></li>
+            <li><span id="event_points">18</span></li>
+            <li><span id="event_points">12</span></li>
+            <li><span id="event_points">8</span></li>
+            <li><span id="event_points">8</span></li>
+            <li><span id="event_points">6</span></li>
+            <li><span id="event_points">6</span></li>
+            <li><span id="event_points">4</span></li>
+            <li><span id="event_points">4</span></li>
+            <li><span id="event_points">2</span></li>
+            <li><span id="event_points">2</span></li>
+            <li><span id="event_points">2</span></li>
+            <li><span id="event_points">2</span></li>
+            <li><span id="event_points">1</span></li>
+            <li><span id="event_points">1</span></li>
+            <li><span id="event_points">1</span></li>
+            <li><span id="event_points">1</span></li>
+          </ul>
+          <ul id="hide_list">
+            <li><span id="event_points">Major</span></li>
+            <li><span id="event_points">36</span></li>
+            <li><span id="event_points">24</span></li>
+            <li><span id="event_points">16</span></li>
+            <li><span id="event_points">16</span></li>
+            <li><span id="event_points">12</span></li>
+            <li><span id="event_points">12</span></li>
+            <li><span id="event_points">8</span></li>
+            <li><span id="event_points">8</span></li>
+            <li><span id="event_points">6</span></li>
+            <li><span id="event_points">6</span></li>
+            <li><span id="event_points">6</span></li>
+            <li><span id="event_points">5</span></li>
+            <li><span id="event_points">5</span></li>
+            <li><span id="event_points">5</span></li>
+            <li><span id="event_points">4</span></li>
+            <li><span id="event_points">4</span></li>
+          </ul>
+        </div>
+      </div> <!-- split 2 points both regional and major -->
+      <div class="center_vertical_container" id="split_border">
+        <h3>Split 1</h3>
+        <div class="horizontal_container">
+          <ul id="split">
+            <li><span>Region</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="oce"><span>OCE</span></li>
+            <li class="oce"><span>OCE</span></li>
+            <li class="sam"><span>SAM</span></li>
+            <li class="sam"><span>SAM</span></li>
+            <li class="mena"><span>MENA</span></li>
+            <li class="mena"><span>MENA</span></li>
+            <li class="apac"><span>APAC</span></li>
+            <li class="ssa"><span>SSA</span></li>
+          </ul>
+          <ul id="split">
+            <li><span>Team</span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+          </ul>
+          <ul id="split">
+            <li><span>Points</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="center_vertical_container" id="split_border">
+        <h3>Split 2</h3>
+        <div class="horizontal_container">
+          <ul id="split">
+            <li><span>Region</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="oce"><span>OCE</span></li>
+            <li class="oce"><span>OCE</span></li>
+            <li class="sam"><span>SAM</span></li>
+            <li class="sam"><span>SAM</span></li>
+            <li class="mena"><span>MENA</span></li>
+            <li class="mena"><span>MENA</span></li>
+            <li class="apac"><span>APAC</span></li>
+            <li class="ssa"><span>SSA</span></li>
+          </ul>
+          <ul id="split">
+            <li><span>Team</span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+          </ul>
+          <ul id="split">
+            <li><span>Points</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="center_vertical_container" id="split_border">
+        <h3>Championship</h3>
+        <div class="horizontal_container">
+          <ul id="split">
+            <li><span>Region</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="eu"><span>EU</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="na"><span>NA</span></li>
+            <li class="oce"><span>OCE</span></li>
+            <li class="oce"><span>OCE</span></li>
+            <li class="sam"><span>SAM</span></li>
+            <li class="sam"><span>SAM</span></li>
+            <li class="mena"><span>MENA</span></li>
+            <li class="mena"><span>MENA</span></li>
+            <li class="apac"><span>APAC</span></li>
+            <li class="ssa"><span>SSA</span></li>
+            <li class=""><span>LCQ Region 1</span></li>
+            <li class=""><span>LCQ Region 2</span></li>
+            <li class=""><span>LCQ Region 3</span></li>
+            <li class=""><span>LCQ Region 4</span></li>
+          </ul>
+          <ul id="split">
+            <li><span>Team</span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+            <li id=""><span></span></li>
+          </ul>
+          <ul id="split">
+            <li><span>Points</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+            <li><span>0</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <button style="margin: 10px 0;"><a href="https://liquipedia.net/rocketleague/Rocket_League_Championship_Series/2025/Rankings">Liquipedia</a></button>
+  </main>
+</body>
+<script src="main.js"></script>
+<script src="bracket.js"></script>
+<footer>
+  <p>©Comet Productions.</p>
+  <div id="socials">
+    <p>Socials: </p>
+    <a href="https://docs.google.com/spreadsheets/">Spreadsheet</a>
+    <a href="https://www.discord.gg/Tn5a63K">Discord</a>
+    <a href="https://x.com/rlcomet">Twitter</a>
+    <a href="https://www.youtube.com/@iacomet">YouTube</a>
+    <a href="https://www.twitch.tv/iacomet">Twitch</a>
+  </div>
+</footer>
+</html>

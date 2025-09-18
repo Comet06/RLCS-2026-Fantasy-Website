@@ -1,0 +1,58 @@
+/* 
+.horizontal_container{display: flex;}
+.verical_container{display: flex;flex-direction: column;}
+.center_horizontal_container{display: flex;justify-content: center;}
+.center_vertical_container{display: flex;flex-direction: column;align-items: center;text-align: center;}
+#hide_list{overflow: hidden;} 
+*/
+
+/* Brackets */
+.bracket_titles{text-align: center; margin-bottom: 10px;}
+.bracket{display: flex;flex-wrap: wrap; width: 100%;margin-top: 10px;margin-bottom: 10px;gap: 10px;}
+.bracket_section {margin: 20px auto;padding:20px 10px;border: solid 2px black;width: fit-content;}
+
+#bracket_round {display:flex;flex-direction:column;margin-bottom: 10px;width: 80%;}
+
+.upper {height:350px;margin: auto;display: flex;} /* All upper sections */
+.lower {height: fit-content;margin: auto;display: flex;} /* All lower sections */
+
+.matchup{margin: 0 2.5%;height: 60px; width: 180px;}
+.quarterfinals .matchup {padding: 20px 0px;} /* All QF matches */
+.semifinals .matchup {padding: 55px 0px;} /* All SF matches */
+.quals .matchup {padding: 55px 0px;} /* All Qual boxes(match semifinals matches) */
+.lower .matchup {padding: 20px 0px;} /* All lower matches */
+.final .matchup {padding: 20px 0px;} /* Only the final match */
+.playoffs .upper .matchup{padding: 15px 0px;margin: 0 0 15px;} /* adds padding in between the matchups, and sizes the width to match the other matchups */
+
+.playoffs .upper{height:200px;margin-left: 230px;} /* Moves the bracket boxes to right 230px */
+.playoffs .upper .round-details{margin-right: auto;} /* Moves the upperquarterfinals text to the left */
+
+.round-details {min-width:200px;color: #2C7399;text-transform: uppercase;text-align: center;}
+.date {font-size: 10px; letter-spacing: 2px;font-family: 'Istok Web', sans-serif;color:#3F915F;}
+.score {float: right;font-weight: bold;position: absolute;right: 5px;}
+.bracket_team {padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;
+    position: relative;color: white;background-color: #1e1e2f;}
+.bracket_team_empty {padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;
+    position: relative;color: #2C7399; text-align: center;}
+    
+#win {background-color: #248635;} /* id="win" */
+#lose {background-color: #9c2438;} /* id="lose" */
+
+/* Swiss */
+.swiss{height: fit-content;justify-content: center;display: flex;}
+.swiss_bracket_team {padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;color: white;background-color: #1e1e2f;width: 150px;}
+.swiss_matchup{display: flex; margin: 0 2.5% 0 2.5%;}
+.empty_team{padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;color: white;background-color: #1e1e2f00;width: 190px;}
+#swiss-round-details{width:300px;color: #2C7399;text-transform: uppercase;text-align: center;}
+#round6 {width: 150px;}
+#round5 #swiss-round-details{padding-bottom: 45px;}
+#round6 #swiss-round-details{padding-bottom: 25px; width: 150px;}
+.swiss_bracket_round {display:flex;flex-direction:column;margin-bottom: 10px;width: 300px;}
+#round1{background-color: #2C7399;}
+#round1Upper{background-color: #3F915F;}
+#round1Lower{color: black; background-color: #d1d143;}
+#roundUpper{background-color: #3F915F;}
+#roundMiddle{color: black; background-color: #d1d143;}
+#roundLower{color: black; background-color: #d14343;}
+#qualified{color: black; background-color:#00ff62;}
+#disqualified{color: black; background-color:#ff0000;}

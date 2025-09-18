@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="sytlesheet.css"/>
+  <link rel="stylesheet" href="team_region.css"/>
+  <link rel="stylesheet" href="bracket.css"/>
+  <title>RLCS Bracket Form</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>RLCS 2026</h1>
+      <ul class="nav-links" id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Split 1</a>
+            <div class="dropdown-content">
+              <a href="regional_1.html">Regional 1</a>
+              <a href="regional_2.html">Regional 2</a>
+              <a href="regional_3.html">Regional 3</a>
+              <a href="major_1.html">Major 1</a>
+            </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Split 2</a>
+            <div class="dropdown-content">
+              <a href="regional_4.html">Regional 4</a>
+              <a href="regional_5.html">Regional 5</a>
+              <a href="regional_6.html">Regional 6</a>
+              <a href="major_2.html">Major 2</a>
+            </div>
+        </li>
+        <li><a href="championship.html">Championship</a></li>
+        <li><a href="players_stats.html">Player Stats</a></li>
+        <li><a href="teams_rankings.html">Rankings</a></li>
+        <li><a href="drafting.html">Drafting</a></li>
+        <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
+        <li><a href="info.html">Rules</a></li>
+      </ul>
+      <div class="menu-icon">
+          <button onclick="toggleMenu()">Menu</button>
+      </div>
+    </nav>
+  </header>
+  <h1 style="text-align: center;">Current Bracket: Major 1</h1>
+  <div class="bracket">
+    <div class="bracket_section">
+      <h1 class="bracket_titles">Play-in</h1>
+      <div class="upper">
+        <div class="quarterfinals" id="bracket_round">
+          <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;">Qualfied seed 1<span class="score"></span></li>
+            <li class="bracket_team" style="font-style: italic;">LCQ Seed 4<span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;">Qualfied seed 2<span class="score"></span></li>
+            <li class="bracket_team" style="font-style: italic;">LCQ Seed 3<span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;">Qualfied seed 4<span class="score"></span></li>
+            <li class="bracket_team" style="font-style: italic;">LCQ Seed 1<span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;">Qualfied seed 3<span class="score"></span></li>
+            <li class="bracket_team" style="font-style: italic;">LCQ Seed 2<span class="score"></span></li>
+          </ul>
+        </div>
+        <div class="semifinals" id="bracket_round">
+          <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_puq1"><span class="score"></span></li>
+              <li class="bracket_team" id="w_puq2"><span class="score"></span></li>
+            </ul> 
+            <ul class="matchup">
+              <li class="bracket_team" id="w_puq3"><span class="score"></span></li>
+              <li class="bracket_team" id="w_puq4"><span class="score"></span></li>
+            </ul>
+        </div>
+        <div class="quals" id="bracket_round">
+          <div class="round-details">Qualified<br/>&nbsp;</div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_pus1"></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="w_pus2"></li>
+            </ul>
+        </div>
+      </div>
+      <div class="lower">
+        <div class="quarterfinals" id="bracket_round">
+          <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
+          <ul class="matchup">
+            <li class="bracket_team" id="l_puq1"><span class="score"></span></li>
+            <li class="bracket_team" id="l_puq2"><span class="score"></span></li>
+          </ul> 
+          <ul class="matchup">
+            <li class="bracket_team" id="l_puq3"><span class="score"></span></li>
+            <li class="bracket_team" id="l_puq4"><span class="score"></span></li>
+          </ul>              
+        </div>
+        <div class="semifinals" id="bracket_round">
+          <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>  
+          <ul class="matchup">
+            <li class="bracket_team" id="l_pus2"><span class="score"></span></li>
+            <li class="bracket_team" id="w_plq1"><span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" id="l_pus1"><span class="score"></span></li>
+            <li class="bracket_team" id="w_plq2"><span class="score"></span></li>
+          </ul>  
+        </div>
+        <div class="quals" id="bracket_round">
+          <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+          <ul class="matchup">
+            <li class="bracket_team" id="w_pls1"></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" id="w_pls2"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bracket_section">
+      <h1 class="bracket_titles">Group Stage: Group A</h1>
+      <div class="upper">
+        <div class="quarterfinals" id="bracket_round">
+          <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+            <li class="bracket_team" id="seed4" style="font-style: italic;">Play in Seed 4<span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+            <li class="bracket_team" id="seed1" style="font-style: italic;">Play in Seed 1<span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+          </ul>
+        </div>
+        <div class="semifinals" id="bracket_round">
+          <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>     
+          <ul class="matchup">
+            <li class="bracket_team" id="w_gauq1"><span class="score"></span></li>
+            <li class="bracket_team" id="w_gauq2"><span class="score"></span></li>
+          </ul> 
+          <ul class="matchup">
+            <li class="bracket_team" id="w_gauq3"><span class="score"></span></li>
+            <li class="bracket_team" id="w_gauq4"><span class="score"></span></li>
+          </ul>
+        </div>
+        <div class="quals" id="bracket_round">
+          <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gaus1"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gaus2"><span class="score"></span></li>
+            </ul>
+        </div>
+      </div>
+      <div class="lower">
+        <div class="quarterfinals" id="bracket_round">
+          <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
+          <ul class="matchup">
+            <li class="bracket_team" id="l_gauq1"><span class="score"></span></li>
+            <li class="bracket_team" id="l_gauq2"><span class="score"></span></li>
+          </ul> 
+          <ul class="matchup">
+            <li class="bracket_team" id="l_gauq3"><span class="score"></span></li>
+            <li class="bracket_team" id="l_gauq4"><span class="score"></span></li>
+          </ul>              
+        </div>
+        <div class="semifinals" id="bracket_round">
+          <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>  
+          <ul class="matchup">
+            <li class="bracket_team" id="l_gaus2"><span class="score"></span></li>
+            <li class="bracket_team" id="w_galq1"><span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" id="l_gaus1"><span class="score"></span></li>
+            <li class="bracket_team" id="w_galq2"><span class="score"></span></li>
+          </ul>  
+        </div>
+        <div class="quals" id="bracket_round">
+          <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+          <ul class="matchup">
+            <li class="bracket_team" id="w_gals1"><span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" id="w_gals2"><span class="score"></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bracket_section">
+      <h1 class="bracket_titles">Group Stage: Group B</h1>
+      <div class="upper">
+        <div class="quarterfinals" id="bracket_round">
+          <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+            <li class="bracket_team" id="seed3" style="font-style: italic;">Play in Seed 3<span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+            <li class="bracket_team" id="seed2" style="font-style: italic;">Play in Seed 2<span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+            <li class="bracket_team" style="font-style: italic;"><span class="score"></span></li>
+          </ul>
+        </div>
+        <div class="semifinals" id="bracket_round">
+          <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>     
+          <ul class="matchup">
+            <li class="bracket_team" id="w_gbuq1"><span class="score"></span></li>
+            <li class="bracket_team" id="w_gbuq2"><span class="score"></span></li>
+          </ul> 
+          <ul class="matchup">
+            <li class="bracket_team" id="w_gbuq3"><span class="score"></span></li>
+            <li class="bracket_team" id="w_gbuq4"><span class="score"></span></li>
+          </ul>
+        </div>
+        <div class="quals" id="bracket_round">
+          <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gbus1"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="w_gbus2"><span class="score"></span></li>
+            </ul>
+        </div>
+      </div>
+      <div class="lower">
+        <div class="quarterfinals" id="bracket_round">
+          <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
+          <ul class="matchup">
+            <li class="bracket_team" id="l_gbuq1"><span class="score"></span></li>
+            <li class="bracket_team" id="l_gbuq2"><span class="score"></span></li>
+          </ul> 
+          <ul class="matchup">
+            <li class="bracket_team" id="l_gbuq3"><span class="score"></span></li>
+            <li class="bracket_team" id="l_gbuq4"><span class="score"></span></li>
+          </ul>              
+        </div>
+        <div class="semifinals" id="bracket_round">
+          <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>  
+          <ul class="matchup">
+            <li class="bracket_team" id="l_gbus2"><span class="score"></span></li>
+            <li class="bracket_team" id="w_gblq1"><span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" id="l_gbus1"><span class="score"></span></li>
+            <li class="bracket_team" id="w_gblq2"><span class="score"></span></li>
+          </ul>  
+        </div>
+        <div class="quals" id="bracket_round">
+          <div class="round-details">Qualified<br/>&nbsp;</span></div>     
+          <ul class="matchup">
+            <li class="bracket_team" id="w_gbls1"><span class="score"></span></li>
+          </ul>
+          <ul class="matchup">
+            <li class="bracket_team" id="w_gbls2"><span class="score"></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bracket_section">
+      <div class="playoffs">
+        <h1 class="bracket_titles">Playoffs</h1>
+        <div class="upper">
+          <div class="semifinals" id="bracket_round"> <!-- Upper Quarterfinals -->
+            <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="gauhs"><span class="score"></span></li>
+              <li class="bracket_team" id="gbuls"><span class="score"></span></li>
+            </ul> 
+            <ul class="matchup">
+              <li class="bracket_team" id="gbuhs"><span class="score"></span></li>
+              <li class="bracket_team" id="gauls"><span class="score"></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="lower">
+          <div class="semifinals" id="bracket_round"> <!-- Lower Round One -->
+            <div class="round-details">Round 1<br/><span class="date">TBD</span></div>
+            <ul class="matchup">
+              <li class="bracket_team" id="galhs"><span class="score"></span></li>
+              <li class="bracket_team" id="gblls"><span class="score"></span></li>
+            </ul> 
+            <ul class="matchup">
+              <li class="bracket_team" id="gblhs"><span class="score"></span></li>
+              <li class="bracket_team" id="galls"><span class="score"></span></li>
+            </ul>              
+          </div>
+          <div class="semifinals" id="bracket_round"> <!-- Lower Quarterfinals -->
+            <div class="round-details">Quarterfinals<br/><span class="date">TBD</span></div>  
+            <ul class="matchup">
+              <li class="bracket_team" id="l_pouq1"><span class="score"></span></li>
+              <li class="bracket_team" id="w_polr1"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="l_pouq2"><span class="score"></span></li>
+              <li class="bracket_team" id="w_polr2"><span class="score"></span></li>
+            </ul>  
+          </div>
+          <div class="quals" id="bracket_round"> <!-- Lower Semifinals -->
+            <div class="round-details">Semifinals<br/><span class="date">TBD</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_pouq2"><span class="score"></span></li>
+              <li class="bracket_team" id="w_polq1"><span class="score"></span></li>
+            </ul>
+            <ul class="matchup">
+              <li class="bracket_team" id="w_pouq1"><span class="score"></span></li>
+              <li class="bracket_team" id="w_polq2"><span class="score"></span></li>
+            </ul>
+          </div>
+          <div class="final" id="bracket_round"> <!-- Lower Finals -->
+            <div class="round-details">Finals<br/><span class="date">TBD</span></div>     
+            <ul class="matchup">
+              <li class="bracket_team" id="w_pols1"><span class="score"></span></li>
+              <li class="bracket_team" id="w_pols2"><span class="score"></span></li>
+              <li class="bracket_team_empty">Winner</li>
+              <li class="bracket_team" id="winner"><span class="score"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="main.js"></script>
+<script type="module" src="brackets.js"></script>
+
+<footer>
+  <p>©Comet Productions.</p>
+  <div id="socials">
+    <p>Socials: </p>
+    <a href="https://docs.google.com/spreadsheets/">Spreadsheet</a>
+    <a href="https://www.discord.gg/Tn5a63K">Discord</a>
+    <a href="https://x.com/rlcomet">Twitter</a>
+    <a href="https://www.youtube.com/@iacomet">YouTube</a>
+    <a href="https://www.twitch.tv/iacomet">Twitch</a>
+  </div>
+</footer>
+</html>

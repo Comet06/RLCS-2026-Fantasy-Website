@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="sytlesheet.css"/>
+  <link rel="stylesheet" href="team_region.css"/>
+  <title>Info and Rules</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>RLCS 2026</h1>
+      <ul class="nav-links" id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Split 1</a>
+            <div class="dropdown-content">
+              <a href="regional_1.html">Regional 1</a>
+              <a href="regional_2.html">Regional 2</a>
+              <a href="regional_3.html">Regional 3</a>
+              <a href="major_1.html">Major 1</a>
+            </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Split 2</a>
+            <div class="dropdown-content">
+              <a href="regional_4.html">Regional 4</a>
+              <a href="regional_5.html">Regional 5</a>
+              <a href="regional_6.html">Regional 6</a>
+              <a href="major_2.html">Major 2</a>
+            </div>
+        </li>
+        <li><a href="championship.html">Championship</a></li>
+        <li><a href="players_stats.html">Player Stats</a></li>
+        <li><a href="teams_rankings.html">Rankings</a></li>
+        <li><a href="drafting.html">Drafting</a></li>
+        <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
+        <li><a href="info.html">Rules</a></li>
+      </ul>
+      <div class="menu-icon">
+          <button onclick="toggleMenu()">Menu</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="rules">
+      <h2>Overall Rules</h2>
+      <ol>
+        <li>Prizes will be distributed based on the Points/Team total points at the end of each split and after the championship(3 total, $200 per major, $500 for Championship, Plus additions from contributing players).</li>
+        <li>Prize pool TBD at the beginning of each season and subject to change.</li>
+        <li>Any issues with the prize pool can be sent to a league administrator.</li>
+        <li>Any issues with the website, submission issues, or data tables used for stat tracking or any other documents provided by the league can be submitted to a league administrator for review.</li>
+        <li>Any issues with 3rd party websites that are not maintained by the league are not to be submitted to the administrator.</li>
+      </ol><br>
+      <h2>Drafting Rules</h2>
+      <ol>
+        <li>Draft will occur at the beginning of the season, a total of 3  will be drafted.</li>
+        <li>Redraft may occur due to additional members joining the league after Each major and before worlds.</li>
+        <li>All drafted players will need to be from different rank levels 'S' through 'F'.</li>
+        <li>Player trades, swaps and all other changes must be made before Both of the regions in question have already played, or have not played yet.</li>
+        <li>Points/Team and positions will need to be submitted before the Points/Team regionals have started in order for the changes to take effect, if no submission is made, previous submissions will be in effect.</li>
+        <li>Championship bracket will need to be submitted before the first kickoff of the first matches.</li>
+        <li>If there are any issues with the bracket and placements of Points/Team, the admin will make a decision on when brackets can be submitted.</li>
+      </ol><br>
+      <h2>Matchup Rules</h2>
+      <ol>
+        <li>Each event you will go up against a different random member in the group.</li>
+        <li>Each matchup will have a cash prize. (listed below)</li>
+        <li>Points/Team with the most points after each major wins that split.</li>
+        <li>Each major and worlds top seed will play bottom seed, second top seed vs the second bottom seed, etc. (seeds are based by points earned that split and are not cumulative).</li>
+        <li>Ties are settled by point values of the players on each team.</li>
+        <li>Championship prize pool will be a cumulative score over both splits and the chamionship bracket.</li>
+        <li>Bracket points are determined by the chart below.</li>
+      </ol>
+    </div>
+    <div class="tops_horizontal_container" style="gap: 30px;">
+      <table id="prize_pool">
+        <tbody>
+          <tr>
+            <th colspan="2">Prize Pool(Season 2025)</th>
+            <th style="text-align: right;">Number of Teams:</th><th style="text-align: left;" id="numOfTeams">9<th>
+          </tr>
+          <tr>
+            <th>Place</th><th>Major</th><th>Championship</th><th>% of prize pool</th>
+          </tr>
+          <tr>
+            <td id="first">1</td><td id="first_prize_major"></td><td id="first_prize_championship"></td><td id="first_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="second">2</td><td id="second_prize_major"></td><td id="second_prize_championship"></td><td id="second_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="third">3</td><td id="third_prize_major"></td><td id="third_prize_championship"></td><td id="third_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="fourth">4</td><td id="fourth_prize_major"></td><td id="fourth_prize_championship"></td><td id="fourth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="fifth">5</td><td id="fifth_prize_major"></td><td id="fifth_prize_championship"></td><td id="fifth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="sixth">6</td><td id="sixth_prize_major"></td><td id="sixth_prize_championship"></td><td id="sixth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="seventh">7</td><td id="seventh_prize_major"></td><td id="seventh_prize_championship"></td><td id="seventh_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="eighth">8</td><td id="eighth_prize_major"></td><td id="eighth_prize_championship"></td><td id="eighth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="ninth">9</td><td id="ninth_prize_major"></td><td id="ninth_prize_championship"></td><td id="ninth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="tenth">10</td><td id="tenth_prize_major"></td><td id="tenth_prize_championship"></td><td id="tenth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="eleventh">11</td><td id="eleventh_prize_major"></td><td id="eleventh_prize_championship"></td><td id="eleventh_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="twelfth">12</td><td id="twelfth_prize_major"></td><td id="twelfth_prize_championship"></td><td id="twelfth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="thirteenth">13</td><td id="thirteenth_prize_major"></td><td id="thirteenth_prize_championship"></td><td id="thirteenth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="fourteenth">14</td><td id="fourteenth_prize_major"></td><td id="fourteenth_prize_championship"></td><td id="fourteenth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="fifteenth">15</td><td id="fifteenth_prize_major"></td><td id="fifteenth_prize_championship"></td><td id="fifteenth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td id="sixteenth">16</td><td id="sixteenth_prize_major"></td><td id="sixteenth_prize_championship"></td><td id="sixteenth_prize_percent"></td>
+          </tr>
+          <tr>
+            <td colspan="4">Match-up prizes per regional</td>
+          </tr>
+          <tr>
+            <td colspan="4">$10.00 /matchup</td>
+          </tr>
+          <tr>
+            <th>Total</th><th>$214</th><th>$542</th><th>100%</th>
+          </tr>
+        </tbody>
+      </table>
+      <table id="bracket_points">
+        <tbody>
+          <tr>
+            <th>Championship and Majors Points Distribution</th><th>Make it to Quarter/Semifinals</th><th>Make it to Qualified/Finals</th><th>Total Points earned</th>
+          </tr>
+          <tr>
+            <th>Team spots/Event round</th><th>8</th><th>2</th><th>&nbsp;</th>
+          </tr>
+          <tr>
+            <td>Play-in</td><td id="playinSemi"></td><td id="playinQualify"></td><td id="playinTotal"></td>
+          </tr>
+          <tr>
+            <td>Group-A</td><td id="groupASemi"></td><td id="groupAQualify"></td><td id="groupATotal"></td>
+          </tr>
+          <tr>
+            <td>Group-B</td><td id="groupBSemi"></td><td id="groupBQualify"></td><td id="groupBTotal"></td>
+          </tr>
+          <tr>
+            <td>Playoffs</td><td id="playoffSemi"></td><td id="playoffQualify"></td><td id="playoffTotal"></td>
+          </tr>
+          <tr>
+            <td colspan="2"></td><th>Total</th><th id="subtotal"></th>
+          </tr>
+          <tr>
+            <th>Major Multiplier</th><th>3X</th><td colspan="2"></td>
+          </tr>
+          <tr>
+            <th>Championship Multiplier</th><th>5X</th><th>Total Major Points</th><th id="majorfinalTotal"></th>
+          </tr>
+          <tr>
+            <td colspan="2"></td><th>Total Championship Points</th><th id="finalTotal"></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+<script src="main.js"></script>
+<script src="bracket.js"></script>
+<script src="prize_pool.js"></script>
+<footer>
+  <p>©Comet Productions.</p>
+  <div id="socials">
+    <p>Socials: </p>
+    <a href="https://docs.google.com/spreadsheets/">Spreadsheet</a>
+    <a href="https://www.discord.gg/Tn5a63K">Discord</a>
+    <a href="https://x.com/rlcomet">Twitter</a>
+    <a href="https://www.youtube.com/@iacomet">YouTube</a>
+    <a href="https://www.twitch.tv/iacomet">Twitch</a>
+  </div>
+</footer>
+</html>
