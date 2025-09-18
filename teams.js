@@ -1,7 +1,7 @@
 import { Legacyplayers, Legacyteams, players, teams } from "./player_data.js";
 
 window.addEventListener('load', function() {
-  if (window.location.pathname === '/players_stats.html') {
+  if (window.location.pathname === '/RLCS-2026-Fantasy-Website/players_stats.html') {
     console.log('The specific page has loaded!');
     deployNew()
     
@@ -71,4 +71,5 @@ function deployNew() {
   }
 
 }
+
 
