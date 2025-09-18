@@ -4,7 +4,7 @@ let playerIDs = ['flip', 'doof', 'goof', 'gold', 'skib', 'cana', 'pots', 'yuri',
 import { ChampionshipBracket } from "./brackets.js";
 
 window.addEventListener('load', function() {
-  if (window.location.pathname === '/RLCS-2026-Fantasy-Website/index.html') {
+  if (window.location.pathname === '/index.html') {
     console.log('The specific page has loaded!');
     deployScores()
   } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_1.html') {
@@ -226,3 +226,4 @@ function deployChamp(){
   }
 
 }
+
