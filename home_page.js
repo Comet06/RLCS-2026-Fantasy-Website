@@ -2,7 +2,7 @@ import { Regional1, Regional2, Regional3, Regional4, Regional5, Regional6,
   Major1, Major2, EventSums, splitSums, champRounds, champ, Championship, playerScores } from "./events_data.js"
 let playerIDs = ['flip', 'doof', 'goof', 'gold', 'skib', 'cana', 'pots', 'yuri', 'maht'] //Potentials: , 'juno', 'chez', 'kids', 
 import { ChampionshipBracket } from "./brackets.js";
-
+let path = '/RLCS-2026-Fantasy-Website'
 window.addEventListener('load', function() {
   if (window.location.pathname === '/RLCS-2026-Fantasy-Website/index.html') {
     console.log('The specific page has loaded!');
@@ -226,6 +226,7 @@ function deployChamp(){
   }
 
 }
+
 
 
 
