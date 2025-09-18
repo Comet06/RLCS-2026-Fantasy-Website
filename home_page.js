@@ -4,34 +4,34 @@ let playerIDs = ['flip', 'doof', 'goof', 'gold', 'skib', 'cana', 'pots', 'yuri',
 import { ChampionshipBracket } from "./brackets.js";
 
 window.addEventListener('load', function() {
-  if (window.location.pathname === '/index.html') {
+  if (window.location.pathname === '/RLCS-2026-Fantasy-Website/index.html') {
     console.log('The specific page has loaded!');
     deployScores()
-  } else if (window.location.pathname === '/regional_1.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_1.html') {
     console.log('The specific page has loaded!');
     deployReg1()
-  } else if (window.location.pathname === '/regional_2.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_2.html') {
     console.log('The specific page has loaded!');
     deployReg2()
-  } else if (window.location.pathname === '/regional_3.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_3.html') {
     console.log('The specific page has loaded!');
     deployReg3()
-  } else if (window.location.pathname === '/major_1.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/major_1.html') {
     console.log('The specific page has loaded!');
     deployMaj1()
-  } else if (window.location.pathname === '/regional_4.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_4.html') {
     console.log('The specific page has loaded!');
     deployReg4()
-  } else if (window.location.pathname === '/regional_5.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_5.html') {
     console.log('The specific page has loaded!');
     deployReg5()
-  } else if (window.location.pathname === '/regional_6.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_6.html') {
     console.log('The specific page has loaded!');
     deployReg6()
-  } else if (window.location.pathname === '/major_2.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/major_2.html') {
     console.log('The specific page has loaded!');
     deployMaj2()
-  } else if (window.location.pathname === '/championship.html') {
+  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/championship.html') {
     console.log('The specific page has loaded!');
     deployChamp()
   } else {
@@ -224,4 +224,5 @@ function deployChamp(){
       });
     }
   }
+
 }
