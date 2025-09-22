@@ -35,17 +35,16 @@
         <li><a href="championship.html">Championship</a></li>
         <li><a href="players_stats.html">Player Stats</a></li>
         <li><a href="teams_rankings.html">Rankings</a></li>
-        <li><a href="drafting.html">Drafting</a></li>
         <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
         <li><a href="info.html">Rules</a></li>
       </ul>
       <div class="menu-icon">
-          <button onclick="toggleMenu()">Menu</button>
+          <button id="menuButton">Menu</button>
       </div>
     </nav>
   </header>
   <main>
-    <div id="rules">
+    <div class="rules">
       <h2>Overall Rules</h2>
       <ol>
         <li>Prizes will be distributed based on the Points/Team total points at the end of each split and after the championship(3 total, $200 per major, $500 for Championship, Plus additions from contributing players).</li>
@@ -168,22 +167,19 @@
             <td colspan="2"></td><th>Total</th><th id="subtotal"></th>
           </tr>
           <tr>
-            <th>Major Multiplier</th><th>3X</th><td colspan="2"></td>
+            <th>Major Multiplier</th><th>3X</th><th>Total Major Points</th><th id="majorfinalTotal"></th>
           </tr>
           <tr>
-            <th>Championship Multiplier</th><th>5X</th><th>Total Major Points</th><th id="majorfinalTotal"></th>
-          </tr>
-          <tr>
-            <td colspan="2"></td><th>Total Championship Points</th><th id="finalTotal"></th>
+            <th>Championship Multiplier</th><th>5X</th><th>Total Championship Points</th><th id="finalTotal"></th>
           </tr>
         </tbody>
       </table>
     </div>
   </main>
 </body>
-<script src="main.js"></script>
-<script src="bracket.js"></script>
-<script src="prize_pool.js"></script>
+<script type="module" src="main.js"></script>
+<script type="module" src="home_page.js"></script>
+<script type="module" src="info.js"></script>
 <footer>
   <p>©Comet Productions.</p>
   <div id="socials">

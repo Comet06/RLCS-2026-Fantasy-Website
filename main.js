@@ -10,3 +10,7 @@ function toggleMenu(){
       menuList.style.maxHeight = "0px";
   }
 }
+
+const menu_button = document.getElementById('menuButton');
+menu_button.addEventListener('click', function() {toggleMenu()});
+

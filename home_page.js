@@ -1,44 +1,197 @@
-import { Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, 
-  Major1, Major2, EventSums, splitSums, champRounds, champ, Championship, playerScores } from "./events_data.js"
-let playerIDs = ['flip', 'doof', 'goof', 'gold', 'skib', 'cana', 'pots', 'yuri', 'maht'] //Potentials: , 'juno', 'chez', 'kids', 
+import { points } from "./info.js";
 import { ChampionshipBracket } from "./brackets.js";
+import { players } from "./player_data.js"
+
+export const playerIDs = ['flip', 'doof', 'goof', 'gold', 'skib', 'cana', 'pots', 'yuri', 'maht'] //Potentials: , 'juno', 'kids', 
+
+let Regional1 = {
+  'flip' : ['Kiileerrz', '', '', 0, 'Daniel', '', '', 0, 'Atow', '', '', 0],
+  'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
+}
+let Regional2 = {
+  'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
+}
+let Regional3 = {
+  'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
+}
+let Major1 = {
+  'flip' : [0],
+  'doof' : [0],
+  'goof' : [0],
+  'gold' : [0],
+  'skib' : [0],
+  'cana' : [0],
+  'pots' : [0],
+  'yuri' : [0],
+  'maht' : [0]
+}
+let Regional4 = {
+  'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
+}
+let Regional5 = {
+  'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
+}
+let Regional6 = {
+  'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
+}
+let Major2 = {
+  'flip' : [0],
+  'doof' : [0],
+  'goof' : [0],
+  'gold' : [0],
+  'skib' : [0],
+  'cana' : [0],
+  'pots' : [0],
+  'yuri' : [0],
+  'maht' : [0]
+}
+
+let EventSums = {
+  // Regionals 1-6
+  'flip' : [0, 0, 0, 0, 0, 0],
+  'doof' : [0, 0, 0, 0, 0, 0],
+  'goof' : [0, 0, 0, 0, 0, 0],
+  'gold' : [0, 0, 0, 0, 0, 0],
+  'skib' : [0, 0, 0, 0, 0, 0],
+  'cana' : [0, 0, 0, 0, 0, 0],
+  'pots' : [0, 0, 0, 0, 0, 0],
+  'yuri' : [0, 0, 0, 0, 0, 0],
+  'maht' : [0, 0, 0, 0, 0, 0]
+}
+let splitSums = {
+  // split 1/2, Championship
+  'flip' : [0, 0, 0],
+  'doof' : [0, 0, 0],
+  'goof' : [0, 0, 0],
+  'gold' : [0, 0, 0],
+  'skib' : [0, 0, 0],
+  'cana' : [0, 0, 0],
+  'pots' : [0, 0, 0],
+  'yuri' : [0, 0, 0],
+  'maht' : [0, 0, 0],
+}
+let champRounds = {
+  // this is for calculating the totals for playin, groupA, groupB, playoffs, total *****Do not manipulate this data*****
+  'flip' : [0, 0, 0, 0, 0],
+  'doof' : [0, 0, 0, 0, 0],
+  'goof' : [0, 0, 0, 0, 0],
+  'gold' : [0, 0, 0, 0, 0],
+  'skib' : [0, 0, 0, 0, 0],
+  'cana' : [0, 0, 0, 0, 0],
+  'pots' : [0, 0, 0, 0, 0],
+  'yuri' : [0, 0, 0, 0, 0],
+  'maht' : [0, 0, 0, 0, 0]
+}
+let Championship = {
+  // Update this to make changes to Championship page
+  //(max): PISemi(6), PIQuals(4), GASemi(6), GAQuals(4), GBSemi(6), GBQuals(4), POSemi(8), POFinals(3)
+  'flip' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'doof' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'goof' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'gold' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'skib' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'cana' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'pots' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'yuri' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'maht' : [0, 0, 0, 0, 0, 0, 0, 0]
+}
+
+let playerScores = {
+    'flip': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'doof': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'goof': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'gold': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'skib': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'cana': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'pots': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'yuri': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'maht': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+};
+
+
 let path = '/RLCS-2026-Fantasy-Website'
 window.addEventListener('load', function() {
-  if (window.location.pathname === '/RLCS-2026-Fantasy-Website/index.html') {
-    console.log('The specific page has loaded!');
+  if (window.location.pathname === `${path}/index.html`) {
+    console.log('Index page has loaded!');
     deployScores()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_1.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/regional_1.html`) {
+    console.log('Regional 1 page has loaded!');
     deployReg1()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_2.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/regional_2.html`) {
+    console.log('Regional 2 page has loaded!');
     deployReg2()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_3.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/regional_3.html`) {
+    console.log('Regional 3 page has loaded!');
     deployReg3()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/major_1.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/major_1.html`) {
+    console.log('Major 1 page has loaded!');
     deployMaj1()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_4.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/regional_4.html`) {
+    console.log('Regional 4 page has loaded!');
     deployReg4()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_5.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/regional_5.html`) {
+    console.log('Regional 5 page has loaded!');
     deployReg5()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/regional_6.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/regional_6.html`) {
+    console.log('Regional 6 page has loaded!');
     deployReg6()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/major_2.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/major_2.html`) {
+    console.log('Major 2 page has loaded!');
     deployMaj2()
-  } else if (window.location.pathname === '/RLCS-2026-Fantasy-Website/championship.html') {
-    console.log('The specific page has loaded!');
+  } else if (window.location.pathname === `${path}/championship.html`) {
+    console.log('Championship page has loaded!');
     deployChamp()
   } else {
     console.log("main event listener is working but nothing else is")
   }
 });
-
 
 function deployScores() {
   console.log('homepage script is working')
@@ -62,9 +215,9 @@ function deployScores() {
   });
 
   // Adding all championship points into splitSums[2]
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 5; i++) {
     playerIDs.forEach((id)=>{
-      splitSums[id][2] += Championship[id][i]*champ[i]
+      splitSums[id][2] += champRounds[id][i]
     });
   }
 
@@ -90,6 +243,11 @@ function deployScores() {
 
 function deployReg1(){
   console.log('reg1 function working')
+  playerIDs.forEach((id)=>{
+    for (let i = 0; i < 12; i += 4){
+      Regional1[id][i+1] = getTeam(players, Regional1[id][i])
+      Regional1[id][i+2] = getRegion(players, Regional1[id][i])
+  }})
   for (const playerName in Regional1) {
     if (Regional1.hasOwnProperty(playerName)) {
       const statsArray = Regional1[playerName];
@@ -104,6 +262,11 @@ function deployReg1(){
 }
 function deployReg2(){
   console.log('reg2 function working')
+  playerIDs.forEach((id)=>{
+  for (let i = 0; i < 13; i += 4){
+    Regional2[id][i+1] = getTeam(players, Regional2[id][i])
+    Regional2[id][i+2] = getRegion(players, Regional2[id][i])
+  }})
   for (const playerName in Regional2) {
     if (Regional2.hasOwnProperty(playerName)) {
       const statsArray = Regional2[playerName];
@@ -118,6 +281,11 @@ function deployReg2(){
 }
 function deployReg3(){
   console.log('reg3 function working')
+  playerIDs.forEach((id)=>{
+  for (let i = 0; i < 13; i += 4){
+    Regional3[id][i+1] = getTeam(players, Regional3[id][i])
+    Regional3[id][i+2] = getRegion(players, Regional3[id][i])
+  }})
   for (const playerName in Regional3) {
     if (Regional3.hasOwnProperty(playerName)) {
       const statsArray = Regional3[playerName];
@@ -147,6 +315,11 @@ function deployMaj1(){
 
 function deployReg4(){
   console.log('reg4 function working')
+  playerIDs.forEach((id)=>{
+  for (let i = 0; i < 13; i += 4){
+    Regional4[id][i+1] = getTeam(players, Regional4[id][i])
+    Regional4[id][i+2] = getRegion(players, Regional4[id][i])
+  }})
   for (const playerName in Regional4) {
     if (Regional4.hasOwnProperty(playerName)) {
       const statsArray = Regional4[playerName];
@@ -161,6 +334,11 @@ function deployReg4(){
 }
 function deployReg5(){
   console.log('reg5 function working')
+  playerIDs.forEach((id)=>{
+  for (let i = 0; i < 13; i += 4){
+    Regional5[id][i+1] = getTeam(players, Regional5[id][i])
+    Regional5[id][i+2] = getRegion(players, Regional5[id][i])
+  }})
   for (const playerName in Regional5) {
     if (Regional5.hasOwnProperty(playerName)) {
       const statsArray = Regional5[playerName];
@@ -175,6 +353,11 @@ function deployReg5(){
 }
 function deployReg6(){
   console.log('reg6 function working')
+  playerIDs.forEach((id)=>{
+  for (let i = 0; i < 13; i += 4){
+    Regional6[id][i+1] = getTeam(players, Regional6[id][i])
+    Regional6[id][i+2] = getRegion(players, Regional6[id][i])
+  }})
   for (const playerName in Regional6) {
     if (Regional6.hasOwnProperty(playerName)) {
       const statsArray = Regional6[playerName];
@@ -206,10 +389,10 @@ function deployChamp(){
   console.log('champ function working')
   ChampionshipBracket()
   playerIDs.forEach((id)=>{
-    champRounds[id][0] = Championship[`${id}`][0]*champ[0]+Championship[`${id}`][1]*champ[1]
-    champRounds[id][1] = Championship[`${id}`][2]*champ[2]+Championship[`${id}`][3]*champ[3]
-    champRounds[id][2] = Championship[`${id}`][4]*champ[4]+Championship[`${id}`][5]*champ[5]
-    champRounds[id][3] = Championship[`${id}`][6]*champ[6]+Championship[`${id}`][7]*champ[7]
+    champRounds[id][0] = Championship[`${id}`][0]*points['playin'][0]+Championship[`${id}`][1]*points['playin'][1]
+    champRounds[id][1] = Championship[`${id}`][2]*points['groupA'][0]+Championship[`${id}`][3]*points['groupA'][1]
+    champRounds[id][2] = Championship[`${id}`][4]*points['groupB'][0]+Championship[`${id}`][5]*points['groupB'][1]
+    champRounds[id][3] = Championship[`${id}`][6]*points['playoff'][0]+Championship[`${id}`][7]*points['playoff'][1]
     champRounds[id][4] = champRounds[id][0] + champRounds[id][1] + champRounds[id][2] + champRounds[id][3]
   });
 
@@ -224,10 +407,13 @@ function deployChamp(){
       });
     }
   }
-
 }
 
-
-
-
-
+function getRegion(playerData, searchTerm) {
+  const player = playerData.find(player => player.name === searchTerm);
+  return player ? player.region : null;
+}
+function getTeam(playerData, searchTerm) {
+  const player = playerData.find(player => player.name === searchTerm);
+  return player ? player.team : null;
+}
