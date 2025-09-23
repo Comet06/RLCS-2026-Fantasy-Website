@@ -26,28 +26,29 @@ main {text-align: center;}
 .menu-icon{display: none;}
 .menu-icon i{color: #fff;font-size: 30px;}
 footer{display:flex; color: white;background-color: #1e1e2f;padding: 20px; width: 100%;margin: 30px 0 0;}
-#socials{display: flex;margin-left: auto;}
+#socials{display: flex;flex-wrap: wrap; margin-left: auto;}
 #socials a{padding: 0 10px; text-decoration:none; color: skyblue;}
 button{font-size: medium;padding: 2px;}
 button :hover{color: white; background-color: #525252;}
 table{border: solid 2px black;border-spacing: 1px;width: 100%;}
-td, th{padding: 0 5px;}
+td, th{font-size: .9em; padding: 0 5px;}
 #test_width{font-size: 50px;}
 
 
 /* Multipage styles */
 .horizontal_container{display: flex;}
 .verical_container{display: flex;flex-direction: column;}
-.center_horizontal_container{display: flex;justify-content: center;}
+.center_horizontal_container{display: flex;justify-content: center; flex-wrap: wrap;}
 .center_vertical_container{display: flex;flex-direction: column;align-items: center;text-align: center;}
+#border_box{border: solid 2px black;}
 #hide_list{overflow: hidden;}
 
 
 /* Info page */
 .rules{text-align: left;margin-left: 30px;}
 .rules ol{margin-left: 30px;}
-#prize_pool{background-color: #acacac;width: 750px;margin: 30px 0 0 auto;}
-#bracket_points{background-color: #acacac;width: 750px;margin: 30px auto 0 0;}
+#prize_pool{background-color: #acacac;width: 750px;}
+#bracket_points{background-color: #acacac;width: 750px;}
 
 
 /* Home page Tables */
@@ -79,12 +80,12 @@ td, th{padding: 0 5px;}
 /* regionals Page */
 .regional_home_tables{margin:0 auto;width: fit-content;background-color: #e1e1e1e6;}
 .regional_home_tables td{padding: 0 20px;}
-.placements_horizontal_container{display: flex; flex-wrap: wrap;}
+.placements_horizontal_container{display: flex; flex-wrap: wrap;justify-content: center;}
+.section{width:200px;text-align: left;margin: 10px;padding: 0 5px;}
 .tops_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center; gap: 20px;}
-#data_box{border: solid black 2px; justify-content: center;width: fit-content;}
-.team{position: relative; overflow: hidden; padding-left: 5px;}
-.section{width:260px;text-align: left;margin: 10px;padding: 0 5px;}
 .tops_section{width:160px;text-align: left;margin: 10px;padding: 0 5px;} /* Data within the tops boxes */
+.team{font-size: .9em; position: relative; overflow: hidden; padding-left: 5px;}
+#data_box{border: solid black 2px; justify-content: center;}
 #points{float: right;position: absolute;right: 5px;}
 
 
@@ -93,48 +94,12 @@ td, th{padding: 0 5px;}
 .draft{text-align: center;display: flex; flex-direction: column; padding: 10px 0;gap: 30px;}
 
 /* Media Screens */
-@media screen and (max-width: 1593px){
-  .center_horizontal_container{
-    flex-wrap: wrap;
-  }
-  #prize_pool{
-    margin: 30px auto 0;
-  }
-  #bracket_points{
-    margin: 30px auto 0;
-  }}
-@media screen and (max-width: 1500px) {
-  .group_stage{
-    gap: 0;
-  }
-  #groupA{
-    margin-right: auto;
-  }
-  #groupB{
-    margin-left: auto;
-  }}
-@media screen and (max-width: 1100px) {
-  #charts{
-    display: block;
-  }}
-@media screen and (max-width: 820px) {
-  .points{
-    display: block;
-  }
-  .rankings{
-    display: block;
-  }}
-@media screen and (max-width: 657px) {
-  #split_table{
-    min-width: 630px;
-  }
-  #win_table{
-    min-width: 630px;
-  }
-  #players_table{
-    min-width: 630px;
-  }}
-@media screen and (max-width:960px) {
+@media screen and (max-width: 1593px){}
+@media screen and (max-width: 1500px){}
+@media screen and (max-width: 1100px){}
+@media screen and (max-width: 820px){}
+@media screen and (max-width: 657px){}
+@media screen and (max-width:960px){
   nav ul{
       position: absolute;
       top: 70px;
@@ -164,13 +129,9 @@ td, th{padding: 0 5px;}
     flex-direction:row;
     margin-top: 0;
   }
-  th, td{
-    font-size: 10px;
-  }
-  .team{
-    font-size: 12px;
-  }
-  .section{width: 200px;}}
+  #player_data_table td{font-size: .5em;}
+  #player_data_table th{font-size: .5em;}
+}
 
 
 

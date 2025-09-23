@@ -5,7 +5,7 @@ import { players } from "./player_data.js"
 export const playerIDs = ['flip', 'doof', 'goof', 'gold', 'skib', 'cana', 'pots', 'yuri', 'maht'] //Potentials: , 'juno', 'kids', 
 
 let Regional1 = {
-  'flip' : ['Kiileerrz', '', '', 0, 'Daniel', '', '', 0, 'Atow', '', '', 0],
+  'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
