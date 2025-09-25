@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="team_region.css"/>
+  <title>Player Statistics</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>RLCS 2026</h1>
+      <ul class="nav-links" id="menuList">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Split 1</a>
+            <div class="dropdown-content">
+              <a href="regional_1.html">Regional 1</a>
+              <a href="regional_2.html">Regional 2</a>
+              <a href="regional_3.html">Regional 3</a>
+              <a href="major_1.html">Major 1</a>
+            </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Split 2</a>
+            <div class="dropdown-content">
+              <a href="regional_4.html">Regional 4</a>
+              <a href="regional_5.html">Regional 5</a>
+              <a href="regional_6.html">Regional 6</a>
+              <a href="major_2.html">Major 2</a>
+            </div>
+        </li>
+        <li><a href="championship.html">Championship</a></li>
+        <li><a href="players_stats.html">Player Stats</a></li>
+        <li><a href="teams_rankings.html">Rankings</a></li>
+        <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
+        <li><a href="info.html">Rules</a></li>
+      </ul>
+      <div class="menu-icon">
+          <button id="menuButton">Menu</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1 style="text-align: center;">WEBPAGE STILL IN DEVELOPMENT(Updated 9/22/2025)</h1>
+    <button><a href="https://ballchasing.com/group/rlcs-2025-7ielfd7uhx">Ball Chasing Data</a></button><br>
+    <div class="home_center_horizontal_container">
+      <p id="retired">Retired</p><p id="new">New</p><p id="inactive">Inactive</p><p id="sub">Sub</p><p id="coach">Coach</p>
+    </div>
+    <div class="home_center_horizontal_container">
+      <div class="player_stats_page">
+        <table id="player_data_table">
+          <tbody>
+            <tr>
+              <th colspan="11">Player Data</th>
+            </tr>
+            <tr>
+              <th colspan="4" style="border-bottom: solid #ff0000 2px;">Player Information</th><th colspan="2" style="border-bottom: solid #00ff00 2px;">Team Stats</th><th colspan="6" style="border-bottom: solid #001aff 2px;">Player Stats Per Game</th><th></th>
+            </tr>
+            <tr>
+              <th>Player Name</th><th>Available</th><th>Rank</th><th>Rating</th><th>Team</th><th>Region</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <table id="team_data_table">
+          <tbody>
+            <tr>
+              <th colspan="11">Player Data</th>
+            </tr>
+            <tr>
+              <th colspan="3" style="border-bottom: solid #ff0000 2px;">Team</th><th colspan="7" style="border-bottom: solid #001aff 2px;">Team Stats Total</th>
+            </tr>
+            <tr>
+              <th>Team Name</th><th>Region</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+	  </div>
+  </main>
+</body>
+<script type="module" src="main.js"></script>
+<!-- <script type="module" src="home_page.js"></script> -->
+<script type="module" src="player_data.js"></script>
+<footer>
+  <p>©Comet Productions.</p>
+  <div id="socials">
+    <p>Socials: </p>
+    <a href="https://docs.google.com/spreadsheets/">Spreadsheet</a>
+    <a href="https://www.discord.gg/Tn5a63K">Discord</a>
+    <a href="https://x.com/rlcomet">Twitter</a>
+    <a href="https://www.youtube.com/@iacomet">YouTube</a>
+    <a href="https://www.twitch.tv/iacomet">Twitch</a>
+  </div>
+</footer>
+</html>

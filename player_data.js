@@ -550,7 +550,7 @@ if (myElement) {
 
 function populatePlayersTable(playersArray, tableBodyId) {
     const tableBody = document.getElementById(tableBodyId);
-
+    const path = '/RLCS-2026-Fantasy-Website'
     playersArray.forEach((player) => {
         const newRow = document.createElement('tr');
         newRow.classList.add('player-data');
@@ -560,7 +560,7 @@ function populatePlayersTable(playersArray, tableBodyId) {
         const newLink = document.createElement('a');
         newLink.textContent = player.name;
         // Set the href with a query parameter for the player's name
-        newLink.href = `/RLCS-2026-Fantasy-Website/profile.html?name=${encodeURIComponent(player.name)}`;
+        newLink.href = `${path}/profile.html?name=${encodeURIComponent(player.name)}`;
         nameCell.appendChild(newLink);
         const watchID = player.watch.toLowerCase()
         nameCell.id = watchID
