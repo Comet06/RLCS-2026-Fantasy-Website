@@ -1,4 +1,6 @@
 td{font-size: 1.2em;}
+
+
 #na{background-color: #ff5b5b;}
 #nrg{background-color: orangered;}
 #ssg{background-color: #ffc400;}
@@ -11,7 +13,10 @@ td{font-size: 1.2em;}
 #shop{color: white;background-color: black;}
 #qtpg{color: white; background-color: #998200;}
 #neth{color: white; background-color: #7a0000;}
-#l8{color: white; background-color: black;}
+#lot8{color: white; background-color: black;}
+#evo{background-color: #ff7b00;}
+/* #strict{N/A} */
+/* #psych{N/A} */
 
 #eu{background-color: #73ffa9;}
 #kc{background-color: #0787ff;}
@@ -22,39 +27,68 @@ td{font-size: 1.2em;}
 #m8{background-color: #ff0095;}
 #geek{color: yellow;background-color: #262677;}
 #red{color: white; background-color:#7a0000;}
-/* start, asce, jjr, cali, stg, f4wd, nom, red, rrg, sick, smok, syn, atom, dec, bds, dopa, bsk*/
+#hey{background-color: #ffd95b;}
+#lebo{background-color: #ffd95b;}
+#syn{background-color: #ffd95b;}
+#f4wd{background-color: greenyellow;}
+#start{background-color: #a52f2f;}
+/* #asce{}
+#jjr{} */
+#cali{color: #00d300; background-color: orangered;}
+/* #stg{}
+#nom{}
+#red{}
+#rrg{}
+#sick{}
+#smok{}
+#atom{}
+#dec{} */
+#bds{color: white; background-color: #ff126d;}
+/* #dopa{}
+#bsk{} */
 
 #mena{background-color: orange;}
 #flcn{color:white;background-color: green;}
 #twis{background-color: #e48494;}
 #roc{color: white; background-color: purple;}
+#alqad{background-color: #d32c2c;}
+#sleep{background-color: #9e9e9e;}
+#reds{color: white;background-color: red;}
 
 #sam{background-color: #01f401;}
 #fur{color: white;background-color: black;}
 #ts{color: white;background-color: #242020;}
 #mibr{color: white; background-color: #000000;}
-/* god */
+#god{background-color: orange;}
+#cori{color: white; background-color: red;}
+#moon{color: white; background-color: grey;}
 
 #oce{background-color: #0079ea;}
-#wild{color: #ff9090; background-color: rgb(25, 25, 148);}
+#wild{color: #ff9090; background-color: #191994;}
 #hel{background-color: lightblue;}
 #tsm{color: white;background-color: black;}
 #pwr{background-color: yellow;}
 #gzg{background-color: green;}
+#skrim{color: #0000a1; background-color: #ff73dc;}
 
 #apac{background-color: #d500d5;}
 #virt{background-color: orange;}
 #elv{color: red;background-color: black;}
 #lum{background-color: lightblue;}
 #pdlc{background-color: #00000000;}
+/* #deku{} */
+#kino{color: red; background-color: black;}
+#godspeed{color:white;background-color: #b39800;}
+
 
 #ssa{background-color: yellow;}
 #lim{color: white;background-color: black;}
 #fut{color: white;background-color: black;}
+#seven{color: yellow; background-color: orangered;}
 
 
 /* Watch Tags */
-#new{background-color: gold;}
+#rookie{background-color: gold;}
 #sub{background-color: #00e200;}
 #coach{background-color: orangered;}
 #inactive{color: white; background-color: #880101;}
