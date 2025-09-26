@@ -695,7 +695,6 @@ if (myElement) {
 function populatePlayersTable(playersArray, tableBodyId) {
   const tableBody = document.getElementById(tableBodyId);
   const path = '/RLCS-2026-Fantasy-Website'
-  if(player.team != "No Team"){
   playersArray.forEach((player) => {
     const newRow = document.createElement('tr');
     newRow.classList.add('player-data');
@@ -760,8 +759,6 @@ function populatePlayersTable(playersArray, tableBodyId) {
 
     tableBody.appendChild(newRow);
   });
-  }else{
-  }
 }
 function populateTeamsTable(teamsArray, tableBodyId) {
   const tableBody = document.getElementById(tableBodyId);
@@ -825,6 +822,7 @@ function populateTeamsTable(teamsArray, tableBodyId) {
       tableBody.appendChild(newRow);
     });
 }
+
 
 
 
