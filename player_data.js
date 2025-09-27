@@ -140,7 +140,7 @@ export let players = [
 {name:"RayaGoat", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:19, wins:7, winPerc:36.84, score:9579, goals:23, assists:14, saves:43, shots:64, scorePG:504.2, goalsPG:1.21, assistsPG:0.74, savesPG:2.26, shotsPG:3.37, watch:""},
 {name:"Shark", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:8, wins:2, winPerc:25, score:3653, goals:5, assists:6, saves:21, shots:25, scorePG:456.6, goalsPG:0.63, assistsPG:0.75, savesPG:2.63, shotsPG:3.13, watch:""},
 {name:"Bairechuu", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:17, wins:6, winPerc:35.29, score:7379, goals:15, assists:9, saves:38, shots:58, scorePG:434.1, goalsPG:0.88, assistsPG:0.53, savesPG:2.24, shotsPG:3.41, watch:""},
-{name:"tcorrell", availability: "Yes", rank:"F", rating:0, team:"Psycho Rangers", shortname:"psych", region:"No Region", gp:18, wins:6, winPerc:33.33, score:8329, goals:11, assists:10, saves:55, shots:51, scorePG:462.7, goalsPG:0.61, assistsPG:0.56, savesPG:3.06, shotsPG:2.83, watch:""},
+{name:"tcorrell", availability: "Yes", rank:"F", rating:0, team:"Psycho Rangers", shortname:"psych", region:"NA", gp:18, wins:6, winPerc:33.33, score:8329, goals:11, assists:10, saves:55, shots:51, scorePG:462.7, goalsPG:0.61, assistsPG:0.56, savesPG:3.06, shotsPG:2.83, watch:""},
 {name:"PNDH", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:28, wins:11, winPerc:39.29, score:12250, goals:25, assists:15, saves:59, shots:96, scorePG:437.5, goalsPG:0.89, assistsPG:0.54, savesPG:2.11, shotsPG:3.43, watch:""},
 {name:"energizer", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:31, wins:10, winPerc:32.26, score:14289, goals:40, assists:17, saves:50, shots:105, scorePG:460.9, goalsPG:1.29, assistsPG:0.55, savesPG:1.61, shotsPG:3.39, watch:""},
 {name:"Hyderr", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:8, wins:2, winPerc:25, score:3421, goals:7, assists:5, saves:16, shots:26, scorePG:427.6, goalsPG:0.88, assistsPG:0.63, savesPG:2, shotsPG:3.25, watch:""},
@@ -189,7 +189,7 @@ export let players = [
 {name:"rust ez95", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:39, wins:17, winPerc:43.59, score:15483, goals:21, assists:19, saves:88, shots:104, scorePG:397, goalsPG:0.54, assistsPG:0.49, savesPG:2.26, shotsPG:2.67, watch:""},
 {name:"Sultan", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:24, wins:9, winPerc:37.5, score:8944, goals:17, assists:11, saves:50, shots:65, scorePG:372.7, goalsPG:0.71, assistsPG:0.46, savesPG:2.08, shotsPG:2.71, watch:""},
 {name:"SQQP", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:106, wins:51, winPerc:48.11, score:42613, goals:98, assists:59, saves:198, shots:276, scorePG:402, goalsPG:0.92, assistsPG:0.56, savesPG:1.87, shotsPG:2.6, watch:""},
-{name:"Kash", availability: "Yes", rank:"F", rating:0, team:"TBD", shortname:"TBD", region:"No Region", gp:42, wins:12, winPerc:28.57, score:15496, goals:21, assists:22, saves:75, shots:132, scorePG:369, goalsPG:0.5, assistsPG:0.52, savesPG:1.79, shotsPG:3.14, watch:""},
+{name:"Kash", availability: "Yes", rank:"F", rating:0, team:"TBD", shortname:"TBD", region:"EU", gp:42, wins:12, winPerc:28.57, score:15496, goals:21, assists:22, saves:75, shots:132, scorePG:369, goalsPG:0.5, assistsPG:0.52, savesPG:1.79, shotsPG:3.14, watch:""},
 {name:"Mohanned", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:50, wins:26, winPerc:52, score:18350, goals:38, assists:29, saves:68, shots:161, scorePG:367, goalsPG:0.76, assistsPG:0.58, savesPG:1.36, shotsPG:3.22, watch:""},
 {name:"villain arc", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:11, wins:3, winPerc:27.27, score:4521, goals:6, assists:4, saves:27, shots:28, scorePG:411, goalsPG:0.55, assistsPG:0.36, savesPG:2.45, shotsPG:2.55, watch:""},
 {name:"xprt", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:30, wins:11, winPerc:36.67, score:12984, goals:14, assists:16, saves:86, shots:61, scorePG:432.8, goalsPG:0.47, assistsPG:0.53, savesPG:2.87, shotsPG:2.03, watch:""},
@@ -222,7 +222,7 @@ export let players = [
 {name:"devour", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:39, wins:17, winPerc:43.59, score:14402, goals:25, assists:17, saves:79, shots:103, scorePG:369.3, goalsPG:0.64, assistsPG:0.44, savesPG:2.03, shotsPG:2.64, watch:""},
 {name:"ewp", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:28, wins:10, winPerc:35.71, score:10176, goals:14, assists:21, saves:41, shots:85, scorePG:363.4, goalsPG:0.5, assistsPG:0.75, savesPG:1.46, shotsPG:3.04, watch:""},
 {name:"Syke", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:51, wins:21, winPerc:41.18, score:19524, goals:45, assists:22, saves:83, shots:143, scorePG:382.8, goalsPG:0.88, assistsPG:0.43, savesPG:1.63, shotsPG:2.8, watch:""},
-{name:"aris", availability: "Yes", rank:"F", rating:0, team:"Pirates on a Boat", shortname:"poab", region:"No Region", gp:97, wins:44, winPerc:45.36, score:37750, goals:83, assists:64, saves:139, shots:271, scorePG:389.2, goalsPG:0.86, assistsPG:0.66, savesPG:1.43, shotsPG:2.79, watch:""},
+{name:"aris", availability: "Yes", rank:"F", rating:0, team:"Pirates on a Boat", shortname:"poab", region:"NA", gp:97, wins:44, winPerc:45.36, score:37750, goals:83, assists:64, saves:139, shots:271, scorePG:389.2, goalsPG:0.86, assistsPG:0.66, savesPG:1.43, shotsPG:2.79, watch:""},
 {name:"klaus queridinho", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:70, wins:34, winPerc:48.57, score:26800, goals:54, assists:27, saves:124, shots:196, scorePG:382.9, goalsPG:0.77, assistsPG:0.39, savesPG:1.77, shotsPG:2.8, watch:""},
 {name:"Fades", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:93, wins:47, winPerc:50.54, score:35528, goals:89, assists:51, saves:118, shots:273, scorePG:382, goalsPG:0.96, assistsPG:0.55, savesPG:1.27, shotsPG:2.94, watch:""},
 {name:"Glowz", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:47, wins:20, winPerc:42.55, score:15984, goals:32, assists:19, saves:72, shots:146, scorePG:340.1, goalsPG:0.68, assistsPG:0.4, savesPG:1.53, shotsPG:3.11, watch:""},
@@ -291,7 +291,7 @@ export let players = [
 {name:"Mittaen", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:82, wins:34, winPerc:41.46, score:29495, goals:49, assists:25, saves:144, shots:219, scorePG:359.7, goalsPG:0.6, assistsPG:0.3, savesPG:1.76, shotsPG:2.67, watch:""},
 {name:"shadi", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:25, wins:7, winPerc:28, score:9489, goals:18, assists:6, saves:51, shots:58, scorePG:379.6, goalsPG:0.72, assistsPG:0.24, savesPG:2.04, shotsPG:2.32, watch:""},
 {name:"noahsaki", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:28, wins:11, winPerc:39.29, score:10245, goals:16, assists:16, saves:49, shots:68, scorePG:365.9, goalsPG:0.57, assistsPG:0.57, savesPG:1.75, shotsPG:2.43, watch:""},
-{name:"Kevin", availability: "Yes", rank:"F", rating:0, team:"Project Delacruz", shortname:"pdlc", region:"No Region", gp:59, wins:31, winPerc:52.54, score:22508, goals:45, assists:40, saves:84, shots:145, scorePG:381.5, goalsPG:0.76, assistsPG:0.68, savesPG:1.42, shotsPG:2.46, watch:""},
+{name:"Kevin", availability: "Yes", rank:"F", rating:0, team:"Project Delacruz", shortname:"pdlc", region:"APAC", gp:59, wins:31, winPerc:52.54, score:22508, goals:45, assists:40, saves:84, shots:145, scorePG:381.5, goalsPG:0.76, assistsPG:0.68, savesPG:1.42, shotsPG:2.46, watch:""},
 {name:"Rooster", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:42, wins:17, winPerc:40.48, score:16082, goals:27, assists:19, saves:86, shots:91, scorePG:382.9, goalsPG:0.64, assistsPG:0.45, savesPG:2.05, shotsPG:2.17, watch:""},
 {name:"GiuK", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:63, wins:26, winPerc:41.27, score:25707, goals:31, assists:41, saves:157, shots:105, scorePG:408, goalsPG:0.49, assistsPG:0.65, savesPG:2.49, shotsPG:1.67, watch:""},
 {name:"arafar", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:30, wins:9, winPerc:30, score:10348, goals:26, assists:13, saves:39, shots:81, scorePG:344.9, goalsPG:0.87, assistsPG:0.43, savesPG:1.3, shotsPG:2.7, watch:""},
@@ -378,7 +378,7 @@ export let players = [
 {name:"Arch", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:5, wins:1, winPerc:20, score:1673, goals:2, assists:6, saves:7, shots:9, scorePG:334.6, goalsPG:0.4, assistsPG:1.2, savesPG:1.4, shotsPG:1.8, watch:""},
 {name:"PinGu", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:75, wins:33, winPerc:44, score:24663, goals:38, assists:39, saves:122, shots:160, scorePG:328.8, goalsPG:0.51, assistsPG:0.52, savesPG:1.63, shotsPG:2.13, watch:""},
 {name:"soulja4life_7", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:19, wins:5, winPerc:26.32, score:6013, goals:8, assists:11, saves:31, shots:41, scorePG:316.5, goalsPG:0.42, assistsPG:0.58, savesPG:1.63, shotsPG:2.16, watch:""},
-{name:"Mech", availability: "Yes", rank:"F", rating:0, team:"Pirates on a boat", shortname:"poab", region:"No Region", gp:27, wins:3, winPerc:11.11, score:9557, goals:14, assists:13, saves:38, shots:64, scorePG:354, goalsPG:0.52, assistsPG:0.48, savesPG:1.41, shotsPG:2.37, watch:""},
+{name:"Mech", availability: "Yes", rank:"F", rating:0, team:"Pirates on a boat", shortname:"poab", region:"NA", gp:27, wins:3, winPerc:11.11, score:9557, goals:14, assists:13, saves:38, shots:64, scorePG:354, goalsPG:0.52, assistsPG:0.48, savesPG:1.41, shotsPG:2.37, watch:""},
 {name:"mzkn", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:33, wins:11, winPerc:33.33, score:10128, goals:20, assists:16, saves:44, shots:78, scorePG:306.9, goalsPG:0.61, assistsPG:0.48, savesPG:1.33, shotsPG:2.36, watch:""},
 {name:"Comm", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:22, wins:8, winPerc:36.36, score:6773, goals:13, assists:4, saves:32, shots:56, scorePG:307.9, goalsPG:0.59, assistsPG:0.18, savesPG:1.45, shotsPG:2.55, watch:""},
 {name:"lxucha", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:46, wins:16, winPerc:34.78, score:15017, goals:20, assists:18, saves:80, shots:101, scorePG:326.5, goalsPG:0.43, assistsPG:0.39, savesPG:1.74, shotsPG:2.2, watch:""},
@@ -467,7 +467,7 @@ export let players = [
 {name:"JWeyts", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:6, wins:0, winPerc:0, score:1443, goals:2, assists:1, saves:6, shots:12, scorePG:240.5, goalsPG:0.33, assistsPG:0.17, savesPG:1, shotsPG:2, watch:""},
 {name:"aboSaeeD", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:3, wins:0, winPerc:0, score:863, goals:2, assists:1, saves:2, shots:4, scorePG:287.7, goalsPG:0.67, assistsPG:0.33, savesPG:0.67, shotsPG:1.33, watch:""},
 {name:"swazz", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:6, wins:0, winPerc:0, score:1645, goals:1, assists:0, saves:12, shots:5, scorePG:274.2, goalsPG:0.17, assistsPG:0, savesPG:2, shotsPG:0.83, watch:""},
-{name:"Hexic", availability: "Yes", rank:"F", rating:0, team:"Psycho Rangers", shortname:"psych", region:"No Region", gp:12, wins:0, winPerc:0, score:2662, goals:4, assists:2, saves:14, shots:16, scorePG:221.8, goalsPG:0.33, assistsPG:0.17, savesPG:1.17, shotsPG:1.33, watch:""},
+{name:"Hexic", availability: "Yes", rank:"F", rating:0, team:"Psycho Rangers", shortname:"psych", region:"NA", gp:12, wins:0, winPerc:0, score:2662, goals:4, assists:2, saves:14, shots:16, scorePG:221.8, goalsPG:0.33, assistsPG:0.17, savesPG:1.17, shotsPG:1.33, watch:""},
 {name:"Mu", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:15, wins:4, winPerc:26.67, score:2971, goals:3, assists:4, saves:17, shots:15, scorePG:198.1, goalsPG:0.2, assistsPG:0.27, savesPG:1.13, shotsPG:1, watch:""},
 {name:"Bubz", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:6, wins:0, winPerc:0, score:1372, goals:1, assists:1, saves:8, shots:4, scorePG:228.7, goalsPG:0.17, assistsPG:0.17, savesPG:1.33, shotsPG:0.67, watch:""},
 {name:"Akai", availability: "Yes", rank:"F", rating:0, team:"No Team", shortname:"no_team", region:"No Region", gp:5, wins:0, winPerc:0, score:943, goals:1, assists:1, saves:4, shots:4, scorePG:188.6, goalsPG:0.2, assistsPG:0.2, savesPG:0.8, shotsPG:0.8, watch:""},
@@ -767,7 +767,6 @@ function populateTeamsTable(teamsArray, tableBodyId) {
   const tableBody = document.getElementById(tableBodyId);
   const path = '/RLCS-2026-Fantasy-Website'
   const path1 = ''
-
     teamsArray.forEach((team, index) => {
 
       const newRow = document.createElement('tr');
@@ -777,7 +776,7 @@ function populateTeamsTable(teamsArray, tableBodyId) {
       const teamCell = document.createElement('td');
       const newLink = document.createElement('a');
       newLink.textContent = team.name;
-      newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.shortname)}`;
+      newLink.href = `/RLCS-2026-Fantasy-Website/profile.html?name=${encodeURIComponent(team.shortname)}`;
       teamCell.appendChild(newLink);
       const teamId = team.shortname;
       teamCell.id = teamId;
@@ -827,7 +826,6 @@ function populateTeamsTable(teamsArray, tableBodyId) {
       tableBody.appendChild(newRow);
     });
 }
-
 
 
 
