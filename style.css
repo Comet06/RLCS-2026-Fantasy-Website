@@ -63,7 +63,8 @@ a{color: currentColor; text-decoration: none;}
 #teamcana{color: black;background-color: #c062ff;}
 #teampots{color: #ffffff;background-color: #f47702;}
 #teamyuri{background-color: #8ffd27;}
-#teammaht{background-color: #0059ff;}
+#teammaht{color: white; background-color: #0059ff;}
+#teamsock{background-color: #00a2ff;}
 
 
 /* Stats/Ranked pages */

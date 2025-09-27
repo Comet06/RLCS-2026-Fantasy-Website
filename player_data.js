@@ -694,70 +694,73 @@ if (myElement) {
 
 function populatePlayersTable(playersArray, tableBodyId) {
   const tableBody = document.getElementById(tableBodyId);
-  const path = '/RLCS-2026-Fantasy-Website'
+  const path1 = '/RLCS-2026-Fantasy-Website'
+  const path = ''
   playersArray.forEach((player) => {
-    const newRow = document.createElement('tr');
-    newRow.classList.add('player-data');
-    // Name
-    const nameCell = document.createElement('td');
-    const newLink = document.createElement('a');
-    newLink.textContent = player.name;
-    newLink.href = `${path}/profile.html?name=${encodeURIComponent(player.name)}`;
-    nameCell.appendChild(newLink);
-    const watchID = player.watch.toLowerCase()
-    nameCell.id = watchID
-    newRow.appendChild(nameCell);
-    // availability
-    const availCell = document.createElement('td');
-    availCell.textContent = player.availability;
-    newRow.appendChild(availCell);
-    // Rating
-    const ratingCell = document.createElement('td');
-    ratingCell.textContent = player.rating;
-    newRow.appendChild(ratingCell);
-    // Team
-    const teamCell = document.createElement('td');
-    teamCell.textContent = player.team;
-    const teamID = player.shortname.toLowerCase();
-    teamCell.id = teamID;
-    newRow.appendChild(teamCell);
-    // Region
-    const regionCell = document.createElement('td');
-    regionCell.textContent = player.region;
-    const regionID = player.region.toLowerCase();
-    regionCell.id = regionID;
-    newRow.appendChild(regionCell);
-    // Win %
-    const winPercCell = document.createElement('td');
-    if (player.gp === 0){
-      // winPercCell.textContent = 0 + "%";
-      newRow.appendChild(winPercCell);
-    } else {
-      winPercCell.textContent = player.winPerc + "%";
-      newRow.appendChild(winPercCell);
-    }
-    // Score
-    const scoreCell = document.createElement('td');
-    scoreCell.textContent = player.score;
-    newRow.appendChild(scoreCell);
-    // Goals
-    const goalsCell = document.createElement('td');
-    goalsCell.textContent = player.goals;
-    newRow.appendChild(goalsCell);
-    // Assists
-    const assistsCell = document.createElement('td');
-    assistsCell.textContent = player.assists;
-    newRow.appendChild(assistsCell);
-    // Saves
-    const savesCell = document.createElement('td');
-    savesCell.textContent = player.saves;
-    newRow.appendChild(savesCell);
-    // Shots
-    const shotsCell = document.createElement('td');
-    shotsCell.textContent = player.shots;
-    newRow.appendChild(shotsCell);
+    if(player.team != "No Team"){
+      const newRow = document.createElement('tr');
+      newRow.classList.add('player-data');
+      // Name
+      const nameCell = document.createElement('td');
+      const newLink = document.createElement('a');
+      newLink.textContent = player.name;
+      newLink.href = `${path}/profile.html?name=${encodeURIComponent(player.name)}`;
+      nameCell.appendChild(newLink);
+      const watchID = player.watch.toLowerCase()
+      nameCell.id = watchID
+      newRow.appendChild(nameCell);
+      // availability
+      const availCell = document.createElement('td');
+      availCell.textContent = player.availability;
+      newRow.appendChild(availCell);
+      // Rating
+      const ratingCell = document.createElement('td');
+      ratingCell.textContent = player.rating;
+      newRow.appendChild(ratingCell);
+      // Team
+      const teamCell = document.createElement('td');
+      teamCell.textContent = player.team;
+      const teamID = player.shortname.toLowerCase();
+      teamCell.id = teamID;
+      newRow.appendChild(teamCell);
+      // Region
+      const regionCell = document.createElement('td');
+      regionCell.textContent = player.region;
+      const regionID = player.region.toLowerCase();
+      regionCell.id = regionID;
+      newRow.appendChild(regionCell);
+      // Win %
+      const winPercCell = document.createElement('td');
+      if (player.gp === 0){
+        winPercCell.textContent = 0 + "%";
+        newRow.appendChild(winPercCell);
+      } else {
+        winPercCell.textContent = player.winPerc + "%";
+        newRow.appendChild(winPercCell);
+      }
+      // Score
+      const scoreCell = document.createElement('td');
+      scoreCell.textContent = player.score;
+      newRow.appendChild(scoreCell);
+      // Goals
+      const goalsCell = document.createElement('td');
+      goalsCell.textContent = player.goals;
+      newRow.appendChild(goalsCell);
+      // Assists
+      const assistsCell = document.createElement('td');
+      assistsCell.textContent = player.assists;
+      newRow.appendChild(assistsCell);
+      // Saves
+      const savesCell = document.createElement('td');
+      savesCell.textContent = player.saves;
+      newRow.appendChild(savesCell);
+      // Shots
+      const shotsCell = document.createElement('td');
+      shotsCell.textContent = player.shots;
+      newRow.appendChild(shotsCell);
 
-    tableBody.appendChild(newRow);
+      tableBody.appendChild(newRow);
+    }
   });
 }
 function populateTeamsTable(teamsArray, tableBodyId) {
@@ -822,8 +825,6 @@ function populateTeamsTable(teamsArray, tableBodyId) {
       tableBody.appendChild(newRow);
     });
 }
-
-
 
 
 
