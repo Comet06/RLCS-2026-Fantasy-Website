@@ -170,8 +170,8 @@ let playerScores = {
 };
 
 
-let path1 = '/RLCS-2026-Fantasy-Website'
-let path = ''
+let path = '/RLCS-2026-Fantasy-Website'
+let path1 = ''
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/index.html`) {
     console.log('Index page has loaded!');
@@ -432,3 +432,4 @@ function getTeam(playerData, searchTerm) {
   const player = playerData.find(player => player.name === searchTerm);
   return player ? player.team : null;
 }
+
