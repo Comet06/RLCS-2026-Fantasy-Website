@@ -4,23 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get('name');
     const teamName = urlParams.get('name');
-    if (playerName){
+    if (playerName||teamName){
         const player = players.find(p => p.name === playerName);
         if (player) {
             createPlayerProfiles(player); // Call your existing function with the specific player
         } else  if (teamName) {
             const team = teams.find(t => t.shortname === teamName);
-            const player1Index = players.findIndex(p => p.shortname === teamName);
-            const player1 = players[player1Index];
-            const player2Index = players.findIndex((p, index) => p.shortname === teamName && index > player1Index);
-            const player2 = players[player2Index];
-            const player3Index = players.findIndex((p, index) => p.shortname === teamName && index > player2Index);
-            const player3 = players[player3Index];
-
-            const listOfCards = [team, player1, player2, player3]
-            listOfCards.forEach((id, index) => {
-                if(id){
-                    createTeamProfiles(id, index)
+            createTeamProfiles(team, 0)
+            const profilesTitle = document.getElementById('player-profiles-title');
+            profilesTitle.innerHTML = team.name
+            const playersOnTeam = players.filter(p => p.shortname === teamName);
+            playersOnTeam.forEach((player,index) => {
+                if(player){
+                    createTeamProfiles(player, index + 1)
                 } else {
                     // Handle case where player is not found
                     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
@@ -45,7 +41,7 @@ function createPlayerProfiles(player) {
 
     const profileHTML = `
         <div class="profile-card">
-            <h2 class="player-name" id="${player.watch}">${player.name}</h2>
+            <h2 class="player-name">${player.name} <span id="${player.watch}">${player.watch}</span></h2>
             <div class="profile-details">
                 <p><strong>Availability:</strong> ${player.availability}</p>
                 <p id="${player.shortname}"><strong>Team:</strong> ${player.team}</p>
@@ -66,10 +62,9 @@ function createPlayerProfiles(player) {
 function createTeamProfiles(id, index) {
     console.log(id)
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
-    const profilesTitle = document.getElementById('player-profiles-title');
     const profileTeamHTML = `
         <div class="profile-card">
-            <h2 class="player-name">${id.name}</h2>
+            <h2 class="player-name">${id.name} <span id="${id.watch}">${id.watch}</span></h2>
             <div class="profile-details">
                 <p id="${id.region.toLowerCase()}"><strong>Region:</strong> ${id.region}</p>
                 <p><strong>Win Percentage:</strong> ${id.winPerc}%</p>
@@ -82,5 +77,4 @@ function createTeamProfiles(id, index) {
         </div>
     `;
     profilesContainer.innerHTML += profileTeamHTML;
-    profilesTitle.innerHTML = id.team
 }

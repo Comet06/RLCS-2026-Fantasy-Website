@@ -1,5 +1,8 @@
 td{font-size: 1.2em;}
 
+/* Availability */
+#no{background-color: red;}
+
 
 #na{background-color: #ff5b5b;}
 #nrg{background-color: orangered;}
@@ -84,12 +87,267 @@ td{font-size: 1.2em;}
 #ssa{background-color: yellow;}
 #lim{color: white;background-color: black;}
 #fut{color: white;background-color: black;}
-#seven{color: yellow; background-color: orangered;}
+#sevenb{color: yellow; background-color: orangered;}
 
 
 /* Watch Tags */
-#rookie{background-color: gold;}
-#sub{background-color: #00e200;}
-#coach{background-color: orangered;}
-#inactive{color: white; background-color: #880101;}
-#retired{color: white; background-color: #3d3daa;}
+#rookie{background-color: gold;padding: 0 5px}
+#player{color: white; background-color: #000650;padding: 0 5px}
+#sub{background-color: #00e200;padding: 0 5px}
+#coach{background-color: orangered;padding: 0 5px}
+#inactive{color: white; background-color: #880101;padding: 0 5px}
+#retired{color: white; background-color: #3d3daa;padding: 0 5px}
+
+
+/*
+#threeoh{}
+#fourfour{}
+#sevensevenseven{}
+#onehundred{}
+#onehunx{}
+#twelve{}
+#twodane{}
+#threefivefor{}
+#fivem{}
+#seventwo{}
+#sevenb{}
+#nine{}
+#akah{}
+#alqad{}
+#amet{}
+#amig{}
+#ant{}
+#aureon{}
+#ausf{}
+#belly{}
+#ben{}
+#bigchung{}
+#bigd{}
+#bird{}
+#birth{}
+#blaz{}
+#bbc{}
+#bluet{}
+#bomb{}
+#brain{}
+#bronze{}
+#btf{}
+#cali{}
+#carl{}
+#chip{}
+#cmk{}
+#cold{}
+#coll{}
+#col{}
+#cori{}
+#cosmic{}
+#crh{}
+#cad{}
+#danger{}
+#death{}
+#deku{}
+#del{}
+#dig{}
+#doodle{}
+#eightysix{}
+#ekw{}
+#elv{}
+#empty{}
+#end{}
+#erased{}
+#esp{}
+#F/A{}
+#f16{}
+#f4wd{}
+#fellas{}
+#flare{}
+#flash{}
+#flex{}
+#fly{}
+#fofo{}
+#fofl{}
+#fur{}
+#fut{}
+#gas{}
+#gamup{}
+#geek{}
+#geng{}
+#gengb{}
+#gene{}
+#m8{}
+#gentle{}
+#germherm{}
+#godspeed{}
+#god{}
+#godsent{}
+#goldhour{}
+#grib{}
+#gzg{}
+#haibo{}
+#happyburr{}
+#hel{}
+#hera{}
+#hey{}
+#heyb{}
+#hogan{}
+#ifitw{}
+#icee{}
+#infm{}
+#invblue{}
+#izdream{}
+#joga{}
+#juice{}
+#kc{}
+#kino{}
+#ant{}
+#lafam{}
+#laquim{}
+#lebo{}
+#lesserafim{}
+#lnw{}
+#lele{}
+#levi{}
+#lsb{}
+#lim{}
+#llama{}
+#losmarol{}
+#lot8{}
+#loud{}
+#lowblo{}
+#luk{}
+#lum{}
+#macc{}
+#mami{}
+#mexac{}
+#mibr{}
+#mission{}
+#moon{}
+#mrfear{}
+#musk{}
+#nah{}
+#naka{}
+#neth{}
+#nip{}
+#nhnp{}
+#noidea{}
+#no_team{}
+#noname{}
+#norms{}
+#novo{}
+#noxem{}
+#nrd{}
+#nrg{}
+#nxt{}
+#oblv{}
+#off{}
+#ohio{}
+#omen{}
+#ominus{}
+#oryx{}
+#over{}
+#paif{}
+#papo{}
+#pepe{}
+#pimp{}
+#pine{}
+#qtpg{}
+#poab{}
+#piro{}
+#polar{}
+#praise{}
+#prej{}
+#pdlc{}
+#psych{}
+#pulse{}
+#pwr{}
+#quick{}
+#qup{}
+#rtt{}
+#random{}
+#rebt{}
+#redd{}
+#redt{}
+#red{}
+#revel{}
+#reven{}
+#roc{}
+#roco{}
+#round{}
+#rqs{}
+#rump{}
+#salami{}
+#sapp{}
+#schn{}
+#seap{}
+#sharlitt{}
+#shind{}
+#shmo{}
+#shop{}
+#sick{}
+#skrim{}
+#sleep{}
+#seshoot{}
+#ssg{}
+#stick{}
+#str1ve{}
+#strict{}
+#strom{}
+#snst{}
+#sup{}
+#superteam{}
+#syn{}
+#TBD{}
+#teamexe{}
+#asce{}
+#bds{}
+#evo{}
+#flcn{}
+#floe{}
+#phoe{}
+#reds{}
+#ts{}
+#silence{}
+#twit{}
+#vision{}
+#vit{}
+#whop{}
+#zorn{}
+#backseat{}
+#boys{}
+#finorder{}
+#mnn{}
+#punish{}
+#pups{}
+#swimteam{}
+#tu{}
+#vic{}
+#threebm{}
+#tnab{}
+#trush{}
+#tsm{}
+#tsur{}
+#twenty{}
+#twis{}
+#uhuh{}
+#unit{}
+#valk{}
+#virtesp{}
+#virt{}
+#wandlobs{}
+#wdk{}
+#wesuck{}
+#wte{}
+#wrg{}
+#wifu{}
+#wild{}
+#woo{}
+#xt{}
+#yap{}
+#yfme{}
+#yur{}
+#zawoo{}
+#zenesp{}
+#ziolli{}
+#zoo{}
+#zzzz{}
+*/

@@ -2,8 +2,7 @@ import { points } from "./info.js";
 import { ChampionshipBracket } from "./brackets.js";
 import { players } from "./player_data.js"
 
-export const memberNames = ['Flip Lord', 'Doofenschmirtz Inc.', 'Goofy Goobers', '24 Karat Gold', 'Skibideeznuts', 'Team Canada', 'Potus', 'Brother Yuri', 'Mahtoose', 'Dwayne']
-export const playerIDs = ['flip', 'doof', 'goof', 'gold', 'skib', 'cana', 'pots', 'yuri', 'maht', 'sock'] //Potentials: , 'juno', 'kids', 
+export const playerIDs = ['flip', 'doof', 'goof', 'gold', 'skib', 'cana', 'pots', 'yuri', 'maht'] //Potentials: , 'juno', 'kids', 
 
 let Regional1 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
@@ -14,8 +13,7 @@ let Regional1 = {
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 let Regional2 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
@@ -26,8 +24,7 @@ let Regional2 = {
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 let Regional3 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
@@ -38,8 +35,7 @@ let Regional3 = {
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 let Major1 = {
   'flip' : [0],
@@ -50,8 +46,7 @@ let Major1 = {
   'cana' : [0],
   'pots' : [0],
   'yuri' : [0],
-  'maht' : [0],
-  'sock' : [0],
+  'maht' : [0]
 }
 let Regional4 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
@@ -62,8 +57,7 @@ let Regional4 = {
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 let Regional5 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
@@ -74,8 +68,7 @@ let Regional5 = {
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 let Regional6 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
@@ -86,8 +79,7 @@ let Regional6 = {
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 let Major2 = {
   'flip' : [0],
@@ -98,8 +90,7 @@ let Major2 = {
   'cana' : [0],
   'pots' : [0],
   'yuri' : [0],
-  'maht' : [0],
-  'sock' : [0],
+  'maht' : [0]
 }
 
 let EventSums = {
@@ -112,8 +103,7 @@ let EventSums = {
   'cana' : [0, 0, 0, 0, 0, 0],
   'pots' : [0, 0, 0, 0, 0, 0],
   'yuri' : [0, 0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0, 0],
-  'sock' : [0, 0, 0, 0, 0, 0]
+  'maht' : [0, 0, 0, 0, 0, 0]
 }
 let splitSums = {
   // split 1/2, Championship
@@ -126,7 +116,6 @@ let splitSums = {
   'pots' : [0, 0, 0],
   'yuri' : [0, 0, 0],
   'maht' : [0, 0, 0],
-  'sock' : [0, 0, 0]
 }
 let champRounds = {
   // this is for calculating the totals for playin, groupA, groupB, playoffs, total *****Do not manipulate this data*****
@@ -138,8 +127,7 @@ let champRounds = {
   'cana' : [0, 0, 0, 0, 0],
   'pots' : [0, 0, 0, 0, 0],
   'yuri' : [0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0],
-  'sock' : [0, 0, 0, 0, 0]
+  'maht' : [0, 0, 0, 0, 0]
 }
 let Championship = {
   // Update this to make changes to Championship page
@@ -152,26 +140,24 @@ let Championship = {
   'cana' : [0, 0, 0, 0, 0, 0, 0, 0],
   'pots' : [0, 0, 0, 0, 0, 0, 0, 0],
   'yuri' : [0, 0, 0, 0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0, 0, 0, 0],
-  'sock' : [0, 0, 0, 0, 0, 0, 0, 0]
+  'maht' : [0, 0, 0, 0, 0, 0, 0, 0]
 }
 
 let playerScores = {
-  'flip' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'doof' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'goof' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'gold' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'skib' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'cana' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'pots' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'yuri' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'sock' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    'flip': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'doof': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'goof': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'gold': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'skib': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'cana': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'pots': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'yuri': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'maht': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 };
 
 
-let path = '/RLCS-2026-Fantasy-Website'
 let path1 = ''
+let path = '/RLCS-2026-Fantasy-Website'
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/index.html`) {
     console.log('Index page has loaded!');
@@ -432,4 +418,3 @@ function getTeam(playerData, searchTerm) {
   const player = playerData.find(player => player.name === searchTerm);
   return player ? player.team : null;
 }
-
