@@ -31,7 +31,7 @@ footer{display:flex; color: white;background-color: #1e1e2f;padding: 20px; width
 button{font-size: medium;padding: 2px;}
 button :hover{color: white; background-color: #525252;}
 table{border: solid 2px black;border-spacing: 1px;width: 100%;}
-td, th{font-size: .9em; padding: 0 5px;}
+td, th{font-size: 1em; padding: 0 5px;}
 #test_width{font-size: 50px;}
 a{color: currentColor; text-decoration: none;}
 
@@ -55,16 +55,16 @@ a{color: currentColor; text-decoration: none;}
 .home_tables{margin:0 auto;width: fit-content;background-color: #e1e1e1e6;}
 .home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
 #team0{width: fit-content;}
-#teamflip{width: fit-content;color: #ffffff;background-color: #037120;}
-#teamdoof{color: #ffffff;background-color: #01063f;}
-#teamgoof{color: #ffffff;background-color: #710303;}
-#teamgold{color: #000000;background-color: #d8db4b;}
-#teamskib{color: #000000;background-color: #32d2d7;}
-#teamcana{color: black;background-color: #c062ff;}
-#teampots{color: #ffffff;background-color: #f47702;}
-#teamyuri{background-color: #8ffd27;}
-#teammaht{color: white; background-color: #0059ff;}
-#teamsock{background-color: #00a2ff;}
+#flip{width: fit-content;color: #ffffff;background-color: #037120;}
+#doof{color: #ffffff;background-color: #01063f;}
+#goof{color: #ffffff;background-color: #710303;}
+#gold{color: #000000;background-color: #d8db4b;}
+#skib{color: #000000;background-color: #32d2d7;}
+#cana{color: black;background-color: #c062ff;}
+#pots{color: #ffffff;background-color: #f47702;}
+#yuri{background-color: #8ffd27;}
+#maht{background-color: #0059ff;}
+#sock{color: white; background-color: #002e83;}
 
 
 /* Stats/Ranked pages */
@@ -78,6 +78,14 @@ a{color: currentColor; text-decoration: none;}
 .Season_list{text-align: left; margin-top: 30px;}
 .player_stats_page th{margin-left: 3px; margin-right: 3px;}
 .player_stats_page td{margin-left: 3px; margin-right: 3px;}
+
+/* Rankings page */
+.rankings{display: flex;justify-content: center; gap: 10px;}
+#split1{width: fit-content;}
+#split2{width: fit-content;}
+#split1quals{width: fit-content;}
+#split2quals{width: fit-content;}
+#split3quals{width: fit-content;}
 
 /* regionals Page */
 .regional_home_tables{margin:0 auto;width: fit-content;background-color: #e1e1e1e6;}
@@ -141,10 +149,10 @@ a{color: currentColor; text-decoration: none;}
     flex-direction:row;
     margin-top: 0;
   }
-  #player_data_table td{font-size: .4em;}
-  #player_data_table th{font-size: .4em;}
-  #team_data_table td{font-size: .4em;}
-  #team_data_table th{font-size: .4em;}
+  #player_data_table td{font-size: .3em;}
+  #player_data_table th{font-size: .3em;}
+  #team_data_table td{font-size: .3em;}
+  #team_data_table th{font-size: .3em;}
 }
 
 
