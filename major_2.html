@@ -37,6 +37,13 @@
         <li><a href="players_stats.html">Player Stats</a></li>
         <li><a href="teams_rankings.html">Rankings</a></li>
         <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
+        <li class="dropdown">
+          <a href="#">Other Seasons</a>
+            <div class="dropdown-content">
+              <a href="/RLCS-2025-Fantasy-Website/index.html">2025</a>
+              <a href="/RLCS-2026-Fantasy-Website/index.html">2026</a>
+            </div>
+        </li>
         <li><a href="info.html">Rules</a></li>
       </ul>
       <div class="menu-icon">
@@ -48,130 +55,52 @@
     <h1>Major 2</h1>
     <div class="center_vertical_container"> <!--Only here for the title text-->
       <h2>Team Placements</h2>
-      <div class="placements_horizontal_container" id="border_box"> <!-- columns of data displayed flex -->
-        <div class="section">
-          <h3>Qualified Teams</h3>
-          <ul>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-            <li class="team" id=""><span id="points">0</span></li>
-          </ul>
-        </div>
-        <div class="section" style="width: fit-content; text-align: center;">
-          <h3>Points Available</h3>
-          <ul id="hide_list">
-            <li>36</li>
-            <li>24</li>
-            <li>16</li>
-            <li>16</li>
-            <li>12</li>
-            <li>12</li>
-            <li>8</li>
-            <li>8</li>
-            <li>6</li>
-            <li>6</li>
-            <li>6</li>
-            <li>5</li>
-            <li>5</li>
-            <li>5</li>
-            <li>4</li>
-            <li>4</li>
-          </ul>
-        </div>
+      <div class="placements_horizontal_container"> <!-- columns of data displayed flex -->
+          <table class="section" id="Major-placements">
+            <tbody>
+            </tbody>
+          </table>
       </div>
     </div>
     <div class="tops_horizontal_container">
       <div class="center_vertical_container"> <!--Only here for the title text-->
         <h2>&nbsp;</h2>
         <div class="horizontal_container"> <!-- columns of data displayed flex -->
-          <div class="tops_section" id="border_box"> <!-- full column of data -->
-            <h3>Overall Points</h3>
-            <ul>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-            </ul>
-          </div>
-          <div class="tops_section" id="border_box">
-            <h3>Goals</h3>
-            <ul>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-            </ul>
-          </div>
-          <div class="tops_section" id="border_box">
-            <h3>Assists</h3>
-            <ul>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-            </ul>
-          </div>
-          <div class="tops_section" id="border_box">
-            <h3>Saves</h3>
-            <ul>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-            </ul>
-          </div>
-          <div class="tops_section" id="border_box">
-            <h3>Shots</h3>
-            <ul>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-              <li class="team"><span id="points">0</span></li>
-            </ul>
-          </div>
+          <table class="tops_section" id="score">
+            <tbody>
+              <tr>
+                <th colspan="2">Overall Score</th>
+              </tr>
+            </tbody>
+          </table>
+          <table class="tops_section" id="goals">
+            <tbody>
+              <tr>
+                <th colspan="2">Goals</th>
+              </tr>
+            </tbody>
+          </table>
+          <table class="tops_section" id="assists">
+            <tbody>
+              <tr>
+                <th colspan="2">Assists</th>
+              </tr>
+            </tbody>
+          </table>
+          <table class="tops_section" id="saves">
+            <tbody>
+              <tr>
+                <th colspan="2">Saves</th>
+              </tr>
+            </tbody>
+          </table>
+          <table class="tops_section" id="shots">
+            <tbody>
+              <tr>
+                <th colspan="2">Shots</th>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="center_vertical_container">

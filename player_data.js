@@ -2612,10 +2612,11 @@ let Legacyteams = [
 ]
 
 const statsPage = document.querySelector('.player_stats_page');
-const legacy = document.getElementById('legacy_data')
-const current = document.getElementById('current_data')
-const playerTable = document.getElementById('player_data_table')
-const teamTable = document.getElementById('team_data_table')
+
+const legacy = document.getElementById('legacy_data');
+const current = document.getElementById('current_data');
+const playerTable = document.getElementById('player_data_table');
+const teamTable = document.getElementById('team_data_table');
 const playerTableHeader = `
 <tr>
   <th colspan="11">Player Data</th>
@@ -2665,7 +2666,7 @@ function populatePlayersTable(playersArray, tableBodyId) {
   let path1 = ''
   const path = '/RLCS-2026-Fantasy-Website'
   playersArray.forEach((player) => {
-    if (player.availability != "No" && player.winPerc > 0){
+    if (player.availability != "No"){
       const newRow = document.createElement('tr');
       const nameCell = document.createElement('td');
       const nameLink = document.createElement('a');
