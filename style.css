@@ -50,7 +50,6 @@ a{color: currentColor; text-decoration: none;}
 #prize_pool{background-color: #acacac;width: 750px;}
 #bracket_points{background-color: #acacac;width: 750px;}
 
-
 /* Home page Tables */
 .home_tables{margin:0 auto;width: fit-content;background-color: #e1e1e1e6;}
 .home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
@@ -91,7 +90,8 @@ a{color: currentColor; text-decoration: none;}
 .regional_home_tables{margin:0 auto;width: fit-content;background-color: #e1e1e1e6;}
 .regional_home_tables td{padding: 0 20px;}
 .placements_horizontal_container{display: flex; flex-wrap: wrap;justify-content: center;}
-.section{width:200px;text-align: left;margin: 10px;padding: 0 5px;}
+.section{width:250px;text-align: left;margin: 10px;padding: 0 5px;}
+.champ_section{width:400px;text-align: left;margin: 10px;padding: 0 5px;}
 .tops_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center; gap: 20px;}
 .tops_section{width:160px;text-align: left;margin: 10px;padding: 0 5px;} /* Data within the tops boxes */
 #team{position: relative; overflow: hidden; padding-left: 5px;}

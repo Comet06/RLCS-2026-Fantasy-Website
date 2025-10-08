@@ -11,7 +11,7 @@
 <body>
   <header>
     <nav class="navbar">
-      <h1>RLCS 2026</h1>
+      <h1 id="year"></h1>
       <ul class="nav-links" id="menuList">
         <li><a href="index.html">Home</a></li>
         <li class="dropdown">
@@ -37,10 +37,10 @@
         <li><a href="teams_rankings.html">Rankings</a></li>
         <!-- <li><a href="bracket_form.html">Bracket Form</a></li> -->
         <li class="dropdown">
-          <a href="#">Other Seasons</a>
+          <a href="#">Seasons</a>
             <div class="dropdown-content">
-              <a href="/RLCS-2025-Fantasy-Website/index.html">2025</a>
-              <a href="/RLCS-2026-Fantasy-Website/index.html">2026</a>
+              <a href="/RLCS-2025-Fantasy-Website/players_stats.html">2025</a>
+              <a href="/RLCS-2026-Fantasy-Website/players_stats.html">2026</a>
             </div>
         </li>
         <li><a href="info.html">Rules</a></li>
@@ -54,7 +54,7 @@
     <h1 style="text-align: center;">WEBPAGE STILL IN DEVELOPMENT(Updated 9/22/2025)</h1>
     <button><a href="https://ballchasing.com/group/rlcs-2025-7ielfd7uhx">Ball Chasing Data</a></button><br>
     <div class="home_center_horizontal_container" style="margin-top: 10px;">
-      <p id="retired">Retired</p><p id="rookie">Rookie</p><p id="inactive">Inactive</p><p id="sub">Sub</p><p id="coach">Coach</p><button id="legacy_data">Load Legacy Data</button><button id="current_data">Load Current Data</button>
+      <p id="retired">Retired</p><p id="rookie">Rookie</p><p id="inactive">Inactive</p><p id="sub">Sub</p><p id="coach">Coach</p><button id="legacy_data">Legacy Data</button><button id="current_data">Current Season</button>
     </div>
     <div class="home_center_horizontal_container">
       <div class="player_stats_page">
@@ -90,9 +90,7 @@
 	  </div>
   </main>
 </body>
-<script type="module" src="main.js"></script>
-<!-- <script type="module" src="home_page.js"></script> -->
-<script type="module" src="player_data.js"></script>
+<script type="module" src="home_page.js"></script>
 <footer>
   <p>©Comet Productions.</p>
   <div id="socials">
