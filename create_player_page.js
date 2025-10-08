@@ -1,7 +1,8 @@
-import { players, teams } from "./a-current-page-data.js";
+import { players, teams, year } from "./a-current-page-data.js";
 import { playersPrevious, teamsPrevious } from "./a-previous-page-data.js";
-import { path } from "./home_page.js";
+import { path } from "./main.js";
 document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('year').innerHTML = `RLCS ${year}`
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get('name');
     const teamName = urlParams.get('name');
