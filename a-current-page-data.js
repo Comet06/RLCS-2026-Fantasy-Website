@@ -699,7 +699,7 @@ export let players = [
 {name: "Dark", availability: "Yes", rank: "S", rating: 0, team: "Collegiate Demons", shortname: "coll", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "sub"},
 {name: "Happymeal", availability: "Yes", rank: "S", rating: 0, team: "CosmiCo Esports", shortname: "cosmic", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "sub"},
 {name: "Kamz", availability: "Yes", rank: "S", rating: 0, team: "CosmiCo Esports", shortname: "cosmic", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Wiiilooo", availability: "Yes", rank: "S", rating: 0, team: "CosmiCo Esports", shortname: "cosmic", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Wiiilooo", availability: "Yes", rank: "S", rating: 0, team: "WFS", shortname: "wfs", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Adverse", availability: "Yes", rank: "S", rating: 0, team: "CRL Retirement Home", shortname: "crh", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "lubey", availability: "Yes", rank: "S", rating: 0, team: "CRL Retirement Home", shortname: "crh", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Samba", availability: "Yes", rank: "S", rating: 0, team: "CRL Retirement Home", shortname: "crh", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -967,7 +967,7 @@ export let players = [
 {name: "Squigly", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "sscary", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "staar", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Stake", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Stake", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Stqinless", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Sum", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Syke", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -1669,4 +1669,5 @@ export let teams = [
 {name: "Zookeepers", shortname: "zoo", region: "", rating: 0, availability: "Yes", split1Pts: 0, split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, winPerc: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, watch:""},
 
 ]
+
 
