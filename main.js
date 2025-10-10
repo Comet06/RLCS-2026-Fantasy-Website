@@ -191,7 +191,6 @@ let totals = [
 
 function determineScore(reg1, reg2, reg3, maj1, reg4, reg5, reg6, maj2, champ){
   members.forEach((id)=>{
-    console.log(champRounds[id.shortname][0])
     champRounds[id.shortname][0] = champ[`${id.shortname}`][0] * points['playin'][0] + champ[`${id.shortname}`][1] * points['playin'][1] //First number is the correct amount they guess
     champRounds[id.shortname][1] = champ[`${id.shortname}`][2] * points['groupA'][0] + champ[`${id.shortname}`][3] * points['groupA'][1] //Second number is the points worth per guess
     champRounds[id.shortname][2] = champ[`${id.shortname}`][4] * points['groupB'][0] + champ[`${id.shortname}`][5] * points['groupB'][1]
