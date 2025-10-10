@@ -6,11 +6,62 @@ export const members = [
   {name: '24 Karat Gold',  shortname: 'gold'},
   {name: 'Skibbideeznuts',  shortname: 'skib'},
   {name: 'Team Canada',  shortname: 'cana'},
-  {name: '',  shortname: 'pots'},
-  {name: '',  shortname: 'yuri'},
+  {name: 'Potus',  shortname: 'pots'},
+  {name: 'Brother Yuri',  shortname: 'yuri'},
   {name: 'Slightly Stoopid',  shortname: 'stoo'},
-  {name: '',  shortname: 'sock'},
+  {name: 'Dwayne',  shortname: 'sock'},
 ]
+export let EventSums = { //*****Do not manipulate this data*****
+  // Regionals 1-6
+  'flip' : [0, 0, 0, 0, 0, 0],
+  'doof' : [0, 0, 0, 0, 0, 0],
+  'bust' : [0, 0, 0, 0, 0, 0],
+  'gold' : [0, 0, 0, 0, 0, 0],
+  'skib' : [0, 0, 0, 0, 0, 0],
+  'cana' : [0, 0, 0, 0, 0, 0],
+  'pots' : [0, 0, 0, 0, 0, 0],
+  'yuri' : [0, 0, 0, 0, 0, 0],
+  'stoo' : [0, 0, 0, 0, 0, 0],
+  'sock' : [0, 0, 0, 0, 0, 0],
+}
+export let splitSums = { //*****Do not manipulate this data*****
+  // split 1-2, Championship, Grand total
+  'flip' : [0, 0, 0, 0],
+  'doof' : [0, 0, 0, 0],
+  'bust' : [0, 0, 0, 0],
+  'gold' : [0, 0, 0, 0],
+  'skib' : [0, 0, 0, 0],
+  'cana' : [0, 0, 0, 0],
+  'pots' : [0, 0, 0, 0],
+  'yuri' : [0, 0, 0, 0],
+  'stoo' : [0, 0, 0, 0],
+  'sock' : [0, 0, 0, 0],
+}
+export let champRounds = { //*****Do not manipulate this data*****
+  // this is for calculating the totals for playin, groupA, groupB, playoffs, total
+  'flip' : [0, 0, 0, 0, 0],
+  'doof' : [0, 0, 0, 0, 0],
+  'bust' : [0, 0, 0, 0, 0],
+  'gold' : [0, 0, 0, 0, 0],
+  'skib' : [0, 0, 0, 0, 0],
+  'cana' : [0, 0, 0, 0, 0],
+  'pots' : [0, 0, 0, 0, 0],
+  'yuri' : [0, 0, 0, 0, 0],
+  'stoo' : [0, 0, 0, 0, 0],
+  'sock' : [0, 0, 0, 0, 0],
+}
+export let playerScores = { //*****Do not manipulate this data*****
+    'flip': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'doof': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'bust': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'gold': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'skib': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'cana': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'pots': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'yuri': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'stoo': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'sock': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+};
 export const amtAdded = 0;
 const dist = [.2, .3, .5]
 export const amountPerMajor = ((amtAdded*dist[1])+200)/2;

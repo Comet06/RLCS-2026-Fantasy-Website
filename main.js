@@ -1,4 +1,4 @@
-import { 
+import { EventSums, splitSums, champRounds, playerScores,
   members, Regional1, Regional1Tops, Regional1Placements, Regional2, Regional2Tops, Regional2Placements, Regional3, Regional3Tops, Regional3Placements,
   Major1, Major1Tops, Major1Placements, split1QualifiedTeams, Regional4, Regional4Tops, Regional4Placements, Regional5, Regional5Tops, Regional5Placements, 
   Regional6, Regional6Tops, Regional6Placements, Major2, Major2Tops, Major2Placements, split2QualifiedTeams, 
@@ -54,15 +54,16 @@ const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
 
 
 // Site Wide
-export const path = `/RLCS-${year}-Fantasy-Website`
+export const path1 = `/RLCS-${year}-Fantasy-Website`
+export const path = ``
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/index.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     document.getElementById('titleYear').innerHTML = `RLCS Fantasy ${year}`
     console.log('Index page has loaded!');
+    deployPrize(prizes)
     determineScore(Regional1, Regional2, Regional3, Major1, Regional4, Regional5, Regional6, Major2, Championship)
     deployScores()
-    deployPrize(prizes)
   } else if (window.location.pathname === `${path}/regional_1.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Regional 1 page has loaded!');
@@ -169,57 +170,7 @@ const points = {
     'groupB' : [300, 400],
     'playoff' : [400, 600]
 }
-let EventSums = { //*****Do not manipulate this data*****
-  // Regionals 1-6
-  'flip' : [0, 0, 0, 0, 0, 0],
-  'doof' : [0, 0, 0, 0, 0, 0],
-  'goof' : [0, 0, 0, 0, 0, 0],
-  'gold' : [0, 0, 0, 0, 0, 0],
-  'skib' : [0, 0, 0, 0, 0, 0],
-  'cana' : [0, 0, 0, 0, 0, 0],
-  'pots' : [0, 0, 0, 0, 0, 0],
-  'yuri' : [0, 0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0, 0],
-  'sock' : [0, 0, 0, 0, 0, 0],
-}
-let splitSums = { //*****Do not manipulate this data*****
-  // split 1-2, Championship, Grand total
-  'flip' : [0, 0, 0, 0],
-  'doof' : [0, 0, 0, 0],
-  'goof' : [0, 0, 0, 0],
-  'gold' : [0, 0, 0, 0],
-  'skib' : [0, 0, 0, 0],
-  'cana' : [0, 0, 0, 0],
-  'pots' : [0, 0, 0, 0],
-  'yuri' : [0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0],
-  'sock' : [0, 0, 0, 0],
-}
-let champRounds = { //*****Do not manipulate this data*****
-  // this is for calculating the totals for playin, groupA, groupB, playoffs, total
-  'flip' : [0, 0, 0, 0, 0],
-  'doof' : [0, 0, 0, 0, 0],
-  'goof' : [0, 0, 0, 0, 0],
-  'gold' : [0, 0, 0, 0, 0],
-  'skib' : [0, 0, 0, 0, 0],
-  'cana' : [0, 0, 0, 0, 0],
-  'pots' : [0, 0, 0, 0, 0],
-  'yuri' : [0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0],
-  'sock' : [0, 0, 0, 0, 0],
-}
-let playerScores = { //*****Do not manipulate this data*****
-    'flip': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'doof': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'goof': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'gold': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'skib': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'cana': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'pots': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'yuri': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'maht': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    'sock': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-};
+
 // Info Page
 const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
 const semiFinal = 6
@@ -240,10 +191,11 @@ let totals = [
 
 function determineScore(reg1, reg2, reg3, maj1, reg4, reg5, reg6, maj2, champ){
   members.forEach((id)=>{
-    champRounds[id.shortname][0] = champ[`${id.shortname}`][0]*points['playin'][0]+champ[`${id.shortname}`][1]*points['playin'][1] //Play-Ins
-    champRounds[id.shortname][1] = champ[`${id.shortname}`][2]*points['groupA'][0]+champ[`${id.shortname}`][3]*points['groupA'][1] //Group A
-    champRounds[id.shortname][2] = champ[`${id.shortname}`][4]*points['groupB'][0]+champ[`${id.shortname}`][5]*points['groupB'][1] //Group B
-    champRounds[id.shortname][3] = champ[`${id.shortname}`][6]*points['playoff'][0]+champ[`${id.shortname}`][7]*points['playoff'][1] //Playoffs
+    console.log(champRounds[id.shortname][0])
+    champRounds[id.shortname][0] = champ[`${id.shortname}`][0] * points['playin'][0] + champ[`${id.shortname}`][1] * points['playin'][1] //First number is the correct amount they guess
+    champRounds[id.shortname][1] = champ[`${id.shortname}`][2] * points['groupA'][0] + champ[`${id.shortname}`][3] * points['groupA'][1] //Second number is the points worth per guess
+    champRounds[id.shortname][2] = champ[`${id.shortname}`][4] * points['groupB'][0] + champ[`${id.shortname}`][5] * points['groupB'][1]
+    champRounds[id.shortname][3] = champ[`${id.shortname}`][6] * points['playoff'][0] + champ[`${id.shortname}`][7] * points['playoff'][1]
     for (let i = 3; i < reg1[id.shortname].length; i += 4) {
       EventSums[id.shortname][0] += reg1[id.shortname][i]; //Regional sum of all your players
       EventSums[id.shortname][1] += reg2[id.shortname][i];
@@ -621,6 +573,7 @@ function deployPrize(pool){
 function deployScores(){
   members.forEach((id)=>{
     // deploying scores to table
+    console.log(id.shortname)
     const tableBody = document.getElementById('totalScores');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
