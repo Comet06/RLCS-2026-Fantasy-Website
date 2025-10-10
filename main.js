@@ -573,7 +573,6 @@ function deployPrize(pool){
 function deployScores(){
   members.forEach((id)=>{
     // deploying scores to table
-    console.log(id.shortname)
     const tableBody = document.getElementById('totalScores');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');

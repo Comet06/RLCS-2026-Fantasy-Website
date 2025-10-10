@@ -72,8 +72,6 @@ function createTeamProfiles(id, index) {
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
     let player = `${path}/profile.html?name=${encodeURIComponent(id.name)}`;
     if (id.gp < 1){id.gp = 1}
-    console.log(id.shortname)
-    console.log(id.watch)
     if(id.watch === ""){
         player = `${path}/profile.html?name=${encodeURIComponent(id.shortname)}`
     }
