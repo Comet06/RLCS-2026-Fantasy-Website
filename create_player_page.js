@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const playerName = urlParams.get('name');
     const teamName = urlParams.get('name');
     if (playerName||teamName){
-        const player = playersPrevious.find(p => p.name === playerName);
+        const player = players.find(p => p.name === playerName);
         if (player) {
             createPlayerProfiles(player); // Call your existing function with the specific player
         } else  if (teamName) {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             createTeamProfiles(team, 0)
             const profilesTitle = document.getElementById('player-profiles-title');
             profilesTitle.innerHTML = team.name
-            const playersOnTeam = playersPrevious.filter(p => p.shortname === teamName);
+            const playersOnTeam = players.filter(p => p.shortname === teamName);
             playersOnTeam.forEach((player,index) => {
                 if(player){
                     createTeamProfiles(player, index + 1)
@@ -47,8 +47,8 @@ function createPlayerProfiles(player) {
         <div class="profile-card">
             <h2 class="player-name">${player.name} <span id="${player.watch}">(${player.watch})</span></h2>
             <div class="profile-details">
-                <p><strong>Availability:</strong> ${player.availability}</p>
                 <a id="${player.shortname}" href="${team}"><strong>Team:</strong> ${player.team}</a>
+                <p><strong>Availability:</strong> ${player.availability}</p>
                 <p id="${player.region}"><strong>Region:</strong> ${player.region}</p>
                 <p><strong>Rating:</strong> ${player.rating}</p>
                 <p><strong>Win Percentage:</strong> ${player.winPerc}%</p>

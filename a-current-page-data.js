@@ -2,19 +2,19 @@ export const year = '2026'
 export const members = [
   {name: 'Flip Lord', shortname: 'flip'},
   {name: 'Doofenschmirtz inc.',  shortname: 'doof'},
-  {name: 'Goofy Goobers',  shortname: 'goof'},
+  {name: 'Nut Busters',  shortname: 'bust'},
   {name: '24 Karat Gold',  shortname: 'gold'},
   {name: 'Skibbideeznuts',  shortname: 'skib'},
   {name: 'Team Canada',  shortname: 'cana'},
-  {name: 'Potus',  shortname: 'pots'},
-  {name: 'Brother Yuri',  shortname: 'yuri'},
-  {name: 'Mahtoose',  shortname: 'maht'},
-  {name: 'Dwayne "The Sock" Johnson',  shortname: 'sock'},
+  {name: '',  shortname: 'pots'},
+  {name: '',  shortname: 'yuri'},
+  {name: 'Slightly Stoopid',  shortname: 'stoo'},
+  {name: '',  shortname: 'sock'},
 ]
 export const amtAdded = 0;
 const dist = [.2, .3, .5]
-export const amountPerMajor = ((amtAdded*dist[1])+400)/2;
-export const amountForChampionship = (amtAdded*dist[2])+500;
+export const amountPerMajor = ((amtAdded*dist[1])+200)/2;
+export const amountForChampionship = (amtAdded*dist[2])+250;
 
 export let split1 = {
     'Regional': [15, 10, 7, 7, 5, 5, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1],
@@ -27,23 +27,23 @@ export let split2 = {
 export let Regional1 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'bust' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'stoo' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 export let Regional1Placements = {
-    'eu' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'na' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'oce' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'sam' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'mena' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'apac' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'ssa' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
+    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional1Tops = {
     'score' :   ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
@@ -55,23 +55,23 @@ export let Regional1Tops = {
 export let Regional2 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'bust' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'stoo' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 export let Regional2Placements = {
-    'eu' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'na' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'oce' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'sam' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'mena' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'apac' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'ssa' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
+    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional2Tops = {
     'score' : ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
@@ -83,23 +83,23 @@ export let Regional2Tops = {
 export let Regional3 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'bust' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'stoo' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 export let Regional3Placements = {
-    'eu' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'na' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'oce' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'sam' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'mena' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'apac' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
-    'ssa' : ['', '', split1['Regional'][0], '', '', split1['Regional'][1], '', '', split1['Regional'][2], '', '', split1['Regional'][3], '', '', split1['Regional'][4], '', '', split1['Regional'][5], '', '', split1['Regional'][6], '', '', split1['Regional'][7], '', '', split1['Regional'][8], '', '', split1['Regional'][9], '', '', split1['Regional'][10], '', '', split1['Regional'][11], '', '', split1['Regional'][12], '', '', split1['Regional'][13], '', '', split1['Regional'][14], '', '', split1['Regional'][15]],
+    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional3Tops = {
     'score' : ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
@@ -111,13 +111,13 @@ export let Regional3Tops = {
 export let Major1 = {
   'flip' : [0],
   'doof' : [0],
-  'goof' : [0],
+  'bust' : [0],
   'gold' : [0],
   'skib' : [0],
   'cana' : [0],
   'pots' : [0],
   'yuri' : [0],
-  'maht' : [0],
+  'stoo' : [0],
   'sock' : [0]
 }
 export let Major1Tops = {
@@ -128,7 +128,7 @@ export let Major1Tops = {
     'shots' :   ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
 }
 export let Major1Placements = {
-    'Major' : ['TBD', '', split1['Major'][0], 'TBD', '', split1['Major'][1], 'TBD', '', split1['Major'][2], 'TBD', '', split1['Major'][3], 'TBD', '', split1['Major'][4], 'TBD', '', split1['Major'][5], 'TBD', '', split1['Major'][6], 'TBD', '', split1['Major'][7], 'TBD', '', split1['Major'][8], 'TBD', '', split1['Major'][9], 'TBD', '', split1['Major'][10], 'TBD', '', split1['Major'][11], 'TBD', '', split1['Major'][12], 'TBD', '', split1['Major'][13], 'TBD', '', split1['Major'][14], 'TBD', '', split1['Major'][15]],
+    'Major' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', ''],
 }
 export let split1QualifiedTeams = [
     {region: 'EU', team: '', points: 3},
@@ -147,44 +147,27 @@ export let split1QualifiedTeams = [
     {region: 'MENA', team: '', points: 3},
     {region: 'APAC', team: '', points: 3},
     {region: 'SSA', team: '', points: 3},
-    //split1['Major'][0]
-    //split1['Major'][1]
-    //split1['Major'][2]
-    //split1['Major'][3]
-    //split1['Major'][4]
-    //split1['Major'][5]
-    //split1['Major'][6]
-    //split1['Major'][7]
-    //split1['Major'][8]
-    //split1['Major'][9]
-    //split1['Major'][10]
-    //split1['Major'][11]
-    //split1['Major'][12]
-    //split1['Major'][13]
-    //split1['Major'][14]
-    //split1['Major'][15]
-    //split1['Major'][16]
 ]
 export let Regional4 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'bust' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'stoo' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 export let Regional4Placements = {
-    'eu' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'na' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'oce' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'sam' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'mena' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'apac' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'ssa' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
+    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional4Tops = {
     'score' : ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
@@ -196,23 +179,23 @@ export let Regional4Tops = {
 export let Regional5 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'bust' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'stoo' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 export let Regional5Placements = {
-    'eu' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'na' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'oce' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'sam' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'mena' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'apac' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'ssa' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
+    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional5Tops = {
     'score' : ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
@@ -224,23 +207,23 @@ export let Regional5Tops = {
 export let Regional6 = {
   'flip' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'doof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'goof' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'bust' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'gold' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'skib' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'cana' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'pots' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'yuri' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
-  'maht' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
+  'stoo' : ['', '', '', 0, '', '', '', 0, '', '', '', 0],
   'sock' : ['', '', '', 0, '', '', '', 0, '', '', '', 0]
 }
 export let Regional6Placements = {
-    'eu' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'na' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'oce' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'sam' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'mena' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'apac' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
-    'ssa' : ['', '', split2['Regional'][0], '', '', split2['Regional'][1], '', '', split2['Regional'][2], '', '', split2['Regional'][3], '', '', split2['Regional'][4], '', '', split2['Regional'][5], '', '', split2['Regional'][6], '', '', split2['Regional'][7], '', '', split2['Regional'][8], '', '', split2['Regional'][9], '', '', split2['Regional'][10], '', '', split2['Regional'][11], '', '', split2['Regional'][12], '', '', split2['Regional'][13], '', '', split2['Regional'][14], '', '', split2['Regional'][15]],
+    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional6Tops = {
     'score' : ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
@@ -252,13 +235,13 @@ export let Regional6Tops = {
 export let Major2 = {
   'flip' : [0],
   'doof' : [0],
-  'goof' : [0],
+  'bust' : [0],
   'gold' : [0],
   'skib' : [0],
   'cana' : [0],
   'pots' : [0],
   'yuri' : [0],
-  'maht' : [0],
+  'stoo' : [0],
   'sock' : [0]
 }
 export let Major2Tops = {
@@ -269,7 +252,7 @@ export let Major2Tops = {
     'shots' :   ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
 }
 export let Major2Placements = {
-    'Major' : ['TBD', '', split2['Major'][0], 'TBD', '', split2['Major'][1], 'TBD', '', split2['Major'][2], 'TBD', '', split2['Major'][3], 'TBD', '', split2['Major'][4], 'TBD', '', split2['Major'][5], 'TBD', '', split2['Major'][6], 'TBD', '', split2['Major'][7], 'TBD', '', split2['Major'][8], 'TBD', '', split2['Major'][9], 'TBD', '', split2['Major'][10], 'TBD', '', split2['Major'][11], 'TBD', '', split2['Major'][12], 'TBD', '', split2['Major'][13], 'TBD', '', split2['Major'][14], 'TBD', '', split2['Major'][15]],
+    'Major' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', ''],
 }
 export let split2QualifiedTeams = [
     {region: 'EU', team: '', points: 4},
@@ -288,39 +271,22 @@ export let split2QualifiedTeams = [
     {region: 'MENA', team: '', points: 4},
     {region: 'APAC', team: '', points: 4},
     {region: 'SSA', team: '', points: 4},
-    //split2['Major'][0]
-    //split2['Major'][1]
-    //split2['Major'][2]
-    //split2['Major'][3]
-    //split2['Major'][4]
-    //split2['Major'][5]
-    //split2['Major'][6]
-    //split2['Major'][7]
-    //split2['Major'][8]
-    //split2['Major'][9]
-    //split2['Major'][10]
-    //split2['Major'][11]
-    //split2['Major'][12]
-    //split2['Major'][13]
-    //split2['Major'][14]
-    //split2['Major'][15]
-    //split2['Major'][16]
 ]
 export let Championship = {
   //(max): PISemi(6), PIQuals(4), GASemi(6), GAQuals(4), GBSemi(6), GBQuals(4), POSemi(8), POFinals(3)
   'flip' : [0, 0, 0, 0, 0, 0, 0, 0],
   'doof' : [0, 0, 0, 0, 0, 0, 0, 0],
-  'goof' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'bust' : [0, 0, 0, 0, 0, 0, 0, 0],
   'gold' : [0, 0, 0, 0, 0, 0, 0, 0],
   'skib' : [0, 0, 0, 0, 0, 0, 0, 0],
   'cana' : [0, 0, 0, 0, 0, 0, 0, 0],
   'pots' : [0, 0, 0, 0, 0, 0, 0, 0],
   'yuri' : [0, 0, 0, 0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0, 0, 0, 0],
+  'stoo' : [0, 0, 0, 0, 0, 0, 0, 0],
   'sock' : [0, 0, 0, 0, 0, 0, 0, 0],
 }
 export let ChampionshipPlacements = {
-    'Champ' : ['1st', 'TBD', '', '2nd', 'TBD', '', '3rd-4th', 'TBD', '', '3rd-4th', 'TBD', '', '5th-6th', 'TBD', '', '5th-6th', 'TBD', '', '7th-8th', 'TBD', '', '7th-8th', 'TBD', '', '9th-12th', 'TBD', '', '9th-12th', 'TBD', '', '9th-12th', 'TBD', '', '9th-12th', 'TBD', '', '13th-16th', 'TBD', '', '13th-16th', 'TBD', '', '13th-16th', 'TBD', '', '13th-16th', 'TBD', '', '17th-18th', 'TBD', '', '17th-18th', 'TBD', '', '19th-20th', 'TBD', '', '19th-20th']
+    'Champ' : ['1st', 'TBD', '2nd', 'TBD', '3rd-4th', 'TBD', '3rd-4th', 'TBD', '5th-6th', 'TBD', '5th-6th', 'TBD', '7th-8th', 'TBD', '7th-8th', 'TBD', '9th-12th', 'TBD', '9th-12th', 'TBD', '9th-12th', 'TBD', '9th-12th', 'TBD', '13th-16th', 'TBD', '13th-16th', 'TBD', '13th-16th', 'TBD', '13th-16th', 'TBD', '17th-18th', 'TBD', '17th-18th', 'TBD', '19th-20th', 'TBD', '19th-20th']
 }
 export let ChampionshipTops = {
     'score' : ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
@@ -354,13 +320,13 @@ export let championshipQualifiedTeams = [
 export let prizes = {
   'flip' : [0.00, 0.0, 0.0],
   'doof' : [0.0, 0.0, 0.0],
-  'goof' : [0.0, 0.0, 0.0],
+  'bust' : [0.0, 0.0, 0.0],
   'gold' : [0.0, 0.0, 0.0],
   'skib' : [0.0, 0.0, 0.0],
   'cana' : [0.0, 0.0, 0.0],
   'pots' : [0.0, 0.0, 0.0],
   'yuri' : [0.0, 0.0, 0.0],
-  'maht' : [0.0, 0.0, 0.0],
+  'stoo' : [0.0, 0.0, 0.0],
   'sock' : [0.0, 0.0, 0.0],
 }
 export let players = [
@@ -377,14 +343,14 @@ export let players = [
 {name: "Trk511", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "MENA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Archie", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Firstkiller", availability: "Yes", rank: "S", rating: 0, team: "Shopify Rebellion", shortname: "shop", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Atomik", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Atomik", availability: "No", rank: "S", rating: 0, team: "TBD", shortname: "TBD", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "LJ", availability: "Yes", rank: "S", rating: 0, team: "Shopify Rebellion", shortname: "shop", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Seikoo", availability: "Yes", rank: "S", rating: 0, team: "Gentle Mates Alpine", shortname: "m8", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Seikoo", availability: "Yes", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Kiileerrz", availability: "Yes", rank: "S", rating: 0, team: "Team Falcons", shortname: "flcn", region: "MENA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Rw9", availability: "Yes", rank: "S", rating: 0, team: "Team Falcons", shortname: "flcn", region: "MENA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Joyo", availability: "Yes", rank: "S", rating: 0, team: "Geekay Esports", shortname: "geek", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "ApparentlyJack", availability: "Yes", rank: "S", rating: 0, team: "Dignitas", shortname: "dig", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Juicy", availability: "Yes", rank: "S", rating: 0, team: "Gentle Mates Alpine", shortname: "m8", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Juicy", availability: "Yes", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Chronic", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Oski", availability: "Yes", rank: "S", rating: 0, team: "Ninjas in Pyjamas", shortname: "nip", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Stizzy", availability: "Yes", rank: "S", rating: 0, team: "Dignitas", shortname: "dig", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -401,8 +367,8 @@ export let players = [
 {name: "Nass", availability: "Yes", rank: "S", rating: 0, team: "Ninjas in Pyjamas", shortname: "nip", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Alpha54", availability: "No", rank: "S", rating: 0, team: "Team Vitality", shortname: "vit", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "inactive"},
 {name: "Majicbear", availability: "Yes", rank: "S", rating: 0, team: "Gen.G Mobil1 Racing", shortname: "geng", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Tox", availability: "Yes", rank: "S", rating: 0, team: "FlyBack eSports", shortname: "fly", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Rezears", availability: "Yes", rank: "S", rating: 0, team: "Flare Esport", shortname: "flare", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Tox", availability: "Yes", rank: "S", rating: 0, team: "TBD", shortname: "TBD", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Rezears", availability: "Yes", rank: "S", rating: 0, team: "TBD", shortname: "TBD", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Chicago", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "VKSailen", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Leoro", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -433,7 +399,7 @@ export let players = [
 {name: "Aris", availability: "Yes", rank: "S", rating: 0, team: "Pirates on a Boat", shortname: "poab", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Accro", availability: "Yes", rank: "S", rating: 0, team: "2 Danes 1 Bruv", shortname: "twodane", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Superlachie", availability: "Yes", rank: "S", rating: 0, team: "TSM", shortname: "tsm", region: "OCE", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Yujin", availability: "Yes", rank: "S", rating: 0, team: "Gentle Mates Alpine", shortname: "m8", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Yujin", availability: "Yes", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Sphinx", availability: "Yes", rank: "S", rating: 0, team: "Project Delacruz", shortname: "pdlc", region: "APAC", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Arju", availability: "Yes", rank: "S", rating: 0, team: "Team Evo", shortname: "evo", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Bemmz", availability: "Yes", rank: "S", rating: 0, team: "Godfidence", shortname: "god", region: "SAM", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -450,7 +416,7 @@ export let players = [
 {name: "Fiv3up", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Luiisp", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Diaz", availability: "Yes", rank: "S", rating: 0, team: "shmoo", shortname: "shmo", region: "SAM", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Lunr", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "OCE", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Lunr", availability: "No", rank: "S", rating: 0, team: "TBD", shortname: "TBD", region: "OCE", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Abdullah", availability: "Yes", rank: "S", rating: 0, team: "ROC Esports", shortname: "roc", region: "MENA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Comm", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Speed", availability: "Yes", rank: "S", rating: 0, team: "Team Evo", shortname: "evo", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -473,7 +439,7 @@ export let players = [
 {name: "LCT", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "APAC", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Oscillon", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "APAC", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Tho", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Laxin", availability: "Yes", rank: "S", rating: 0, team: "I'm fine in the west", shortname: "ifitw", region: "OCE", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Laxin", availability: "Yes", rank: "S", rating: 0, team: "TBD", shortname: "TBD", region: "OCE", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Noly", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Ejby", availability: "Yes", rank: "S", rating: 0, team: "2 Danes 1 Bruv", shortname: "twodane", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Crispy", availability: "Yes", rank: "S", rating: 0, team: "pepegashake", shortname: "pepe", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -491,7 +457,7 @@ export let players = [
 {name: "Sweaty", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Davi", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "SAM", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "2Die4", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Ivan", availability: "Yes", rank: "S", rating: 0, team: "Welcome To Earth", shortname: "wte", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Ivan", availability: "Yes", rank: "S", rating: 0, team: "Welcome To Earth", shortname: "wte", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Maxeew", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "APAC", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "CreamZ", availability: "Yes", rank: "S", rating: 0, team: "hey bro", shortname: "heyb", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Snowyy", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -584,7 +550,7 @@ export let players = [
 {name: "AbsCrazy", availability: "Yes", rank: "S", rating: 0, team: "Big Dawgs", shortname: "bigd", region: "APAC", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "JG", availability: "Yes", rank: "S", rating: 0, team: "MAMÍFEROS", shortname: "mami", region: "SAM", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "hisoka", availability: "Yes", rank: "S", rating: 0, team: "Twisted Minds", shortname: "twis", region: "MENA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "sub"},
-{name: "Werty", availability: "Yes", rank: "S", rating: 0, team: "CosmiCo Esports", shortname: "cosmic", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Werty", availability: "Yes", rank: "S", rating: 0, team: "Looking for Organization", shortname: "lfo", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Mozzarella", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "rookie"},
 {name: "Chippy", availability: "Yes", rank: "S", rating: 0, team: "Chippy Chips", shortname: "chip", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "ren", availability: "Yes", rank: "S", rating: 0, team: "Pulse Clan WCB", shortname: "pulse", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -699,7 +665,7 @@ export let players = [
 {name: "Dark", availability: "Yes", rank: "S", rating: 0, team: "Collegiate Demons", shortname: "coll", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "sub"},
 {name: "Happymeal", availability: "Yes", rank: "S", rating: 0, team: "CosmiCo Esports", shortname: "cosmic", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "sub"},
 {name: "Kamz", availability: "Yes", rank: "S", rating: 0, team: "CosmiCo Esports", shortname: "cosmic", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Wiiilooo", availability: "Yes", rank: "S", rating: 0, team: "WFS", shortname: "wfs", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Wiiilooo", availability: "Yes", rank: "S", rating: 0, team: "CosmiCo Esports", shortname: "cosmic", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Adverse", availability: "Yes", rank: "S", rating: 0, team: "CRL Retirement Home", shortname: "crh", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "lubey", availability: "Yes", rank: "S", rating: 0, team: "CRL Retirement Home", shortname: "crh", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Samba", availability: "Yes", rank: "S", rating: 0, team: "CRL Retirement Home", shortname: "crh", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -842,7 +808,7 @@ export let players = [
 {name: "Inspire", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "iryzer", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "iSL6Nii", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "isRakan", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "isRakan", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "MENA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "ix", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Jackko", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "jelly", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -859,7 +825,7 @@ export let players = [
 {name: "kam", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Kanon", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Kata", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Kekkles", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Kekkles", availability: "No", rank: "S", rating: 0, team: "TBD", shortname: "TBD", region: "OCE", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Keta", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "kexii", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Khiernan", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -967,7 +933,7 @@ export let players = [
 {name: "Squigly", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "sscary", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "staar", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "Stake", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Stake", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Stqinless", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Sum", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Syke", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -1026,9 +992,9 @@ export let players = [
 {name: "kate", availability: "Yes", rank: "S", rating: 0, team: "Gen.G Mobil1 Racing Black", shortname: "gengb", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "declan", availability: "Yes", rank: "S", rating: 0, team: "GeneSix", shortname: "gene", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Drew", availability: "Yes", rank: "S", rating: 0, team: "GeneSix", shortname: "gene", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "sub"},
-{name: "EliakimZA", availability: "Yes", rank: "S", rating: 0, team: "GeneSix", shortname: "gene", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "EliakimZA", availability: "Yes", rank: "S", rating: 0, team: "Looking for Organization", shortname: "lfo", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Greenwarrior", availability: "No", rank: "S", rating: 0, team: "GeneSix", shortname: "gene", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "coach"},
-{name: "Eversax", availability: "No", rank: "S", rating: 0, team: "Gentle Mates Alpine", shortname: "m8", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "inactive"},
+{name: "Eversax", availability: "No", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "anxiyeti", availability: "Yes", rank: "S", rating: 0, team: "Gentlemen", shortname: "gentle", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Creed", availability: "Yes", rank: "S", rating: 0, team: "Gentlemen", shortname: "gentle", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Wolf", availability: "Yes", rank: "S", rating: 0, team: "Gentlemen", shortname: "gentle", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "sub"},
@@ -1052,7 +1018,8 @@ export let players = [
 {name: "Pinkjelly", availability: "Yes", rank: "S", rating: 0, team: "Ground Zero Gaming", shortname: "gzg", region: "OCE", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "QueenMorgie", availability: "Yes", rank: "S", rating: 0, team: "Ground Zero Gaming", shortname: "gzg", region: "OCE", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Kirica", availability: "No", rank: "S", rating: 0, team: "Haibo", shortname: "haibo", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "coach"},
-{name: "Ravi", availability: "Yes", rank: "S", rating: 0, team: "Haibo", shortname: "haibo", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Ravi", availability: "Yes", rank: "S", rating: 0, team: "Looking for Organization", shortname: "lfo", region: "SSA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "Datalied", availability: "Yes", rank: "S", rating: 0, team: "Looking for Organization", shortname: "lfo", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "coach"},
 {name: "Tubussie", availability: "Yes", rank: "S", rating: 0, team: "Haibo", shortname: "haibo", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Emma", availability: "Yes", rank: "S", rating: 0, team: "Happy Burritos", shortname: "happyburr", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "hira", availability: "Yes", rank: "S", rating: 0, team: "Happy Burritos", shortname: "happyburr", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -1347,8 +1314,8 @@ export let players = [
 {name: "Leumyy", availability: "Yes", rank: "S", rating: 0, team: "The Swim Team", shortname: "swimteam", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "ImaginaXion", availability: "No", rank: "S", rating: 0, team: "The Vicious", shortname: "vic", region: "MENA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "coach"},
 {name: "gske", availability: "Yes", rank: "S", rating: 0, team: "Three Blind Mice", shortname: "threebm", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "tnt.", availability: "Yes", rank: "S", rating: 0, team: "Three Blind Mice", shortname: "threebm", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
-{name: "wovah", availability: "Yes", rank: "S", rating: 0, team: "Three Blind Mice", shortname: "threebm", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "tnt.", availability: "Yes", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "NA", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
+{name: "wovah", availability: "Yes", rank: "S", rating: 0, team: "F/A", shortname: "F/A", region: "EU", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "kevinacho", availability: "Yes", rank: "S", rating: 0, team: "True Neutral Academy Black", shortname: "tnab", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "plgabriel", availability: "Yes", rank: "S", rating: 0, team: "True Neutral Academy Black", shortname: "tnab", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
 {name: "Reisplasma", availability: "Yes", rank: "S", rating: 0, team: "True Neutral Academy Black", shortname: "tnab", region: "", gp: 0, wins: 0, winPerc: 0.00, score: 0, goals: 0, assists: 0, saves:0, shots: 0, watch: "player"},
@@ -1669,5 +1636,4 @@ export let teams = [
 {name: "Zookeepers", shortname: "zoo", region: "", rating: 0, availability: "Yes", split1Pts: 0, split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, winPerc: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, watch:""},
 
 ]
-
 

@@ -66,56 +66,56 @@ window.addEventListener('load', function() {
   } else if (window.location.pathname === `${path}/regional_1.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Regional 1 page has loaded!');
-    deployReg(Regional1, players)
-    deployRegPlacements(Regional1Placements)
+    deployReg(Regional1)
+    deployRegPlacements(Regional1Placements, split1)
     deployTops(Regional1Tops)
   } else if (window.location.pathname === `${path}/regional_2.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Regional 2 page has loaded!');
-    deployReg(Regional2, players)
-    deployRegPlacements(Regional2Placements)
+    deployReg(Regional2)
+    deployRegPlacements(Regional2Placements, split1)
     deployTops(Regional2Tops)
   } else if (window.location.pathname === `${path}/regional_3.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Regional 3 page has loaded!');
-    deployReg(Regional3, players)
-    deployRegPlacements(Regional3Placements)
+    deployReg(Regional3)
+    deployRegPlacements(Regional3Placements, split1)
     deployTops(Regional3Tops)
   } else if (window.location.pathname === `${path}/major_1.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Major 1 page has loaded!');
     deployMaj(Major1)
-    deployMajPlacements(Major1Placements)
+    deployMajPlacements(Major1Placements, split1)
     deployTops(Major1Tops)
   } else if (window.location.pathname === `${path}/regional_4.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Regional 4 page has loaded!');
-    deployReg(Regional4, players)
-    deployRegPlacements(Regional4Placements)
+    deployReg(Regional4)
+    deployRegPlacements(Regional4Placements, split2)
     deployTops(Regional4Tops)
   } else if (window.location.pathname === `${path}/regional_5.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Regional 5 page has loaded!');
-    deployReg(Regional5, players)
-    deployRegPlacements(Regional5Placements)
+    deployReg(Regional5)
+    deployRegPlacements(Regional5Placements, split2)
     deployTops(Regional5Tops)
   } else if (window.location.pathname === `${path}/regional_6.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Regional 6 page has loaded!');
-    deployReg(Regional6, players)
-    deployRegPlacements(Regional6Placements)
+    deployReg(Regional6)
+    deployRegPlacements(Regional6Placements, split2)
     deployTops(Regional6Tops)
   } else if (window.location.pathname === `${path}/major_2.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Major 2 page has loaded!');
     deployMaj(Major2)
-    deployMajPlacements(Major2Placements)
+    deployMajPlacements(Major2Placements, split2)
     deployTops(Major2Tops)
   } else if (window.location.pathname === `${path}/championship.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Championship page has loaded!');
     determineScore(Regional1, Regional2, Regional3, Major1, Regional4, Regional5, Regional6, Major2, Championship)
-    deployChamp(champRounds)
+    deployChamp(champRounds, splitSums)
     deployChampPlacements(ChampionshipPlacements)
     deployTops(ChampionshipTops)
   } else if (window.location.pathname === `${path}/teams_rankings.html`) {
@@ -130,14 +130,14 @@ window.addEventListener('load', function() {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Player Stats page has loaded!');
     populatePlayersTable(players, 'player_data_table')
-    populateTeamsTable(teams, 'team_data_table')
+    populateTeamsTable(teams, 'team_data_table', playersPrevious)
     console.log('Current data loaded');
 
     previous.addEventListener('click', function() {
       playerTable.innerHTML = playerTableHeader;
       teamTable.innerHTML = teamTableHeader;
       populatePlayersTable(playersPrevious, 'player_data_table')
-      populateTeamsTable(teamsPrevious, 'team_data_table')
+      populateTeamsTable(teamsPrevious, 'team_data_table', playersPrevious)
       console.log('Season Data loaded');
     });
     
@@ -145,7 +145,7 @@ window.addEventListener('load', function() {
       playerTable.innerHTML = playerTableHeader;
       teamTable.innerHTML = teamTableHeader;
       populatePlayersTable(players, 'player_data_table')
-      populateTeamsTable(teams, 'team_data_table')
+      populateTeamsTable(teams, 'team_data_table', players)
       console.log('Season Data loaded');
     });
   } else if (window.location.pathname === `${path}/info.html`) {
@@ -390,27 +390,29 @@ function deployPointsInfo(){
     tableBody.appendChild(newRow);
 }
 function deployTops(event){
-    tops.forEach((id) => {
-        for (let i = 0; i < 20; i += 2){
-            const tableBody = document.getElementById(`${id}`);
-            const newRow = document.createElement('tr');
-            const team = document.createElement('td');
-            const pts = document.createElement('td');
+  tops.forEach((id) => {
+    for (let i = 0; i < 20; i += 2){
+      const tableBody = document.getElementById(`${id}`);
+      const newRow = document.createElement('tr');
+      const playerLink = document.createElement('a');
+      const player = document.createElement('td');
+      const pts = document.createElement('td');
 
-            team.textContent = event[id][i]
-            team.id = 'team'
-            pts.textContent = event[id][i+1]
-            pts.id = 'points'
+      playerLink.textContent = event[id][i]
+      playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id][i])}`
+      player.id = 'team'
+      pts.textContent = event[id][i+1]
+      pts.id = 'points'
 
-
-            newRow.appendChild(team);
-            newRow.appendChild(pts);
-            
-            tableBody.appendChild(newRow);
-        }
-    })
+      player.appendChild(playerLink)
+      newRow.appendChild(player);
+      newRow.appendChild(pts);
+      
+      tableBody.appendChild(newRow);
+    }
+  })
 }
-function deployReg(event, players){
+function deployReg(event){
   members.forEach((id) =>{
     const tableBody = document.getElementById('regionalScoreCard');
     const newRow = document.createElement('tr');
@@ -457,23 +459,25 @@ function deployReg(event, players){
       
       tableBody.appendChild(newRow);
     }
+    // tableBody.appendChild(newRow);
+    // newRow.appendChild(teamName);
   })
 }
-function deployRegPlacements(event){
+function deployRegPlacements(event, pointsArray){
   regions.forEach((id) => {
-    for (let i = 0; i < 48; i += 3){
+    for (let i = 0; i < 16; i ++){
       const tableBody = document.getElementById(`${id}`);
       const newRow = document.createElement('tr');
       const newLink = document.createElement('a');
       const team = document.createElement('td');
       const pts = document.createElement('td');
 
-      team.id = event[id][i+1]
       newLink.textContent = event[id][i]
+      team.id = getTeamShort(event[id][i])
       newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.id)}`
       team.appendChild(newLink)
 
-      pts.textContent = event[id][i+2]
+      pts.textContent = pointsArray['Regional'][i]
       pts.id = 'points'
 
       newRow.appendChild(team);
@@ -501,20 +505,20 @@ function deployMaj(event){
     tableBody.appendChild(newRow);
   })
 }
-function deployMajPlacements(event){
-  for (let i = 0; i < 48; i += 3){
+function deployMajPlacements(event, pointsArray){
+  for (let i = 0; i < 16; i ++){
     const tableBody = document.getElementById('Major-placements');
     const newRow = document.createElement('tr');
     const newLink = document.createElement('a');
     const team = document.createElement('td');
     const pts = document.createElement('td');
 
-    team.id = event['Major'][i+1]
+    team.id = getTeamShort(event['Major'][i])
     newLink.textContent = event['Major'][i]
     newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.id)}`
     team.appendChild(newLink)
     
-    pts.textContent = event['Major'][i+2]
+    pts.textContent = pointsArray['Major'][i]
     pts.id = 'points'
 
 
@@ -524,7 +528,7 @@ function deployMajPlacements(event){
     tableBody.appendChild(newRow);
   }
 }
-function deployChamp(event){
+function deployChamp(event, event2){
   console.log('champ function working')
   // ChampionshipBracket()
   members.forEach((id)=>{
@@ -548,7 +552,7 @@ function deployChamp(event){
     groupACell.textContent = event[id.shortname][1]
     groupBCell.textContent = event[id.shortname][2]
     playoffCell.textContent = event[id.shortname][3]
-    totalCell.textContent = event[id.shortname][4]
+    totalCell.textContent = event2[id.shortname][2]
     
     newRow.appendChild(teamName);
     newRow.appendChild(playinCell);
@@ -561,19 +565,19 @@ function deployChamp(event){
   })
 }
 function deployChampPlacements(event){
-  for (let i = 0; i < 60; i += 3){
+  for (let i = 0; i < 40; i += 2){
     const tableBody = document.getElementById('champ-placements');
     const newRow = document.createElement('tr');
     const newLink = document.createElement('a');
     const place = document.createElement('td');
     const team = document.createElement('td');
 
-    team.id = event['Champ'][i+2]
+    team.id = getTeamShort(event['Champ'][i+1])
     newLink.textContent = event['Champ'][i+1]
     newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.id)}`
     team.appendChild(newLink)
     
-    place.textContent = event['Champ'][i+3]
+    place.textContent = event['Champ'][i]
     place.id = 'points'
 
 
@@ -801,7 +805,7 @@ function populatePlayersTable(playersArray, tableBodyId) {
     }
   });
 }
-function populateTeamsTable(teamsArray, tableBodyId) {
+function populateTeamsTable(teamsArray, tableBodyId, playersArray) {
   const tableBody = document.getElementById(tableBodyId);
     teamsArray.forEach((team, index) => {
       const newRow = document.createElement('tr');
@@ -810,6 +814,9 @@ function populateTeamsTable(teamsArray, tableBodyId) {
       const teamId = team.shortname;
       const regionID = team.region.toLowerCase();
       const regionCell = document.createElement('td');
+      const S1points = document.createElement('td');
+      const S2points = document.createElement('td');
+      const seasonPoints = document.createElement('td');
       const ratingCell = document.createElement('td');
       const winPercCell = document.createElement('td');
       const scoreCell = document.createElement('td');
@@ -817,7 +824,7 @@ function populateTeamsTable(teamsArray, tableBodyId) {
       const assistsCell = document.createElement('td');
       const savesCell = document.createElement('td');
       const shotsCell = document.createElement('td');
-      const playersOnTeam = players.filter(p => p.shortname === team.shortname);
+      const playersOnTeam = playersArray.filter(p => p.shortname === team.shortname);
       const numOfPlayersCell = document.createElement('td');
       let countOfPlayers = 0
 
@@ -837,6 +844,9 @@ function populateTeamsTable(teamsArray, tableBodyId) {
     teamCell.id = teamId;
     regionCell.textContent = team.region;
     regionCell.id = regionID;
+    S1points.textContent = team.split1Pts;
+    S2points.textContent = team.split2Pts;
+    seasonPoints.textContent = team.totalSeasonPts;
     ratingCell.textContent = team.rating;
     winPercCell.textContent = team.winPerc;
     numOfPlayersCell.textContent = countOfPlayers;
@@ -856,6 +866,9 @@ function populateTeamsTable(teamsArray, tableBodyId) {
 
     newRow.appendChild(teamCell);
     newRow.appendChild(regionCell);
+    newRow.appendChild(S1points);
+    newRow.appendChild(S2points);
+    newRow.appendChild(seasonPoints);
     newRow.appendChild(ratingCell);
     newRow.appendChild(winPercCell);
     newRow.appendChild(scoreCell);
