@@ -54,8 +54,8 @@ const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
 
 
 // Site Wide
-export const path1 = `/RLCS-${year}-Fantasy-Website`
-export const path = ``
+export const path = `/RLCS-${year}-Fantasy-Website`
+export const path1 = ``
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/index.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
