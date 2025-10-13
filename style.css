@@ -54,16 +54,16 @@ a{color: currentColor; text-decoration: none;}
 .home_tables{margin:0 auto;width: fit-content;background-color: #e1e1e1e6;}
 .home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
 #team0{width: fit-content;}
-#flip{width: fit-content;color: #ffffff;background-color: #037120;}
-#doof{color: #ffffff;background-color: #01063f;}
-#bust{color: #ffffff;background-color: #710303;}
-#gold{color: #000000;background-color: #d8db4b;}
-#skib{color: #000000;background-color: #32d2d7;}
-#cana{color: black;background-color: #c062ff;}
+#come{width: fit-content;color: #ffffff;background-color: #037120;}
+#squi{color: #ffffff;background-color: #01063f;}
+#vinn{color: #ffffff;background-color: #710303;}
+#jimm{color: #000000;background-color: #d8db4b;}
+#ecof{color: #000000;background-color: #32d2d7;}
+#gale{color: black;background-color: #c062ff;}
 #pots{color: #ffffff;background-color: #f47702;}
 #yuri{background-color: #8ffd27;}
-#stoo{background-color: #0059ff;}
-#sock{color: white; background-color: #002e83;}
+#maht{background-color: #0059ff;}
+#dway{color: white; background-color: #002e83;}
 
 
 /* Stats/Ranked pages */
@@ -75,8 +75,8 @@ a{color: currentColor; text-decoration: none;}
 #team_data_table{margin-top: 30px; background-color: white;width: fit-content;}
 #import_button :hover{color: white;background-color: black;}
 .Season_list{text-align: left; margin-top: 30px;}
-.player_stats_page th{margin-left: 3px; margin-right: 3px;}
-.player_stats_page td{margin-left: 3px; margin-right: 3px;}
+.player_stats_page th td{margin-left: 3px; margin-right: 3px;}
+/* .player_stats_page td{margin-left: 3px; margin-right: 3px;} */
 
 /* Rankings page */
 .rankings{display: flex;justify-content: center; gap: 10px;}
@@ -106,7 +106,7 @@ a{color: currentColor; text-decoration: none;}
 
 /* Player profiles */
 .profiles{display: flex; flex-wrap: wrap; align-items: center;}
-.player-profiles{margin: 0 auto; width: 300px;}
+.player-profiles{margin: 0 auto; width: fit-content;}
 .profile-card {background: #fff;border: 1px solid #ccc;border-radius: 8px;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px #0000001a;}
 .player-name {margin-top: 0;}
 .profile-details p {margin: 5px 0;}

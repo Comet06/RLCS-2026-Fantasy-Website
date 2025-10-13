@@ -3,351 +3,276 @@ td{font-size: 1.2em;}
 /* Availability */
 #no{background-color: red;}
 
-
 #na{background-color: #ff5b5b;}
-#nrg{background-color: orangered;}
-#ssg{background-color: #ffc400;}
-#nine{background-color: #b8b8b8;}
-#col{color: white;background-color: #700000;}
-#del{color: white;background-color: purple;}
-#tu{color: white;background-color: #700000;}
-#geng{background-color: gold;}
-#poab{color: white;background-color: blue;}
-#shop{color: white;background-color: black;}
-#qtpg{color: white; background-color: #998200;}
-#neth{color: white; background-color: #7a0000;}
-#lot8{color: white; background-color: black;}
-#evo{background-color: #ff7b00;}
-/* #strict{N/A} */
-/* #psych{N/A} */
-
 #eu{background-color: #73ffa9;}
-#kc{background-color: #0787ff;}
-#vit{background-color: yellow;}
-#onehundred{background-color: lightblue;}
-#nip{background-color: #cbf11e;}
-#dig{color: #94316b;background-color: yellow;}
-#m8{background-color: #ff0095;}
-#geek{color: yellow;background-color: #262677;}
-#red{color: white; background-color:#7a0000;}
-#syn{background-color: #ffd95b;}
-#f4wd{background-color: greenyellow;}
-#start{background-color: #a52f2f;}
-/* #asce{}
-#jjr{} */
-#cali{color: #00d300; background-color: orangered;}
-/* #stg{}
-#nom{}
-#red{}
-#rrg{}
-#sick{}
-#smok{}
-#atom{}
-#dec{} */
-#bds{color: white; background-color: #ff126d;}
-/* #dopa{}
-#bsk{} */
-
 #mena{background-color: orange;}
-#flcn{color:white;background-color: green;}
-#twis{background-color: #e48494;}
-#roc{color: white; background-color: purple;}
-#alqad{background-color: #d32c2c;}
-#sleep{background-color: #9e9e9e;}
-#reds{color: white;background-color: red;}
-
 #sam{background-color: #01f401;}
-#fur{color: white;background-color: black;}
-#ts{color: white;background-color: #242020;}
-#mibr{color: white; background-color: #000000;}
-#god{background-color: orange;}
-#cori{color: white; background-color: red;}
-#moon{color: white; background-color: grey;}
-
 #oce{background-color: #0079ea;}
-#wild{color: #ff9090; background-color: #191994;}
-#hel{background-color: lightblue;}
-#tsm{color: white;background-color: black;}
-#pwr{background-color: yellow;}
-#gzg{background-color: green;}
-#skrim{color: #0000a1; background-color: #ff73dc;}
-
 #apac{background-color: #d500d5;}
-#virt{background-color: orange;}
-#elv{color: red;background-color: black;}
-#lum{background-color: lightblue;}
-#pdlc{background-color: #00000000;}
-/* #deku{} */
-#kino{color: red; background-color: black;}
-#godspeed{color:white;background-color: #b39800;}
-
-
 #ssa{background-color: yellow;}
-#lim{color: white;background-color: black;}
-#fut{color: white;background-color: black;}
-#sevenb{color: yellow; background-color: orangered;}
-#lebo{background-color: #ffd95b;}
-#hey{background-color: #ffd95b;}
 
+
+
+#startpoint{background-color: #a52f2f;}
+#hey{background-color: #ffd95b;}
 
 /* Watch Tags */
 #rookie{background-color: gold;padding: 0 5px}
-#player{color: white; background-color: #000650;padding: 0 5px}
+#player{color: #700000;padding: 0 5px;}
 #sub{background-color: #00e200;padding: 0 5px}
 #coach{background-color: orangered;padding: 0 5px}
 #inactive{color: white; background-color: #880101;padding: 0 5px}
 #retired{color: white; background-color: #3d3daa;padding: 0 5px}
 
+/* Teams */
+#the_ultimates{color: white;background-color: #700000;}
+#nrg{background-color: orangered;}
+#twisted_minds{background-color: #e48494;}
+#dignitas{color: #94316b;background-color: yellow;}
+#team_falcons{color:white;background-color: green;}
+#team_vitality{background-color: yellow;}
+#geng_mobil1_racing{background-color: gold;}
+#karmine_corp{background-color: #0787ff;}
+#team_secret{color: white;background-color: #242020;}
+#geekay_esports{color: yellow;background-color: #262677;}
+#spacestation_gaming{background-color: #ffc400;}
+#nine{background-color: #b8b8b8;} /**/
+#onehun{background-color: lightblue;}/**/
+#sevenblocks{color: yellow; background-color: orangered;}/**/
+#tsm{color: white;background-color: black;}
+#furia_esports{color: white;background-color: black;}
+#pwr{background-color: yellow;}
+#wildcard{color: #ff9090; background-color: #191994;}
+#gentle_mates_alpine{background-color: #ff0095;}
+#shopify_rebellion{color: white;background-color: black;}
+#complexity_gaming{color: white;background-color: #700000;}
+#helfie_chiefs{background-color: lightblue;}
+#al_qadsiah{background-color: #d32c2c;}
+#sleeping{background-color: #9e9e9e;}
+#ninjas_in_pyjamas{background-color: #cbf11e;}
+#team_reds{color: white;background-color: red;}
+#deleted_gaming{color: white;background-color: purple;}
+#godfidence{background-color: orange;}
+#team_evo{background-color: #ff7b00;}
+#fut_esports{color: white;background-color: black;}
+#corinthians_esports{color: white; background-color: red;}
+#skrimzworld{color: #0000a1; background-color: #ff73dc;}
+#limitless{color: white;background-color: black;}
+#moonrise{color: white; background-color: grey;}
+#le_bosh{background-color: #ffd95b;}
+#virtuspro{background-color: orange;}
+#caliente{color: #00d300; background-color: orangered;}
+#pirates_on_a_boat{color: white;background-color: blue;}
+#elevate{color: red;background-color: black;}
+#kinotrope_gaming{color: red; background-color: black;}
+#f4wd{background-color: greenyellow;}
+#god_speed{color:white;background-color: #b39800;}
+#synergy{background-color: #ffd95b;}
+#team_bds{color: white; background-color: #ff126d;}
+#mibr{color: white; background-color: #000000;}
+#project_delacruz{background-color: #00000000;}
+#pioneers{color: white; background-color: #998200;}
+#netherlamericanada{color: white; background-color: #7a0000;}
+#lotus_8_esports{color: white; background-color: black;}
+#redemption{color: white; background-color:#7a0000;}
+#roc_esports{color: white; background-color: purple;}
+#ground_zero_gaming{background-color: green;}
+#luminosity_gaming{background-color: lightblue;}
+#hogan_mode{background-color: gold;}
 
-/*
-#threeoh{}
-#fourfour{}
-#sevensevenseven{}
-#onehundred{}
-#onehunx{}
-#twelve{}
-#twodane{}
-#threefivefor{}
-#fivem{}
-#seventwo{}
-#sevenb{}
-#nine{}
-#akah{}
-#alqad{}
-#amet{}
-#amig{}
-#ant{}
-#aureon{}
-#ausf{}
-#belly{}
+/* 
+#fortnite_flick{}
+#strictly_business{}
+#dekubopdumnem{}
+#antique_esport{}
+#carl{}
+#hey_bro{}
+#psycho_rangers{}
+#aka_hero{}
+#amethyst{}
+#austrian_force{}
+#big_dawgs{}
+#chippy_chips{}
+#cmk{}
+#cosmico_esports{}
+#dangerous_esports_club{}
+#f16_esports{}
+#flare_esport{}
+#flyback_esports{}
+#genesix{}
+#heracles_esports{}
+#infamous{}
+#low_block{}
+#mamíferos{}
+#nah{}
+#nxt{}
+#oblivion_esports{}
+#off{}
+#overlooked{}
+#pepegashake{}
+#pulse_clan_wcb{}
+#quick_esports{}
+#randomline{}
+#red_devils{}
+#schnitzelhaus{}
+#shmoo{}
+#stromboli{}
+#sunset{}
+#tbd{}
+#team_silenced{}
+#team_vision{}
+#the_backseat_lovers{}
+#the_boys{}
+#the_vicious{}
+#welcome_to_earth{}
+#yokohama_f._marinos_esports{}
+#yurrrr{}
+#zzzz{}
+#amigos_do_baait{}
+#aureon_esports{}
+#belly_bean_boys{}
 #ben{}
-#bigchung{}
-#bigd{}
+#big_chungus{}
 #bird{}
 #birth{}
-#blaz{}
-#bbc{}
-#bluet{}
-#bomb{}
-#brain{}
-#bronze{}
-#btf{}
-#cali{}
-#carl{}
-#chip{}
-#cmk{}
+#blazar_academy{}
+#blazebeefcoconut{}
+#blue_torch{}
+#bomb_squad{}
+#brainstorm_esports{}
+#bronze_baddies{}
+#btf_esports{}
 #cold{}
-#coll{}
-#col{}
-#cori{}
-#cosmic{}
-#crh{}
-#cad{}
-#danger{}
-#death{}
-#deku{}
-#del{}
-#dig{}
-#doodle{}
-#eightysix{}
+#collegiate_demons{}
+#crl_retirement_home{}
+#ctrl_alt_defeat{}
+#death_cloud_esports{}
+#doodle_bangers{}
+#eighty6_esports{}
 #ekw{}
-#elv{}
-#empty{}
-#end{}
+#empty_space{}
+#endless{}
 #erased{}
-#esp{}
-#F/A{}
-#f16{}
-#f4wd{}
+#espada{}
 #fellas{}
-#flare{}
-#flash{}
-#flex{}
-#fly{}
-#fofo{}
-#fofl{}
-#fur{}
-#fut{}
-#gas{}
-#gamup{}
-#geek{}
-#geng{}
-#gengb{}
-#gene{}
-#m8{}
-#gentle{}
-#germherm{}
-#godspeed{}
-#god{}
+#flashes_of_brilliance{}
+#flexibility{}
+#fofos{}
+#gaming_up{}
+#geng_mobil1_racing_black{}
+#gentlemen{}
+#german_hermanos{}
 #godsent{}
-#goldhour{}
-#grib{}
-#gzg{}
+#golden_hour_esports{}
+#gribble_my_balls{}
 #haibo{}
-#happyburr{}
-#hel{}
-#hera{}
-#hey{}
-#heyb{}
-#hogan{}
-#ifitw{}
-#icee{}
-#infm{}
-#invblue{}
-#izdream{}
-#joga{}
-#juice{}
-#kc{}
-#kino{}
-#ant{}
-#lafam{}
-#laquim{}
-#lebo{}
-#lesserafim{}
-#lnw{}
-#lele{}
-#levi{}
-#lsb{}
-#lim{}
-#llama{}
-#losmarol{}
-#lot8{}
-#loud{}
-#lowblo{}
-#luk{}
-#lum{}
-#macc{}
-#mami{}
-#mexac{}
-#mibr{}
-#mission{}
-#moon{}
-#mrfear{}
+#happy_burritos{}
+#ice_esports{}
+#invaders_blues{}
+#iz_im_dreamin{}
+#joga_bonito{}
+#juiced{}
+#la_familia{}
+#laquímica_e-sports{}
+#le_sserafim{}
+#leavenowitness{}
+#levitate_esports_club{}
+#lil_step_bros{}
+#llama_champions{}
+#los_maroleiros{}
+#louder{}
+#luk_esports{}
+#maccas_drive_thru{}
+#mexaclica{}
+#mission_rank_a{}
+#mrfearlite{}
 #musk{}
-#nah{}
-#naka{}
-#neth{}
-#nip{}
-#nhnp{}
-#noidea{}
-#no_team{}
+#nakamas{}
+#no_hat_no_play{}
+#no_idea{}
 #noname{}
 #norms{}
-#novo{}
+#novo_esports{}
 #noxem{}
-#nrd{}
-#nrg{}
-#nxt{}
-#oblv{}
-#off{}
-#ohio{}
-#omen{}
-#ominus{}
-#oryx{}
-#over{}
-#paif{}
-#papo{}
-#pepe{}
-#pimp{}
-#pine{}
-#qtpg{}
-#poab{}
-#piro{}
-#polar{}
+#nrd_esports{}
+#ohio_club{}
+#omen_esports{}
+#omnius_gaming{}
+#oryx_esports{}
+#paifhers{}
+#papo_de_visão{}
+#pimpmyride{}
+#pineapple_cake{}
+#pirots_3{}
+#polar_knights{}
 #praise{}
-#prej{}
-#pdlc{}
-#psych{}
-#pulse{}
-#pwr{}
-#quick{}
-#qup{}
-#rtt{}
-#random{}
-#rebt{}
-#redd{}
-#redt{}
-#red{}
-#revel{}
-#reven{}
-#roc{}
-#roco{}
-#round{}
-#rqs{}
-#rump{}
+#prejump{}
+#qup_mana{}
+#reborn_titans{}
+#red_torch{}
+#revelation{}
+#revenue_redeemers{}
+#rocos_gaming{}
+#rounds{}
+#rqs_esports{}
+#rumpus_room_wizards{}
 #salami{}
-#sapp{}
-#schn{}
-#seap{}
-#sharlitt{}
-#shind{}
-#shmo{}
-#shop{}
-#sick{}
-#skrim{}
-#sleep{}
-#seshoot{}
-#ssg{}
-#stick{}
-#str1ve{}
-#strict{}
-#strom{}
-#snst{}
+#sapphire{}
+#seas_and_peas{}
+#sharlitt_feenix{}
+#shinden{}
+#southeast_shooters{}
+#stick_mick{}
+#str1ve_esports{}
 #sup{}
-#superteam{}
-#syn{}
-#TBD{}
-#teamexe{}
-#asce{}
-#bds{}
-#evo{}
-#flcn{}
-#floe{}
-#phoe{}
-#reds{}
-#ts{}
-#silence{}
-#twit{}
-#vision{}
-#vit{}
-#whop{}
-#zorn{}
-#backseat{}
-#boys{}
-#finorder{}
-#mnn{}
-#punish{}
-#pups{}
-#swimteam{}
-#tu{}
-#vic{}
-#threebm{}
-#tnab{}
-#trush{}
-#tsm{}
-#tsur{}
-#twenty{}
-#twis{}
+#super_team{}
+#team_exe{}
+#team_ascend{}
+#team_floeppa{}
+#team_phoenix{}
+#team_twitter{}
+#team_whoppa{}
+#team_zorn{}
+#the_final_order{}
+#the_maryland_nibbling_narwhals{}
+#the_punishers{}
+#the_pups{}
+#the_swim_team{}
+#three_blind_mice{}
+#true_neutral_academy_black{}
+#trush_me{}
+#tsurani{}
+#twentystars{}
 #uhuh{}
-#unit{}
-#valk{}
-#virtesp{}
-#virt{}
-#wandlobs{}
-#wdk{}
-#wesuck{}
-#wte{}
-#wrg{}
+#unity{}
+#valkyrie_array{}
+#virtual_esports{}
+#wandering_lobsters{}
+#we_suck{}
+#white_rabbit_gaming{}
 #wifu{}
-#wild{}
 #woo{}
 #xt{}
-#yap{}
-#yfme{}
-#yur{}
+#yapville{}
 #zawoo{}
-#zenesp{}
-#ziolli{}
-#zoo{}
-#zzzz{}
+#zen_esports{}
+#zookeepers{}
+#rtt{}
+#gas{}
+#ziolli's_forbidden_sons{}
+#we_don't_know{}
+#lele's{}
+#445{}
+#2_danes_1_bruv{}
+#354_esports{}
+#i'm_fine_in_the_west{}
+#l'antique_esport{}
+#sick!{}
+#305{}
+#777{}
+#100x35_esports{}
+#12_bricks{}
+#5m_esports{}
+#hey_(with_rizz){}
+#72pc{}
 */

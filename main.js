@@ -1,13 +1,12 @@
-import { EventSums, splitSums, champRounds, playerScores,
-  members, Regional1, Regional1Tops, Regional1Placements, Regional2, Regional2Tops, Regional2Placements, Regional3, Regional3Tops, Regional3Placements,
-  Major1, Major1Tops, Major1Placements, split1QualifiedTeams, Regional4, Regional4Tops, Regional4Placements, Regional5, Regional5Tops, Regional5Placements, 
-  Regional6, Regional6Tops, Regional6Placements, Major2, Major2Tops, Major2Placements, split2QualifiedTeams, 
-  Championship, ChampionshipTops, ChampionshipPlacements, championshipQualifiedTeams, players, teams, amtAdded,  amountPerMajor, amountForChampionship, split1, split2, prizes, year
+import { EventSums, splitSums, champRounds, playerScores, 
+  members, split1QualifiedTeams, split2QualifiedTeams, 
+  championshipQualifiedTeams, players, teams, amtAdded, 
+  majorPrize, champPrize, dist, split1, split2, prizes, year
 } from "./a-current-page-data.js";
-
-import { playersPrevious, teamsPrevious } from "./a-previous-page-data.js";
-const previous = document.getElementById('legacy_data');
-
+import { Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Regional1Tops, Regional2Tops, Regional3Tops, Regional4Tops, Regional5Tops, Regional6Tops, 
+  Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements } from "./a-regionals.js";
+import { Major1, Major2, Major1Placements, Major2Placements, Major1Tops, Major2Tops } from "./a-majors.js";
+import { Championship, ChampionshipPlacements, ChampionshipTops } from "./a-championship.js";
 const menuList = document.getElementById("menuList")
 menuList.style.maxHeight = "0px";
 function toggleMenu(){
@@ -23,9 +22,8 @@ const menu_button = document.getElementById('menuButton');
 menu_button.addEventListener('click', function() {toggleMenu()});
 
 // Stats Page
-const currentSeason = document.getElementById('current_data');
-const playerTable = document.getElementById('player_data_table');
-const teamTable = document.getElementById('team_data_table');
+// const playerTable = document.getElementById('player_data_table');
+// const teamTable = document.getElementById('team_data_table');
 const playerTableHeader = `
 <tr>
   <th colspan="11">Player Data</th>
@@ -42,27 +40,26 @@ const teamTableHeader = `
   <th colspan="11">Team Data</th>
 </tr>
 <tr>
-  <th colspan="3" style="border-bottom: solid #ff0000 2px;">Team</th><th colspan="7" style="border-bottom: solid #001aff 2px;">Team Stats Total</th>
+  <th colspan="2" style="border-bottom: solid #ff0000 2px;">Team</th><th colspan="3" style="border-bottom: solid #48ff00 2px;">Season Standings</th><th colspan="8" style="border-bottom: solid #001aff 2px;">Team Stats Per Game</th>
 </tr>
 <tr>
-  <th>Team Name</th><th>Region</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th><th># of players</th>
+  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th><th># of players</th>
 </tr>
 `
 // Regional/Major/Championship pages
-const tops = ['score', 'goals', 'assists', 'saves', 'shots']
-const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
+
 
 
 // Site Wide
 export const path = `/RLCS-${year}-Fantasy-Website`
-export const path1 = ``
+export const path1 = ``// used for Mac dev
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/index.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     document.getElementById('titleYear').innerHTML = `RLCS Fantasy ${year}`
     console.log('Index page has loaded!');
     deployPrize(prizes)
-    determineScore(Regional1, Regional2, Regional3, Major1, Regional4, Regional5, Regional6, Major2, Championship)
+    determineScore()
     deployScores()
   } else if (window.location.pathname === `${path}/regional_1.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
@@ -115,13 +112,14 @@ window.addEventListener('load', function() {
   } else if (window.location.pathname === `${path}/championship.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Championship page has loaded!');
-    determineScore(Regional1, Regional2, Regional3, Major1, Regional4, Regional5, Regional6, Major2, Championship)
+    determineScore()
     deployChamp(champRounds, splitSums)
     deployChampPlacements(ChampionshipPlacements)
     deployTops(ChampionshipTops)
   } else if (window.location.pathname === `${path}/teams_rankings.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Rankings page has loaded!');
+    determineSeasonPoints()
     deploySplitPoints(split1, 1)
     deploySplitPoints(split2, 2)
     deploySplitQuals(split1QualifiedTeams, 1)
@@ -129,32 +127,26 @@ window.addEventListener('load', function() {
     deploySplitQuals(championshipQualifiedTeams, 3)
   } else if (window.location.pathname === `${path}/players_stats.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
+    const playerFilter = document.getElementById('playerStats')
+    playerFilter.addEventListener('change', handleDropdownPlayerChange);
+    populatePlayersTable('player_data_table')
     console.log('Player Stats page has loaded!');
-    populatePlayersTable(players, 'player_data_table')
-    populateTeamsTable(teams, 'team_data_table', playersPrevious)
-    console.log('Current data loaded');
+  } else if (window.location.pathname === `${path}/teams_stats.html`) {
+    document.getElementById('year').innerHTML = `RLCS ${year}`
 
-    previous.addEventListener('click', function() {
-      playerTable.innerHTML = playerTableHeader;
-      teamTable.innerHTML = teamTableHeader;
-      populatePlayersTable(playersPrevious, 'player_data_table')
-      populateTeamsTable(teamsPrevious, 'team_data_table', playersPrevious)
-      console.log('Season Data loaded');
-    });
-    
-    currentSeason.addEventListener('click', function() {
-      playerTable.innerHTML = playerTableHeader;
-      teamTable.innerHTML = teamTableHeader;
-      populatePlayersTable(players, 'player_data_table')
-      populateTeamsTable(teams, 'team_data_table', players)
-      console.log('Season Data loaded');
-    });
+    const teamFilter = document.getElementById('teamStats')
+    teamFilter.addEventListener('change', handleDropdownTeamChange);
+
+    determineSeasonPoints()
+    populateTeamsTable('team_data_table')
+
+    console.log('Team Stats page has loaded!');
   } else if (window.location.pathname === `${path}/info.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Info page has loaded!');
     document.getElementById('numOfTeams').innerHTML = members.length
     document.getElementById('amount_added').innerHTML = "$" + amtAdded
-    deployPrizePoolInfo(amountPerMajor, amountForChampionship)
+    deployPrizePoolInfo()
     deployPointsInfo()
     determineSpread()
   } else {
@@ -163,6 +155,8 @@ window.addEventListener('load', function() {
 });
 
 
+const amountPerMajor = ((amtAdded*dist[1])+majorPrize)/2;
+const amountForChampionship = (amtAdded*dist[2])+champPrize;
 
 const points = {
     'playin' : [200, 300],
@@ -177,10 +171,14 @@ const semiFinal = 6
 const qualify = 4
 const final = 3
 
+const tops = ['score', 'goals', 'assists', 'saves', 'shots']
+const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
 let playinTotal = points['playin'][0]*semiFinal + points['playin'][1]*qualify
 let groupATotal = points['groupA'][0]*semiFinal + points['groupA'][1]*qualify
 let groupBTotal = points['groupB'][0]*semiFinal + points['groupB'][1]*qualify
 let playoffTotal = points['playoff'][0]*semiFinal + points['playoff'][1]*final
+let majorTotal = (playinTotal + groupATotal + groupBTotal + playoffTotal)*3
+let champTotal = (playinTotal + groupATotal + groupBTotal + playoffTotal)*5
 let totals = [
     {name: "Play-In", event: 'playin', total: playinTotal},
     {name: "Group A", event: 'groupA', total: groupATotal},
@@ -189,31 +187,146 @@ let totals = [
 ]
 
 
-function determineScore(reg1, reg2, reg3, maj1, reg4, reg5, reg6, maj2, champ){
+function handleDropdownPlayerChange(event){
+  console.log('changing sort to ' + event.target.value)
+  if(event.target.value === 'availability'){
+    players.sort((a, b) => b.availability - a.availability)
+    populatePlayersTable('player_data_table')
+  } else if(event.target.value === 'region'){
+    players.sort((a, b) => a.region - b.region)
+    populatePlayersTable('player_data_table')
+  } else if(event.target.value === 'rating'){
+    players.sort((a, b) => b.rating - a.rating)
+    populatePlayersTable('player_data_table')
+  } else if(event.target.value === 'winPerc'){
+    players.sort((a, b) => b.winPerc - a.winPerc)
+    populatePlayersTable('player_data_table')
+  } else if(event.target.value === 'score'){
+    players.sort((a, b) => b.score - a.score)
+    populatePlayersTable('player_data_table')
+  } else if(event.target.value === 'goals'){
+    players.sort((a, b) => b.goals - a.goals)
+    populatePlayersTable('player_data_table')
+  } else if(event.target.value === 'assists'){
+    players.sort((a, b) => b.assists - a.assists)
+    populatePlayersTable('player_data_table')
+  } else if(event.target.value === 'saves'){
+    players.sort((a, b) => b.saves - a.saves)
+    populatePlayersTable('player_data_table')
+  } else if(event.target.value === 'shots'){
+    players.sort((a, b) => b.shots - a.shots)
+    populatePlayersTable('player_data_table')
+  }
+}
+function handleDropdownTeamChange(event){
+  console.log('changing sort to ' + event.target.value)
+  if(event.target.value === 'region'){
+    teams.sort((a, b) => a.region - b.region)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'split1'){
+    teams.sort((a, b) => b.split1Pts - a.split1Pts)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'split2'){
+    teams.sort((a, b) => b.split2Pts - a.split2Pts)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'seasonTotal'){
+    teams.sort((a, b) => b.totalSeasonPts - a.totalSeasonPts)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'rating'){
+    teams.sort((a, b) => b.rating - a.rating)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'winPerc'){
+    teams.sort((a, b) => b.winPerc - a.winPerc)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'score'){
+    teams.sort((a, b) => b.score - a.score)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'goals'){
+    teams.sort((a, b) => b.goals - a.goals)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'assists'){
+    teams.sort((a, b) => b.assists - a.assists)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'saves'){
+    teams.sort((a, b) => b.saves - a.saves)
+    populateTeamsTable('team_data_table')
+  } else if(event.target.value === 'shots'){
+    teams.sort((a, b) => b.shots - a.shots)
+    populateTeamsTable('team_data_table')
+  }
+}
+function determineSeasonPoints() {
+  teams.forEach((id) => {
+    regions.forEach((reg) => {
+        const regional1Teams = Regional1Placements[reg];
+        const team1Index = regional1Teams.indexOf(id.name);
+        if (team1Index !== -1) {
+          id.split1Pts += split1['Regional'][team1Index];
+        }
+        const regional2Teams = Regional2Placements[reg];
+        const team2Index = regional2Teams.indexOf(id.name);
+        if (team2Index !== -1) {
+          id.split1Pts += split1['Regional'][team2Index];
+        }
+        const regional3Teams = Regional3Placements[reg];
+        const team3Index = regional3Teams.indexOf(id.name);
+        if (team3Index !== -1) {
+          id.split1Pts += split1['Regional'][team3Index];
+        }
+        const regional4Teams = Regional4Placements[reg];
+        const team4Index = regional4Teams.indexOf(id.name);
+        if (team4Index !== -1) {
+          id.split2Pts += split2['Regional'][team4Index];
+        }
+        const regional5Teams = Regional5Placements[reg];
+        const team5Index = regional5Teams.indexOf(id.name);
+        if (team5Index !== -1) {
+          id.split2Pts += split2['Regional'][team5Index];
+        }
+        const regional6Teams = Regional6Placements[reg];
+        const team6Index = regional6Teams.indexOf(id.name);
+        if (team6Index !== -1) {
+          id.split2Pts += split2['Regional'][team6Index];
+        }
+    });
+    const major1Teams = Major1Placements['Major'];
+    const team7Index = major1Teams.indexOf(id.name);
+    if (team7Index !== -1) {
+      id.split1Pts += split1['Major'][team7Index];
+    }
+    const major2Teams = Major2Placements['Major'];
+    const team8Index = major2Teams.indexOf(id.name);
+    if (team8Index !== -1) {
+      id.split2Pts += split2['Major'][team8Index];
+    }
+    id.totalSeasonPts += id.split1Pts + id.split2Pts;
+  });
+}
+function determineScore(){
   members.forEach((id)=>{
-    champRounds[id.shortname][0] = champ[`${id.shortname}`][0] * points['playin'][0] + champ[`${id.shortname}`][1] * points['playin'][1] //First number is the correct amount they guess
-    champRounds[id.shortname][1] = champ[`${id.shortname}`][2] * points['groupA'][0] + champ[`${id.shortname}`][3] * points['groupA'][1] //Second number is the points worth per guess
-    champRounds[id.shortname][2] = champ[`${id.shortname}`][4] * points['groupB'][0] + champ[`${id.shortname}`][5] * points['groupB'][1]
-    champRounds[id.shortname][3] = champ[`${id.shortname}`][6] * points['playoff'][0] + champ[`${id.shortname}`][7] * points['playoff'][1]
-    for (let i = 3; i < reg1[id.shortname].length; i += 4) {
-      EventSums[id.shortname][0] += reg1[id.shortname][i]; //Regional sum of all your players
-      EventSums[id.shortname][1] += reg2[id.shortname][i];
-      EventSums[id.shortname][2] += reg3[id.shortname][i];
-      EventSums[id.shortname][3] += reg4[id.shortname][i];
-      EventSums[id.shortname][4] += reg5[id.shortname][i];
-      EventSums[id.shortname][5] += reg6[id.shortname][i];
+    champRounds[id.shortname][0] = Championship[`${id.shortname}`][0] * points['playin'][0] + Championship[`${id.shortname}`][1] * points['playin'][1] //First number is the correct amount they guess
+    champRounds[id.shortname][1] = Championship[`${id.shortname}`][2] * points['groupA'][0] + Championship[`${id.shortname}`][3] * points['groupA'][1] //Second number is the points worth per guess
+    champRounds[id.shortname][2] = Championship[`${id.shortname}`][4] * points['groupB'][0] + Championship[`${id.shortname}`][5] * points['groupB'][1]
+    champRounds[id.shortname][3] = Championship[`${id.shortname}`][6] * points['playoff'][0] + Championship[`${id.shortname}`][7] * points['playoff'][1]
+    for (let i = 3; i < Regional1[id.shortname].length; i += 4) {
+      EventSums[id.shortname][0] += Regional1[id.shortname][i]; //Regional sum of all your players
+      EventSums[id.shortname][1] += Regional2[id.shortname][i];
+      EventSums[id.shortname][2] += Regional3[id.shortname][i];
+      EventSums[id.shortname][3] += Regional4[id.shortname][i];
+      EventSums[id.shortname][4] += Regional5[id.shortname][i];
+      EventSums[id.shortname][5] += Regional6[id.shortname][i];
     }
     // Adding Multipliers to Major 1, 2, and championship
-    maj1[id.shortname][0] = maj1[id.shortname][0]*3
-    maj2[id.shortname][0] = maj2[id.shortname][0]*3
+    Major1[id.shortname][0] = Major1[id.shortname][0]*3
+    Major2[id.shortname][0] = Major2[id.shortname][0]*3
     // Adding each split event up into one sum for prize distribution
-    splitSums[id.shortname][0] = EventSums[id.shortname][0] + EventSums[id.shortname][1] + EventSums[id.shortname][2] + maj1[id.shortname][0] //Split 1 Total
-    splitSums[id.shortname][1] = EventSums[id.shortname][3] + EventSums[id.shortname][4] + EventSums[id.shortname][5] + maj2[id.shortname][0] //Split 2 Total
+    splitSums[id.shortname][0] = EventSums[id.shortname][0] + EventSums[id.shortname][1] + EventSums[id.shortname][2] + Major1[id.shortname][0] //Split 1 Total
+    splitSums[id.shortname][1] = EventSums[id.shortname][3] + EventSums[id.shortname][4] + EventSums[id.shortname][5] + Major2[id.shortname][0] //Split 2 Total
     splitSums[id.shortname][2] = (champRounds[id.shortname][0] + champRounds[id.shortname][1] + champRounds[id.shortname][2] + champRounds[id.shortname][3])*5 //Total of all championship rounds
     splitSums[id.shortname][3] = splitSums[id.shortname][0] + splitSums[id.shortname][1] + splitSums[id.shortname][2] // Grand Total
     // Deploying scores to the array of playerScores Objects
-    playerScores[id.shortname] = [EventSums[id.shortname][0], EventSums[id.shortname][1], EventSums[id.shortname][2], maj1[id.shortname][0], splitSums[id.shortname][0], 
-                                  EventSums[id.shortname][3], EventSums[id.shortname][4], EventSums[id.shortname][5], maj2[id.shortname][0], splitSums[id.shortname][1], splitSums[id.shortname][2], splitSums[id.shortname][3]];
+    playerScores[id.shortname] = [EventSums[id.shortname][0], EventSums[id.shortname][1], EventSums[id.shortname][2], Major1[id.shortname][0], splitSums[id.shortname][0], 
+                                  EventSums[id.shortname][3], EventSums[id.shortname][4], EventSums[id.shortname][5], Major2[id.shortname][0], splitSums[id.shortname][1], splitSums[id.shortname][2], splitSums[id.shortname][3]];
   })
 }
 function determineSpread(){
@@ -229,7 +342,45 @@ function determineSpread(){
       spread[i] += spreadToAdd;
   }
 }
-function deployPrizePoolInfo(major, champ){
+function determineTeamStats(){
+  const weight = [
+    {region: "EU", weight: 1},
+    {region: "NA", weight: 1},
+    {region: "OCE", weight: .8},
+    {region: "SAM", weight: .9},
+    {region: "MENA", weight: .9},
+    {region: "APAC", weight: .7},
+    {region: "SSA", weight: .6},
+  ]
+  teams.forEach((id) =>{
+    if(id.gp > 0){
+      id.winPerc = (id.wins/id.gp*100).toFixed(2)
+      if(id.region != ""){
+        let base = id.goals + id.assists + id.saves + id.saves + (id.score/100)
+        const regionWeight = weight.find(weight => weight.region === id.region)
+        id.rating = (base * id.winPerc/100 * regionWeight.weight).toFixed(0)
+        console.log(id.name + " " + id.rating)
+      } else {
+        let base = id.goals + id.assists + id.saves + id.saves + (id.score/100)
+        id.rating = (base * id.winPerc/100 * .5).toFixed(0)
+        console.log(id.name + " " + id.rating)
+      }
+    } else {
+      id.winPerc = 50
+      if(id.region != ""){
+        let base = id.goals + id.assists + id.saves + id.saves + (id.score/100)
+        const regionWeight = weight.find(weight => weight.region === id.region)
+        id.rating = (base * id.winPerc/100 * regionWeight.weight).toFixed(0)
+        console.log(id.name + " " + id.rating)
+      } else {
+        let base = id.goals + id.assists + id.saves + id.saves + (id.score/100)
+        id.rating = (base * id.winPerc/100 * .5).toFixed(0)
+        console.log(id.name + " " + id.rating)
+      }
+    }
+  })
+}
+function deployPrizePoolInfo(){
     for (let i = 0; i < members.length; i ++){
         const tableBody = document.getElementById('prize_pool');
         const newRow = document.createElement('tr');
@@ -239,8 +390,8 @@ function deployPrizePoolInfo(major, champ){
         const percOfPP = document.createElement('td');
         place.textContent = i+1
         if (i < members.length){
-            majorPerc.textContent = "$" + (spread[i] * major).toFixed(2)
-            championshipPerc.textContent = "$" + (spread[i] * champ).toFixed(2)
+            majorPerc.textContent = "$" + (spread[i] * amountPerMajor).toFixed(2)
+            championshipPerc.textContent = "$" + (spread[i] * amountForChampionship).toFixed(2)
             percOfPP.textContent = (spread[i]*100).toFixed(2) + "%"
         } else {
             majorPerc.textContent = 0
@@ -265,8 +416,8 @@ function deployPrizePoolInfo(major, champ){
     let totalChamp = 0
     let totalPerc = 0
     for (let i = 0; i < 16; i ++){
-        totalMajor += spread[i] * major
-        totalChamp += spread[i] * champ
+        totalMajor += spread[i] * amountPerMajor
+        totalChamp += spread[i] * amountForChampionship
         totalPerc += spread[i]
     }
     
@@ -319,13 +470,15 @@ function deployPointsInfo(){
     
     round1.textContent = "Major Multiplier"
     quarter1.textContent = "3X"
+    quarter1.style = 'text-align: left;'
     qualified1.textContent = "Total Major Points"
-    totalPoints1.textContent = 0
+    totalPoints1.textContent = majorTotal
 
     round.textContent = "Championship Multiplier"
     quarter.textContent = "5X"
+    quarter.style = 'text-align: left;'
     qualified.textContent = "Total Championship Points"
-    totalPoints.textContent = 0
+    totalPoints.textContent = champTotal
 
     newRow1.appendChild(round1);
     newRow1.appendChild(quarter1);
@@ -373,9 +526,7 @@ function deployReg(event){
     teamName.id = id.shortname
     tableBody.appendChild(newRow);
     newRow.appendChild(teamName);
-    for (let i = 0; i < event[id.shortname].length; i += 4){
-      event[id.shortname][i+1] = getTeam(players, event[id.shortname][i])
-      event[id.shortname][i+2] = getRegion(players, event[id.shortname][i])
+    for (let i = 0; i < event[id.shortname].length; i += 2){
       const tableBody = document.getElementById('regionalScoreCard');
       const newRow = document.createElement('tr');
       const playerLink = document.createElement('a');
@@ -384,7 +535,6 @@ function deployReg(event){
       const Team = document.createElement('td');
       const Region = document.createElement('td');
       const Points = document.createElement('td');
-      const teamShort = getTeamShort(event[id.shortname][i+1])
 
       Player.id = id.shortname
       Team.id = id.shortname
@@ -393,11 +543,11 @@ function deployReg(event){
 
       playerLink.textContent = event[id.shortname][i]
       playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.shortname][i])}`
-      teamLink.textContent = event[id.shortname][i+1]
-      teamLink.href = `${path}/profile.html?name=${encodeURIComponent(teamShort)}`
+      teamLink.textContent = getPlayerDetails(event[id.shortname][i])[1]
+      teamLink.href = `${path}/profile.html?name=${encodeURIComponent(teamLink.textContent)}`
 
-      Region.textContent = event[id.shortname][i+2]
-      Points.textContent = event[id.shortname][i+3]
+      Region.textContent = getPlayerDetails(event[id.shortname][i])[0]
+      Points.textContent = event[id.shortname][i+1]
 
       Player.appendChild(playerLink)
       Team.appendChild(teamLink)
@@ -419,14 +569,13 @@ function deployRegPlacements(event, pointsArray){
     for (let i = 0; i < 16; i ++){
       const tableBody = document.getElementById(`${id}`);
       const newRow = document.createElement('tr');
-      const newLink = document.createElement('a');
+      const teamLink = document.createElement('a');
       const team = document.createElement('td');
       const pts = document.createElement('td');
 
-      newLink.textContent = event[id][i]
-      team.id = getTeamShort(event[id][i])
-      newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.id)}`
-      team.appendChild(newLink)
+      teamLink.textContent = event[id][i]
+      teamLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id][i])}`
+      team.appendChild(teamLink)
 
       pts.textContent = pointsArray['Regional'][i]
       pts.id = 'points'
@@ -460,14 +609,14 @@ function deployMajPlacements(event, pointsArray){
   for (let i = 0; i < 16; i ++){
     const tableBody = document.getElementById('Major-placements');
     const newRow = document.createElement('tr');
-    const newLink = document.createElement('a');
+    const teamLink = document.createElement('a');
     const team = document.createElement('td');
     const pts = document.createElement('td');
 
-    team.id = getTeamShort(event['Major'][i])
-    newLink.textContent = event['Major'][i]
-    newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.id)}`
-    team.appendChild(newLink)
+    team.id = (getTeamDetails(event['Major'][i])[4]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
+    teamLink.textContent = event['Major'][i]
+    teamLink.href = `${path}/profile.html?name=${encodeURIComponent(event['Major'][i])}`
+    team.appendChild(teamLink)
     
     pts.textContent = pointsArray['Major'][i]
     pts.id = 'points'
@@ -519,14 +668,14 @@ function deployChampPlacements(event){
   for (let i = 0; i < 40; i += 2){
     const tableBody = document.getElementById('champ-placements');
     const newRow = document.createElement('tr');
-    const newLink = document.createElement('a');
+    const teamLink = document.createElement('a');
     const place = document.createElement('td');
     const team = document.createElement('td');
 
-    team.id = getTeamShort(event['Champ'][i+1])
-    newLink.textContent = event['Champ'][i+1]
-    newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.id)}`
-    team.appendChild(newLink)
+    team.id = (getTeamDetails(event['Champ'][i+1])[4]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
+    teamLink.textContent = event['Champ'][i+1]
+    teamLink.href = `${path}/profile.html?name=${encodeURIComponent(event['Champ'][i+1])}`
+    team.appendChild(teamLink)
     
     place.textContent = event['Champ'][i]
     place.id = 'points'
@@ -634,17 +783,34 @@ function deployScores(){
     tableBody.appendChild(newRow);
   })
 }
-function getRegion(playerData, searchTerm) {
-  const player = playerData.find(player => player.name === searchTerm);
-  return player ? player.region : null;
+function getPlayerDetails(searchTerm){
+  const player = players.find(player => player.name === searchTerm);
+
+  if (!player) {
+    return []; // Or handle the case where no team is found
+  }
+
+  const details = [
+    player.region || 'N/A',
+    player.team || 'N/A'
+  ];
+  return details;
 }
-function getTeam(playerData, searchTerm) {
-  const player = playerData.find(player => player.name === searchTerm);
-  return player ? player.team : null;
-}
-function getTeamShort(searchTerm){
-  const short = teams.find(team => team.name === searchTerm);
-  return short ? short.shortname : null;
+function getTeamDetails(searchTerm){
+  const team = teams.find(team => team.name === searchTerm);
+
+  if (!team) {
+    return []; // Or handle the case where no team is found
+  }
+
+  const details = [
+    team.region || 'N/A',
+    team.split1Pts,
+    team.split2Pts,
+    team.totalSeasonPts,
+    team.name
+  ];
+  return details;
 }
 function deploySplitPoints(event, index){
   for(let i = 0; i < 16; i++){
@@ -666,17 +832,26 @@ function deploySplitQuals(event, index){
   event.forEach((id) =>{
     const tableBody = document.getElementById(`split${index}quals`);
     const newRow = document.createElement('tr');
-    const newLink = document.createElement('a');
+    const teamLink = document.createElement('a');
     const region = document.createElement('td');
     const team = document.createElement('td');
     const pts = document.createElement('td');
 
-    region.textContent = id.region
-    team.id = getTeamShort(id.team)
-    newLink.textContent = id.team;
-    newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.id)}`;
-    pts.textContent = id.points
-    team.appendChild(newLink);
+    region.textContent = getTeamDetails(id)[0]
+    team.id = (getTeamDetails(id)[4]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
+    teamLink.textContent = id;
+    teamLink.href = `${path}/profile.html?name=${encodeURIComponent(getTeamDetails(id)[4])}`;
+    if (event === split1QualifiedTeams){
+      console.log('Split 1')
+      pts.textContent = getTeamDetails(id)[1]
+    } else if(event === split2QualifiedTeams){
+      console.log('Split 2')
+      pts.textContent = getTeamDetails(id)[2]
+    } else if (event === championshipQualifiedTeams){
+      console.log('Championship')
+      pts.textContent = getTeamDetails(id)[3]
+    }
+    team.appendChild(teamLink);
 
     newRow.appendChild(region);
     newRow.appendChild(team);
@@ -685,51 +860,55 @@ function deploySplitQuals(event, index){
     tableBody.appendChild(newRow);
   })
 }
-function populatePlayersTable(playersArray, tableBodyId) {
+function populatePlayersTable(tableBodyId) {
   const tableBody = document.getElementById(tableBodyId);
-  playersArray.forEach((player) => {
-    if (player.availability != "No"){
+  tableBody.innerHTML = '';
+  tableBody.innerHTML = playerTableHeader
+  players.forEach((id) => {
+    if (id.availability != "0"){
       const newRow = document.createElement('tr');
       const nameCell = document.createElement('td');
       const nameLink = document.createElement('a');
-      const watchID = player.watch.toLowerCase()
+      const watchID = id.watch.toLowerCase()
       const availCell = document.createElement('td');
-      const availID = player.availability.toLowerCase();
+      const availID = id.availability.toLowerCase();
       const regionCell = document.createElement('td');
-      const regionID = player.region.toLowerCase();
+      const regionID = id.region.toLowerCase();
       const ratingCell = document.createElement('td');
       const teamCell = document.createElement('td');
-      const newLink = document.createElement('a');
+      const teamLink = document.createElement('a');
       const winPercCell = document.createElement('td');
       const scoreCell = document.createElement('td');
       const goalsCell = document.createElement('td');
       const assistsCell = document.createElement('td');
       const savesCell = document.createElement('td');
       const shotsCell = document.createElement('td');
-      const teamId = player.shortname;
+      const teamId = (id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","");
       
       newRow.classList.add('player-data');
 
-      nameLink.href = `${path}/profile.html?name=${encodeURIComponent(player.name)}`;
-      newLink.href = `${path}/profile.html?name=${encodeURIComponent(player.shortname)}`;
+      nameLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`;
+      if (id.team != "F/A" && id.team != "TBD"){
+        teamLink.href = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
+      }
       
       nameCell.id = watchID;
       availCell.id = availID;
       regionCell.id = regionID;
       teamCell.id = teamId;
       
-      nameLink.textContent = player.name;
-      availCell.textContent = player.availability;
-      regionCell.textContent = player.region;
-      ratingCell.textContent = player.rating;
-      newLink.textContent = player.team;
-      winPercCell.textContent = player.winPerc + "%";
-      if (player.gp != 0){
-        scoreCell.textContent = (player.score/player.gp).toFixed(0);
-        goalsCell.textContent = (player.goals/player.gp).toFixed(2);
-        assistsCell.textContent = (player.assists/player.gp).toFixed(2);
-        savesCell.textContent = (player.saves/player.gp).toFixed(2);
-        shotsCell.textContent = (player.shots/player.gp).toFixed(2);
+      nameLink.textContent = id.name;
+      availCell.textContent = id.availability;
+      regionCell.textContent = id.region;
+      ratingCell.textContent = id.rating;
+      teamLink.textContent = id.team;
+      winPercCell.textContent = id.winPerc + "%";
+      if (id.gp != 0){
+        scoreCell.textContent = (id.score/id.gp).toFixed(0);
+        goalsCell.textContent = (id.goals/id.gp).toFixed(2);
+        assistsCell.textContent = (id.assists/id.gp).toFixed(2);
+        savesCell.textContent = (id.saves/id.gp).toFixed(2);
+        shotsCell.textContent = (id.shots/id.gp).toFixed(2);
       } else {
         scoreCell.textContent = 0
         goalsCell.textContent = 0
@@ -743,7 +922,7 @@ function populatePlayersTable(playersArray, tableBodyId) {
       newRow.appendChild(availCell);
       newRow.appendChild(regionCell);
       newRow.appendChild(ratingCell);
-      teamCell.appendChild(newLink);
+      teamCell.appendChild(teamLink);
       newRow.appendChild(teamCell);
       newRow.appendChild(winPercCell);
       newRow.appendChild(scoreCell);
@@ -756,14 +935,17 @@ function populatePlayersTable(playersArray, tableBodyId) {
     }
   });
 }
-function populateTeamsTable(teamsArray, tableBodyId, playersArray) {
+function populateTeamsTable(tableBodyId) {
+  determineTeamStats()
   const tableBody = document.getElementById(tableBodyId);
-    teamsArray.forEach((team, index) => {
+  tableBody.innerHTML = '';
+  tableBody.innerHTML = teamTableHeader
+    teams.forEach((id, index) => {
       const newRow = document.createElement('tr');
       const teamCell = document.createElement('td');
-      const newLink = document.createElement('a');
-      const teamId = team.shortname;
-      const regionID = team.region.toLowerCase();
+      const teamLink = document.createElement('a');
+      const teamId = (id.name).toLowerCase().replaceAll(" ","_").replaceAll(".","");
+      const regionID = id.region.toLowerCase();
       const regionCell = document.createElement('td');
       const S1points = document.createElement('td');
       const S2points = document.createElement('td');
@@ -775,14 +957,14 @@ function populateTeamsTable(teamsArray, tableBodyId, playersArray) {
       const assistsCell = document.createElement('td');
       const savesCell = document.createElement('td');
       const shotsCell = document.createElement('td');
-      const playersOnTeam = playersArray.filter(p => p.shortname === team.shortname);
+      const playersOnTeam = players.filter(p => p.team === id.name);
       const numOfPlayersCell = document.createElement('td');
       let countOfPlayers = 0
 
       newRow.classList.add('player-data');
       newRow.setAttribute('data-player', `player${index + 1}`);
-      newLink.textContent = team.name;
-      newLink.href = `${path}/profile.html?name=${encodeURIComponent(team.shortname)}`;
+      teamLink.textContent = id.name;
+      teamLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`;
       
       playersOnTeam.forEach((player) => {
           if(player){
@@ -791,22 +973,24 @@ function populateTeamsTable(teamsArray, tableBodyId, playersArray) {
           }
     })
 
-    teamCell.appendChild(newLink);
+    teamCell.appendChild(teamLink);
     teamCell.id = teamId;
-    regionCell.textContent = team.region;
+    regionCell.textContent = id.region;
     regionCell.id = regionID;
-    S1points.textContent = team.split1Pts;
-    S2points.textContent = team.split2Pts;
-    seasonPoints.textContent = team.totalSeasonPts;
-    ratingCell.textContent = team.rating;
-    winPercCell.textContent = team.winPerc;
+    if (id.name != "TBD"){
+      S1points.textContent = id.split1Pts;
+      S2points.textContent = id.split2Pts;
+      seasonPoints.textContent = id.totalSeasonPts;
+    }
+    ratingCell.textContent = id.rating;
+    winPercCell.textContent = id.winPerc;
     numOfPlayersCell.textContent = countOfPlayers;
-    if (team.gp != 0) {
-      scoreCell.textContent = (team.score/team.gp).toFixed(0);
-      goalsCell.textContent = (team.goals/team.gp).toFixed(2);
-      assistsCell.textContent = (team.assists/team.gp).toFixed(2);
-      savesCell.textContent = (team.saves/team.gp).toFixed(2);
-      shotsCell.textContent = (team.shots/team.gp).toFixed(2);
+    if (id.gp != 0) {
+      scoreCell.textContent = (id.score/id.gp).toFixed(0);
+      goalsCell.textContent = (id.goals/id.gp).toFixed(2);
+      assistsCell.textContent = (id.assists/id.gp).toFixed(2);
+      savesCell.textContent = (id.saves/id.gp).toFixed(2);
+      shotsCell.textContent = (id.shots/id.gp).toFixed(2);
     }  else {
       scoreCell.textContent = 0
       goalsCell.textContent = 0
@@ -814,22 +998,21 @@ function populateTeamsTable(teamsArray, tableBodyId, playersArray) {
       savesCell.textContent = 0
       shotsCell.textContent = 0
     }
-
-    newRow.appendChild(teamCell);
-    newRow.appendChild(regionCell);
-    newRow.appendChild(S1points);
-    newRow.appendChild(S2points);
-    newRow.appendChild(seasonPoints);
-    newRow.appendChild(ratingCell);
-    newRow.appendChild(winPercCell);
-    newRow.appendChild(scoreCell);
-    newRow.appendChild(goalsCell);
-    newRow.appendChild(assistsCell);
-    newRow.appendChild(savesCell);
-    newRow.appendChild(shotsCell);
-    newRow.appendChild(numOfPlayersCell);
-
-    // Add the newly created row to the table body
-    tableBody.appendChild(newRow);
+    if (numOfPlayersCell.textContent > 0){
+      newRow.appendChild(teamCell);
+      newRow.appendChild(regionCell);
+      newRow.appendChild(S1points);
+      newRow.appendChild(S2points);
+      newRow.appendChild(seasonPoints);
+      newRow.appendChild(ratingCell);
+      newRow.appendChild(winPercCell);
+      newRow.appendChild(scoreCell);
+      newRow.appendChild(goalsCell);
+      newRow.appendChild(assistsCell);
+      newRow.appendChild(savesCell);
+      newRow.appendChild(shotsCell);
+      newRow.appendChild(numOfPlayersCell);
+      tableBody.appendChild(newRow);
+    }
   });
 }
