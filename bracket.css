@@ -1,5 +1,5 @@
 /* Brackets */
-.brackets{display: flex;flex-wrap: wrap;justify-content: center; width: 100%;margin-top: 10px;margin-bottom: 10px;gap: 10px;}
+.brackets{display: flex;flex-wrap: wrap;justify-content: center; width: fit-content;margin-top: 10px;margin-bottom: 10px;gap: 10px;}
 .bracket_section {padding:20px 10px;width: fit-content;}
 .bracket_titles{text-align: center; margin-bottom: 10px;}
 
@@ -28,25 +28,27 @@
 .round-details {min-width:200px;color: #2C7399;text-transform: uppercase;text-align: center;}
 .date {font-size: 10px; letter-spacing: 2px;font-family: 'Istok Web', sans-serif;color:#3F915F;}
     
-#win {background-color: #248635;} /* id="win" */
-#lose {background-color: #9c2438;} /* id="lose" */
+#win {color: black;background-color: #4ceb46;padding: 5px;} /* id="win" */
+#lose {color: black;background-color: #e73535;padding: 5px;} /* id="lose" */
 
 /* Swiss */
-.swiss{height: fit-content;}
-.swiss_rounds{display: flex;}
-.swiss_bracket_team {padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;color: white;background-color: #1e1e2f;width: 150px;}
+.swiss_rounds{display: flex; flex-wrap: wrap;justify-content: center;}
+.swiss_bracket_team {padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;color: white;background-color: #1e1e2f;width: 300px;}
 .swiss_matchup{display: flex; margin: 0 2.5% 0 2.5%;}
-.empty_team{padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;color: white;background-color: #1e1e2f00;width: 190px;}
-.swiss_bracket_round {display:flex;flex-direction:column;margin-bottom: 10px;width: 300px;}
-#swiss-round-details{width:300px;color: #2C7399;text-transform: uppercase;text-align: center;}
-#round6 {width: 150px;}
-#round5 #swiss-round-details{padding-bottom: 45px;}
-#round6 #swiss-round-details{padding-bottom: 25px; width: 150px;}
+.empty_team{padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;color: white;background-color: #1e1e2f00;width: 400px;}
+.swiss_bracket_round {display:flex;flex-direction:column;margin-bottom: 10px;width: 400px;}
+#swiss-round-details{width:400px;color: #2C7399;text-transform: uppercase;text-align: center;}
+#round5 {width: 600px;}
+#round6 {width: 200px;}
+#round5 #swiss-round-details{padding-bottom: 45px; width: 600px;}
+#round6 #swiss-round-details{padding-bottom: 25px; width: 200px;}
 #round1{background-color: #2C7399;}
 #round1Upper{background-color: #3F915F;}
 #round1Lower{color: black; background-color: #d1d143;}
 #roundUpper{background-color: #3F915F;}
 #roundMiddle{color: black; background-color: #d1d143;}
 #roundLower{color: black; background-color: #d14343;}
-#qualified{color: black; background-color:#00ff62;}
-#disqualified{color: black; background-color:#ff0000;}
+#qualified{color: white; background-color:#006d05;}
+#disqualified{color: white; background-color:#5c0000;}
+
+#playinUpper{width: 600px;}
