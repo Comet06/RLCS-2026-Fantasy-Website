@@ -145,8 +145,8 @@ let playoffsSemi = [
   {team: '', verdict: '', score: 0},
 ]
 let playoffsQualify = [
-  {team: 'Team Falcons', verdict: 'lose', score: 1},//Grand Final
-  {team: 'NRG', verdict: 'win', score: 4},
+  {team: '', verdict: '', score: 0},//Grand Final
+  {team: '', verdict: '', score: 0},
 
   {team: '', verdict: '', score: 0},//Winner
 ]
@@ -190,5 +190,6 @@ export function ChampionshipBracket(){
   }
   document.getElementById(`winner`).innerHTML= `<span id="${playoffsQualify[2].verdict}">${playoffsQualify[2].team}</span>`;
 }
+
 
 
