@@ -7,7 +7,7 @@ import { Championship, ChampionshipPlacements, ChampionshipTops, ChampionshipBra
 const menuList = document.getElementById("menuList")
 menuList.style.maxHeight = "0px";
 function toggleMenu(){
-  if(menuList.style.maxHeight == "0px"){menuList.style.maxHeight = "600px";}
+  if(menuList.style.maxHeight == "0px"){menuList.style.maxHeight = "800px";}
   else{menuList.style.maxHeight = "0px";}
 }
 const menu_button = document.getElementById('menuButton');
@@ -718,8 +718,6 @@ function deployMajPlacements(event, pointsArray){
   }
 }
 function deployChamp(event, event2){
-  console.log('champ function working')
-  // ChampionshipBracket()
   members.forEach((id)=>{
     const tableBody = document.getElementById('championshipScoreCard');
     const newRow = document.createElement('tr');

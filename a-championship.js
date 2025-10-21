@@ -1,3 +1,4 @@
+
 export let Championship = {
   //(max): PISemi(6), PIQuals(4), GASemi(6), GAQuals(4), GBSemi(6), GBQuals(4), POSemi(8), POFinals(3)
   'come' : [0, 0, 0, 0, 0, 0, 0, 0],
@@ -22,8 +23,6 @@ export let ChampionshipTops = {
     'shots' :   ['', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0],
 }
 
-let Seeds = ['', '', '', '', //Uppers
-             '', '', '', ''] //lowers
 let playinQuarter = [
   {team: '', verdict: '', score: 0},
   {team: '', verdict: '', score: 0},
@@ -146,48 +145,50 @@ let playoffsSemi = [
   {team: '', verdict: '', score: 0},
 ]
 let playoffsQualify = [
-  {team: '', verdict: '', score: 0},//Grand Final
-  {team: '', verdict: '', score: 0},
+  {team: 'Team Falcons', verdict: 'lose', score: 1},//Grand Final
+  {team: 'NRG', verdict: 'win', score: 4},
 
   {team: '', verdict: '', score: 0},//Winner
 ]
 
 export function ChampionshipBracket(){
   for (let i = 0; i < 8; i ++){//Playins
-    document.getElementById(`puqt${i+1}`).innerHTML= `<span id="${playinQuarter[i].verdict}">${playinQuarter[i].team}</span>`;
+    document.getElementById(`puqt${i+1}`).innerHTML= `<span id="${playinQuarter[i].verdict}">${playinQuarter[i].team}</span><span class="score">${playinQuarter[i].score}</span>`;
   }
   for (let i = 0; i < 4; i ++){
-    document.getElementById(`plqt${i+1}`).innerHTML= `<span id="${playinQuarter[i+8].verdict}">${playinQuarter[i+8].team}</span>`;
-    document.getElementById(`pust${i+1}`).innerHTML= `<span id="${playinSemi[i].verdict}">${playinSemi[i].team}</span>`;
-    document.getElementById(`plst${i+1}`).innerHTML= `<span id="${playinSemi[i+4].verdict}">${playinSemi[i+4].team}</span>`;
-    document.getElementById(`pqt${i+1}`).innerHTML= `<span id="${playinQualify[i].verdict}">${playinQualify[i].team}</span>`;
+    document.getElementById(`plqt${i+1}`).innerHTML= `<span id="${playinQuarter[i+8].verdict}">${playinQuarter[i+8].team}</span><span class="score">${playinQuarter[i+8].score}</span>`;
+    document.getElementById(`pust${i+1}`).innerHTML= `<span id="${playinSemi[i].verdict}">${playinSemi[i].team}</span><span class"score">${playinSemi[i].score}</span>`;
+    document.getElementById(`plst${i+1}`).innerHTML= `<span id="${playinSemi[i+4].verdict}">${playinSemi[i+4].team}</span><span class"score">${playinSemi[i+4].score}</span>`;
+    document.getElementById(`pqt${i+1}`).innerHTML= `<span id="${playinQualify[i].verdict}">${playinQualify[i].team}</span><span class"score">${playinQualify[i].score}</span>`;
   }
   for (let i = 0; i < 8; i ++){//GroupA
-    document.getElementById(`gauqt${i+1}`).innerHTML= `<span id="${GroupAQuarter[i].verdict}">${GroupAQuarter[i].team}</span>`;
+    document.getElementById(`gauqt${i+1}`).innerHTML= `<span id="${GroupAQuarter[i].verdict}">${GroupAQuarter[i].team}</span><span class"score">${GroupAQuarter[i].score}</span>`;
   }
   for (let i = 0; i < 4; i ++){
-    document.getElementById(`galqt${i+1}`).innerHTML= `<span id="${GroupAQuarter[i+8].verdict}">${GroupAQuarter[i+8].team}</span>`;
-    document.getElementById(`gaust${i+1}`).innerHTML= `<span id="${GroupASemi[i].verdict}">${GroupASemi[i].team}</span>`;
-    document.getElementById(`galst${i+1}`).innerHTML= `<span id="${GroupASemi[i+4].verdict}">${GroupASemi[i+4].team}</span>`;
-    document.getElementById(`gaqt${i+1}`).innerHTML= `<span id="${GroupAQualify[i].verdict}">${GroupAQualify[i].team}</span>`;
+    document.getElementById(`galqt${i+1}`).innerHTML= `<span id="${GroupAQuarter[i+8].verdict}">${GroupAQuarter[i+8].team}</span><span class"score">${GroupAQuarter[i+8].score}</span>`;
+    document.getElementById(`gaust${i+1}`).innerHTML= `<span id="${GroupASemi[i].verdict}">${GroupASemi[i].team}</span><span class"score">${GroupASemi[i].score}</span>`;
+    document.getElementById(`galst${i+1}`).innerHTML= `<span id="${GroupASemi[i+4].verdict}">${GroupASemi[i+4].team}</span><span class"score">${GroupAQuarter[i+4].score}</span>`;
+    document.getElementById(`gaqt${i+1}`).innerHTML= `<span id="${GroupAQualify[i].verdict}">${GroupAQualify[i].team}</span><span class"score">${GroupAQualify[i].score}</span>`;
   }
   for (let i = 0; i < 8; i ++){//GroupB
-    document.getElementById(`gbuqt${i+1}`).innerHTML= `<span id="${GroupBQuarter[i].verdict}">${GroupBQuarter[i].team}</span>`;
+    document.getElementById(`gbuqt${i+1}`).innerHTML= `<span id="${GroupBQuarter[i].verdict}">${GroupBQuarter[i].team}</span><span class"score">${GroupBQuarter[i].score}</span>`;
   }
   for (let i = 0; i < 4; i ++){
-    document.getElementById(`gblqt${i+1}`).innerHTML=`<span id="${GroupBQuarter[i+8].verdict}">${GroupBQuarter[i+8].team}</span>`;
-    document.getElementById(`gbust${i+1}`).innerHTML=`<span id="${GroupBSemi[i].verdict}">${GroupBSemi[i].team}</span>`;
-    document.getElementById(`gblst${i+1}`).innerHTML=`<span id="${GroupBSemi[i+4].verdict}">${GroupBSemi[i+4].team}</span>`;
-    document.getElementById(`gbqt${i+1}`).innerHTML=`<span id="${GroupBQualify[i].verdict}">${GroupBQualify[i].team}</span>`;
+    document.getElementById(`gblqt${i+1}`).innerHTML=`<span id="${GroupBQuarter[i+8].verdict}">${GroupBQuarter[i+8].team}</span><span class"score">${GroupBQuarter[i+8].score}</span>`;
+    document.getElementById(`gbust${i+1}`).innerHTML=`<span id="${GroupBSemi[i].verdict}">${GroupBSemi[i].team}</span><span class"score">${GroupBSemi[i].score}</span>`;
+    document.getElementById(`gblst${i+1}`).innerHTML=`<span id="${GroupBSemi[i+4].verdict}">${GroupBSemi[i+4].team}</span><span class"score">${GroupBSemi[i+4].score}</span>`;
+    document.getElementById(`gbqt${i+1}`).innerHTML=`<span id="${GroupBQualify[i].verdict}">${GroupBQualify[i].team}</span><span class"score">${GroupBQualify[i].score}</span>`;
   }
   for (let i = 0; i < 4; i ++){//Playoffs
-    document.getElementById(`pouqt${i+1}`).innerHTML= `<span id="${playoffsQuarter[i].verdict}">${playoffsQuarter[i].team}</span>`;
-    document.getElementById(`porot${i+1}`).innerHTML= `<span id="${playoffsQuarter[i+4].verdict}">${playoffsQuarter[i+4].team}</span>`;
-    document.getElementById(`polqt${i+1}`).innerHTML= `<span id="${playoffsSemi[i].verdict}">${playoffsSemi[i].team}</span>`;
-    document.getElementById(`polst${i+1}`).innerHTML= `<span id="${playoffsSemi[i+4].verdict}">${playoffsSemi[i+4].team}</span>`;
+    document.getElementById(`pouqt${i+1}`).innerHTML= `<span id="${playoffsQuarter[i].verdict}">${playoffsQuarter[i].team}</span><span class"score">${playoffsQuarter[i].score}</span>`;
+    document.getElementById(`porot${i+1}`).innerHTML= `<span id="${playoffsQuarter[i+4].verdict}">${playoffsQuarter[i+4].team}</span><span class"score">${playoffsQuarter[i+4].score}</span>`;
+    document.getElementById(`polqt${i+1}`).innerHTML= `<span id="${playoffsSemi[i].verdict}">${playoffsSemi[i].team}</span><span class"score">${playoffsSemi[i].score}</span>`;
+    document.getElementById(`polst${i+1}`).innerHTML= `<span id="${playoffsSemi[i+4].verdict}">${playoffsSemi[i+4].team}</span><span class"score">${playoffsSemi[i+4].score}</span>`;
   }
   for (let i = 0; i < 2; i ++){
-    document.getElementById(`pogft${i+1}`).innerHTML=`<span id="${playoffsQualify[i].verdict}">${playoffsQualify[i].team}</span>`;
+    document.getElementById(`pogft${i+1}`).innerHTML=`<span id="${playoffsQualify[i].verdict}">${playoffsQualify[i].team}</span><span class"score">${playoffsQualify[i].score}</span>`;
   }
   document.getElementById(`winner`).innerHTML= `<span id="${playoffsQualify[2].verdict}">${playoffsQualify[2].team}</span>`;
 }
+
+

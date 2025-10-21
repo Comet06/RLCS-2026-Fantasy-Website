@@ -28,8 +28,8 @@
 .round-details {min-width:200px;color: #2C7399;text-transform: uppercase;text-align: center;}
 .date {font-size: 10px; letter-spacing: 2px;font-family: 'Istok Web', sans-serif;color:#3F915F;}
     
-#win {color: black;background-color: #4ceb46;padding: 5px;} /* id="win" */
-#lose {color: black;background-color: #e73535;padding: 5px;} /* id="lose" */
+#win {color: rgb(255, 255, 255);background-color: green;padding: 5px;} /* id="win" */
+#lose {color: black;background-color: red;padding: 5px;} /* id="lose" */
 
 /* Swiss */
 .swiss_rounds{display: flex; flex-wrap: wrap;justify-content: center;}

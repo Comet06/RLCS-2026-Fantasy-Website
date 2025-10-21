@@ -1,4 +1,5 @@
 export const year = '2026'
+export const currentEvent = 'Championship'
 export const members = [
   {name: 'Flip Lord', shortname: 'come'},
   {name: 'Doofenschmirtz inc.', shortname: 'squi'},
