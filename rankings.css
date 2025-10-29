@@ -1,0 +1,8 @@
+/* Rankings page */
+.rankings{display: flex;flex-wrap: wrap; justify-content: center; gap: 10px;}
+table{border: solid 2px black;border-spacing: 1px;width: 100%; background-color:#000063;}
+#split1{width: fit-content;}
+#split2{width: fit-content;}
+#split1quals{width: fit-content;}
+#split2quals{width: fit-content;}
+#split3quals{width: fit-content;}

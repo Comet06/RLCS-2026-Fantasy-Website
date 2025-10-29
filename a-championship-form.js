@@ -1,5 +1,5 @@
-const year = '2026'
-const path = `/RLCS-${year}-Fantasy-Website`
+import { path, year } from "./main.js"
+
 // Seeding Average of 2nd major starting seed and ending seed then region rank
 let PlayinTeams = [
     {team: 'Gen.G Mobil1 Racing', wins: 0, losses: 0, playinSeed: 1}, //Qualified seed 1
@@ -323,7 +323,7 @@ function injectPlayoffVerdicts(){
 }
 function win(positionWinner, positionLoser){
   const teamWinner = document.getElementById(positionWinner)
-  teamWinner.style = "color: white; background-color: green;"
+  teamWinner.id = "win"
   const teamLoser = document.getElementById(positionLoser)
-  teamLoser.style = "color: black; background-color: red;"
+  teamLoser.id = "lose"
 }

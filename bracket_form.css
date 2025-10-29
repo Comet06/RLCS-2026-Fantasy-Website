@@ -39,18 +39,17 @@
 .empty_team{padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;color: white;background-color: #1e1e2f00;width: 400px;}
 .swiss_bracket_round {display:flex;flex-direction:column;margin-bottom: 10px;width: 400px;}
 #swiss-round-details{width:400px;color: #2C7399;text-transform: uppercase;text-align: center;}
-.round5 {width: 600px;}
-.round6 {width: 200px;}
-.round5 #swiss-round-details{padding-bottom: 45px; width: 600px;}
-.round6 #swiss-round-details{padding-bottom: 25px; width: 200px;}
-
-.round1{background-color: #2C7399; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.round1Upper{background-color: #3F915F; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.round1Lower{color: black; background-color: #d1d143; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.roundUpper{background-color: #3F915F; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.roundMiddle{color: black; background-color: #d1d143; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.roundLower{color: black; background-color: #d14343; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.qualified{color: white; background-color:#006d05; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.disqualified{color: white; background-color:#5c0000; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+#round5 {width: 600px;}
+#round6 {width: 200px;}
+#round5 #swiss-round-details{padding-bottom: 45px; width: 600px;}
+#round6 #swiss-round-details{padding-bottom: 25px; width: 200px;}
+#round1{background-color: #2C7399; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+#round1Upper{background-color: #3F915F; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+#round1Lower{color: black; background-color: #d1d143; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+#roundUpper{background-color: #3F915F; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+#roundMiddle{color: black; background-color: #d1d143; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+#roundLower{color: black; background-color: #d14343; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+#qualified{color: white; background-color:#006d05; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+#disqualified{color: white; background-color:#5c0000; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
 
 #playinUpper{width: 600px;}

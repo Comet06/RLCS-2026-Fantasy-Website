@@ -1,0 +1,3 @@
+/* Home page Tables */
+.home_tables{margin:0 auto;width: fit-content;color: black; background-color: #e1e1e1e6;}
+.home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}

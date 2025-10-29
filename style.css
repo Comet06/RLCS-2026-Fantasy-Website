@@ -1,117 +1,48 @@
 /* Sitewide Styles */
 * {margin: 0;padding: 0;box-sizing: border-box;}
-body {width: 100vw; color: black;background-color:#e1e1e1e6;font-family: 'Istok Web', sans-serif;min-height: 100%;margin: 0;}
+body {width: 100vw; color: white;background-color:#08043d;font-family: 'Istok Web', sans-serif;min-height: 100%;margin: 0;}
 main {text-align: center;}
 
 .navbar h1{color: white;}
-.navbar {
-  display: flex;
-  background-color: #1e1e2f;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  padding: 20px;
-  margin-bottom: 10px;}
+.navbar {display: flex; background-color: #1e1e2f; justify-content: space-between; align-items: center; width: 100vw; padding: 20px; margin-bottom: 10px;}
 .nav-links {list-style: none;display: inline-flex;align-items: center; gap: 10px;}
-.nav-links li a {color: white;text-decoration: none;font-weight: bold;padding: 5px;
-  border-radius: 5px;position: relative;overflow: hidden;}
+.nav-links li a {color: white;text-decoration: none;font-weight: bold;padding: 5px; border-radius: 5px;position: relative;overflow: hidden;}
 .nav-links li a:hover {color: #cedfef;background-color: #071cff;box-shadow: 0 4px 15px black;}
 .dropdown {position: relative;}
 .dropdown:hover .dropdown-content {display: block;}
-.dropdown-content {
-  display: none; text-align: center; position: absolute;right: 0; margin-top: 4px; padding: 5px 0;
-  background-color: #1f1f7a;box-shadow: 0px 8px 16px black;
-  border-radius: 5px;min-width: 160px;z-index: 100;}
+.dropdown-content {display: none; text-align: center; position: absolute;right: 0; margin-top: 4px; padding: 5px 0; 
+  background-color: #1f1f7a;box-shadow: 0px 8px 16px black; border-radius: 5px;min-width: 160px;z-index: 100;}
 .dropdown-content a {display: block;}
+
 .menu-icon{display: none;}
 .menu-icon i{color: #fff;font-size: 30px;}
+
 footer{display:flex; color: white;background-color: #1e1e2f;padding: 20px; width: 100%;margin: 30px 0 0;}
 #socials{display: flex;flex-wrap: wrap; margin-left: auto;}
 #socials a{padding: 0 10px; text-decoration:none; color: skyblue;}
+
 button{font-size: medium;padding: 2px;}
 button :hover{color: white; background-color: #525252;}
-table{border: solid 2px black;border-spacing: 1px;width: 100%;}
 td, th{font-size: 1em; padding: 0 5px;}
-#test_width{font-size: 50px;}
 a{color: currentColor; text-decoration: none;}
-
-/* Multipage styles */
-.horizontal_container{display: flex; gap: 20px;}
-.verical_container{display: flex;flex-direction: column;}
-.center_horizontal_container{display: flex;justify-content: center; flex-wrap: wrap;}
-.center_vertical_container{display: flex;flex-direction: column;align-items: center;text-align: center;}
-#border_box{border: solid 2px black;}
 #hide_list{overflow: hidden;}
 
+/* Multipage styles */
+.horizontal_container{display: flex; flex-wrap: wrap; width: fit-content; gap: 20px;}
+.verical_container{display: flex; flex-direction: column;}
+.center_horizontal_container{display: flex;justify-content: center; flex-wrap: wrap; gap: 20px;}
+.center_vertical_container{display: flex;flex-direction: column;align-items: center;text-align: center;}
 
-/* Info page */
-.rules{text-align: left;margin-left: 30px;}
-.rules ol{margin-left: 30px;}
-#prize_pool{background-color: #acacac;width: 750px;}
-#bracket_points{background-color: #acacac;width: 750px;}
-
-/* Home page Tables */
-.home_tables{margin:0 auto;width: fit-content;background-color: #e1e1e1e6;}
-.home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
-#team0{width: fit-content;}
-#come{width: fit-content;color: #ffffff;background-color: #037120;}
-#squi{color: #ffffff;background-color: #01063f;}
-#vinn{color: #ffffff;background-color: #710303;}
-#jimm{color: #000000;background-color: #d8db4b;}
-#ecof{color: #000000;background-color: #32d2d7;}
-#gale{color: black;background-color: #c062ff;}
-#pots{color: #ffffff;background-color: #f47702;}
-#yuri{background-color: #8ffd27;}
-#maht{background-color: #0059ff;}
-#dway{color: white; background-color: #002e83;}
-
-
-/* Stats/Ranked pages */
-#event_points{padding: 0 20px;}
-#split{overflow: hidden; margin: 0 20px;}
-#split_border{border: solid 2px black;}
-#rank_page_table{color: black;background-color: #b9b9b9;width: 380px;height: 30px; padding: 0;}
-#player_data_table{margin-top: 30px; background-color: white;width: fit-content;}
-#team_data_table{margin-top: 30px; background-color: white;width: fit-content;}
-#import_button :hover{color: white;background-color: black;}
-.Season_list{text-align: left; margin-top: 30px;}
-.player_stats_page th td{margin-left: 3px; margin-right: 3px;}
-/* .player_stats_page td{margin-left: 3px; margin-right: 3px;} */
-
-/* Rankings page */
-.rankings{display: flex;flex-wrap: wrap; justify-content: center; gap: 10px;}
-#split1{width: fit-content;}
-#split2{width: fit-content;}
-#split1quals{width: fit-content;}
-#split2quals{width: fit-content;}
-#split3quals{width: fit-content;}
-
-/* regionals Page */
-.regional_home_tables{margin:0 auto;width: fit-content;background-color: #e1e1e1e6;}
-.regional_home_tables td{padding: 0 20px;}
-.placements_horizontal_container{display: flex; flex-wrap: wrap;justify-content: center;}
-.section{width:250px;text-align: left;margin: 10px;padding: 0 5px;}
-.champ_section{width:330px;text-align: left;margin: 10px;padding: 0 5px;}
-.tops_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center; gap: 20px;}
-.tops_section{width:180px;text-align: left;margin: 10px;padding: 0 5px;} /* Data within the tops boxes */
-#team{position: relative; overflow: hidden; padding-left: 5px;}
-#points{float: right;position: relative;right: 5px;}
-#data_box{border: solid black 2px; justify-content: center;}
-
-
-/* Drafting page */
-.top_rated{font-size: 20px;margin: auto;width: 400px;text-align: center;}
-.draft{text-align: center;display: flex; flex-direction: column; padding: 10px 0;gap: 30px;}
-
-
-/* Player profiles */
-.profiles{display: flex; flex-wrap: wrap; align-items: center;}
-.player-profiles{margin: 0 auto; width: fit-content;}
-.profile-card {background: #fff;border: 1px solid #ccc;border-radius: 8px;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px #0000001a;}
-.player-name {margin-top: 0;}
-.profile-details p {margin: 5px 0;}
-.profile-details a {display: inline-block;margin-top: 10px;padding: 8px 12px;text-decoration: none;border-radius: 5px;}
-
+#come{color: white; background-color: #037120;}
+#squi{color: black; background-color: #c59700;}
+#vinn{color: white; background-color: #710303;}
+#jimm{color: black; background-color: #d8db4b;}
+#ecof{color: black; background-color: #32d2d7;}
+#gale{color: black; background-color: #c062ff;}
+#pots{color: black; background-color: #f47702;}
+#yuri{color: black; background-color: #8ffd27;}
+#maht{color: black; background-color: #0059ff;}
+#dway{color: black; background-color: #e03a9b;}
 
 /* Media Screens */
 @media screen and (max-width: 1593px){}
@@ -149,10 +80,6 @@ a{color: currentColor; text-decoration: none;}
     flex-direction:row;
     margin-top: 0;
   }
-  p {font-size: .7em;}
-  .home_tables tr {font-size: .5em;}
-  #player_data_table tr {font-size: .7em;}
-  #team_data_table tr {font-size: .7em;}
 }
 
 

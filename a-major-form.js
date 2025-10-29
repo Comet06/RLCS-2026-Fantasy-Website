@@ -1,5 +1,5 @@
-const year = '2026'
-const path = `/RLCS-${year}-Fantasy-Website`
+import { path, year } from "./main.js"
+
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/major_form.html`) {
     document.getElementById('year').innerHTML = `RLCS ${year}`
@@ -9,8 +9,8 @@ window.addEventListener('load', function() {
 })
 // Major Bracket Form
 let MajorTeams = [
-  {team: 'NRG', seriesWin: 0, seriesLoss: 0, gameWin: 0, gameLoss: 0},
-  {team: 'TSM', seriesWin: 0, seriesLoss: 0, gameWin: 0, gameLoss: 0},
+  {team: '', seriesWin: 0, seriesLoss: 0, gameWin: 0, gameLoss: 0},
+  {team: '', seriesWin: 0, seriesLoss: 0, gameWin: 0, gameLoss: 0},
   {team: '', seriesWin: 0, seriesLoss: 0, gameWin: 0, gameLoss: 0},
   {team: '', seriesWin: 0, seriesLoss: 0, gameWin: 0, gameLoss: 0},
   {team: '', seriesWin: 0, seriesLoss: 0, gameWin: 0, gameLoss: 0},
@@ -33,6 +33,9 @@ let R4seeds = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
 let R5seeds = ['', '', '', '', '', '', '', '', '', '', '', ''] //12
 let R6seeds = ['', '', '', '', '', ''] //6
 let playoffTeams = ['', '', '', '', '', '', '', '']
+let playoffsQ = ['', '', '', '']
+let playoffsS = ['', '', '', '']
+let playoffsG = ['', '']
 let run = true
 
 // Swiss
@@ -166,7 +169,7 @@ function upper(match, winner, loser){
   }
   injectPlayoffVerdicts()
 }
-function lowerR(match, winner){
+function lower(match, winner){
   if(match === 1){
     playoffsQ[1] = winner
   } else if(match === 2){
@@ -210,8 +213,8 @@ function injectPlayoffVerdicts(){
 }
 function win(positionWinner, positionLoser){
   const teamWinner = document.getElementById(positionWinner)
-  teamWinner.style = "color: white; background-color: green;"
+  teamWinner.id = "win"
   const teamLoser = document.getElementById(positionLoser)
-  teamLoser.style = "color: black; background-color: red;"
+  teamLoser.id = "lose"
 }
 
