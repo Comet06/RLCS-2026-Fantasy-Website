@@ -73,7 +73,7 @@ a{color: currentColor; text-decoration: none;}
   #menuList{
     transition: all 0.5s;
     border-radius: 10px;
-    height: 400px;
+    height: 600px;
     z-index: 10000;
   }
   .dropdown-content{
