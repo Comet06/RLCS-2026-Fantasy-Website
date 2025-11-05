@@ -1,5 +1,5 @@
 import { path, deployLinks, menu, spread, points } from "./main.js";
-import { year, members, amtAdded, dist, majorPrize, champPrize } from "./a-current-page-data.js";
+import { year, members, amtAdded, dist, majorPrize, champPrize } from "./current-page-data.js";
 
 const amountPerMajor = ((amtAdded*dist[1])+majorPrize)/2;
 const amountForChampionship = (amtAdded*dist[2])+champPrize;
@@ -49,14 +49,14 @@ window.addEventListener('load', function() {
 
 function determineSpread(){
   let spreadSum = 0;
-  for (let i = 0; i<spread.length; i++) {
-      if (i>members.length){
+  for (let i = 0; i < spread.length; i++) {
+      if (i > members.length){
           spreadSum += spread[i];
           spread[i] = 0;
       }
   }
   let spreadToAdd = spreadSum/members.length
-  for (let i = 0; i<=(members.length-1); i++) {
+  for (let i = 0; i <= (members.length-1); i++) {
       spread[i] += spreadToAdd;
   }
 }
@@ -122,8 +122,8 @@ function deployMajorPointsInfo(){
   const titletotalPoints = document.createElement('th');
 
   title.textContent = ''
-  placements1.textContent = '(Placements) Points'
-  placements2.textContent = '(Placements) Points'
+  placements1.textContent = '(Picks) Points'
+  placements2.textContent = '(Picks) Points'
   titletotalPoints.textContent = ''
 
   newRow3.appendChild(title)
@@ -187,8 +187,8 @@ function deployChampPointsInfo(){
   const titletotalPoints = document.createElement('th');
 
   title.textContent = ''
-  placements1.textContent = '(Placements) Points'
-  placements2.textContent = '(Placements) Points'
+  placements1.textContent = '(Picks) Points'
+  placements2.textContent = '(Picks) Points'
   titletotalPoints.textContent = ''
 
   newRow3.appendChild(title)

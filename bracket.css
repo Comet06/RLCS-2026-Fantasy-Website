@@ -4,7 +4,7 @@
 .bracket_titles{text-align: center; margin-bottom: 10px;}
 
 #border_box{border: solid 2px black;}
-.stage{padding:20px 10px;width: fit-content;color: black; background-color: #e1e1e1e6;}
+.stage{padding:20px 10px;width: fit-content;height: fit-content; color: black; background-color: #e1e1e1e6;}
 .matchup{margin: 0 2.5% 0 0;height: 60px;}
 .upper {height:350px;justify-content: center;display: flex;} /* All upper sections */
 .lower {height: 200px;justify-content: center;display: flex;} /* All lower sections */
@@ -28,29 +28,14 @@
 .score {float: right;font-weight: bold;position: absolute;right: 5px;}
 .round-details {min-width:200px;color: #2C7399;text-transform: uppercase;text-align: center;}
 .date {font-size: 10px; letter-spacing: 2px;font-family: 'Istok Web', sans-serif;color:#3F915F;}
-    
+
 #win {color: white;background-color: green;} /* id="win" */
 #lose {color: black;background-color: red;} /* id="lose" */
-
-/* Swiss */
-.swiss_rounds{display: flex; flex-wrap: wrap;justify-content: center;}
-/* .swiss_bracket_team {padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;} */
-.swiss_matchup{display: flex; margin: 0 2.5% 0 2.5%;}
-.empty_team{padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;color: white;background-color: #1e1e2f00;width: 400px;}
-.swiss_bracket_round {display:flex;flex-direction:column;margin-bottom: 10px;width: 400px;}
-#swiss-round-details{width:400px;color: #2C7399;text-transform: uppercase;text-align: center;}
-.round5 {width: 600px;}
-.round6 {width: 200px;}
-.round5 #swiss-round-details{padding-bottom: 45px; width: 600px;}
-.round6 #swiss-round-details{padding-bottom: 25px; width: 200px;}
-
-.round1{background-color: #2C7399; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.round1Upper{background-color: #3F915F; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.round1Lower{color: black; background-color: #d1d143; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.roundUpper{background-color: #3F915F; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.roundMiddle{color: black; background-color: #d1d143; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.roundLower{color: black; background-color: #d14343; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.qualified{color: white; background-color:#006d05; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
-.disqualified{color: white; background-color:#5c0000; padding: 0 5px;margin: 3px 2px;line-height: 25px;white-space: nowrap;overflow: hidden;position: relative;width: 300px;}
+.win {color: white;background-color: green;} /* id="win" */
+.lose {color: black;background-color: red;} /* id="lose" */
 
 #playinUpper{width: 600px;}
+
+
+.GroupStage{display: flex; gap: 5px;}
+.group{display: flex; flex-direction: column;border: black 2px solid;}

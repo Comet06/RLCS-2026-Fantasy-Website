@@ -1,3 +1,10 @@
 /* Home page Tables */
 .home_tables{margin:0 auto;width: fit-content;color: black; background-color: #e1e1e1e6;}
 .home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
+
+#inlineRows{display: flex;}
+#centerdivs{display: flex; gap: 10px;border: solid black 2px;}
+
+#playerIndex{width: 20px;float: left;position: relative;}
+#playerName{width: 150px;position: relative; text-align: center;}
+#playerStat{width: 70px;float: right;position: relative; text-align:center;}

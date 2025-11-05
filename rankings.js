@@ -1,7 +1,7 @@
-import { path, deployLinks, menu, regions } from "./main.js";
-import { split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams, teams, split1, split2, year } from "./a-current-page-data.js";
-import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements } from "./a-regionals.js";
-import { Major1Placements, Major2Placements} from "./a-majors.js";
+import { path, deployLinks, menu, getTeamDetails } from "./main.js";
+import { EventPoints, year } from "./current-page-data.js";
+import { determineSeasonPoints } from "./stats.js";
+import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams } from "./placements.js"
 
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/teams_rankings.html`) {
@@ -9,8 +9,9 @@ window.addEventListener('load', function() {
     menu()
     document.getElementById('year').innerHTML = `RLCS ${year}`
     determineSeasonPoints()
-    deploySplitPoints(split1, 1)
-    deploySplitPoints(split2, 2)
+    deploySplitPoints(1)
+    deploySplitPoints(2)
+    deploySplitQuals(kickoffLANQualifiedTeams, 0)
     deploySplitQuals(split1QualifiedTeams, 1)
     deploySplitQuals(split2QualifiedTeams, 2)
     deploySplitQuals(championshipQualifiedTeams, 3)
@@ -21,62 +22,15 @@ window.addEventListener('load', function() {
 });
 
 
-function determineSeasonPoints() {
-  teams.forEach((id) => {
-    regions.forEach((reg) => {
-        const regional1Teams = Regional1Placements[reg];
-        const team1Index = regional1Teams.indexOf(id.name);
-        if (team1Index !== -1) {
-          id.split1Pts += split1['Regional'][team1Index];
-        }
-        const regional2Teams = Regional2Placements[reg];
-        const team2Index = regional2Teams.indexOf(id.name);
-        if (team2Index !== -1) {
-          id.split1Pts += split1['Regional'][team2Index];
-        }
-        const regional3Teams = Regional3Placements[reg];
-        const team3Index = regional3Teams.indexOf(id.name);
-        if (team3Index !== -1) {
-          id.split1Pts += split1['Regional'][team3Index];
-        }
-        const regional4Teams = Regional4Placements[reg];
-        const team4Index = regional4Teams.indexOf(id.name);
-        if (team4Index !== -1) {
-          id.split2Pts += split2['Regional'][team4Index];
-        }
-        const regional5Teams = Regional5Placements[reg];
-        const team5Index = regional5Teams.indexOf(id.name);
-        if (team5Index !== -1) {
-          id.split2Pts += split2['Regional'][team5Index];
-        }
-        const regional6Teams = Regional6Placements[reg];
-        const team6Index = regional6Teams.indexOf(id.name);
-        if (team6Index !== -1) {
-          id.split2Pts += split2['Regional'][team6Index];
-        }
-    });
-    const major1Teams = Major1Placements['Major'];
-    const team7Index = major1Teams.indexOf(id.name);
-    if (team7Index !== -1) {
-      id.split1Pts += split1['Major'][team7Index];
-    }
-    const major2Teams = Major2Placements['Major'];
-    const team8Index = major2Teams.indexOf(id.name);
-    if (team8Index !== -1) {
-      id.split2Pts += split2['Major'][team8Index];
-    }
-    id.totalSeasonPts += id.split1Pts + id.split2Pts;
-  });
-}
-function deploySplitPoints(event, index){
+function deploySplitPoints(index){
   for(let i = 0; i < 16; i++){
     const tableBody = document.getElementById(`split${index}`);
     const newRow = document.createElement('tr');
     const regionalPts = document.createElement('td');
     const majorPts = document.createElement('td');
 
-    regionalPts.textContent = event['Regional'][i]
-    majorPts.textContent = event['Major'][i]
+    regionalPts.textContent = EventPoints[`Regional${index}`][i]
+    majorPts.textContent = EventPoints[`Major${index}`][i]
     
     newRow.appendChild(regionalPts);
     newRow.appendChild(majorPts);
@@ -92,9 +46,9 @@ function deploySplitQuals(event, index){
     const region = document.createElement('td');
     const team = document.createElement('td');
     const pts = document.createElement('td');
-    if (id === 'EU' || id === 'NA' || id === 'OCE' || id === 'SAM' || id === 'MENA' || id === 'APAC' || id === 'SSA' || id === "LCQ Region #1" || id === "LCQ Region #2" || id === "LCQ Region #3" || id === "LCQ Region #4"){
+    if (id === 'EU' || id === 'NA' || id === 'OCE' || id === 'SAM' || id === 'MENA' || id === 'APAC' || id === 'SSA' || id === "K-off Winner" || id === "LCQ Region #1" || id === "LCQ Region #2" || id === "LCQ Region #3" || id === "LCQ Region #4"){
       region.textContent = id
-      team.textContent = ''
+      team.textContent = 'TBD'
       pts.textContent = 0
     } else {
       region.textContent = getTeamDetails(id)[0]

@@ -10,355 +10,194 @@
   <title>RLCS Bracket Form</title>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <h1 id="year"></h1>
-      <ul class="nav-links" id="menuList">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Split 1</a>
-            <div class="dropdown-content">
-              <a href="regional_1.html">Regional 1</a>
-              <a href="regional_2.html">Regional 2</a>
-              <a href="regional_3.html">Regional 3</a>
-              <a href="major_1.html">Major 1</a>
-            </div>
-        </li>
-        <li class="dropdown">
-          <a href="#">Split 2</a>
-            <div class="dropdown-content">
-              <a href="regional_4.html">Regional 4</a>
-              <a href="regional_5.html">Regional 5</a>
-              <a href="regional_6.html">Regional 6</a>
-              <a href="major_2.html">Major 2</a>
-            </div>
-        </li>
-        <li><a href="championship.html">Championship</a></li>
-        <li><a href="players_stats.html">Player Stats</a></li>
-        <li><a href="teams_stats.html">Team Stats</a></li>
-        <li><a href="teams_rankings.html">Rankings</a></li>
-        <!-- <li class="dropdown">
-          <a href="#">Forms</a>
-            <div class="dropdown-content">
-                <a href="major_form.html">Major Form</a>
-                <a href="championship_form.html">Champ Form</a>
-            </div>
-        </li> -->
-        <li class="dropdown">
-          <a href="#">Seasons</a>
-            <div class="dropdown-content">
-              <a href="/RLCS-2025-Fantasy-Website/bracket_form.html">2025</a>
-              <a href="/RLCS-2026-Fantasy-Website/bracket_form.html">2026</a>
-            </div>
-        </li>
-        <li><a href="info.html">Rules</a></li>
-      </ul>
-      <div class="menu-icon">
-          <button id="menuButton">Menu</button>
-      </div>
-    </nav>
+  <header id="Links">
   </header>
   <h1 style="text-align: center;">Championship</h1>
-  <div class="brackets">
-    <div class="stage" id="border_box"><!-- Playin -->
-    <h1 class="bracket_titles">Play-in</h1>
-    <div class="upper">
-        <div class="quarterfinals">
-          <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
-          <ul class="matchup">
-            <li class="bracket_team" id="PIseed8" onclick="playin(1, 'U', PlayinTeams[7].team, PlayinTeams[0].team), win('PIseed8','PIseed1')"><span class="score"></span></li>
-            <li class="bracket_team" id="PIseed1" onclick="playin(1, 'U', PlayinTeams[0].team, PlayinTeams[7].team), win('PIseed1','PIseed8')"><span class="score"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="PIseed5" onclick="playin(2, 'U', PlayinTeams[4].team, PlayinTeams[3].team), win('PIseed5','PIseed4')"><span class="score"></span></li>
-            <li class="bracket_team" id="PIseed4" onclick="playin(2, 'U', PlayinTeams[3].team, PlayinTeams[4].team), win('PIseed4','PIseed5')"><span class="score"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="PIseed7" onclick="playin(3, 'U', PlayinTeams[6].team, PlayinTeams[1].team), win('PIseed7','PIseed2')"><span class="score"></span></li>
-            <li class="bracket_team" id="PIseed2" onclick="playin(3, 'U', PlayinTeams[1].team, PlayinTeams[6].team), win('PIseed2','PIseed7')"><span class="score"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="PIseed6" onclick="playin(4, 'U', PlayinTeams[5].team, PlayinTeams[2].team), win('PIseed6','PIseed3')"><span class="score"></span></li>
-            <li class="bracket_team" id="PIseed3" onclick="playin(4, 'U', PlayinTeams[2].team, PlayinTeams[5].team), win('PIseed3','PIseed6')"><span class="score"></span></li>
-          </ul>
-        </div>
-        <div class="semis_quals">
-          <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>     
-          <ul class="matchup">
-            <li class="bracket_team" id="pius1" onclick="playin(5, 'U', playinUS[0], playinUS[1]), win('pius1','pius2')"><span class="score"></span></li>
-            <li class="bracket_team" id="pius2" onclick="playin(5, 'U', playinUS[1], playinUS[0]), win('pius2','pius1')"><span class="score"></span></li>
-          </ul> 
-          <ul class="matchup">
-            <li class="bracket_team" id="pius3" onclick="playin(6, 'U', playinUS[2], playinUS[3]), win('pius3','pius4')"><span class="score"></span></li>
-            <li class="bracket_team" id="pius4" onclick="playin(6, 'U', playinUS[3], playinUS[2]), win('pius4','pius3')"><span class="score"></span></li>
-          </ul>
-        </div>
-        <div class="semis_quals">
-          <div class="round-details">Qualified<br/>&nbsp;</div>     
-          <ul class="matchup">
-                <li class="bracket_team" id="win"><span id="pf1"></span></li>
-          </ul>
-          <ul class="matchup">
-                <li class="bracket_team" id="win"><span id="pf2"></span></li>
-          </ul>
-        </div>
-    </div>
-    <div class="lower">
-        <div class="quarterfinals">
-            <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
-            <ul class="matchup">
-              <li class="bracket_team" id="piq1" onclick="playin(1, 'L', playinQ[0], playinQ[1]), win('piq1','piq2')"><span class="score"></span></li>
-              <li class="bracket_team" id="piq2" onclick="playin(1, 'L', playinQ[1], playinQ[0]), win('piq2','piq1')"><span class="score"></span></li>
-            </ul> 
-            <ul class="matchup">
-              <li class="bracket_team" id="piq3" onclick="playin(2, 'L', playinQ[2], playinQ[3]), win('piq3','piq4')"><span class="score"></span></li>
-              <li class="bracket_team" id="piq4" onclick="playin(2, 'L', playinQ[3], playinQ[2]), win('piq4','piq3')"><span class="score"></span></li>
-            </ul>              
-        </div>
-        <div class="semis_quals">
-            <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>  
-            <ul class="matchup">
-              <li class="bracket_team" id="pils1" onclick="playin(3, 'L', playinLS[0], playinLS[1]), win('pils1','pils2')"><span class="score"></span></li>
-              <li class="bracket_team" id="pils2" onclick="playin(3, 'L', playinLS[1], playinLS[0]), win('pils2','pils1')"><span class="score"></span></li>
-            </ul>
-            <ul class="matchup">
-              <li class="bracket_team" id="pils3" onclick="playin(4, 'L', playinLS[2], playinLS[3]), win('pils3','pils4')"><span class="score"></span></li>
-              <li class="bracket_team" id="pils4" onclick="playin(4, 'L', playinLS[3], playinLS[2]), win('pils4','pils3')"><span class="score"></span></li>
-            </ul>  
-        </div>
-        <div class="semis_quals">
-            <div class="round-details">Qualified<br/>&nbsp;</span></div>     
-            <ul class="matchup">
-                <li class="bracket_team" id="win"><span id="pf3"></span></li>
-            </ul>
-            <ul class="matchup">
-                <li class="bracket_team" id="win"><span id="pf4"></span></li>
-            </ul>
-        </div>
-    </div>
-    </div>
-    <div class="stage" id="border_box"><!-- GroupA -->
-      <h1 class="bracket_titles">Group A</h1>
-      <div class="upper">
-        <div class="quarterfinals">
-          <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
-          <ul class="matchup">
-            <li class="bracket_team" id="Gseed1" onclick="groupUpper(1, 'A', GroupTeams[0], GroupTeams[15]), win('Gseed1', 'Gseed16')"><span class="score"></span></li>
-            <li class="bracket_team" id="Gseed16" onclick="groupUpper(1, 'A', GroupTeams[15], GroupTeams[0]), win('Gseed16', 'Gseed1')"><span class="score"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="Gseed9" onclick="groupUpper(2, 'A', GroupTeams[8], GroupTeams[7]), win('Gseed9', 'Gseed8')"><span class="score"></span></li>
-            <li class="bracket_team" id="Gseed8" onclick="groupUpper(2, 'A', GroupTeams[7], GroupTeams[8]), win('Gseed8', 'Gseed9')"><span class="score"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="Gseed4" onclick="groupUpper(3, 'A', GroupTeams[3], GroupTeams[13]), win('Gseed4', 'Gseed13')"><span class="score"></span></li>
-            <li class="bracket_team" id="Gseed13" onclick="groupUpper(3, 'A', GroupTeams[13], GroupTeams[3]), win('Gseed13', 'Gseed4')"><span class="score"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="Gseed12" onclick="groupUpper(4, 'A', GroupTeams[11], GroupTeams[4]), win('Gseed12', 'Gseed5')"><span class="score"></span></li>
-            <li class="bracket_team" id="Gseed5" onclick="groupUpper(4, 'A', GroupTeams[4], GroupTeams[11]), win('Gseed5', 'Gseed12')"><span class="score"></span></li>
-          </ul>
-        </div>
-        <div class="semis_quals">
-          <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>     
-          <ul class="matchup">
-            <li class="bracket_team" id="gaus1" onclick="groupUpper(5, 'A', groupAUS[0], groupAUS[1]), win('gaus1', 'gaus2')"><span class="score"></span></li>
-            <li class="bracket_team" id="gaus2" onclick="groupUpper(5, 'A', groupAUS[1], groupAUS[0]), win('gaus2', 'gaus1')"><span class="score"></span></li>
-          </ul> 
-          <ul class="matchup">
-            <li class="bracket_team" id="gaus3" onclick="groupUpper(6, 'A', groupAUS[2], groupAUS[3]), win('gaus3', 'gaus4')"><span class="score"></span></li>
-            <li class="bracket_team" id="gaus4" onclick="groupUpper(6, 'A', groupAUS[3], groupAUS[2]), win('gaus4', 'gaus3')"><span class="score"></span></li>
-          </ul>
-        </div>
-        <div class="semis_quals">
-          <div class="round-details">Qualified<br/><span>&nbsp;</span></div>
-          <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="gaf1"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="gaf2"></span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="lower">
-        <div class="quarterfinals">
-          <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
-          <ul class="matchup">
-            <li class="bracket_team" id="gaq1" onclick="groupLower(1, 'A', groupAQ[0]), win('gaq1', 'gaq2')"><span class="score"></span></li>
-            <li class="bracket_team" id="gaq2" onclick="groupLower(1, 'A', groupAQ[1]), win('gaq2', 'gaq1')"><span class="score"></span></li>
-          </ul> 
-          <ul class="matchup">
-            <li class="bracket_team" id="gaq3" onclick="groupLower(2, 'A', groupAQ[2]), win('gaq3', 'gaq4')"><span class="score"></span></li>
-            <li class="bracket_team" id="gaq4" onclick="groupLower(2, 'A', groupAQ[3]), win('gaq4', 'gaq3')"><span class="score"></span></li>
-          </ul>       
-        </div>
-        <div class="semis_quals">
-          <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>  
-          <ul class="matchup">
-            <li class="bracket_team" id="gals1" onclick="groupLower(3, 'A', groupALS[0]), win('gals1', 'gals2')"><span class="score"></span></li>
-            <li class="bracket_team" id="gals2" onclick="groupLower(3, 'A', groupALS[1]), win('gals2', 'gals1')"><span class="score"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="gals3" onclick="groupLower(4, 'A', groupALS[2]), win('gals3', 'gals4')"><span class="score"></span></li>
-            <li class="bracket_team" id="gals4" onclick="groupLower(4, 'A', groupALS[3]), win('gals4', 'gals3')"><span class="score"></span></li>
-          </ul>  
-        </div>
-        <div class="semis_quals">
-          <div class="round-details">Qualified<br/><span>&nbsp;</span></div>     
-          <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="gaf3"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="gaf4"></span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="stage" id="border_box"><!-- GroupB -->
-        <h1 class="bracket_titles">Group B</h1>
-        <div class="upper">
-            <div class="quarterfinals">
+  <div id="bracket-container">
+    <div class="brackets">
+      <div class="stage" id="border_box"><!-- Playin -->
+      <h1 class="bracket_titles">Play-in</h1>
+        <div class="upper" id="Playin-upper">
+          <div class="quarterfinals">
             <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
-            <ul class="matchup">
-              <li class="bracket_team" id="Gseed2" onclick="groupUpper(1, 'B', GroupTeams[1], GroupTeams[14]), win('Gseed2', 'Gseed15')"><span class="score"></span></li>
-              <li class="bracket_team" id="Gseed15" onclick="groupUpper(1, 'B', GroupTeams[14], GroupTeams[1]), win('Gseed15', 'Gseed2')"><span class="score"></span></li>
+            <ul class="matchup" data-match-id="1PUQ">
+              <li class="bracket_team" data-team-id="Team A">Team A</li>
+              <li class="bracket_team" data-team-id="Team B">Team B</li>
             </ul>
-            <ul class="matchup">
-              <li class="bracket_team" id="Gseed10" onclick="groupUpper(2, 'B', GroupTeams[9], GroupTeams[6]), win('Gseed10', 'Gseed7')"><span class="score"></span></li>
-              <li class="bracket_team" id="Gseed7" onclick="groupUpper(2, 'B', GroupTeams[6], GroupTeams[9]), win('Gseed7', 'Gseed10')"><span class="score"></span></li>
+            <ul class="matchup" data-match-id="2PUQ">
+              <li class="bracket_team" data-team-id="Team C">Team C</li>
+              <li class="bracket_team" data-team-id="Team D">Team D</li>
             </ul>
-            <ul class="matchup">
-              <li class="bracket_team" id="Gseed3" onclick="groupUpper(3, 'B', GroupTeams[2], GroupTeams[12]), win('Gseed3', 'Gseed14')"><span class="score"></span></li>
-              <li class="bracket_team" id="Gseed14" onclick="groupUpper(3, 'B', GroupTeams[12], GroupTeams[2]), win('Gseed14', 'Gseed3')"><span class="score"></span></li>
+            <ul class="matchup" data-match-id="3PUQ">
+              <li class="bracket_team" data-team-id="Team E">Team E</li>
+              <li class="bracket_team" data-team-id="Team F">Team F</li>
             </ul>
-            <ul class="matchup">
-              <li class="bracket_team" id="Gseed11" onclick="groupUpper(4, 'B', GroupTeams[10], GroupTeams[5]), win('Gseed11', 'Gseed6')"><span class="score"></span></li>
-              <li class="bracket_team" id="Gseed6" onclick="groupUpper(4, 'B', GroupTeams[5], GroupTeams[10]), win('Gseed6', 'Gseed11')"><span class="score"></span></li>
+            <ul class="matchup" data-match-id="4PUQ">
+              <li class="bracket_team" data-team-id="Team G">Team G</li>
+              <li class="bracket_team" data-team-id="Team H">Team H</li>
             </ul>
-            </div>
-        <div class="semis_quals">
-          <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>     
-          <ul class="matchup">
-            <li class="bracket_team" id="gbus1" onclick="groupUpper(5, 'B', groupBUS[0], groupBUS[1]), win('gbus1', 'gbus2')"><span class="score"></span></li>
-            <li class="bracket_team" id="gbus2" onclick="groupUpper(5, 'B', groupBUS[1], groupBUS[0]), win('gbus2', 'gbus1')"><span class="score"></span></li>
-          </ul> 
-          <ul class="matchup">
-            <li class="bracket_team" id="gbus3" onclick="groupUpper(6, 'B', groupBUS[2], groupBUS[3]), win('gbus3', 'gbus4')"><span class="score"></span></li>
-            <li class="bracket_team" id="gbus4" onclick="groupUpper(6, 'B', groupBUS[3], groupBUS[2]), win('gbus4', 'gbus3')"><span class="score"></span></li>
-          </ul>
+          </div>
+          <div class="semis_quals">
+            <div class="round-details">Upper Semifinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup" data-match-id="1PUS">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
+            <ul class="matchup" data-match-id="2PUS">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
+          </div>
+          <div class="semis_quals">
+            <div class="round-details">Qualified<br/>&nbsp;</div>
+            <ul class="matchup" data-match-id="1PUF">
+              <li class="bracket_team" data-team-id="" id="win"></li>
+            </ul>
+            <ul class="matchup" data-match-id="2PUF">
+              <li class="bracket_team" data-team-id="" id="win"></li>
+            </ul>
+          </div>
         </div>
-        <div class="semis_quals">
-          <div class="round-details">Qualified<br/><span>&nbsp;</span></div>     
-          <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="gbf1"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="gbf2"></span></li>
-          </ul>
+        <div class="lower" id="Playin-lower">
+          <div class="quarterfinals">
+            <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup" data-match-id="1PLQ">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
+            <ul class="matchup" data-match-id="2PLQ">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
+          </div>
+          <div class="semis_quals">
+            <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup" data-match-id="1PLS">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
+            <ul class="matchup" data-match-id="2PLS">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
+          </div>
+          <div class="semis_quals">
+            <div class="round-details">Qualified<br/>&nbsp;</div>
+            <ul class="matchup" data-match-id="1PLF">
+              <li class="bracket_team" data-team-id="" id="win"></li>
+            </ul>
+            <ul class="matchup" data-match-id="2PLF">
+              <li class="bracket_team" data-team-id="" id="win"></li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="lower">
-        <div class="quarterfinals">
-          <div class="round-details">Lower Quarterfinals<br/><span class="date">TBD</span></div>
-          <ul class="matchup">
-            <li class="bracket_team" id="gbq1" onclick="groupLower(1, 'B', groupBQ[0]), win('gbq1', 'gbq2')"><span class="score"></span></li>
-            <li class="bracket_team" id="gbq2" onclick="groupLower(1, 'B', groupBQ[1]), win('gbq2', 'gbq1')"><span class="score"></span></li>
-          </ul> 
-          <ul class="matchup">
-            <li class="bracket_team" id="gbq3" onclick="groupLower(2, 'B', groupBQ[2]), win('gbq3', 'gbq4')"><span class="score"></span></li>
-            <li class="bracket_team" id="gbq4" onclick="groupLower(2, 'B', groupBQ[3]), win('gbq4', 'gbq3')"><span class="score"></span></li>
-          </ul>       
-        </div>
-        <div class="semis_quals">
-          <div class="round-details">Lower Semifinals<br/><span class="date">TBD</span></div>  
-          <ul class="matchup">
-            <li class="bracket_team" id="gbls1" onclick="groupLower(3, 'B', groupBLS[0]), win('gbls1', 'gbls2')"><span class="score"></span></li>
-            <li class="bracket_team" id="gbls2" onclick="groupLower(3, 'B', groupBLS[1]), win('gbls2', 'gbls1')"><span class="score"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="gbls3" onclick="groupLower(4, 'B', groupBLS[2]), win('gbls3', 'gbls4')"><span class="score"></span></li>
-            <li class="bracket_team" id="gbls4" onclick="groupLower(4, 'B', groupBLS[3]), win('gbls4', 'gbls3')"><span class="score"></span></li>
-          </ul>  
-        </div>
-        <div class="semis_quals">
-          <div class="round-details">Qualified<br/><span>&nbsp;</span></div>     
-          <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="gbf3"></span></li>
-          </ul>
-          <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="gbf4"></span></li>
-          </ul>
+      <div class="stage" id="border_box"><!-- Group Stage -->
+        <div class="GroupStage">
+          <div class="group">
+            <h1 class="bracket_titles">Group A</h1>
+            <table id="groupA">
+              <tbody>
+                <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="group">
+            <h1 class="bracket_titles">Group B</h1>
+            <table id="groupB">
+              <tbody>
+                <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="group">
+            <h1 class="bracket_titles">Group C</h1>
+            <table id="groupC">
+              <tbody>
+                <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="group">
+            <h1 class="bracket_titles">Group D</h1>
+            <table id="groupD">
+              <tbody>
+                <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="stage" id="border_box">
+    <div class="stage" id="border_box"><!-- Playoffs -->
       <h1 class="bracket_titles">Playoffs</h1>
-      <div class="lower">
+      <div class="lower" id="Playoff-upper">
           <div class="finals_quarterfinals">
-            <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>     
-            <ul class="matchup">
-            <li class="bracket_team" id="POseed1" onclick="upper(1, playoffTeams[0], playoffTeams[3]), win('POseed1', 'POseed4')">Seed 1<span class="score"></span></li>
-            <li class="bracket_team" id="POseed4" onclick="upper(1, playoffTeams[3], playoffTeams[0]), win('POseed4', 'POseed1')">Seed 4<span class="score"></span></li>
-            </ul> 
-            <ul class="matchup">
-              <li class="bracket_team" id="POseed2" onclick="upper(2, playoffTeams[1], playoffTeams[2]), win('POseed2', 'POseed3')">Seed 2<span class="score"></span></li>
-              <li class="bracket_team" id="POseed3" onclick="upper(2, playoffTeams[2], playoffTeams[1]), win('POseed3', 'POseed2')">Seed 3<span class="score"></span></li>
+            <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup" data-match-id="1UQ">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
+            <ul class="matchup" data-match-id="2UQ">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
             </ul>
           </div>
       </div>
-      <div class="lower">
+      <div class="lower" id="Playoff-lower">
           <div class="quarterfinals">
             <div class="round-details">Round 1<br/><span class="date">TBD</span></div>
-            <ul class="matchup">
-            <li class="bracket_team" id="POseed5" onclick="lower(1, playoffTeams[4]), win('POseed5', 'POseed8')">Seed 5<span class="score"></span></li>
-            <li class="bracket_team" id="POseed8" onclick="lower(1, playoffTeams[7]), win('POseed8', 'POseed5')">Seed 8<span class="score"></span></li>
-            </ul> 
-            <ul class="matchup">
-            <li class="bracket_team" id="POseed6" onclick="lower(2, playoffTeams[5]), win('POseed6', 'POseed7')">Seed 6<span class="score"></span></li>
-            <li class="bracket_team" id="POseed7" onclick="lower(2, playoffTeams[6]), win('POseed7', 'POseed6')">Seed 7<span class="score"></span></li>
-            </ul>          
+            <ul class="matchup" data-match-id="1LR">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
+            <ul class="matchup" data-match-id="2LR">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>   
           </div>
           <div class="semis_quals">
-            <div class="round-details">Quarterfinals<br/><span class="date">TBD</span></div>  
-            <ul class="matchup">
-            <li class="bracket_team" id="q1" onclick="lower(3, playoffsQ[0]), win('q1', 'q2')"><span class="score"></span></li>
-            <li class="bracket_team" id="q2" onclick="lower(3, playoffsQ[1]), win('q2', 'q1')"><span class="score"></span></li>
+            <div class="round-details">Quarterfinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup" data-match-id="1LQ">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
             </ul>
-            <ul class="matchup">
-            <li class="bracket_team" id="q3" onclick="lower(4, playoffsQ[2]), win('q3', 'q4')"><span class="score"></span></li>
-            <li class="bracket_team" id="q4" onclick="lower(4, playoffsQ[3]), win('q4', 'q3')"><span class="score"></span></li>
+            <ul class="matchup" data-match-id="2LQ">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
             </ul>
           </div>
           <div class="semis_quals">
-            <div class="round-details">Semifinals<br/><span class="date">TBD</span></div>     
-            <ul class="matchup">
-            <li class="bracket_team" id="s1" onclick="lower(5, playoffsS[0]), win('s1', 's2')"><span class="score"></span></li>
-            <li class="bracket_team" id="s2" onclick="lower(5, playoffsS[1]), win('s2', 's1')"><span class="score"></span></li>
+            <div class="round-details">Semifinals<br/><span class="date">TBD</span></div>
+            <ul class="matchup" data-match-id="1LS">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
             </ul>
-            <ul class="matchup">
-            <li class="bracket_team" id="s3" onclick="lower(6, playoffsS[2]), win('s3', 's4')"><span class="score"></span></li>
-            <li class="bracket_team" id="s4" onclick="lower(6, playoffsS[3]), win('s4', 's3')"><span class="score"></span></li>
+            <ul class="matchup" data-match-id="2LS">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
             </ul>
           </div>
       </div>
-      <div class="final">
+      <div class="final" id="Playoff-lower">
           <div class="grand_finals">
               <div class="round-details">Grand Finals<br/><span class="date">TBD</span></div>
-              <ul class="matchup">
-                <li class="bracket_team" id="g1" onclick="grand(playoffsG[0]), win('g1', 'g2')"><span class="score"></span></li>
-                <li class="bracket_team" id="g2" onclick="grand(playoffsG[1]), win('g2', 'g1')"><span class="score"></span></li>
-              </ul>
+            <ul class="matchup" data-match-id="1GF">
+              <li class="bracket_team" data-team-id=""></li>
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
               <div class="round-details">Winner</div>
-              <ul class="matchup">
-            <li class="bracket_team" id="win"><span id="winner"></span></li>
-              </ul>
+            <ul class="matchup" data-match-id="W">
+              <li class="bracket_team" data-team-id=""></li>
+            </ul>
           </div>
       </div>
     </div>
+    </div>
+  </div>
   </div>
 </body>
 <script type="module" src="main.js"></script>
-<script src="a-championship-form.js"></script>
+<script src="championship-form.js"></script>
 <footer>
   <p>©Comet Productions.</p>
   <div id="socials">

@@ -1,17 +1,9 @@
 #data_table{color: white; background-color: #08043d;width: fit-content;border: solid 5px blue;}
 #table_type{width: 200px;}
 
-#tableFilter{
-    display: flex;
-    gap: 20px;
-}
-.filterList {
-    position: relative;
-}
-.filterList:hover .filterList-content {
-    display: flex;
-    flex-direction: column;
-}
+#tableFilter{display: flex; gap: 20px;}
+.filterList {position: relative;}
+.filterList:hover .filterList-content {display: flex; flex-direction: column;}
 .filterList-content {
     display: none;
     text-align: left;
@@ -31,10 +23,9 @@
 #standings{border-bottom: solid #48ff00 2px;}
 
 /* Watch Tags */
-#player{color: #16b900;padding: 0 5px;}
-#sub{color: #000;background-color: #00ff00;padding: 0 5px}
-#coach{color: #000;background-color: orangered;padding: 0 5px}
-#rookie{color: #000; background-color: gold;padding: 0 5px}
+#sub{color: white;background-color: #005700;padding: 0 5px}
+#coach{color: black;background-color: #00ffdd;padding: 0 5px}
+#rookie{color: black; background-color: gold;padding: 0 5px}
 #inactive{color: white; background-color: #880101;padding: 0 5px}
 #retired{color: white; background-color: #3d3daa;padding: 0 5px}
 

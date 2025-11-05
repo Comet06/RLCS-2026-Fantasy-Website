@@ -6,57 +6,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="team_region.css"/>
-  <link rel="stylesheet" href="bracket.css"/>
+  <link rel="stylesheet" href="bracket_form.css"/>
   <title>RLCS Bracket Form</title>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <h1 id="year"></h1>
-      <ul class="nav-links" id="menuList">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Split 1</a>
-            <div class="dropdown-content">
-              <a href="regional_1.html">Regional 1</a>
-              <a href="regional_2.html">Regional 2</a>
-              <a href="regional_3.html">Regional 3</a>
-              <a href="major_1.html">Major 1</a>
-            </div>
-        </li>
-        <li class="dropdown">
-          <a href="#">Split 2</a>
-            <div class="dropdown-content">
-              <a href="regional_4.html">Regional 4</a>
-              <a href="regional_5.html">Regional 5</a>
-              <a href="regional_6.html">Regional 6</a>
-              <a href="major_2.html">Major 2</a>
-            </div>
-        </li>
-        <li><a href="championship.html">Championship</a></li>
-        <li><a href="players_stats.html">Player Stats</a></li>
-        <li><a href="teams_stats.html">Team Stats</a></li>
-        <li><a href="teams_rankings.html">Rankings</a></li>
-        <!-- <li class="dropdown">
-          <a href="#">Forms</a>
-            <div class="dropdown-content">
-                <a href="major_form.html">Major Form</a>
-                <a href="championship_form.html">Champ Form</a>
-            </div>
-        </li> -->
-        <li class="dropdown">
-          <a href="#">Seasons</a>
-            <div class="dropdown-content">
-              <a href="/RLCS-2025-Fantasy-Website/bracket_form.html">2025</a>
-              <a href="/RLCS-2026-Fantasy-Website/bracket_form.html">2026</a>
-            </div>
-        </li>
-        <li><a href="info.html">Rules</a></li>
-      </ul>
-      <div class="menu-icon">
-          <button id="menuButton">Menu</button>
-      </div>
-    </nav>
+<div id="scripts">
+</div>
+  <header id="Links">
   </header>
   <h1 style="text-align: center;">Major</h1>
   <div class="brackets">
@@ -211,16 +167,16 @@
             <li class="swiss_bracket_team" id="qualified"><span id="R5S3"></span></li>
           </ul>
           <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S4" onclick="updateGamesScores(R6seeds, 6, R5seeds[3], R5seeds[4]), win('R5S4', 'R5S3')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S5" onclick="updateGamesScores(R6seeds, 6, R5seeds[4], R5seeds[3]), win('R5S5', 'R5S6')"></span></li>
+            <li class="swiss_bracket_team" id="roundLower"><span id="R5S4" onclick="updateGamesScores(R6seeds, 6, R5seeds[5], R5seeds[4]), win('R5S4', 'R5S5')"></span></li>
+            <li class="swiss_bracket_team" id="roundLower"><span id="R5S5" onclick="updateGamesScores(R6seeds, 6, R5seeds[4], R5seeds[3]), win('R5S5', 'R5S4')"></span></li>
           </ul>
           <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S6" onclick="updateGamesScores(R6seeds, 6, R5seeds[5], R5seeds[6]), win('R5S6', 'R5S5')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S7" onclick="updateGamesScores(R6seeds, 6, R5seeds[6], R5seeds[5]), win('R5S7', 'R5S8')"></span></li>
+            <li class="swiss_bracket_team" id="roundLower"><span id="R5S6" onclick="updateGamesScores(R6seeds, 6, R5seeds[7], R5seeds[6]), win('R5S6', 'R5S7')"></span></li>
+            <li class="swiss_bracket_team" id="roundLower"><span id="R5S7" onclick="updateGamesScores(R6seeds, 6, R5seeds[6], R5seeds[5]), win('R5S7', 'R5S6')"></span></li>
           </ul>
           <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S8" onclick="updateGamesScores(R6seeds, 6, R5seeds[7], R5seeds[8]), win('R5S8', 'R5S7')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S9" onclick="updateGamesScores(R6seeds, 6, R5seeds[8], R5seeds[7]), win('R5S9', 'R5S10')"></span></li>
+            <li class="swiss_bracket_team" id="roundLower"><span id="R5S8" onclick="updateGamesScores(R6seeds, 6, R5seeds[9], R5seeds[8]), win('R5S8', 'R5S9')"></span></li>
+            <li class="swiss_bracket_team" id="roundLower"><span id="R5S9" onclick="updateGamesScores(R6seeds, 6, R5seeds[8], R5seeds[7]), win('R5S9', 'R5S8')"></span></li>
           </ul>
           <ul class="swiss_matchup">
             <li class="swiss_bracket_team" id="disqualified"><span id="R5S10"></span></li>
@@ -275,7 +231,7 @@
             <div class="quarterfinals">
               <div class="round-details">Round 1<br/><span class="date">TBD</span></div>
               <ul class="matchup">
-              <li class="bracket_team" id="POseed5" onclick="lower(1, playoffTeams[4])">Seed 4</li>
+              <li class="bracket_team" id="POseed5" onclick="lower(1, playoffTeams[4])">Seed 5</li>
               <li class="bracket_team" id="POseed8" onclick="lower(1, playoffTeams[7])">Seed 8</li>
               </ul> 
               <ul class="matchup">
@@ -324,7 +280,7 @@
   </div>
 </body>
 <script type="module" src="main.js"></script>
-<script src="a-major-form.js"></script>
+<script type="module" src="major-form.js"></script>
 <footer>
   <p>©Comet Productions.</p>
   <div id="socials">

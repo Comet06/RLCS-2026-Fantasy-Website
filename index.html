@@ -10,53 +10,68 @@
   <title id="titleYear"></title>
 </head>
 <body>
-  <header id="Links">
-  </header>
+  <header id="Links"></header>
   <main>
-    <div class="center_vertical_container">
-      <div class="center_horizontal_container">
-        <div class="center_vertical_container">
-          <h1>Split 1</h1>
-          <table class="home_tables" id="totalScoresS1">
-            <tbody>
-              <tr>
-                <th>Team</th><th>Regional 1</th><th>Regional 2</th><th>Regional 3</th><th>Major 1</th>
-              </tr>
-            </tbody>
-          </table><br>
+    <div class="center_horizontal_container">
+      <div class="center_vertical_container">
+        <div class="center_horizontal_container">
+          <div class="center_vertical_container">
+            <h1>Split 1</h1>
+            <table class="home_tables" id="totalScoresS1">
+              <tbody>
+                <tr>
+                  <th>Team</th><th>Regional 1</th><th>Kickoff LAN</th><th>Regional 2</th><th>Regional 3</th><th>Major 1</th>
+                </tr>
+              </tbody>
+            </table><br>
+          </div>
+          <div class="center_vertical_container">
+            <h1>Split 2</h1>
+            <table class="home_tables" id="totalScoresS2">
+              <tbody>
+                <tr>
+                  <th>Team</th><th>Regional 4</th><th>Regional 5</th><th>Regional 6</th><th>Major 2</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="center_vertical_container">
-          <h1>Split 2</h1>
-          <table class="home_tables" id="totalScoresS2">
-            <tbody>
-              <tr>
-                <th>Team</th><th>Regional 4</th><th>Regional 5</th><th>Regional 6</th><th>Major 2</th>
-              </tr>
-            </tbody>
-          </table>
+        <div class="center_horizontal_container">
+          <div class="center_vertical_container">
+            <h1>Total Score</h1>
+            <table class="home_tables" id="totalScoresS3">
+              <tbody>
+                <tr>
+                  <th>Team</th><th>Split 1</th><th>Split 2</th><th>Championship</th><th>Total</th>
+                </tr>
+              </tbody>
+            </table><br>
+          </div>
+          <div class="center_vertical_container">
+            <h1>Winnings</h1>
+            <table class="home_tables" id="prizeTable">
+              <tbody>
+                <tr>
+                  <th>Team</th><th>Split 1</th><th>Split 2</th><th>Championship</th><th>Total</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div class="center_horizontal_container">
-        <div class="center_vertical_container">
-          <h1>Total Score</h1>
-          <table class="home_tables" id="totalScoresS3">
-            <tbody>
-              <tr>
-                <th>Team</th><th>Split 1</th><th>Split 2</th><th>Championship</th><th>Total</th>
-              </tr>
-            </tbody>
-          </table><br>
-        </div>
-        <div class="center_vertical_container">
-          <h1>Winnings</h1>
-          <table class="home_tables" id="prizeTable">
-            <tbody>
-              <tr>
-                <th>Team</th><th>Split 1</th><th>Split 2</th><th>Championship</th><th>Total</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="center_vertical_container">
+        <h1>Top Performers(All-Time)</h1>
+        <table>
+          <tbody class="home_tables" id="TopPerformers">
+            <tr id="inlineRows">
+              <th id="centerdivs"><div id="playerName">Player</div><div id="playerStat">Score</div></th>
+              <th id="centerdivs"><div id="playerName">Player</div><div id="playerStat">Goals</div></th>
+              <th id="centerdivs"><div id="playerName">Player</div><div id="playerStat">Assits</div></th>
+              <th id="centerdivs"><div id="playerName">Player</div><div id="playerStat">Saves</div></th>
+              <th id="centerdivs"><div id="playerName">Player</div><div id="playerStat">Shots</div></th>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </main>

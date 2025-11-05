@@ -1,6 +1,6 @@
 import { path, deployLinks, menu } from "./main.js";
 import { year, players, teams } from "./a-current-page-data.js";
-import { determineRanks } from "./stats.js";
+import { determineTeamsRanks } from "./stats.js";
 
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/profile.html`){
@@ -11,20 +11,21 @@ window.addEventListener('load', function() {
     const playerName = urlParams.get('name');
     const teamName = urlParams.get('name');
     if (playerName||teamName){
-        const player = players.find(p => p.name === playerName);
+        const player = players.find(p => p.player === playerName);
         if (player) {
             createPlayer(player, 0);
             const profilesTitle = document.getElementById('player-profiles-title');
-            profilesTitle.innerHTML = player.name
+            profilesTitle.innerHTML = player.player
         } else  if (teamName) {
-            const team = teams.find(t => t.name === teamName);
+            const team = teams.find(t => t.team === teamName);
             createTeam(team, 0)
             const profilesTitle = document.getElementById('player-profiles-title');
-            profilesTitle.innerHTML = team.name
+            profilesTitle.innerHTML = team.team
             const playersOnTeam = players.filter(p => p.team === teamName);
             playersOnTeam.sort((a, b) => a.role.localeCompare(b.role))
             playersOnTeam.forEach((player,index) => {
                 if(player){
+                    console.log(player)
                     createPlayer(player, index+1)
                 }
             })
@@ -39,50 +40,61 @@ window.addEventListener('load', function() {
 
 function createPlayer(id, index) {
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
-    const Playerpage = `${path}/profile.html?name=${encodeURIComponent(id.name)}`;
-    const Teampage = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
-    const rating = (((id.score / 100) + id.goals + id.assists + id.saves + id.shots) * (id.wins/id.gp)).toFixed(0)
-    let ranking = `(Rank: ${determineRanks(rating)})`
-    if(id.role === 'coach'){
-      ranking = ``
-    }
+    const Playerlink = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
+    const Teamlink = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
+    let ranking = `(Rank: ${id.rank})`
     let role = ''
+
+    if(id.role === 'coach'){ranking = ``}
     if(id.gp < 1){id.gp = 1}
     if(id.role === ''){role = ``} else {role =`(${id.role})`}
     const profileHTML = `
         <div class="profile-card">
-            <h2 class="player-name"><a href="${Playerpage}">${id.name} ${ranking}<span id="${id.role}">${role}</a></span></h2>
+            <h2 class="player-name"><a href="${Playerlink}">${id.player} ${ranking}<span id="${id.role}">${role}</a></span></h2>
             <div class="profile-details">
-                <a id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teampage}"><strong>Team:</strong> ${id.team}</a>
-                <p><strong>Rating:</strong> ${id.rating()}</p>
+                <a id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}"><strong>Team:</strong> ${id.team}</a>
+                <p><strong>Rating:</strong> ${id.rating}</p>
                 <p><strong>Win Percentage:</strong> ${(id.wins/id.gp*100).toFixed(2)}%</p>
                 <p><strong>Total Score:</strong> ${id.score}</p>
                 <p><strong>Total Goals:</strong> ${id.goals}</p>
                 <p><strong>Total Assists:</strong> ${id.assists}</p>
                 <p><strong>Total Saves:</strong> ${id.saves}</p>
                 <p><strong>Total Shots:</strong> ${id.shots}</p>
+                <div id="border_box">
                 <p><strong>Score per game:</strong> ${(id.score/id.gp).toFixed(2)}</p>
                 <p><strong>Goals per game:</strong> ${(id.goals/id.gp).toFixed(2)}</p>
                 <p><strong>Assists per game:</strong> ${(id.assists/id.gp).toFixed(2)}</p>
                 <p><strong>Saves per game:</strong> ${(id.saves/id.gp).toFixed(2)}</p>
                 <p><strong>Shots per game:</strong> ${(id.shots/id.gp).toFixed(2)}</p>
+                </div>
             </div>
         </div>
     `;
-    profilesContainer.innerHTML = profileHTML;
+    const profileCoachHTML = `
+        <div class="profile-card">
+            <h2 class="player-name"><a href="${Playerlink}">${id.player} ${ranking}<span id="${id.role}">${role}</a></span></h2>
+            <div class="profile-details">
+                <a id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}"><strong>Team:</strong> ${id.team}</a>
+            </div>
+        </div>
+    `;
+    if(id.role === 'coach'){
+        profilesContainer.innerHTML = profileCoachHTML;    
+    } else {
+        profilesContainer.innerHTML = profileHTML;
+    }
 }
 function createTeam(id, index) {
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
-    let page = `${path}/profile.html?name=${encodeURIComponent(id.name)}`;
-    const rank = determineRanks(id.rating())
+    const rank = determineTeamsRanks(id.rating())
     if (id.gp < 1){id.gp = 1}
     const profileTeamHTML = `
         <div class="profile-card">
-            <h2 class="player-name"><a href="${page}">${id.name} (Rank:${rank})</a></h2>
+            <h2 class="player-name" id=${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}>${id.team} (Rank:${rank})</h2>
             <div class="profile-details">
                 <p><strong>Region:</strong><span id="${(id.region).toLowerCase()}">${id.region}</span></p>
                 <p><strong>Rating:</strong> ${id.rating()}</p>
-                <p><strong>Win Percentage:</strong> ${id.winPerc}%</p>
+                <p><strong>Win Percentage:</strong> ${(id.wins/id.gp*100).toFixed(2)}%</p>
                 <p><strong>Total Score:</strong> ${id.score}</p>
                 <p><strong>Total Goals:</strong> ${id.goals}</p>
                 <p><strong>Total Assists:</strong> ${id.assists}</p>
