@@ -1,6 +1,6 @@
 import { path, deployLinks, menu, points } from "./main.js";
 import { year, members, kickoffRounds, major1Rounds, major2Rounds, EventPoints, splitSums, EventSums } from "./current-page-data.js";
-import { deployTopPerformers } from "./stats.js";
+import { deployTops } from "./stats.js";
 import { kickoffLANPlacements, Major1Placements, Major2Placements } from "./placements.js";
 
 let kickoffLAN = {
@@ -28,6 +28,7 @@ let kickoffLANPlayers = [
 {player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 ]
+
 let Major1 = {
   // Swiss Correct(8), POSemi(8), POFinals(3)
   'come' : [0, 0, 0],
@@ -92,13 +93,13 @@ window.addEventListener('load', function() {
       determineMajorSums()
       deployMaj(major1Rounds)
       deployMajPlacements(Major1Placements, 1)
-      deployTopPerformers(major1Players)
+      deployTops(major1Players)
     } else if(evt === 'maj2'){
       document.getElementById('event').innerHTML = `Major 2`
       determineMajorSums()
       deployMaj(major2Rounds)
       deployMajPlacements(Major2Placements, 2)
-      deployTopPerformers(major2Players)
+      deployTops(major2Players)
     }
   } else if (window.location.pathname === `${path}/kickoff_lan.html`) {
     deployLinks()
@@ -111,7 +112,7 @@ window.addEventListener('load', function() {
       determineMajorSums()
       deploykickoff(kickoffRounds)
       deploykickoffPlacements(kickoffLANPlacements, 0)
-      deployTopPerformers(kickoffLANPlayers)
+      deployTops(kickoffLANPlayers)
     }
   }
 });

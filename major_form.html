@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="team_region.css"/>
-  <link rel="stylesheet" href="bracket_form.css"/>
+  <link rel="stylesheet" href="bracket.css"/>
   <title>RLCS Bracket Form</title>
 </head>
 <body>
@@ -15,264 +15,104 @@
   <header id="Links">
   </header>
   <h1 style="text-align: center;">Major</h1>
-  <div class="brackets">
-    <div class="stage" id="border_box"><!--Swiss -->
-      <h1 class="bracket_titles">Swiss Stage</h1>
-      <div class="swiss_rounds">
-        <div class="swiss_bracket_round"><!-- Round 1 -->
-          <div id="swiss-round-details">Round 1<br/></div>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1"><span id="R1S1" onclick="updateGamesScores(R2seeds, 2, R1seeds[0], R1seeds[1]), win('R1S1', 'R1S2')"></span></li>
-            <li class="swiss_bracket_team" id="round1"><span id="R1S2" onclick="updateGamesScores(R2seeds, 2, R1seeds[1], R1seeds[0]), win('R1S2', 'R1S1')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1"><span id="R1S3" onclick="updateGamesScores(R2seeds, 2, R1seeds[2], R1seeds[3]), win('R1S3', 'R1S4')"></span></li>
-            <li class="swiss_bracket_team" id="round1"><span id="R1S4" onclick="updateGamesScores(R2seeds, 2, R1seeds[3], R1seeds[2]), win('R1S4', 'R1S3')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1"><span id="R1S5" onclick="updateGamesScores(R2seeds, 2, R1seeds[4], R1seeds[5]), win('R1S5', 'R1S6')"></span></li>
-            <li class="swiss_bracket_team" id="round1"><span id="R1S6" onclick="updateGamesScores(R2seeds, 2, R1seeds[5], R1seeds[4]), win('R1S6', 'R1S5')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1"><span id="R1S7" onclick="updateGamesScores(R2seeds, 2, R1seeds[6], R1seeds[7]), win('R1S7', 'R1S8')"></span></li>
-            <li class="swiss_bracket_team" id="round1"><span id="R1S8" onclick="updateGamesScores(R2seeds, 2, R1seeds[7], R1seeds[6]), win('R1S8', 'R1S7')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1"><span id="R1S9" onclick="updateGamesScores(R2seeds, 2, R1seeds[8], R1seeds[9]), win('R1S9', 'R1S10')"></span></li>
-            <li class="swiss_bracket_team" id="round1"><span id="R1S10" onclick="updateGamesScores(R2seeds, 2, R1seeds[9], R1seeds[8]), win('R1S10', 'R1S9')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1"><span id="R1S11" onclick="updateGamesScores(R2seeds, 2, R1seeds[10], R1seeds[11]), win('R1S11', 'R1S12')"></span></li>
-            <li class="swiss_bracket_team" id="round1"><span id="R1S12" onclick="updateGamesScores(R2seeds, 2, R1seeds[11], R1seeds[10]), win('R1S12', 'R1S11')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1"><span id="R1S13" onclick="updateGamesScores(R2seeds, 2, R1seeds[12], R1seeds[13]), win('R1S13', 'R1S14')"></span></li>
-            <li class="swiss_bracket_team" id="round1"><span id="R1S14" onclick="updateGamesScores(R2seeds, 2, R1seeds[13], R1seeds[12]), win('R1S14', 'R1S13')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1"><span id="R1S15" onclick="updateGamesScores(R2seeds, 2, R1seeds[14], R1seeds[15]), win('R1S15', 'R1S16')"></span></li>
-            <li class="swiss_bracket_team" id="round1"><span id="R1S16" onclick="updateGamesScores(R2seeds, 2, R1seeds[15], R1seeds[14]), win('R1S16', 'R1S15')"></span></li>
-          </ul>
+  <div id="bracket-container">
+    <div class="brackets">
+      <div class="GroupStage"><!-- Group Stage -->
+        <div class="group">
+          <h1 class="bracket_titles">Group A</h1>
+          <table id="groupA">
+            <tbody>
+              <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="swiss_bracket_round"><!-- Round 2 -->
-          <div id="swiss-round-details">Round 2<br/></div>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1Upper"><span id="R2S1" onclick="updateGamesScores(R3seeds, 3, R2seeds[0], R2seeds[1]), win('R2S1', 'R2S2')"></span></li>
-            <li class="swiss_bracket_team" id="round1Upper"><span id="R2S2" onclick="updateGamesScores(R3seeds, 3, R2seeds[1], R2seeds[0]), win('R2S2', 'R2S1')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1Upper"><span id="R2S3" onclick="updateGamesScores(R3seeds, 3, R2seeds[2], R2seeds[3]), win('R2S3', 'R2S4')"></span></li>
-            <li class="swiss_bracket_team" id="round1Upper"><span id="R2S4" onclick="updateGamesScores(R3seeds, 3, R2seeds[3], R2seeds[2]), win('R2S4', 'R2S3')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1Upper"><span id="R2S5" onclick="updateGamesScores(R3seeds, 3, R2seeds[4], R2seeds[5]), win('R2S5', 'R2S6')"></span></li>
-            <li class="swiss_bracket_team" id="round1Upper"><span id="R2S6" onclick="updateGamesScores(R3seeds, 3, R2seeds[5], R2seeds[4]), win('R2S6', 'R2S5')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1Upper"><span id="R2S7" onclick="updateGamesScores(R3seeds, 3, R2seeds[6], R2seeds[7]), win('R2S7', 'R2S8')"></span></li>
-            <li class="swiss_bracket_team" id="round1Upper"><span id="R2S8" onclick="updateGamesScores(R3seeds, 3, R2seeds[7], R2seeds[6]), win('R2S8', 'R2S7')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1Lower"><span id="R2S9" onclick="updateGamesScores(R3seeds, 3, R2seeds[8], R2seeds[9]), win('R2S9', 'R2S10')"></span></li>
-            <li class="swiss_bracket_team" id="round1Lower"><span id="R2S10" onclick="updateGamesScores(R3seeds, 3, R2seeds[9], R2seeds[8]), win('R2S10', 'R2S9')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1Lower"><span id="R2S11" onclick="updateGamesScores(R3seeds, 3, R2seeds[10], R2seeds[11]), win('R2S11', 'R2S12')"></span></li>
-            <li class="swiss_bracket_team" id="round1Lower"><span id="R2S12" onclick="updateGamesScores(R3seeds, 3, R2seeds[11], R2seeds[10]), win('R2S12', 'R2S11')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1Lower"><span id="R2S13" onclick="updateGamesScores(R3seeds, 3, R2seeds[12], R2seeds[13]), win('R2S13', 'R2S14')"></span></li>
-            <li class="swiss_bracket_team" id="round1Lower"><span id="R2S14" onclick="updateGamesScores(R3seeds, 3, R2seeds[13], R2seeds[12]), win('R2S14', 'R2S13')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="round1Lower"><span id="R2S15" onclick="updateGamesScores(R3seeds, 3, R2seeds[14], R2seeds[15]), win('R2S15', 'R2S16')"></span></li>
-            <li class="swiss_bracket_team" id="round1Lower"><span id="R2S16" onclick="updateGamesScores(R3seeds, 3, R2seeds[15], R2seeds[14]), win('R2S16', 'R2S15')"></span></li>
-          </ul>
+        <div class="group">
+          <h1 class="bracket_titles">Group B</h1>
+          <table id="groupB">
+            <tbody>
+              <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="swiss_bracket_round"><!-- Round 3 -->
-          <div id="swiss-round-details">Round 3<br/></div>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundUpper"><span id="R3S1" onclick="updateGamesScores(R4seeds, 4, R3seeds[0], R3seeds[1]), win('R3S1', 'R3S2')"></span></li>
-            <li class="swiss_bracket_team" id="roundUpper"><span id="R3S2" onclick="updateGamesScores(R4seeds, 4, R3seeds[1], R3seeds[0]), win('R3S2', 'R3S1')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundUpper"><span id="R3S3" onclick="updateGamesScores(R4seeds, 4, R3seeds[2], R3seeds[3]), win('R3S3', 'R3S4')"></span></li>
-            <li class="swiss_bracket_team" id="roundUpper"><span id="R3S4" onclick="updateGamesScores(R4seeds, 4, R3seeds[3], R3seeds[2]), win('R3S4', 'R3S3')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R3S5" onclick="updateGamesScores(R4seeds, 4, R3seeds[4], R3seeds[5]), win('R3S5', 'R3S6')"></span></li>
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R3S6" onclick="updateGamesScores(R4seeds, 4, R3seeds[5], R3seeds[4]), win('R3S6', 'R3S5')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R3S7" onclick="updateGamesScores(R4seeds, 4, R3seeds[6], R3seeds[7]), win('R3S7', 'R3S8')"></span></li>
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R3S8" onclick="updateGamesScores(R4seeds, 4, R3seeds[7], R3seeds[6]), win('R3S8', 'R3S7')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R3S9" onclick="updateGamesScores(R4seeds, 4, R3seeds[8], R3seeds[9]), win('R3S9', 'R3S10')"></span></li>
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R3S10" onclick="updateGamesScores(R4seeds, 4, R3seeds[9], R3seeds[8]), win('R3S10', 'R3S9')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R3S11" onclick="updateGamesScores(R4seeds, 4, R3seeds[10], R3seeds[11]), win('R3S11', 'R3S12')"></span></li>
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R3S12" onclick="updateGamesScores(R4seeds, 4, R3seeds[11], R3seeds[10]), win('R3S12', 'R3S11')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R3S13" onclick="updateGamesScores(R4seeds, 4, R3seeds[12], R3seeds[13]), win('R3S13', 'R3S14')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R3S14" onclick="updateGamesScores(R4seeds, 4, R3seeds[13], R3seeds[12]), win('R3S14', 'R3S13')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R3S15" onclick="updateGamesScores(R4seeds, 4, R3seeds[14], R3seeds[15]), win('R3S15', 'R3S16')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R3S16" onclick="updateGamesScores(R4seeds, 4, R3seeds[15], R3seeds[14]), win('R3S16', 'R3S15')"></span></li>
-          </ul>
+        <div class="group">
+          <h1 class="bracket_titles">Group C</h1>
+          <table id="groupC">
+            <tbody>
+              <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="swiss_bracket_round"><!-- Round 4 -->
-          <div id="swiss-round-details">Round 4<br/></div>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="qualified"><span id="R4S1"></span></li>
-            <li class="swiss_bracket_team" id="qualified"><span id="R4S2"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R4S3" onclick="updateGamesScores(R5seeds, 5, R4seeds[2], R4seeds[3]), win('R4S3', 'R4S4')"></span></li>
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R4S4" onclick="updateGamesScores(R5seeds, 5, R4seeds[3], R4seeds[2]), win('R4S4', 'R4S3')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R4S5" onclick="updateGamesScores(R5seeds, 5, R4seeds[4], R4seeds[5]), win('R4S5', 'R4S6')"></span></li>
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R4S6" onclick="updateGamesScores(R5seeds, 5, R4seeds[5], R4seeds[4]), win('R4S6', 'R4S5')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R4S7" onclick="updateGamesScores(R5seeds, 5, R4seeds[6], R4seeds[7]), win('R4S7', 'R4S8')"></span></li>
-            <li class="swiss_bracket_team" id="roundMiddle"><span id="R4S8" onclick="updateGamesScores(R5seeds, 5, R4seeds[7], R4seeds[6]), win('R4S8', 'R4S7')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R4S9" onclick="updateGamesScores(R5seeds, 5, R4seeds[8], R4seeds[9]), win('R4S9', 'R4S10')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R4S10" onclick="updateGamesScores(R5seeds, 5, R4seeds[9], R4seeds[8]), win('R4S10', 'R4S9')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R4S11" onclick="updateGamesScores(R5seeds, 5, R4seeds[10], R4seeds[11]), win('R4S11', 'R4S12')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R4S12" onclick="updateGamesScores(R5seeds, 5, R4seeds[11], R4seeds[10]), win('R4S12', 'R4S11')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R4S13" onclick="updateGamesScores(R5seeds, 5, R4seeds[12], R4seeds[13]), win('R4S13', 'R4S14')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R4S14" onclick="updateGamesScores(R5seeds, 5, R4seeds[13], R4seeds[12]), win('R4S14', 'R4S13')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="disqualified"><span id="R4S15"></span></li>
-            <li class="swiss_bracket_team" id="disqualified"><span id="R4S16"></span></li>
-          </ul>
-        </div>
-        <div class="swiss_bracket_round" id="round5"><!-- Round 5 -->
-          <div id="swiss-round-details">Round 5<br/></div>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="qualified"><span id="R5S1"></span></li>
-            <li class="swiss_bracket_team" id="qualified"><span id="R5S2"></span></li>
-            <li class="swiss_bracket_team" id="qualified"><span id="R5S3"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S4" onclick="updateGamesScores(R6seeds, 6, R5seeds[5], R5seeds[4]), win('R5S4', 'R5S5')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S5" onclick="updateGamesScores(R6seeds, 6, R5seeds[4], R5seeds[3]), win('R5S5', 'R5S4')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S6" onclick="updateGamesScores(R6seeds, 6, R5seeds[7], R5seeds[6]), win('R5S6', 'R5S7')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S7" onclick="updateGamesScores(R6seeds, 6, R5seeds[6], R5seeds[5]), win('R5S7', 'R5S6')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S8" onclick="updateGamesScores(R6seeds, 6, R5seeds[9], R5seeds[8]), win('R5S8', 'R5S9')"></span></li>
-            <li class="swiss_bracket_team" id="roundLower"><span id="R5S9" onclick="updateGamesScores(R6seeds, 6, R5seeds[8], R5seeds[7]), win('R5S9', 'R5S8')"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="disqualified"><span id="R5S10"></span></li>
-            <li class="swiss_bracket_team" id="disqualified"><span id="R5S11"></span></li>
-            <li class="swiss_bracket_team" id="disqualified"><span id="R5S12"></span></li>
-          </ul>
-        </div>
-        <div class="swiss_bracket_round" id="round6"><!-- qualified -->
-          <div id="swiss-round-details">Qualified<br/></div>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="qualified"><span id="R6S1"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="qualified"><span id="R6S2"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="qualified"><span id="R6S3"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="disqualified"><span id="R6S4"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="disqualified"><span id="R6S5"></span></li>
-          </ul>
-          <ul class="swiss_matchup">
-            <li class="swiss_bracket_team" id="disqualified"><span id="R6S6"></span></li>
-          </ul>
+        <div class="group">
+          <h1 class="bracket_titles">Group D</h1>
+          <table id="groupD">
+            <tbody>
+              <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-    <div class="horizontal_container">
-      <table id="swissStats">
-        <tbody>
-        </tbody>
-      </table>
-      <div class="stage" id="border_box">
+      <button id="submitBracket">Submit Groups</button>
+      <div class="stage" id="border_box"><!-- Playoffs -->
         <h1 class="bracket_titles">Playoffs</h1>
-        <div class="lower">
-            <div class="finals_quarterfinals">
-              <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>     
-              <ul class="matchup">
-              <li class="bracket_team" id="POseed1" onclick="upper(1, playoffTeams[0], playoffTeams[3])">Seed 1</li>
-              <li class="bracket_team" id="POseed4" onclick="upper(1, playoffTeams[3], playoffTeams[0])">Seed 4</li>
-              </ul> 
-              <ul class="matchup">
-                <li class="bracket_team" id="POseed2" onclick="upper(2, playoffTeams[1], playoffTeams[2])">Seed 2</li>
-                <li class="bracket_team" id="POseed3" onclick="upper(2, playoffTeams[2], playoffTeams[1])">Seed 3</li>
+        <div class="lower" id="Playoff-upper">
+            <div class="finals_upper_quarterfinals">
+              <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
+              <ul class="matchup" data-match-id="1UQ" id="hide_list">
+                <li class="playoffTeam" id="PO1"></li>
+                <li class="playoffTeam" id="PO5"></li>
+              </ul>
+              <ul class="matchup" data-match-id="2UQ" id="hide_list">
+                <li class="playoffTeam" id="PO3"></li>
+                <li class="playoffTeam" id="PO7"></li>
               </ul>
             </div>
         </div>
-        <div class="lower">
-            <div class="quarterfinals">
+        <div class="lower" id="Playoff-lower">
+            <div class="major_roundOne">
               <div class="round-details">Round 1<br/><span class="date">TBD</span></div>
-              <ul class="matchup">
-              <li class="bracket_team" id="POseed5" onclick="lower(1, playoffTeams[4])">Seed 5</li>
-              <li class="bracket_team" id="POseed8" onclick="lower(1, playoffTeams[7])">Seed 8</li>
-              </ul> 
-              <ul class="matchup">
-              <li class="bracket_team" id="POseed6" onclick="lower(2, playoffTeams[5])">Seed 5</li>
-              <li class="bracket_team" id="POseed7" onclick="lower(2, playoffTeams[6])">Seed 6</li>
-              </ul>          
-            </div>
-            <div class="semis_quals">
-              <div class="round-details">Quarterfinals<br/><span class="date">TBD</span></div>  
-              <ul class="matchup">
-              <li class="bracket_team" id="q1" onclick="lower(3, playoffsQ[0])"></li>
-              <li class="bracket_team" id="q2" onclick="lower(3, playoffsQ[1])"></li>
+              <ul class="matchup" data-match-id="1LR1">
+                <li class="playoffTeam" id="PO2"></li>
+                <li class="playoffTeam" id="PO6"></li>
               </ul>
-              <ul class="matchup">
-              <li class="bracket_team" id="q3" onclick="lower(4, playoffsQ[2])"></li>
-              <li class="bracket_team" id="q4" onclick="lower(4, playoffsQ[3])"></li>
+              <ul class="matchup" data-match-id="2LR1">
+                <li class="playoffTeam" id="PO4"></li>
+                <li class="playoffTeam" id="PO8"></li>
               </ul>
             </div>
-            <div class="semis_quals">
-              <div class="round-details">Semifinals<br/><span class="date">TBD</span></div>     
-              <ul class="matchup">
-              <li class="bracket_team" id="s1" onclick="lower(5, playoffsS[0])"></li>
-              <li class="bracket_team" id="s2" onclick="lower(5, playoffsS[1])"></li>
+            <div class="major_finals_lower_quarterfinals">
+              <div class="round-details">Quarterfinals<br/><span class="date">TBD</span></div>
+              <ul class="matchup" data-match-id="1LQ">
+                <li class="bracket_team" data-team-id="" style="font-style: italic;">Loser of UQF 1</li>
+                <li class="bracket_team" data-team-id=""></li>
               </ul>
-              <ul class="matchup">
-              <li class="bracket_team" id="s3" onclick="lower(6, playoffsS[2])"></li>
-              <li class="bracket_team" id="s4" onclick="lower(6, playoffsS[3])"></li>
+              <ul class="matchup" data-match-id="2LQ">
+                <li class="bracket_team" data-team-id="" style="font-style: italic;">Loser of UQF 2</li>
+                <li class="bracket_team" data-team-id=""></li>
+              </ul>
+            </div>
+            <div class="major_finals_lower_semis">
+              <div class="round-details">Semifinals<br/><span class="date">TBD</span></div>
+              <ul class="matchup" data-match-id="1LS">
+                <li class="bracket_team" data-team-id="" style="font-style: italic;">Winner of UQF 2</li>
+                <li class="bracket_team" data-team-id=""></li>
+              </ul>
+              <ul class="matchup" data-match-id="2LS">
+                <li class="bracket_team" data-team-id="" style="font-style: italic;">Winner of UQF 1</li>
+                <li class="bracket_team" data-team-id=""></li>
               </ul>
             </div>
         </div>
-        <div class="final">
+        <div class="major_final" id="Playoff-lower">
             <div class="grand_finals">
                 <div class="round-details">Grand Finals<br/><span class="date">TBD</span></div>
-                <ul class="matchup">
-                  <li class="bracket_team" id="g1" onclick="grand(playoffsG[0])"></li>
-                  <li class="bracket_team" id="g2" onclick="grand(playoffsG[1])"></li>
-                </ul>
+              <ul class="matchup" data-match-id="1GF">
+                <li class="bracket_team" data-team-id=""></li>
+                <li class="bracket_team" data-team-id=""></li>
+              </ul>
                 <div class="round-details">Winner</div>
-                <ul class="matchup">
-                    <li class="bracket_team" id="winner"></li>
-                </ul>
+              <ul class="matchup" data-match-id="W">
+                <li class="bracket_team" data-team-id="" id="win"></li>
+              </ul>
             </div>
         </div>
       </div>

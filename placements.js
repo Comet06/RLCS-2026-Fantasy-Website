@@ -64,7 +64,7 @@ export let kickoffLANQualifiedTeams = [
     'NA',
 ]
 export let kickoffLANPlacements = {
-    'Major' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
+    'Major' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
 }
 
 export let split1QualifiedTeams = [
@@ -72,7 +72,7 @@ export let split1QualifiedTeams = [
     'NA', 'NA', 'NA', 'NA',
     'OCE', 'SAM', 'SAM',
     'MENA', 'MENA', 'APAC',
-    'SSA', 'K-off Winner',
+    'SSA', 'EU/NA #5',
 ]
 // If EU Win kickoff
 // NA1

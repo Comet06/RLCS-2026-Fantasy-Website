@@ -1,6 +1,6 @@
 import { path, deployLinks, menu, regions, getTeamDetails } from "./main.js";
 import { year, members, players, EventPoints, EventSums } from "./current-page-data.js";
-import { deployTopPerformers } from "./stats.js";
+import { deployTops } from "./stats.js";
 import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements } from "./placements.js";
 
 let Regional1 = {
@@ -160,57 +160,46 @@ window.addEventListener('load', function() {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     const urlParams = new URLSearchParams(window.location.search);
     const evt = urlParams.get('name');
+    determineRegionalSums()
     if(evt === 'reg1'){
       document.getElementById('event').innerHTML = `Regional 1`
       console.log('Regional 1 page has loaded!');
-      determineRegionalSums()
       deployReg(Regional1, EventSums, 1)
       deployRegPlacements(Regional1Placements, 1)
-      deployTopPerformers(regional1Players)
-
+      deployTops(regional1Players)
     } else if(evt === 'reg2'){
       document.getElementById('event').innerHTML = `Regional 2`
       console.log('Regional 2  page has loaded!');
-      determineRegionalSums()
       deployReg(Regional2, EventSums, 2)
       deployRegPlacements(Regional2Placements, 1)
-      deployTopPerformers(regional2Players)
-
+      deployTops(regional2Players)
     } else if(evt === 'reg3'){
       document.getElementById('event').innerHTML = `Regional 3`
       console.log('Regional 3 page has loaded!');
-      determineRegionalSums()
       deployReg(Regional3, EventSums, 3)
       deployRegPlacements(Regional3Placements, 1)
-      deployTopPerformers(regional3Players)
-
+      deployTops(regional3Players)
     } else if(evt === 'reg4'){
       document.getElementById('event').innerHTML = `Regional 4`
       console.log('Regional 4 page has loaded!');
-      determineRegionalSums()
       deployReg(Regional4, EventSums, 4)
       deployRegPlacements(Regional4Placements, 2)
-      deployTopPerformers(regional4Players)
-
+      deployTops(regional4Players)
     } else if(evt === 'reg5'){
       document.getElementById('event').innerHTML = `Regional 5`
       console.log('Regional 5 page has loaded!');
-      determineRegionalSums()
       deployReg(Regional5, EventSums, 5)
       deployRegPlacements(Regional5Placements, 2)
-      deployTopPerformers(regional5Players)
-
+      deployTops(regional5Players)
     } else if(evt === 'reg6'){
       document.getElementById('event').innerHTML = `Regional 6`
       console.log('Regional 6 page has loaded!');
-      determineRegionalSums()
       deployReg(Regional6, EventSums, 6)
       deployRegPlacements(Regional6Placements, 2)
-      deployTopPerformers(regional6Players)
+      deployTops(regional6Players)
     }
   }
 });
-
 
 export function determineRegionalSums(){
   members.forEach((id) =>{
@@ -251,10 +240,11 @@ function deployReg(event, event2, eventNumber){
         teamName.textContent = id.name
         playerLink.textContent = event[id.shortname][i]
         playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.shortname][i])}`
-        teamLink.textContent = getPlayerDetails(event[id.shortname][i])[0]
+        teamLink.textContent = getPlayerDetails(event[id.shortname][i], players)[0]
         teamLink.href = `${path}/profile.html?name=${encodeURIComponent(teamLink.textContent)}`
         
         Region.textContent = getTeamDetails(teamLink.textContent)[0]
+        
         Points.textContent = event[id.shortname][i+1]
         Total.textContent = event2[id.shortname][eventNumber-1] //EventSums[0]
         
@@ -287,7 +277,7 @@ function deployReg(event, event2, eventNumber){
 
         playerLink.textContent = event[id.shortname][i]
         playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.shortname][i])}`
-        teamLink.textContent = getPlayerDetails(event[id.shortname][i])[0]
+        teamLink.textContent = getPlayerDetails(event[id.shortname][i], players)[0]
         teamLink.href = `${path}/profile.html?name=${encodeURIComponent(teamLink.textContent)}`
         
         Region.textContent = getTeamDetails(teamLink.textContent)[0]
@@ -330,15 +320,13 @@ function deployRegPlacements(event, eventNumber){
     }
   })
 }
-function getPlayerDetails(searchTerm){
-  const player = players.find(p => p.player === searchTerm);
-
+function getPlayerDetails(searchTerm, playersArray){
+  const player = playersArray.find(p => p.player === searchTerm);
   if (!player) {
-    return []; // Or handle the case where no team is found
+    return [];
   }
-
   const details = [
-    player.team || 'N/A'
+    player.team || 'N/A',
   ];
   return details;
 }

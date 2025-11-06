@@ -1,37 +1,27 @@
 // Seeding Average of 2nd major starting seed and ending seed then region rank
-let PlayinTeams = [
-    {team: 'Qualified Seed #1', wins: 0, losses: 0, playinSeed: 1}, //Qualified seed 1
-    {team: 'Qualified Seed #2', wins: 0, losses: 0, playinSeed: 2}, //Qualified seed 2
-    {team: 'Qualified Seed #3', wins: 0, losses: 0, playinSeed: 3}, //Qualified seed 3
-    {team: 'Qualified Seed #4', wins: 0, losses: 0, playinSeed: 5}, //Qualified seed 4
-    {team: 'LCQ Seed #1', wins: 0, losses: 0, playinSeed: 4}, //LCQ Seed 1
-    {team: 'LCQ Seed #2', wins: 0, losses: 0, playinSeed: 6}, //LCQ Seed 2
-    {team: 'LCQ Seed #3', wins: 0, losses: 0, playinSeed: 7}, //LCQ Seed 3
-    {team: 'LCQ Seed #4', wins: 0, losses: 0, playinSeed: 8}, //LCQ Seed 4
-]
 let groupA = [
-  {team: 'Qualified Seed #1', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Qualified Seed #8', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Qualified Seed #9', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Playin Seed 4', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #1', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #8', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #9', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #16', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
 ]
 let groupB = [
-  {team: 'Qualified Seed #2', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Qualified Seed #7', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Qualified Seed #10', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Playin Seed 3', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #2', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #7', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #10', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #15', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
 ]
 let groupC = [
-  {team: 'Qualified Seed #3', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Qualified Seed #6', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Qualified Seed #11', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Playin Seed 2', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #3', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #6', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #11', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #14', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
 ]
 let groupD = [
-  {team: 'Qualified Seed #4', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Qualified Seed #5', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Qualified Seed #12', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
-  {team: 'Playin Seed 1', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #4', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #5', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #12', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
+  {team: 'Seed #13', seriesWins: 0, seriesLosses: 0, gameWins: 0, gameLosses: 0},
 ]
 let playoffTeams = ['', '', '', '', '', '', '', '', '', '', '', '']
 
@@ -53,56 +43,28 @@ bracketContainer.addEventListener('click', (event) => {
   }
   handleTeamSelection(winnerId, loserId, matchupId, clickedTeam);
 });
-// Initial Deployment
+deployGroups()
 for(let i = 0; i < 8; i++){
-  document.getElementById(`P${i+1}`).innerHTML = `<div class="bracket_team" data-team-id="${PlayinTeams[i].team}">${PlayinTeams[i].team}</div>`
-}
-for(let i = 0; i < 12; i++){
   document.getElementById(`PO${i+1}`).innerHTML = `<div class="bracket_team" data-team-id="">GS Seed #${i+1}</div>`
 }
-deployGroupStage(groupA, 'A')
-deployGroupStage(groupB, 'B')
-deployGroupStage(groupC, 'C')
-deployGroupStage(groupD, 'D')
-const PlayinsSubmission = document.getElementById('submitPlayins')
-PlayinsSubmission.addEventListener('click', deployGroups)
+
 const bracketSubmission = document.getElementById('submitBracket')
 bracketSubmission.addEventListener('click', deployPlayoffs)
 
 function handleTeamSelection(winnerId, loserId, matchupId, clickedElement) {
   const matchupElement = clickedElement.closest('.matchup');
-  const bracketType = matchupElement.closest(`#Playin-upper, #Playin-lower, #Playoff-upper, #Playoff-lower`).id;
+  const bracketType = matchupElement.closest(`#Playoff-upper, #Playoff-lower`).id;
   const teamsInMatch = matchupElement.querySelectorAll('.bracket_team');
   const nextMatches = findNextMatches(matchupId);
-  PlayinTeams.forEach((id) =>{
-    if(id.team === winnerId){
-      id.wins++
-    }
-    if(id.team === loserId){
-      id.losses++
-    }
-  })
   teamsInMatch.forEach(team => {//Clearing classes for the teams advancing
       team.classList.remove('win');
       team.classList.remove('lose');
   });
   clickedElement.classList.add('win');//Adding class win back to the winner
   if (nextMatches.winner) {
-    if(bracketType === 'Playoff-upper'){
-      advanceTeamToNextRound(winnerId, nextMatches.winner, 'Playoff-lower');
-    } else {
-      advanceTeamToNextRound(winnerId, nextMatches.winner, bracketType);
-    }
+    advanceTeamToNextRound(winnerId, nextMatches.winner, 'Playoff-lower');
   }
-  if (bracketType === `Playin-upper` && nextMatches.loser && loserId) {//checks if there is a location for the loser to go to, and if a loser exists
-    const loserElement = Array.from(teamsInMatch).find(team => team.dataset.teamId === loserId);
-    if (loserElement) {loserElement.classList.add('lose');}//Adding class lose back to the loser
-    advanceTeamToNextRound(loserId, nextMatches.loser, `Playin-lower`);
-  } else if (bracketType === `Playin-lower` && loserId) {
-    const loserElement = Array.from(teamsInMatch).find(team => team.dataset.teamId === loserId);
-    if (loserElement) {loserElement.classList.add('lose');}//Adding class lose back to the loser
-    advanceTeamToNextRound(loserId, nextMatches.loser, `Playin-lower`);
-  } else if (bracketType === `Playoff-upper` && nextMatches.loser && loserId) {//checks if there is a location for the loser to go to, and if a loser exists
+  if (bracketType === `Playoff-upper` && nextMatches.loser && loserId) {//checks if there is a location for the loser to go to, and if a loser exists
     const loserElement = Array.from(teamsInMatch).find(team => team.dataset.teamId === loserId);
     if (loserElement) {loserElement.classList.add('lose');}//Adding class lose back to the loser
     advanceTeamToNextRound(loserId, nextMatches.loser, `Playoff-lower`);
@@ -116,27 +78,12 @@ function handleTeamSelection(winnerId, loserId, matchupId, clickedElement) {
 function findNextMatches(currentMatchupId) {
     // Implement your bracket logic here
     const nextMatches = {
-        '1PUQ': { winner: '1PUS', loser: '1PLQ' },
-        '2PUQ': { winner: '1PUS', loser: '1PLQ' },
-        '3PUQ': { winner: '2PUS', loser: '2PLQ' },
-        '4PUQ': { winner: '2PUS', loser: '2PLQ' },
-        '1PUS': { winner: '1PUF', loser: '2PLS' },
-        '2PUS': { winner: '2PUF', loser: '1PLS' },
-        '1PLQ': { winner: '1PLS'},
-        '2PLQ': { winner: '2PLS'},
-        '1PLS': { winner: '1PLF'},
-        '2PLS': { winner: '2PLF'},
         
         '1UQ': { winner: '2LS', loser: '1LQ' },
         '2UQ': { winner: '1LS', loser: '2LQ' },
 
-        '1LR1': { winner: '1LR2'},
-        '2LR1': { winner: '1LR2'},
-        '3LR1': { winner: '2LR2'},
-        '4LR1': { winner: '2LR2'},
-
-        '1LR2': { winner: '1LQ'},
-        '2LR2': { winner: '2LQ'},
+        '1LR1': { winner: '1LQ'},
+        '2LR1': { winner: '2LQ'},
 
         '1LQ': { winner: '1LS'},
         '2LQ': { winner: '2LS'},
@@ -161,13 +108,6 @@ function advanceTeamToNextRound(teamId, nextMatchupId, bracketType) {
 }
 
 function deployGroups(){
-  PlayinTeams.sort((a,b)=> a.playinSeed - b.playinSeed)
-  PlayinTeams.sort((a,b)=> a.losses - b.losses)
-  PlayinTeams.sort((a,b)=> b.wins - a.wins)
-  groupA[3].team = PlayinTeams[3].team
-  groupB[3].team = PlayinTeams[2].team
-  groupC[3].team = PlayinTeams[1].team
-  groupD[3].team = PlayinTeams[0].team
   deployGroupStage(groupA, 'A')
   deployGroupStage(groupB, 'B')
   deployGroupStage(groupC, 'C')
@@ -240,7 +180,7 @@ function deployPlayoffs(){
     playoffTeams[i+6] = groupC[i].team
     playoffTeams[i+9] = groupD[i].team
   }
-  for(i = 0; i < 12; i++){
+  for(let i = 0; i < 8; i++){
     document.getElementById(`PO${i+1}`).innerHTML = `<div class="bracket_team" data-team-id="${playoffTeams[i]}">${playoffTeams[i]}</div>`
   }
 }

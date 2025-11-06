@@ -8,7 +8,8 @@
 .matchup{margin: 0 2.5% 0 0;height: 60px;}
 .upper {height:350px;justify-content: center;display: flex;} /* All upper sections */
 .lower {height: 200px;justify-content: center;display: flex;} /* All lower sections */
-.final{height: 150px;justify-content: center;display: flex;}
+.final{margin-top: 100px; height: 150px;justify-content: center;display: flex;}
+.major_final{height: 150px;justify-content: center;display: flex;}
 
 .quarterfinals {display:flex;flex-direction:column;width: 80%;}
 .quarterfinals .matchup {padding: 20px 0px;} /* All QF matches */
@@ -16,14 +17,28 @@
 .semis_quals .matchup {padding: 55px 0px;} /* All SF matches */
 .lower .matchup {padding: 20px 0px;} /* All lower matches */
 
-.finals_quarterfinals{width: fit-content;}
-.finals_quarterfinals .matchup {margin: 0;}
+.finals_upper_quarterfinals{width: fit-content;}
+.finals_upper_quarterfinals .matchup {margin: 0;}
+.roundOne .matchup{padding: 20px 0px;}
+.roundTwo .matchup{padding: 55px 0px;}
+.finals_lower_quarterfinals{display:flex;flex-direction:column;width: 80%;}
+.finals_lower_semis{display:flex;flex-direction:column;width: 80%;}
+.finals_lower_quarterfinals .matchup{padding: 55px 0px;}
+.finals_lower_semis .matchup{padding: 55px 0px;}
+
+.major_finals_upper_quarterfinals{width: fit-content;}
+.major_finals_upper_quarterfinals .matchup {margin: 0;}
+.major_roundOne .matchup{padding: 20px 0px;}
+.major_finals_lower_quarterfinals{display:flex;flex-direction:column;width: 80%;}
+.major_finals_lower_semis{display:flex;flex-direction:column;width: 80%;}
+.major_finals_lower_quarterfinals .matchup{padding: 20px 0px;}
+.major_finals_lower_semis .matchup{padding: 20px 0px;}
+
 .grand_finals{width: fit-content;}
 .grand_finals .matchup {margin: 0;}
 
 .bracket_team {padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;
     position: relative;color: white;background-color: #1e1e2f;}
-    
     
 .score {float: right;font-weight: bold;position: absolute;right: 5px;}
 .round-details {min-width:200px;color: #2C7399;text-transform: uppercase;text-align: center;}
@@ -37,5 +52,5 @@
 #playinUpper{width: 600px;}
 
 
-.GroupStage{display: flex; gap: 5px;}
-.group{display: flex; flex-direction: column;border: black 2px solid;}
+.GroupStage{display: flex; gap: 5px; flex-wrap: wrap; justify-content: center;}
+.group{display: flex; flex-direction: column;border: black 2px solid; color: black; background-color: #e1e1e1e6;}

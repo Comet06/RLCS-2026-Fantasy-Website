@@ -1,6 +1,6 @@
 import { path, deployLinks, menu, points, getTeamDetails } from "./main.js";
 import { year, members, champRounds, splitSums } from "./current-page-data.js";
-import { deployTopPerformers } from "./stats.js";
+import { deployTops } from "./stats.js";
 import { ChampionshipPlacements } from "./placements.js";
 
 let Championship = {
@@ -37,7 +37,7 @@ window.addEventListener('load', function() {
     determineChampionshipSums()
     deployChamp(champRounds, splitSums)
     deployChampPlacements(ChampionshipPlacements)
-    deployTopPerformers(championshipPlayers)
+    deployTops(championshipPlayers)
   }
 });
 

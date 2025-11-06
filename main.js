@@ -2,7 +2,7 @@ import { EventSums, splitSums, major1Rounds, major2Rounds, playerScores, members
 import { determineRegionalSums } from "./regionals.js";
 import { determineMajorSums } from "./majors.js";
 import { determineChampionshipSums } from "./championship.js";
-import { deployTopPerformers } from "./stats.js";
+import { deployTops } from "./stats.js";
 
 
 export const path = `/RLCS-${year}-Fantasy-Website`
@@ -23,19 +23,18 @@ window.addEventListener('load', function() {
     deployScoresS1()
     deployScoresS2()
     deployScoresS3()
-    deployTopPerformers(players)
+    deployTops(players)
   } else if (window.location.pathname === `${path}/major_form.html`){
     deployLinks()
     menu()
     document.getElementById('year').innerHTML = `RLCS ${year}`
-    document.getElementById('scripts').innerHTML = `
-      <script src="a-major-form.js"></script>
-    `
-    console.log('Bracket form page has loaded!')
+    console.log('Major Bracket form page has loaded!')
   } else if (window.location.pathname === `${path}/championship_form.html`) {
-      deployLinks()
-      document.getElementById('year').innerHTML = `RLCS ${year}`
-    }
+    deployLinks()
+    menu()
+    document.getElementById('year').innerHTML = `RLCS ${year}`
+    console.log('Championship Bracket form page has loaded!')
+  }
 });
 
 
@@ -43,7 +42,8 @@ window.addEventListener('load', function() {
 
 
 // Info Page
-const tops = ['score', 'goals', 'assists', 'saves', 'shots']
+export const tops = ['score', 'goals', 'assists', 'saves', 'shots']
+export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'TopShots']
 export const points = {'swiss': [200], 'playin' : [200, 300], 'groupA' : [300, 400], 'groupB' : [300, 400], 'playoff' : [400, 600]}
 export const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
 export const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
@@ -246,9 +246,6 @@ export function deployLinks(){
               <a href="stats_legacy.html?name=${encodeURIComponent('season25')}">Season 25</a>
             </div>
         </li>
-        <li><a href="stats.html?name=${encodeURIComponent('player')}">Player Stats</a></li>
-        <li><a href="stats.html?name=${encodeURIComponent('team')}">Team Stats</a></li>
-        <li><a href="teams_rankings.html">Rankings</a></li>
         <li class="dropdown">
           <a href="#">Fantasy Seasons</a>
             <div class="dropdown-content">
@@ -256,13 +253,16 @@ export function deployLinks(){
                 <a href="https://comet06.github.io/RLCS-2026-Fantasy-Website/index.html">2026</a>
             </div>
         </li>
-        <!-- <li class="dropdown">
+        <li class="dropdown">
           <a href="#">Forms</a>
             <div class="dropdown-content">
                 <a href="major_form.html">Major Form</a>
                 <a href="championship_form.html">Champ Form</a>
             </div>
-        </li>-->
+        </li>
+        <li><a href="stats.html?name=${encodeURIComponent('player')}">Player Stats</a></li>
+        <li><a href="stats.html?name=${encodeURIComponent('team')}">Team Stats</a></li>
+        <li><a href="teams_rankings.html">Rankings</a></li>
         <li><a href="info.html">Rules</a></li>
       </ul>
       <div class="menu-icon">
@@ -281,29 +281,6 @@ export function menu(){
   }
   const menu_button = document.getElementById('menuButton');
   menu_button.addEventListener('click', function() {toggleMenu()});
-}
-export function deployTops(event){
-  tops.forEach((id) => {
-    for (let i = 0; i < 20; i += 2){
-      const tableBody = document.getElementById(`${id}`);
-      const newRow = document.createElement('tr');
-      const playerLink = document.createElement('a');
-      const player = document.createElement('td');
-      const pts = document.createElement('td');
-
-      playerLink.textContent = event[id][i]
-      playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id][i])}`
-      player.id = 'team'
-      pts.textContent = event[id][i+1]
-      pts.id = 'points'
-
-      player.appendChild(playerLink)
-      newRow.appendChild(player);
-      newRow.appendChild(pts);
-      
-      tableBody.appendChild(newRow);
-    }
-  })
 }
 export function getTeamDetails(searchTerm){
   const team = teams.find(t => t.team === searchTerm);

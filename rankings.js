@@ -46,7 +46,7 @@ function deploySplitQuals(event, index){
     const region = document.createElement('td');
     const team = document.createElement('td');
     const pts = document.createElement('td');
-    if (id === 'EU' || id === 'NA' || id === 'OCE' || id === 'SAM' || id === 'MENA' || id === 'APAC' || id === 'SSA' || id === "K-off Winner" || id === "LCQ Region #1" || id === "LCQ Region #2" || id === "LCQ Region #3" || id === "LCQ Region #4"){
+    if (id === 'EU' || id === 'NA' || id === 'OCE' || id === 'SAM' || id === 'MENA' || id === 'APAC' || id === 'SSA' || id === "EU/NA #5" || id === "LCQ Region #1" || id === "LCQ Region #2" || id === "LCQ Region #3" || id === "LCQ Region #4"){
       region.textContent = id
       team.textContent = 'TBD'
       pts.textContent = 0
@@ -58,6 +58,11 @@ function deploySplitQuals(event, index){
       if (event === split1QualifiedTeams){
         console.log('Split 1')
         pts.textContent = getTeamDetails(id)[1]
+      } else if (event === kickoffLANQualifiedTeams){
+        console.log('Kickoff LAN')
+        if(0 === event.indexOf(id)){
+          pts.textContent = 'Qual. to Maj.1'
+        }
       } else if(event === split2QualifiedTeams){
         console.log('Split 2')
         pts.textContent = getTeamDetails(id)[2]

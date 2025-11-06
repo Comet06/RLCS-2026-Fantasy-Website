@@ -25,7 +25,7 @@ button{font-size: medium;padding: 2px;}
 button :hover{color: white; background-color: #525252;}
 td, th{font-size: 1em; padding: 0 5px;}
 a{color: currentColor; text-decoration: none;}
-#hide_list{overflow: hidden;}
+#hide_list{list-style-type: none;}
 #border_box{border: black solid 2px;}
 
 /* Multipage styles */
@@ -74,7 +74,7 @@ a{color: currentColor; text-decoration: none;}
   #menuList{
     transition: all 0.5s;
     border-radius: 10px;
-    height: 400px;
+    height: 380px;
     z-index: 10000;
   }
   .dropdown-content{

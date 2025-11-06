@@ -235,105 +235,40 @@ window.addEventListener('load', function() {
 });
 
 
-export function deployTopPerformers(PlayersArray){
+export function deployTops(array){
+  deployTopPerformers(array, 'TopScores', 'score')
+  deployTopPerformers(array, 'TopGoals', 'goals')
+  deployTopPerformers(array, 'TopAssists', 'assists')
+  deployTopPerformers(array, 'TopSaves', 'saves')
+  deployTopPerformers(array, 'TopShots', 'shots')
+}
+export function deployTopPerformers(PlayersArray, where, type){
   determineTops(PlayersArray)
   for(let i = 0; i < 20; i += 2){
-    const tableBody = document.getElementById('TopPerformers');
+    const tableBody = document.getElementById(where);
     const newRow = document.createElement('tr');
     const playerLink1 = document.createElement('a');
-    const playerLink2 = document.createElement('a');
-    const playerLink3 = document.createElement('a');
-    const playerLink4 = document.createElement('a');
-    const playerLink5 = document.createElement('a');
 
-    const stat1 = document.createElement('td');
+    const stat1 = document.createElement('th');
     const newDiv2stat1 = document.createElement('div');
     const newDiv3stat1 = document.createElement('div');
-
-    const stat2 = document.createElement('td');
-    const newDiv2stat2 = document.createElement('div');
-    const newDiv3stat2 = document.createElement('div');
-    
-    const stat3 = document.createElement('td');
-    const newDiv2stat3 = document.createElement('div');
-    const newDiv3stat3 = document.createElement('div');
-    
-    const stat4 = document.createElement('td');
-    const newDiv2stat4 = document.createElement('div');
-    const newDiv3stat4 = document.createElement('div');
-    
-    const stat5 = document.createElement('td');
-    const newDiv2stat5 = document.createElement('div');
-    const newDiv3stat5 = document.createElement('div');
     
     newRow.id = 'inlineRows'
 
     stat1.id = 'centerdivs'
     newDiv2stat1.id = 'playerName'
-    playerLink1.textContent = Tops['score'][i]
-    if(Tops['score'][i] != 'TBD'){
-      playerLink1.href = `${path}/profile.html?name=${encodeURIComponent(Tops['score'][i])}`
+    playerLink1.textContent = Tops[type][i]
+    if(Tops[type][i] != 'TBD'){
+      playerLink1.href = `${path}/profile.html?name=${encodeURIComponent(Tops[type][i])}`
     }
     newDiv2stat1.appendChild(playerLink1)
     stat1.appendChild(newDiv2stat1)
     newDiv3stat1.id = 'playerStat'
-    newDiv3stat1.textContent = Tops['score'][i+1]
+    newDiv3stat1.textContent = Tops[type][i+1]
     stat1.appendChild(newDiv3stat1)
-
-    stat2.id = 'centerdivs'
-    newDiv2stat2.id = 'playerName'
-    playerLink2.textContent = Tops['goals'][i]
-    if(Tops['goals'][i] != 'TBD'){
-      playerLink2.href = `${path}/profile.html?name=${encodeURIComponent(Tops['goals'][i])}`
-    }
-    newDiv2stat2.appendChild(playerLink2)
-    stat2.appendChild(newDiv2stat2)
-    newDiv3stat2.id = 'playerStat'
-    newDiv3stat2.textContent = Tops['goals'][i+1]
-    stat2.appendChild(newDiv3stat2)
-    
-    stat3.id = 'centerdivs'
-    newDiv2stat3.id = 'playerName'
-    playerLink3.textContent = Tops['assists'][i]
-    if(Tops['assists'][i] != 'TBD'){
-      playerLink3.href = `${path}/profile.html?name=${encodeURIComponent(Tops['assists'][i])}`
-    }
-    newDiv2stat3.appendChild(playerLink3)
-    stat3.appendChild(newDiv2stat3)
-    newDiv3stat3.id = 'playerStat'
-    newDiv3stat3.textContent = Tops['assists'][i+1]
-    stat3.appendChild(newDiv3stat3)
-    
-    stat4.id = 'centerdivs'
-    newDiv2stat4.id = 'playerName'
-    playerLink4.textContent = Tops['saves'][i]
-    if(Tops['saves'][i] != 'TBD'){
-      playerLink4.href = `${path}/profile.html?name=${encodeURIComponent(Tops['saves'][i])}`
-    }
-    newDiv2stat4.appendChild(playerLink4)
-    stat4.appendChild(newDiv2stat4)
-    newDiv3stat4.id = 'playerStat'
-    newDiv3stat4.textContent = Tops['saves'][i+1]
-    stat4.appendChild(newDiv3stat4)
-    
-    stat5.id = 'centerdivs'
-    newDiv2stat5.id = 'playerName'
-    playerLink5.textContent = Tops['shots'][i]
-    if(Tops['shots'][i] != 'TBD'){
-      playerLink5.href = `${path}/profile.html?name=${encodeURIComponent(Tops['shots'][i])}`
-    }
-    newDiv2stat5.appendChild(playerLink5)
-    stat5.appendChild(newDiv2stat5)
-    newDiv3stat5.id = 'playerStat'
-    newDiv3stat5.textContent = Tops['shots'][i+1]
-    stat5.appendChild(newDiv3stat5)
     
     
     newRow.appendChild(stat1)
-    newRow.appendChild(stat2)
-    newRow.appendChild(stat3)
-    newRow.appendChild(stat4)
-    newRow.appendChild(stat5)
     tableBody.appendChild(newRow);
   }
 }
