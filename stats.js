@@ -34,7 +34,6 @@ const playerTableType = `
     <option value="assists">Assists</option>
     <option value="saves">Saves</option>
     <option value="shots">Shots</option>
-    <option value="reset">Reset</option>
 </select>
 `
 const teamTableType = `
@@ -81,16 +80,16 @@ const teamTableHeader = `
 const weightedParagraph = `
 <ul id="hide_list">
   <li><strong>Region Weighting</strong></li>
-  <li>${weight[0].region} multiplier: ${weight[0].weight}.</li>
-  <li>${weight[1].region} multiplier: ${weight[1].weight}.</li>
-  <li>${weight[2].region} multiplier: ${weight[2].weight}.</li>
-  <li>${weight[3].region} multiplier: ${weight[3].weight}.</li>
-  <li>${weight[4].region} multiplier: ${weight[4].weight}.</li>
-  <li>${weight[5].region} multiplier: ${weight[5].weight}.</li>
-  <li>${weight[6].region} multiplier: ${weight[6].weight}.</li>
+  <li>${weight[0].region} multiplier: ${weight[0].weight}</li>
+  <li>${weight[1].region} multiplier: ${weight[1].weight}</li>
+  <li>${weight[2].region} multiplier: ${weight[2].weight}</li>
+  <li>${weight[3].region} multiplier: ${weight[3].weight}</li>
+  <li>${weight[4].region} multiplier: ${weight[4].weight}</li>
+  <li>${weight[5].region} multiplier: ${weight[5].weight}</li>
+  <li>${weight[6].region} multiplier: ${weight[6].weight}</li>
   </ul>
   `
-let playersUnfiltered = players
+
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/stats.html`) {
     deployLinks()
@@ -388,8 +387,6 @@ function handleDropdownPlayer(event){
   } else if(event.target.value === 'team'){
     players.sort((a, b) => a.team.localeCompare(b.team))
     populatePlayersTable(players)
-  } else if(event.target.value === 'reset'){
-    populatePlayersTable(playersUnfiltered)
   }
 
 }
@@ -476,6 +473,23 @@ function populateLegacyPlayersTable(Players) {
       tableBody.appendChild(newRow);
     }
   });
+}
+function determineLegacyRanks(Players, rating){
+  Players.sort((a,b) => b.rating - a.rating)
+  let high = Players[0].rating()
+  if(rating > (high/6*5)){
+    return 'S'
+  } else if(rating > (high/6*4)){
+    return 'A'
+  } else if(rating > (high/6*3)){
+    return 'B'
+  } else if(rating > (high/6*2)){
+    return 'C'
+  } else if(rating > (high/6)){
+    return 'D'
+  } else {
+    return "F"
+  }
 }
 function populatePlayersTable(Players) {
   const tableBody = document.getElementById('data_table');
@@ -666,21 +680,4 @@ function populateTeamsTable(Teams) {
       tableBody.appendChild(newRow);
     }
   });
-}
-function determineLegacyRanks(Players, rating){
-  Players.sort((a,b) => b.rating - a.rating)
-  let high = Players[0].rating()
-  if(rating > (high/6*5)){
-    return 'S'
-  } else if(rating > (high/6*4)){
-    return 'A'
-  } else if(rating > (high/6*3)){
-    return 'B'
-  } else if(rating > (high/6*2)){
-    return 'C'
-  } else if(rating > (high/6)){
-    return 'D'
-  } else {
-    return "F"
-  }
 }
