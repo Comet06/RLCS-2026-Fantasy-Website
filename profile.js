@@ -1,5 +1,5 @@
 import { path, deployLinks, menu } from "./main.js";
-import { year, players, teams } from "./current-page-data.js";
+import { year, players, teams } from "./current-fantasy-members.js";
 import { determineTeamsRanks } from "./stats.js";
 
 window.addEventListener('load', function() {

@@ -1,7 +1,5 @@
-import { EventSums, splitSums, major1Rounds, major2Rounds, playerScores, members, teams, prizes, year, players, kickoffRounds } from "./current-page-data.js";
-import { determineRegionalSums } from "./regionals.js";
-import { determineMajorSums } from "./majors.js";
-import { determineChampionshipSums } from "./championship.js";
+import { EventSums, splitSums, major1Rounds, major2Rounds, playerScores, members, teams, prizes, year, players, kickoffRounds } from "./current-fantasy-members.js";
+import { determineRegionalSums, determineMajorSums, determineChampionshipSums } from "./events.js";
 import { deployTops } from "./stats.js";
 
 
@@ -24,12 +22,12 @@ window.addEventListener('load', function() {
     deployScoresS2()
     deployScoresS3()
     deployTops(players)
-  } else if (window.location.pathname === `${path}/major_form.html`){
+  } else if (window.location.pathname === `${path}/form_major.html`){
     deployLinks()
     menu()
     document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Major Bracket form page has loaded!')
-  } else if (window.location.pathname === `${path}/championship_form.html`) {
+  } else if (window.location.pathname === `${path}/form_championship.html`) {
     deployLinks()
     menu()
     document.getElementById('year').innerHTML = `RLCS ${year}`
@@ -38,13 +36,10 @@ window.addEventListener('load', function() {
 });
 
 
-
-
-
 // Info Page
 export const tops = ['score', 'goals', 'assists', 'saves', 'shots']
 export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'TopShots']
-export const points = {'swiss': [200], 'playin' : [200, 300], 'groupA' : [300, 400], 'groupB' : [300, 400], 'playoff' : [400, 600]}
+export const points = {'kickoff': [100],'groups': [400], 'playin' : [100, 200], 'playoff' : [400, 600]}
 export const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
 export const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
 // Homepage
@@ -208,7 +203,7 @@ export function deployLinks(){
       <ul class="nav-links" id="menuList">
         <li><a href="index.html">Home</a></li>
         <li class="dropdown">
-          <a href="#">Events</a>
+          <a href="#">Main Events</a>
             <div class="dropdown-content">
               <a href="regional.html?name=${encodeURIComponent('reg1')}">Regional 1</a>
               <a href="kickoff_lan.html?name=${encodeURIComponent('koff')}">Kickoff LAN</a>
@@ -253,13 +248,7 @@ export function deployLinks(){
                 <a href="https://comet06.github.io/RLCS-2026-Fantasy-Website/index.html">2026</a>
             </div>
         </li>
-        <li class="dropdown">
-          <a href="#">Forms</a>
-            <div class="dropdown-content">
-                <a href="major_form.html">Major Form</a>
-                <a href="championship_form.html">Champ Form</a>
-            </div>
-        </li>
+        <li><a href="form_major.html">Bracket Form</a></li>
         <li><a href="stats.html?name=${encodeURIComponent('player')}">Player Stats</a></li>
         <li><a href="stats.html?name=${encodeURIComponent('team')}">Team Stats</a></li>
         <li><a href="teams_rankings.html">Rankings</a></li>

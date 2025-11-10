@@ -1,5 +1,5 @@
 import { path, deployLinks, menu, getTeamDetails } from "./main.js";
-import { EventPoints, year } from "./current-page-data.js";
+import { EventPoints, year } from "./current-fantasy-members.js";
 import { determineSeasonPoints } from "./stats.js";
 import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams } from "./placements.js"
 

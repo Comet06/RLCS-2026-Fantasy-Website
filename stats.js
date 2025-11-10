@@ -1,5 +1,5 @@
 import { path, deployLinks, menu, regions, getTeamDetails } from "./main.js";
-import { year, players, teams, EventPoints } from "./current-page-data.js";
+import { year, players, teams, EventPoints, members } from "./current-fantasy-members.js";
 import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./placements.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
@@ -21,10 +21,6 @@ export let Tops = { //Do not edit
     'saves' :   [],
     'shots' :   [],
 }
-const today = new Date();
-const day = today.getDate();
-const month = today.getMonth() + 1; // Add 1 because getMonth() is zero-based
-const years = today.getFullYear();
 const playerTableType = `
 <p id="retired">Retired</p><p id="rookie">Rookie</p><p id="inactive">Inactive</p><p id="sub">Sub</p><p id="coach">Coach</p><br>
 <label>Sort By:</label>
@@ -100,7 +96,7 @@ window.addEventListener('load', function() {
     deployLinks()
     menu()
     document.getElementById('year').innerHTML = `RLCS ${year}`
-    document.getElementById('last_updated').innerHTML = `WEBSITE STILL IN DEVELOPMENT(UPDATED ${month}/${day}/${years}) Currently Showing 2025 Data`
+    document.getElementById('last_updated').innerHTML = `UPDATED 11/7/25 Currently Showing 2025 Data`
     const urlParams = new URLSearchParams(window.location.search);
     const evt = urlParams.get('name');
     if(evt === 'player'){
@@ -129,7 +125,7 @@ window.addEventListener('load', function() {
     deployLinks()
     menu()
     document.getElementById('year').innerHTML = `RLCS ${year}`
-    document.getElementById('last_updated').innerHTML = `WEBSITE STILL IN DEVELOPMENT(UPDATED ${month}/${day}/${years})`
+    document.getElementById('last_updated').innerHTML = `UPDATED 11/7/25 Currently Showing 2025 Data`
     const urlParams = new URLSearchParams(window.location.search);
     const evt = urlParams.get('name');
     if(evt === 'season1'){
@@ -242,7 +238,7 @@ export function deployTops(array){
   deployTopPerformers(array, 'TopSaves', 'saves')
   deployTopPerformers(array, 'TopShots', 'shots')
 }
-export function deployTopPerformers(PlayersArray, where, type){
+function deployTopPerformers(PlayersArray, where, type){
   determineTops(PlayersArray)
   for(let i = 0; i < 20; i += 2){
     const tableBody = document.getElementById(where);
@@ -501,6 +497,7 @@ function populatePlayersTable(Players) {
     const noStats = document.createElement('td');
     const teamRegion = document.createElement('td');
     const drafted = document.createElement('td');
+    
 
     const nameLink = document.createElement('a');
     const teamLink = document.createElement('a');
@@ -521,7 +518,7 @@ function populatePlayersTable(Players) {
     if(id.team === 'F/A'){
       availCell.textContent = 'No';
       availID = 'no'
-    } else if(id.role === 'coach' || id.role === 'inactive' || id.role === 'retired'){
+    } else if(id.role === 'coach' || id.role === 'inactive' || id.role === 'retired' || id.role === 'sub'){
       availCell.textContent = "No";
       availID = 'no'
     } else {
@@ -537,7 +534,6 @@ function populatePlayersTable(Players) {
     ratingCell.textContent = id.rating
     teamLink.textContent = id.team;
     teamRegion.textContent = getTeamDetails(id.team)[0]
-    drafted.textContent = id.drafted
     
     nameCell.appendChild(nameLink);
     newRow.appendChild(nameCell);
@@ -546,6 +542,8 @@ function populatePlayersTable(Players) {
     if(id.drafted === ''){
       newRow.appendChild(availCell);
     } else {
+      const draftedBy = members.find(m => m.shortname === id.drafted);
+      drafted.textContent = draftedBy.name
       drafted.style = 'color: red;'
       newRow.appendChild(drafted);
     }
@@ -576,7 +574,7 @@ function populatePlayersTable(Players) {
     newRow.appendChild(teamCell);
     newRow.appendChild(teamRegion)
     // adding the player if theyre available
-    if(availID != '0'){
+    if(availID != 'no'){
       tableBody.appendChild(newRow);
     }
   });

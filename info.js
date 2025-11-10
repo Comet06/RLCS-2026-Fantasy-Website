@@ -1,32 +1,31 @@
 import { path, deployLinks, menu, spread, points } from "./main.js";
-import { year, members, amtAdded, dist, majorPrize, champPrize } from "./current-page-data.js";
+import { year, members, amtAdded, dist, majorPrize, champPrize } from "./current-fantasy-members.js";
 
 const amountPerMajor = ((amtAdded*dist[1])+majorPrize)/2;
 const amountForChampionship = (amtAdded*dist[2])+champPrize;
 
-const swiss = 8 // How many available guesses
+const groups = 8 // How many available guesses
+const champgroups = 12 // How many available guesses
 const semiFinal = 6
 const qualify = 4
 const POsemiFinal = 8
 const final = 3
 
-let swissTotal = points['swiss'][0]*swiss
 let playinTotal = points['playin'][0]*semiFinal + points['playin'][1]*qualify
-let groupATotal = points['groupA'][0]*semiFinal + points['groupA'][1]*qualify
-let groupBTotal = points['groupB'][0]*semiFinal + points['groupB'][1]*qualify
+let groupsTotal = points['groups'][0]*groups
+let champgroupsTotal = points['groups'][0]*champgroups
 let playoffTotal = points['playoff'][0]*POsemiFinal + points['playoff'][1]*final
 
-let majorTotal = (swissTotal + playoffTotal)*3
-let champTotal = (playinTotal + groupATotal + groupBTotal + playoffTotal)*5
+let majorTotal = (groupsTotal + playoffTotal)*3
+let champTotal = (playinTotal + groupsTotal + playoffTotal)*5
 
 let Majortotals = [
-    {name: "Swiss", event: 'swiss', total: swissTotal},
+    {name: "Groups", event: 'groups', total: groupsTotal},
     {name: "PlayOffs", event: 'playoff', total: playoffTotal},
 ]
 let Champtotals = [
     {name: "Play-In", event: 'playin', total: playinTotal},
-    {name: "Group A", event: 'groupA', total: groupATotal},
-    {name: "Group B", event: 'groupB', total: groupBTotal},
+    {name: "Groups", event: 'groups', total: champgroupsTotal},
     {name: "PlayOffs", event: 'playoff', total: playoffTotal},
 ]
 
@@ -110,8 +109,10 @@ function deployPrizePoolInfo(){
     newRow.appendChild(majorPerc);
     newRow.appendChild(championshipPerc);
     newRow.appendChild(percOfPP);
-    
+
+
     tableBody.appendChild(newRow);
+    
 }
 function deployMajorPointsInfo(){
   const tableBody = document.getElementById('Major_points');
@@ -143,8 +144,8 @@ function deployMajorPointsInfo(){
       
       round.textContent = id.name
       if(id.event != 'playoff'){
-        quarter.textContent = `(${swiss}) ` + points[id.event][0]
-        qualified.textContent = ``
+        quarter.textContent = `(${groups}) ` + points[id.event][0]
+        qualified.textContent = ''
       } else {
         quarter.textContent = `(${POsemiFinal}) ` + points[id.event][0]
         qualified.textContent = `(${final}) ` + points[id.event][1]
@@ -207,9 +208,12 @@ function deployChampPointsInfo(){
       const totalPoints = document.createElement('td');
       
       round.textContent = id.name
-      if(id.event != 'playoff'){
+      if(id.event === 'playin'){
         quarter.textContent = `(${semiFinal}) ` + points[id.event][0]
         qualified.textContent = `(${qualify}) ` + points[id.event][1]
+      } else if (id.event === 'groups'){
+        quarter.textContent = `(${champgroups}) ` + points[id.event][0]
+        qualified.textContent = ''
       } else {
         quarter.textContent = `(${POsemiFinal}) ` + points[id.event][0]
         qualified.textContent = `(${final}) ` + points[id.event][1]
