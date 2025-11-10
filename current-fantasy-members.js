@@ -112,7 +112,7 @@ export let prizes = {
 export let Regional1 = {
   'vinn' : ['Firstkiller', 0, '', 0, '', 0, '', 0],
   'jimm' : ['Dralii', 0, '', 0, '', 0, '', 0],
-  'gale' : ['', 0, '', 0, '', 0, '', 0],
+  'gale' : ['Kiileerrz', 0, '', 0, '', 0, '', 0],
   'maht' : ['', 0, '', 0, '', 0, '', 0],
   'pots' : ['', 0, '', 0, '', 0, '', 0],
   'yuri' : ['', 0, '', 0, '', 0, '', 0],
@@ -1573,5 +1573,6 @@ export let teams = [
 {team: 'Dreifach-Reset', region: 'EU', rating: function(){ return (((this.score / 100) + this.goals + this.assists + this.saves + this.shots) * (this.wins/this.gp)).toFixed(0)}, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Resonal-Lev-Pigeon', region: 'NA', rating: function(){ return (((this.score / 100) + this.goals + this.assists + this.saves + this.shots) * (this.wins/this.gp)).toFixed(0)}, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Selaco', region: 'EU', rating: function(){ return (((this.score / 100) + this.goals + this.assists + this.saves + this.shots) * (this.wins/this.gp)).toFixed(0)}, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+
 
 ]
