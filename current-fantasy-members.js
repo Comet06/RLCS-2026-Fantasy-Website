@@ -107,10 +107,17 @@ export let Regional1 = {
   'gale' : ['Kiileerrz', 0, '', 0, '', 0, '', 0],
   'maht' : ['Rw9', 0, '', 0, '', 0, '', 0],
   'pots' : ['Zen', 0, '', 0, '', 0, '', 0],
-  'ecof' : ['', 0, '', 0, '', 0, '', 0],
-  'come' : ['', 0, '', 0, '', 0, '', 0],
-  'squi' : ['', 0, '', 0, '', 0, '', 0],
+  'ecof' : ['Nwpo', 0, '', 0, '', 0, '', 0],
+  'come' : ['Daniel', 0, 'Beastmode', 0, '', 0, '', 0],
+  'squi' : ['Trk511', 0, 'M0nkey m00n', 0, '', 0, '', 0],
 }
+export let Regional1Matchups = ['vinn', 'squi', 'jimm', 'come', 'gale', 'ecof', 'maht', 'pots']
+export let Regional2Matchups = ['', '', '', '', '', '', '', '']
+export let Regional3Matchups = ['', '', '', '', '', '', '', '']
+export let Regional4Matchups = ['', '', '', '', '', '', '', '']
+export let Regional5Matchups = ['', '', '', '', '', '', '', '']
+export let Regional6Matchups = ['', '', '', '', '', '', '', '']
+
 export let kickoffLAN = {
   // Max Picks(7),
   'come' : [0],
@@ -207,12 +214,12 @@ export let Championship = {
 }
 
 export let players = [
-{player: 'Trk511', rank: 'S', rating: 2324, team: 'Twisted Minds' , gp: 258, wins: 187, score: 107845, goals: 230, assists: 174, saves: 411, shots: 903, role: '', drafted: ''},
+{player: 'Trk511', rank: 'S', rating: 2324, team: 'Twisted Minds' , gp: 258, wins: 187, score: 107845, goals: 230, assists: 174, saves: 411, shots: 903, role: '', drafted: 'squi'},
 {player: 'Kiileerrz', rank: 'S', rating: 2290, team: 'Team Falcons' , gp: 258, wins: 188, score: 105030, goals: 242, assists: 165, saves: 417, shots: 877, role: '', drafted: 'gale'},
 {player: 'Rw9', rank: 'S', rating: 2225, team: 'Team Falcons' , gp: 258, wins: 188, score: 105721, goals: 208, assists: 216, saves: 440, shots: 738, role: '', drafted: 'maht'},
-{player: 'Nwpo', rank: 'S', rating: 2216, team: 'Twisted Minds' , gp: 245, wins: 156, score: 110079, goals: 250, assists: 167, saves: 436, shots: 899, role: '', drafted: ''},
-{player: 'Daniel', rank: 'S', rating: 2102, team: 'NRG' , gp: 266, wins: 171, score: 103322, goals: 148, assists: 173, saves: 450, shots: 892, role: '', drafted: ''},
-{player: 'Beastmode', rank: 'S', rating: 2033, team: 'NRG' , gp: 266, wins: 171, score: 101874, goals: 201, assists: 123, saves: 415, shots: 839, role: '', drafted: ''},
+{player: 'Nwpo', rank: 'S', rating: 2216, team: 'Twisted Minds' , gp: 245, wins: 156, score: 110079, goals: 250, assists: 167, saves: 436, shots: 899, role: '', drafted: 'ecof'},
+{player: 'Daniel', rank: 'S', rating: 2102, team: 'NRG' , gp: 266, wins: 171, score: 103322, goals: 148, assists: 173, saves: 450, shots: 892, role: '', drafted: 'come'},
+{player: 'Beastmode', rank: 'S', rating: 2033, team: 'NRG' , gp: 266, wins: 171, score: 101874, goals: 201, assists: 123, saves: 415, shots: 839, role: '', drafted: 'come'},
 {player: 'Dralii', rank: 'S', rating: 2028, team: 'Team Falcons' , gp: 227, wins: 165, score: 93895, goals: 196, assists: 147, saves: 401, shots: 754, role: '', drafted: 'jimm'},
 {player: 'Firstkiller', rank: 'S', rating: 2022, team: 'Shopify Rebellion' , gp: 242, wins: 142, score: 107367, goals: 214, assists: 148, saves: 450, shots: 805, role: '', drafted: 'vinn'},
 {player: 'Atomic', rank: 'A', rating: 1903, team: 'NRG' , gp: 266, wins: 171, score: 95366, goals: 200, assists: 135, saves: 365, shots: 776, role: '', drafted: ''},
@@ -235,7 +242,7 @@ export let players = [
 {player: 'Bananahead', rank: 'A', rating: 1620, team: 'Wildcard' , gp: 185, wins: 117, score: 81399, goals: 220, assists: 131, saves: 264, shots: 660, role: '', drafted: ''},
 {player: 'Vksailen', rank: 'A', rating: 1616, team: 'F/A' , gp: 169, wins: 124, score: 73890, goals: 181, assists: 174, saves: 239, shots: 602, role: '', drafted: ''},
 {player: 'Leoro', rank: 'A', rating: 1597, team: 'FUT Esports' , gp: 169, wins: 124, score: 76314, goals: 205, assists: 148, saves: 266, shots: 518, role: 'inactive', drafted: ''},
-{player: 'M0nkey m00n', rank: 'A', rating: 1597, team: 'Twisted Minds' , gp: 210, wins: 127, score: 82120, goals: 140, assists: 150, saves: 396, shots: 596, role: '', drafted: ''},
+{player: 'M0nkey m00n', rank: 'A', rating: 1597, team: 'Twisted Minds' , gp: 210, wins: 127, score: 82120, goals: 140, assists: 150, saves: 396, shots: 596, role: '', drafted: 'squi'},
 {player: 'Fever', rank: 'B', rating: 1524, team: 'Wildcard' , gp: 185, wins: 117, score: 77419, goals: 153, assists: 154, saves: 311, shots: 567, role: '', drafted: ''},
 {player: 'Torres8232', rank: 'B', rating: 1516, team: 'Looking for organization' , gp: 163, wins: 124, score: 68704, goals: 175, assists: 149, saves: 244, shots: 522, role: '', drafted: ''},
 {player: 'Archie', rank: 'B', rating: 1469, team: 'Gentle Mates Alpine' , gp: 191, wins: 107, score: 78021, goals: 174, assists: 105, saves: 325, shots: 626, role: '', drafted: ''},

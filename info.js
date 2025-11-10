@@ -36,10 +36,10 @@ window.addEventListener('load', function() {
     document.getElementById('year').innerHTML = `RLCS ${year}`
     document.getElementById('numOfTeams').innerHTML = members.length
     document.getElementById('amount_added').innerHTML = "$" + amtAdded
+    determineSpread()
     deployPrizePoolInfo()
     deployMajorPointsInfo()
     deployChampPointsInfo()
-    determineSpread()
     console.log('Info page has loaded!');
   } else {
     console.log("main event listener is working but nothing else is")
@@ -49,13 +49,13 @@ window.addEventListener('load', function() {
 function determineSpread(){
   let spreadSum = 0;
   for (let i = 0; i < spread.length; i++) {
-      if (i > members.length){
+      if (i >= members.length){
           spreadSum += spread[i];
           spread[i] = 0;
       }
   }
   let spreadToAdd = spreadSum/members.length
-  for (let i = 0; i <= (members.length-1); i++) {
+  for (let i = 0; i < members.length; i++) {
       spread[i] += spreadToAdd;
   }
 }
@@ -94,7 +94,7 @@ function deployPrizePoolInfo(){
     let totalMajor = 0
     let totalChamp = 0
     let totalPerc = 0
-    for (let i = 0; i < 16; i ++){
+    for (let i = 0; i < members.length; i ++){
         totalMajor += spread[i] * amountPerMajor
         totalChamp += spread[i] * amountForChampionship
         totalPerc += spread[i]

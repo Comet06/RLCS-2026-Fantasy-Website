@@ -1,6 +1,7 @@
 import { path, deployLinks, menu, regions, points, getTeamDetails } from "./main.js";
 import { year, members, players, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, kickoffRounds, major1Rounds, 
-  major2Rounds, EventPoints, splitSums, EventSums, kickoffLAN, Major1, Major2, champRounds, Championship } from "./current-fantasy-members.js";
+  major2Rounds, EventPoints, splitSums, EventSums, kickoffLAN, Major1, Major2, champRounds, Championship, 
+  Regional1Matchups, Regional2Matchups, Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups } from "./current-fantasy-members.js";
 import { deployTops } from "./stats.js";
 import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, 
   kickoffLANPlacements, Major1Placements, Major2Placements,ChampionshipPlacements } from "./placements.js";
@@ -140,37 +141,42 @@ window.addEventListener('load', function() {
       deployReg(Regional1, EventSums, 1)
       deployRegPlacements(Regional1Placements, 1)
       deployTops(regional1Players)
-      console.log(Regional1['come'].length)
+      deployRegMatchups(Regional1Matchups)
     } else if(evt === 'reg2'){
       document.getElementById('event').innerHTML = `Regional 2`
       console.log('Regional 2  page has loaded!');
       deployReg(Regional2, EventSums, 2)
       deployRegPlacements(Regional2Placements, 1)
       deployTops(regional2Players)
+      deployRegMatchups(Regional2Matchups)
     } else if(evt === 'reg3'){
       document.getElementById('event').innerHTML = `Regional 3`
       console.log('Regional 3 page has loaded!');
       deployReg(Regional3, EventSums, 3)
       deployRegPlacements(Regional3Placements, 1)
       deployTops(regional3Players)
+      deployRegMatchups(Regional3Matchups)
     } else if(evt === 'reg4'){
       document.getElementById('event').innerHTML = `Regional 4`
       console.log('Regional 4 page has loaded!');
       deployReg(Regional4, EventSums, 4)
       deployRegPlacements(Regional4Placements, 2)
       deployTops(regional4Players)
+      deployRegMatchups(Regional4Matchups)
     } else if(evt === 'reg5'){
       document.getElementById('event').innerHTML = `Regional 5`
       console.log('Regional 5 page has loaded!');
       deployReg(Regional5, EventSums, 5)
       deployRegPlacements(Regional5Placements, 2)
       deployTops(regional5Players)
+      deployRegMatchups(Regional5Matchups)
     } else if(evt === 'reg6'){
       document.getElementById('event').innerHTML = `Regional 6`
       console.log('Regional 6 page has loaded!');
       deployReg(Regional6, EventSums, 6)
       deployRegPlacements(Regional6Placements, 2)
       deployTops(regional6Players)
+      deployRegMatchups(Regional6Matchups)
     }
   } else if (window.location.pathname === `${path}/major.html`) {
     deployLinks()
@@ -260,6 +266,19 @@ function getPlayerDetails(searchTerm, playersArray){
   }
   const details = [
     player.team || 'N/A',
+    player.name || 'N/A',
+    player.shortname || 'N/A',
+  ];
+  return details;
+}
+function getMemberDetails(searchTerm){
+  const member = members.find(p => p.shortname === searchTerm);
+  if (!member) {
+    return [];
+  }
+  const details = [
+    member.name || 'N/A',
+    member.shortname || 'N/A',
   ];
   return details;
 }
@@ -349,6 +368,27 @@ function deployReg(event, event2, eventNumber){
       }
     }
   })
+}
+function deployRegMatchups(event){
+  for (let i = 0; i < 8; i += 2){
+    const tableBody = document.getElementById('matchups');
+    const newRow = document.createElement('tr');
+    const team1 = document.createElement('td');
+    const vs = document.createElement('td');
+    const team2 = document.createElement('td');
+
+    team1.id = getMemberDetails(event[i])[1]
+    team1.textContent = getMemberDetails(event[i])[0]
+    vs.textContent = 'vs'
+    team2.id = getMemberDetails(event[i+1])[1]
+    team2.textContent = getMemberDetails(event[i+1])[0]
+            
+    newRow.appendChild(team1);
+    newRow.appendChild(vs);
+    newRow.appendChild(team2);
+    
+    tableBody.appendChild(newRow);
+  }
 }
 function deployRegPlacements(event, eventNumber){
   regions.forEach((id) => {
