@@ -1,36 +1,22 @@
-import { EventSums, splitSums, major1Rounds, major2Rounds, playerScores, members, teams, prizes, year, players, kickoffRounds } from "./current-fantasy-members.js";
-import { determineRegionalSums, determineMajorSums, determineChampionshipSums } from "./events.js";
+import { playerScores, members, teams, prizes, year, players, 
+  Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Rounds, majorEvents, Sums} from "./current-fantasy-members.js";
 import { deployTops } from "./stats.js";
 
 
 export const path = `/RLCS-${year}-Fantasy-Website`
 export const path1 = ``// used for Mac dev
 window.addEventListener('load', function() {
-  if (window.location.pathname === `${path}/index.html` || window.location.pathname === `${path}/index2.html`) {
-    deployLinks()
-    menu()
-    // 0 = split1, 1 = split2, 2 = championship
-    // sortPlayerScores(0)
-    document.getElementById('year').innerHTML = `RLCS ${year}`
+  deployLinks()
+  document.getElementById('year').innerHTML = `RLCS ${year}`
+  menu()
+  determineTotalScores()
+  if (window.location.pathname === `${path}/index.html`) {
     document.getElementById('titleYear').innerHTML = `RLCS Fantasy ${year}`
-    deployPrize(prizes)
-    determineRegionalSums()
-    determineMajorSums()
-    determineChampionshipSums()
-    determineTotalScores()
-    deployScoresS1()
-    deployScoresS2()
-    deployScoresS3()
+    deployHome(prizes)
     deployTops(players)
   } else if (window.location.pathname === `${path}/form_major.html`){
-    deployLinks()
-    menu()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Major Bracket form page has loaded!')
   } else if (window.location.pathname === `${path}/form_championship.html`) {
-    deployLinks()
-    menu()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
     console.log('Championship Bracket form page has loaded!')
   }
 });
@@ -43,59 +29,51 @@ export const points = {'kickoff': [100],'groups': [400], 'playin' : [100, 200], 
 export const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
 export const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
 // Homepage
-function determineTotalScores(){
-  members.forEach((id)=>{
-    splitSums[id.shortname][3] = splitSums[id.shortname][0] + splitSums[id.shortname][1] + splitSums[id.shortname][2] // Grand Total
+export function determineTotalScores(){
+  members.forEach((id) =>{//Regionals
+    for (let i = 1; i < Regional1[id.shortname].length-1; i += 2){//Regional sum of all your players not including sub(-1)
+      Sums[id.shortname][0] += Regional1[id.shortname][i];
+      Sums[id.shortname][1] += Regional2[id.shortname][i];
+      Sums[id.shortname][2] += Regional3[id.shortname][i];
+      Sums[id.shortname][3] += Regional4[id.shortname][i];
+      Sums[id.shortname][4] += Regional5[id.shortname][i];
+      Sums[id.shortname][5] += Regional6[id.shortname][i];
+    }
+    Sums[id.shortname][6] += Sums[id.shortname][0] + Sums[id.shortname][1] + Sums[id.shortname][2]
+    Sums[id.shortname][7] += Sums[id.shortname][3] + Sums[id.shortname][4] + Sums[id.shortname][5]
+  })
+  members.forEach((id) =>{//Majors and kickoff
+    Rounds[id.shortname][0] = majorEvents[`${id.shortname}`][0]*points['kickoff'][0]*2
 
-    playerScores[id.shortname] = [EventSums[id.shortname][0], EventSums[id.shortname][1], EventSums[id.shortname][2], major1Rounds[id.shortname][2], splitSums[id.shortname][0], 
-                                  EventSums[id.shortname][3], EventSums[id.shortname][4], EventSums[id.shortname][5], major2Rounds[id.shortname][2], splitSums[id.shortname][1], splitSums[id.shortname][2], splitSums[id.shortname][3], kickoffRounds[id.shortname][0]];
+    Rounds[id.shortname][1] = majorEvents[`${id.shortname}`][1] * points['groups'][0] //Groups (take index of event picks and multiplies the point value)
+    Rounds[id.shortname][2] = majorEvents[`${id.shortname}`][2] * points['playoff'][0] + majorEvents[`${id.shortname}`][3] * points['playoff'][1] //Second number is the points worth per guess
+    Rounds[id.shortname][3] = (Rounds[id.shortname][1] + Rounds[id.shortname][2])*3 //Total
+
+    Rounds[id.shortname][4] = majorEvents[`${id.shortname}`][4] * points['groups'][0] //Groups
+    Rounds[id.shortname][5] = majorEvents[`${id.shortname}`][5] * points['playoff'][0] + majorEvents[`${id.shortname}`][6] * points['playoff'][1] //Second number is the points worth per guess
+    Rounds[id.shortname][6] = (Rounds[id.shortname][4] + Rounds[id.shortname][5])*3//Total
+
+    Sums[id.shortname][6] += Rounds[id.shortname][0] + Rounds[id.shortname][3] //Split 1 Total
+    Sums[id.shortname][7] += Rounds[id.shortname][6] //Split 2 Total
+  })
+  members.forEach((id)=>{//Championship
+    Rounds[id.shortname][7] = majorEvents[`${id.shortname}`][7] * points['playin'][0] + majorEvents[`${id.shortname}`][8] * points['playin'][1] //playins
+    Rounds[id.shortname][8] = majorEvents[`${id.shortname}`][9] * points['groups'][0] //Groups(switch from group stage to 4 groups)
+    Rounds[id.shortname][9] = majorEvents[`${id.shortname}`][10] * points['playoff'][0] + majorEvents[`${id.shortname}`][11] * points['playoff'][1] //playoffs
+    Rounds[id.shortname][10] = (Rounds[id.shortname][7] + Rounds[id.shortname][8] + Rounds[id.shortname][9])*5 //Total of all championship rounds
+
+    Sums[id.shortname][8] += Rounds[id.shortname][10] //Total of all championship rounds
+  })
+  members.forEach((id)=>{//Totals
+    Sums[id.shortname][9] += Sums[id.shortname][6] + Sums[id.shortname][7] + Sums[id.shortname][8] // Grand Total
+
+    playerScores[id.shortname] = [Sums[id.shortname][0], Sums[id.shortname][1], Sums[id.shortname][2], Rounds[id.shortname][3], Sums[id.shortname][6], 
+                                  Sums[id.shortname][3], Sums[id.shortname][4], Sums[id.shortname][5], Rounds[id.shortname][6], Sums[id.shortname][7], Sums[id.shortname][8], Sums[id.shortname][9], Rounds[id.shortname][0]];
   })
 }
-function sortPlayerScores(index){
-  determineRegionalSums()
-  determineMajorSums()
-  determineChampionshipSums()
-  determineTotalScores()
-  const split1Sorted = Object.entries(splitSums);
-  split1Sorted.sort((a, b) => b[1][index] - a[1][index]);
-  const sortedSplitSums = Object.fromEntries(split1Sorted);
-  console.log(sortedSplitSums);
-}
-function deployPrize(pool){
-  members.forEach((id) =>{
-      const tableBody = document.getElementById('prizeTable');
-      const newRow = document.createElement('tr');
-      const teamName = document.createElement('td');
-      const split1Winnings = document.createElement('td');
-      const split2Winnings = document.createElement('td');
-      const championshipWinnings = document.createElement('td');
-      const totalWinnings = document.createElement('td');
-      
-      teamName.id = id.shortname
-      split1Winnings.id = id.shortname
-      split2Winnings.id = id.shortname
-      championshipWinnings.id = id.shortname
-      totalWinnings.id = id.shortname
-      teamName.textContent = id.name
-      split1Winnings.textContent = "$" + (pool[id.shortname][0]).toFixed(2)
-      split2Winnings.textContent = "$" + (pool[id.shortname][1]).toFixed(2)
-      championshipWinnings.textContent = "$" + (pool[id.shortname][2]).toFixed(2)
-      totalWinnings.textContent = "$" + (pool[id.shortname][0] +pool[id.shortname][1] +pool[id.shortname][2]).toFixed(2)
-      
-
-      newRow.appendChild(teamName);
-      newRow.appendChild(split1Winnings);
-      newRow.appendChild(split2Winnings);
-      newRow.appendChild(championshipWinnings);
-      newRow.appendChild(totalWinnings);
-      
-      tableBody.appendChild(newRow);
-  })
-}
-function deployScoresS1(){
+function deployHome(pool){
   members.forEach((id)=>{
-    // deploying scores to table
-    const tableBody = document.getElementById('totalScoresS1');
+    const tableBody = document.getElementById('split1');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
     const reg1Total = document.createElement('td');
@@ -128,11 +106,9 @@ function deployScoresS1(){
     
     tableBody.appendChild(newRow);
   })
-}
-function deployScoresS2(){
   members.forEach((id)=>{
     // deploying scores to table
-    const tableBody = document.getElementById('totalScoresS2');
+    const tableBody = document.getElementById('split2');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
     const reg4Total = document.createElement('td');
@@ -161,11 +137,9 @@ function deployScoresS2(){
     
     tableBody.appendChild(newRow);
   })
-}
-function deployScoresS3(){
   members.forEach((id)=>{
     // deploying scores to table
-    const tableBody = document.getElementById('totalScoresS3');
+    const tableBody = document.getElementById('totals');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
     const split1Total = document.createElement('td');
@@ -194,6 +168,35 @@ function deployScoresS3(){
     
     tableBody.appendChild(newRow);
   })
+  members.forEach((id) =>{
+    const tableBody = document.getElementById('prizeTable');
+    const newRow = document.createElement('tr');
+    const teamName = document.createElement('td');
+    const split1Winnings = document.createElement('td');
+    const split2Winnings = document.createElement('td');
+    const championshipWinnings = document.createElement('td');
+    const totalWinnings = document.createElement('td');
+    
+    teamName.id = id.shortname
+    split1Winnings.id = id.shortname
+    split2Winnings.id = id.shortname
+    championshipWinnings.id = id.shortname
+    totalWinnings.id = id.shortname
+    teamName.textContent = id.name
+    split1Winnings.textContent = "$" + (pool[id.shortname][0]).toFixed(2)
+    split2Winnings.textContent = "$" + (pool[id.shortname][1]).toFixed(2)
+    championshipWinnings.textContent = "$" + (pool[id.shortname][2]).toFixed(2)
+    totalWinnings.textContent = "$" + (pool[id.shortname][0] +pool[id.shortname][1] +pool[id.shortname][2]).toFixed(2)
+    
+
+    newRow.appendChild(teamName);
+    newRow.appendChild(split1Winnings);
+    newRow.appendChild(split2Winnings);
+    newRow.appendChild(championshipWinnings);
+    newRow.appendChild(totalWinnings);
+    
+    tableBody.appendChild(newRow);
+  })
 }
 // Site Wide
 export function deployLinks(){
@@ -205,15 +208,15 @@ export function deployLinks(){
         <li class="dropdown">
           <a href="#">Main Events</a>
             <div class="dropdown-content">
-              <a href="regional.html?name=${encodeURIComponent('reg1')}">Regional 1</a>
-              <a href="kickoff_lan.html?name=${encodeURIComponent('koff')}">Kickoff LAN</a>
-              <a href="regional.html?name=${encodeURIComponent('reg2')}">Regional 2</a>
-              <a href="regional.html?name=${encodeURIComponent('reg3')}">Regional 3</a>
-              <a href="major.html?name=${encodeURIComponent('maj1')}">Major 1</a>
-              <a href="regional.html?name=${encodeURIComponent('reg4')}">Regional 4</a>
-              <a href="regional.html?name=${encodeURIComponent('reg5')}">Regional 5</a>
-              <a href="regional.html?name=${encodeURIComponent('reg6')}">Regional 6</a>
-              <a href="major.html?name=${encodeURIComponent('maj2')}">Major 2</a>
+              <a href="regional.html?name=${encodeURIComponent('Regional 1')}">Regional 1</a>
+              <a href="kickoff_lan.html?name=${encodeURIComponent('Kickoff LAN')}">Kickoff LAN</a>
+              <a href="regional.html?name=${encodeURIComponent('Regional 2')}">Regional 2</a>
+              <a href="regional.html?name=${encodeURIComponent('Regional 3')}">Regional 3</a>
+              <a href="major.html?name=${encodeURIComponent('Major 1')}">Major 1</a>
+              <a href="regional.html?name=${encodeURIComponent('Regional 4')}">Regional 4</a>
+              <a href="regional.html?name=${encodeURIComponent('Regional 5')}">Regional 5</a>
+              <a href="regional.html?name=${encodeURIComponent('Regional 6')}">Regional 6</a>
+              <a href="major.html?name=${encodeURIComponent('Major 2')}">Major 2</a>
               <a href="championship.html">Championship</a>
             </div>
         </li>

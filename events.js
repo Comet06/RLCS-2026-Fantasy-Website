@@ -1,10 +1,10 @@
-import { path, deployLinks, menu, regions, points, getTeamDetails } from "./main.js";
-import { year, members, players, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, kickoffRounds, major1Rounds, 
-  major2Rounds, EventPoints, splitSums, EventSums, kickoffLAN, Major1, Major2, champRounds, Championship, 
-  Regional1Matchups, Regional2Matchups, Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups } from "./current-fantasy-members.js";
+import { path, deployLinks, menu, regions, getTeamDetails, determineTotalScores } from "./main.js";
 import { deployTops } from "./stats.js";
-import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, 
-  kickoffLANPlacements, Major1Placements, Major2Placements,ChampionshipPlacements } from "./placements.js";
+import { year, members, players, EventPoints, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, 
+  Regional1Matchups, Regional2Matchups, Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups, 
+  Rounds,
+  Sums} from "./current-fantasy-members.js";
+import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, kickoffLANPlacements, Major1Placements, Major2Placements,ChampionshipPlacements } from "./placements.js";
 
 let regional1Players = [
 {player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
@@ -128,137 +128,71 @@ let championshipPlayers = [
 ]
 
 window.addEventListener('load', function() {
+  deployLinks()
+  menu()
+  determineTotalScores()
+  document.getElementById('year').innerHTML = `RLCS ${year}`
+  const urlParams = new URLSearchParams(window.location.search);
+  const evt = urlParams.get('name');
+  console.log(`${evt} page has loaded!`);
   if (window.location.pathname === `${path}/regional.html`) {
-    deployLinks()
-    menu()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
-    const urlParams = new URLSearchParams(window.location.search);
-    const evt = urlParams.get('name');
-    determineRegionalSums()
-    if(evt === 'reg1'){
-      document.getElementById('event').innerHTML = `Regional 1`
-      console.log('Regional 1 page has loaded!');
-      deployReg(Regional1, EventSums, 1)
+    document.getElementById('event').innerHTML = `${evt}`
+    if(evt === 'Regional 1'){
+      deployReg(Regional1, Sums, 1)
       deployRegPlacements(Regional1Placements, 1)
       deployTops(regional1Players)
       deployRegMatchups(Regional1Matchups)
-    } else if(evt === 'reg2'){
-      document.getElementById('event').innerHTML = `Regional 2`
-      console.log('Regional 2  page has loaded!');
-      deployReg(Regional2, EventSums, 2)
+    } else if(evt === 'Regional 2'){
+      deployReg(Regional2, Sums, 2)
       deployRegPlacements(Regional2Placements, 1)
       deployTops(regional2Players)
       deployRegMatchups(Regional2Matchups)
-    } else if(evt === 'reg3'){
-      document.getElementById('event').innerHTML = `Regional 3`
-      console.log('Regional 3 page has loaded!');
-      deployReg(Regional3, EventSums, 3)
+    } else if(evt === 'Regional 3'){
+      deployReg(Regional3, Sums, 3)
       deployRegPlacements(Regional3Placements, 1)
       deployTops(regional3Players)
       deployRegMatchups(Regional3Matchups)
-    } else if(evt === 'reg4'){
-      document.getElementById('event').innerHTML = `Regional 4`
-      console.log('Regional 4 page has loaded!');
-      deployReg(Regional4, EventSums, 4)
+    } else if(evt === 'Regional 4'){
+      deployReg(Regional4, Sums, 4)
       deployRegPlacements(Regional4Placements, 2)
       deployTops(regional4Players)
       deployRegMatchups(Regional4Matchups)
-    } else if(evt === 'reg5'){
-      document.getElementById('event').innerHTML = `Regional 5`
-      console.log('Regional 5 page has loaded!');
-      deployReg(Regional5, EventSums, 5)
+    } else if(evt === 'Regional 5'){
+      deployReg(Regional5, Sums, 5)
       deployRegPlacements(Regional5Placements, 2)
       deployTops(regional5Players)
       deployRegMatchups(Regional5Matchups)
-    } else if(evt === 'reg6'){
-      document.getElementById('event').innerHTML = `Regional 6`
-      console.log('Regional 6 page has loaded!');
-      deployReg(Regional6, EventSums, 6)
+    } else if(evt === 'Regional 6'){
+      deployReg(Regional6, Sums, 6)
       deployRegPlacements(Regional6Placements, 2)
       deployTops(regional6Players)
       deployRegMatchups(Regional6Matchups)
     }
   } else if (window.location.pathname === `${path}/major.html`) {
-    deployLinks()
-    menu()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
-    const urlParams = new URLSearchParams(window.location.search);
-    const evt = urlParams.get('name');
-    if(evt === 'maj1'){
-      document.getElementById('event').innerHTML = `Major 1`
-      determineMajorSums()
-      deployMaj(major1Rounds)
+    document.getElementById('event').innerHTML = `${evt}`
+    if(evt === 'Major 1'){
+      deployMaj(Rounds, 1)
       deployMajPlacements(Major1Placements, 1)
       deployTops(major1Players)
-    } else if(evt === 'maj2'){
-      document.getElementById('event').innerHTML = `Major 2`
-      determineMajorSums()
-      deployMaj(major2Rounds)
+    } else if(evt === 'Major 2'){
+      deployMaj(Rounds, 4)
       deployMajPlacements(Major2Placements, 2)
       deployTops(major2Players)
     }
   } else if (window.location.pathname === `${path}/kickoff_lan.html`) {
-    deployLinks()
-    menu()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
-    const urlParams = new URLSearchParams(window.location.search);
-    const evt = urlParams.get('name');
-    if(evt === 'koff'){
-      document.getElementById('event').innerHTML = `Kickoff LAN`
-      determineMajorSums()
-      deploykickoff(kickoffRounds)
+    document.getElementById('event').innerHTML = `${evt}`
+    if(evt === 'Kickoff LAN'){
+      deploykickoff(Rounds, 0)
       deploykickoffPlacements(kickoffLANPlacements, 0)
       deployTops(kickoffLANPlayers)
     }
   } else if (window.location.pathname === `${path}/championship.html`) {
-      deployLinks()
-      menu()
-      document.getElementById('year').innerHTML = `RLCS ${year}`
-      determineChampionshipSums()
-      deployChamp(champRounds, splitSums)
+      deployChamp(Rounds, Sums, 8)
       deployChampPlacements(ChampionshipPlacements)
       deployTops(championshipPlayers)
   }
 });
 
-export function determineRegionalSums(){
-  members.forEach((id) =>{
-    for (let i = 1; i < Regional1[id.shortname].length-1; i += 2){//Regional sum of all your players
-      EventSums[id.shortname][0] += Regional1[id.shortname][i];
-      EventSums[id.shortname][1] += Regional2[id.shortname][i];
-      EventSums[id.shortname][2] += Regional3[id.shortname][i];
-      EventSums[id.shortname][3] += Regional4[id.shortname][i];
-      EventSums[id.shortname][4] += Regional5[id.shortname][i];
-      EventSums[id.shortname][5] += Regional6[id.shortname][i];
-    }
-  })
-}
-export function determineMajorSums(){
-  members.forEach((id) =>{
-    major1Rounds[id.shortname][0] = Major1[`${id.shortname}`][0] * points['groups'][0] //Groups (take index of event picks and multiplies the point value)
-    major1Rounds[id.shortname][1] = Major1[`${id.shortname}`][1] * points['playoff'][0] + Major1[`${id.shortname}`][2] * points['playoff'][1] //Second number is the points worth per guess
-    major1Rounds[id.shortname][2] = major1Rounds[id.shortname][0] + major1Rounds[id.shortname][1] //Total
-
-    major2Rounds[id.shortname][0] = Major2[`${id.shortname}`][0] * points['groups'][0] //Groups
-    major2Rounds[id.shortname][1] = Major2[`${id.shortname}`][1] * points['playoff'][0] + Major2[`${id.shortname}`][2] * points['playoff'][1] //Second number is the points worth per guess
-    major2Rounds[id.shortname][2] = major2Rounds[id.shortname][0] + major2Rounds[id.shortname][1]//Total
-
-    kickoffRounds[id.shortname][0] = kickoffLAN[`${id.shortname}`][0]*points['kickoff'][0]
-
-    splitSums[id.shortname][0] = EventSums[id.shortname][0] + EventSums[id.shortname][1] + EventSums[id.shortname][2] + kickoffRounds[id.shortname][0]*2 + major1Rounds[id.shortname][2]*3 //Split 1 Total
-    splitSums[id.shortname][1] = EventSums[id.shortname][3] + EventSums[id.shortname][4] + EventSums[id.shortname][5] + major2Rounds[id.shortname][2]*3 //Split 2 Total
-  })
-}
-export function determineChampionshipSums(){
-  members.forEach((id)=>{
-    champRounds[id.shortname][0] = Championship[`${id.shortname}`][0] * points['playin'][0] + Championship[`${id.shortname}`][1] * points['playin'][1] //playins
-    champRounds[id.shortname][1] = Championship[`${id.shortname}`][2] * points['groups'][0] //Groups
-    champRounds[id.shortname][2] = Championship[`${id.shortname}`][2] * points['playoff'][0] + Championship[`${id.shortname}`][3] * points['playoff'][1] //playoffs
-    champRounds[id.shortname][3] = (champRounds[id.shortname][0] + champRounds[id.shortname][1] + champRounds[id.shortname][2] + champRounds[id.shortname][3])*5 //Total of all championship rounds
-    
-    splitSums[id.shortname][2] = (champRounds[id.shortname][0] + champRounds[id.shortname][1] + champRounds[id.shortname][2] + champRounds[id.shortname][3])*5 //Total of all championship rounds
-  })
-}
 function getPlayerDetails(searchTerm, playersArray){
   const player = playersArray.find(p => p.player === searchTerm);
   if (!player) {
@@ -316,7 +250,7 @@ function deployReg(event, event2, eventNumber){
         Region.textContent = getTeamDetails(teamLink.textContent)[0]
         
         Points.textContent = event[id.shortname][i+1]
-        Total.textContent = event2[id.shortname][eventNumber-1] //EventSums[0]
+        Total.textContent = event2[id.shortname][eventNumber] //EventSums[0]
         
         Player.appendChild(playerLink)
         Team.appendChild(teamLink)
@@ -463,7 +397,7 @@ function deploykickoffPlacements(event, eventNumber){
   }
 }
 
-function deployMaj(event){
+function deployMaj(event, start){
   members.forEach((id) =>{
     const tableBody = document.getElementById('majorScoreCard');
     const newRow = document.createElement('tr');
@@ -478,9 +412,9 @@ function deployMaj(event){
     total.id = id.shortname
     
     teamName.textContent = id.name
-    swissStage.textContent = event[id.shortname][0]
-    playoffs.textContent = event[id.shortname][1]
-    total.textContent = event[id.shortname][2]
+    swissStage.textContent = event[id.shortname][start]
+    playoffs.textContent = event[id.shortname][start+1]
+    total.textContent = event[id.shortname][start+2]
     
     newRow.appendChild(teamName);
     newRow.appendChild(swissStage);
@@ -520,7 +454,7 @@ function deployMajPlacements(event, eventNumber){
   }
 }
 
-function deployChamp(event, event2){
+function deployChamp(event, event2, start){
   members.forEach((id)=>{
     const tableBody = document.getElementById('championshipScoreCard');
     const newRow = document.createElement('tr');
@@ -536,10 +470,10 @@ function deployChamp(event, event2){
     playoffCell.id = id.shortname
     totalCell.id = id.shortname
     teamName.textContent = id.name
-    playinCell.textContent = event[id.shortname][0]
-    groupsCell.textContent = event[id.shortname][1]
-    playoffCell.textContent = event[id.shortname][3]
-    totalCell.textContent = event2[id.shortname][2]
+    playinCell.textContent = event[id.shortname][7]
+    groupsCell.textContent = event[id.shortname][8]
+    playoffCell.textContent = event[id.shortname][9]
+    totalCell.textContent = event[id.shortname][10]
     
     newRow.appendChild(teamName);
     newRow.appendChild(playinCell);
