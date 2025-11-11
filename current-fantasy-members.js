@@ -106,8 +106,8 @@ export let Regional1 = {
   'jimm' : ['Dralii', 0, '', 0, '', 0, '', 0],
   'gale' : ['Kiileerrz', 0, '', 0, '', 0, '', 0],
   'maht' : ['Rw9', 0, '', 0, '', 0, '', 0],
-  'pots' : ['Zen', 0, '', 0, '', 0, '', 0],
-  'ecof' : ['Nwpo', 0, '', 0, '', 0, '', 0],
+  'pots' : ['Zen', 0, 'Atomic', 0, '', 0, '', 0],
+  'ecof' : ['Nwpo', 0, 'Yanxnz', 0, '', 0, '', 0],
   'come' : ['Daniel', 0, 'Beastmode', 0, '', 0, '', 0],
   'squi' : ['Trk511', 0, 'M0nkey m00n', 0, '', 0, '', 0],
 }
@@ -222,11 +222,11 @@ export let players = [
 {player: 'Beastmode', rank: 'S', rating: 2033, team: 'NRG' , gp: 266, wins: 171, score: 101874, goals: 201, assists: 123, saves: 415, shots: 839, role: '', drafted: 'come'},
 {player: 'Dralii', rank: 'S', rating: 2028, team: 'Team Falcons' , gp: 227, wins: 165, score: 93895, goals: 196, assists: 147, saves: 401, shots: 754, role: '', drafted: 'jimm'},
 {player: 'Firstkiller', rank: 'S', rating: 2022, team: 'Shopify Rebellion' , gp: 242, wins: 142, score: 107367, goals: 214, assists: 148, saves: 450, shots: 805, role: '', drafted: 'vinn'},
-{player: 'Atomic', rank: 'A', rating: 1903, team: 'NRG' , gp: 266, wins: 171, score: 95366, goals: 200, assists: 135, saves: 365, shots: 776, role: '', drafted: ''},
+{player: 'Atomic', rank: 'A', rating: 1903, team: 'NRG' , gp: 266, wins: 171, score: 95366, goals: 200, assists: 135, saves: 365, shots: 776, role: '', drafted: 'pots'},
 {player: 'Zen', rank: 'A', rating: 1890, team: 'Team Vitality' , gp: 210, wins: 127, score: 95055, goals: 208, assists: 138, saves: 368, shots: 839, role: '', drafted: 'pots'},
 {player: 'Atomik', rank: 'A', rating: 1823, team: 'Atomik-Rezears-Tox' , gp: 245, wins: 155, score: 90242, goals: 199, assists: 141, saves: 347, shots: 768, role: '', drafted: ''},
 {player: 'Atow', rank: 'A', rating: 1813, team: 'Karmine Corp' , gp: 227, wins: 165, score: 83848, goals: 174, assists: 128, saves: 315, shots: 724, role: '', drafted: ''},
-{player: 'Yanxnz', rank: 'A', rating: 1775, team: 'Furia Esports' , gp: 191, wins: 137, score: 83175, goals: 199, assists: 147, saves: 284, shots: 685, role: '', drafted: ''},
+{player: 'Yanxnz', rank: 'A', rating: 1775, team: 'Furia Esports' , gp: 191, wins: 137, score: 83175, goals: 199, assists: 147, saves: 284, shots: 685, role: '', drafted: 'ecof'},
 {player: 'Lostt', rank: 'A', rating: 1771, team: 'Furia Esports' , gp: 200, wins: 140, score: 82267, goals: 173, assists: 145, saves: 379, shots: 658, role: '', drafted: ''},
 {player: 'Vatira', rank: 'A', rating: 1760, team: 'Karmine Corp' , gp: 227, wins: 165, score: 82463, goals: 175, assists: 139, saves: 356, shots: 617, role: '', drafted: ''},
 {player: 'Rise', rank: 'A', rating: 1740, team: 'Gen.G Mobil1 Racing' , gp: 236, wins: 153, score: 85074, goals: 160, assists: 154, saves: 339, shots: 719, role: '', drafted: ''},
@@ -1562,5 +1562,6 @@ export let teams = [
 {team: 'Dreifach-Reset', region: 'EU', rating: function(){ return (((this.score / 100) + this.goals + this.assists + this.saves + this.shots) * (this.wins/this.gp)).toFixed(0)}, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Resonal-Lev-Pigeon', region: 'NA', rating: function(){ return (((this.score / 100) + this.goals + this.assists + this.saves + this.shots) * (this.wins/this.gp)).toFixed(0)}, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Selaco', region: 'EU', rating: function(){ return (((this.score / 100) + this.goals + this.assists + this.saves + this.shots) * (this.wins/this.gp)).toFixed(0)}, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+
 
 ]
