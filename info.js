@@ -1,6 +1,6 @@
 import { path, deployLinks, menu, spread, points } from "./main.js";
 import { year, members, amtAdded, dist, majorPrize, champPrize } from "./current-fantasy-members.js";
-
+const numOfMembers = members.length-1
 const amountPerMajor = ((amtAdded*dist[1])+majorPrize)/2;
 const amountForChampionship = (amtAdded*dist[2])+champPrize;
 
@@ -34,7 +34,7 @@ window.addEventListener('load', function() {
     deployLinks()
     menu()
     document.getElementById('year').innerHTML = `RLCS ${year}`
-    document.getElementById('numOfTeams').innerHTML = members.length
+    document.getElementById('numOfTeams').innerHTML = numOfMembers
     document.getElementById('amount_added').innerHTML = "$" + amtAdded
     determineSpread()
     deployPrizePoolInfo()
@@ -49,18 +49,18 @@ window.addEventListener('load', function() {
 function determineSpread(){
   let spreadSum = 0;
   for (let i = 0; i < spread.length; i++) {
-      if (i >= members.length){
+      if (i >= numOfMembers){
           spreadSum += spread[i];
           spread[i] = 0;
       }
   }
-  let spreadToAdd = spreadSum/members.length
-  for (let i = 0; i < members.length; i++) {
+  let spreadToAdd = spreadSum/numOfMembers
+  for (let i = 0; i < numOfMembers; i++) {
       spread[i] += spreadToAdd;
   }
 }
 function deployPrizePoolInfo(){
-    for (let i = 0; i < members.length; i ++){
+    for (let i = 0; i < numOfMembers; i ++){
         const tableBody = document.getElementById('prize_pool');
         const newRow = document.createElement('tr');
         const place = document.createElement('td');
@@ -68,7 +68,7 @@ function deployPrizePoolInfo(){
         const championshipPerc = document.createElement('td');
         const percOfPP = document.createElement('td');
         place.textContent = i+1
-        if (i < members.length){
+        if (i < numOfMembers){
             majorPerc.textContent = "$" + (spread[i] * amountPerMajor).toFixed(2)
             championshipPerc.textContent = "$" + (spread[i] * amountForChampionship).toFixed(2)
             percOfPP.textContent = (spread[i]*100).toFixed(2) + "%"
@@ -94,7 +94,7 @@ function deployPrizePoolInfo(){
     let totalMajor = 0
     let totalChamp = 0
     let totalPerc = 0
-    for (let i = 0; i < members.length; i ++){
+    for (let i = 0; i < numOfMembers; i ++){
         totalMajor += spread[i] * amountPerMajor
         totalChamp += spread[i] * amountForChampionship
         totalPerc += spread[i]

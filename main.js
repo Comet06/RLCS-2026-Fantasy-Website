@@ -107,7 +107,6 @@ function deployHome(pool){
     newRow.appendChild(reg2Total)
     newRow.appendChild(reg3Total)
     newRow.appendChild(maj1Total)
-    
     tableBody.appendChild(newRow);
   })
   members.forEach((id)=>{
@@ -140,7 +139,6 @@ function deployHome(pool){
     newRow.appendChild(reg5Total)
     newRow.appendChild(reg6Total)
     newRow.appendChild(maj2Total)
-    
     tableBody.appendChild(newRow);
   })
   members.forEach((id)=>{
@@ -182,7 +180,6 @@ function deployHome(pool){
     newRow.appendChild(split2Total)
     newRow.appendChild(championshipTotal)
     newRow.appendChild(total)
-    
     tableBody.appendChild(newRow);
   })
   members.forEach((id) =>{
@@ -220,7 +217,9 @@ function deployHome(pool){
     newRow.appendChild(championshipWinnings);
     newRow.appendChild(totalWinnings);
     
-    tableBody.appendChild(newRow);
+    if(id.shortname != 'plac'){
+      tableBody.appendChild(newRow);
+    }
   })
 }
 // Site Wide
@@ -234,7 +233,7 @@ export function deployLinks(){
           <a href="#">Main Events</a>
             <div class="dropdown-content">
               <a href="regional.html?name=${encodeURIComponent('Regional 1')}">Regional 1</a>
-              <a href="kickoff_lan.html?name=${encodeURIComponent('Kickoff LAN')}">Kickoff LAN</a>
+              <a href="major.html?name=${encodeURIComponent('Kickoff LAN')}">Kickoff LAN</a>
               <a href="regional.html?name=${encodeURIComponent('Regional 2')}">Regional 2</a>
               <a href="regional.html?name=${encodeURIComponent('Regional 3')}">Regional 3</a>
               <a href="major.html?name=${encodeURIComponent('Major 1')}">Major 1</a>
@@ -242,7 +241,7 @@ export function deployLinks(){
               <a href="regional.html?name=${encodeURIComponent('Regional 5')}">Regional 5</a>
               <a href="regional.html?name=${encodeURIComponent('Regional 6')}">Regional 6</a>
               <a href="major.html?name=${encodeURIComponent('Major 2')}">Major 2</a>
-              <a href="championship.html">Championship</a>
+              <a href="major.html?name=${encodeURIComponent('Championship')}">Championship</a>
             </div>
         </li>
         <li class="dropdown">

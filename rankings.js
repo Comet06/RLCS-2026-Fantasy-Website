@@ -15,8 +15,6 @@ window.addEventListener('load', function() {
     deploySplitQuals(split2QualifiedTeams, 2)
     deploySplitQuals(championshipQualifiedTeams, 3)
     console.log('Rankings page has loaded!');
-  } else {
-    console.log("main event listener is working but nothing else is")
   }
 });
 export let Regional1Placements = {

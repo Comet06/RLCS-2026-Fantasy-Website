@@ -1,10 +1,10 @@
 import { path, deployLinks, menu, regions, getTeamDetails } from "./main.js";
-import { year, players, teams, EventPoints, members, Regional1 } from "./current-fantasy-members.js";
+import { year, players, teams, EventPoints, members, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./current-fantasy-members.js";
 import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./rankings.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
 
-const eventName = Regional1
+export const eventName = Regional1
 // Stats Page
 const weight = [
   {region: "EU", weight: 1},
@@ -317,7 +317,7 @@ export function determineSeasonPoints() {
 }
 export function determineTeamsRanks(rating){
   teams.sort((a,b) => b.rating - a.rating)
-  let high = teams[0].rating()
+  let high = teams[0].rating
   if(rating > (high/6*5)){
     return 'S'
   } else if(rating > (high/6*4)){
@@ -614,7 +614,7 @@ function populatePlayersTable(Players) {
       newRow.appendChild(saves);
       newRow.appendChild(shots);
     } else {
-      noStats.textContent = 'No Data to Display'
+      noStats.textContent = 'No Data'
       noStats.style = 'color: red;'
       noStats.colSpan = 7
       newRow.appendChild(noStats);
@@ -657,7 +657,7 @@ function populateTeamsTable(Teams) {
     let countOfPlayers = 0
     
     newRow.setAttribute('data-player', `player${index + 1}`);
-    const rank = determineTeamsRanks(id.rating())
+    const rank = determineTeamsRanks(id.rating)
     teamLink.textContent = id.team + " (" + rank + ")";
     teamLink.href = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
     
@@ -691,7 +691,7 @@ function populateTeamsTable(Teams) {
       }
     })
     if (id.gp > 0){
-      ratingCell.textContent = (((id.score / 100) + id.goals + id.assists + id.saves + id.shots) * (id.wins/id.gp) * regionWeight).toFixed(0)
+      ratingCell.textContent = id.rating
       winPercCell.textContent = (id.wins/id.gp*100).toFixed(2);
       score.textContent = (id.score/id.gp).toFixed(0)
       goals.textContent = (id.goals/id.gp).toFixed(2)
@@ -706,7 +706,7 @@ function populateTeamsTable(Teams) {
       newRow.appendChild(saves);
       newRow.appendChild(shots);
     } else {
-      noStats.textContent = 'No Data to Display'
+      noStats.textContent = 'No Data'
       noStats.style = 'color: red;'
       noStats.colSpan = 8
       newRow.appendChild(noStats);

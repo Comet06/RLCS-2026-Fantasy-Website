@@ -1,7 +1,7 @@
 /* Info page */
 .rules{text-align: left;margin-left: 30px;}
 .rules ol{margin-left: 30px;}
-#prize_pool{color:black; background-color: #acacac;width: 750px;}
-#Major_points{color:black; background-color: #acacac;width: 750px;}
-#Champ_points{color:black; background-color: #acacac;width: 750px;}
+#prize_pool{background-color: #b86200;width: 750px;}
+#Major_points{background-color: #b86200;width: 750px;}
+#Champ_points{background-color: #b86200;width: 750px;}
 ol{font-size: 1.3em;}

@@ -2,20 +2,20 @@ import { path, deployLinks, menu, regions, getTeamDetails, determineTotalScores 
 import { deployTops } from "./stats.js";
 import { year, members, players, EventPoints, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, 
   Regional1Matchups, Regional2Matchups, Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups, 
-  Rounds, Sums} from "./current-fantasy-members.js";
+  Rounds, Sums, KickoffMatchups, Major1Matchups, Major2Matchups, ChampionshipMatchups} from "./current-fantasy-members.js";
 import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, kickoffLANPlacements, Major1Placements, Major2Placements,ChampionshipPlacements } from "./rankings.js";
 
 let regional1Players = [
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 ]
 let kickoffLANPlayers = [
 {player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
@@ -126,6 +126,22 @@ let championshipPlayers = [
 {player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 ]
 
+const kickofftable = `
+<tr>
+  <th>Team</th><th>Total</th>
+</tr>
+`
+const majortable = `
+<tr>
+  <th>Team</th><th>Group Stage</th><th>Playoffs</th><th>Total</th>
+</tr>
+`
+const champtable = `
+<tr>
+  <th>Championship</th><th>Play-in</th><th>Groups</th><th>Playoffs</th><th>Total</th>
+</tr>
+`
+
 window.addEventListener('load', function() {
   deployLinks()
   menu()
@@ -137,61 +153,71 @@ window.addEventListener('load', function() {
     determineTotalScores()
     document.getElementById('event').innerHTML = `${evt}`
     if(evt === 'Regional 1'){
-      deployReg(Regional1, Sums, 1)
+      document.getElementById('titlePage').innerHTML = 'Regional 1'
+      deployReg(Regional1, Sums, 1, regional1Players)
       deployRegPlacements(Regional1Placements, 1)
       deployTops(regional1Players)
-      deployRegMatchups(Regional1Matchups)
+      deployMatchups(Regional1Matchups)
     } else if(evt === 'Regional 2'){
-      deployReg(Regional2, Sums, 2)
+      document.getElementById('titlePage').innerHTML = 'Regional 2'
+      deployReg(Regional2, Sums, 2, regional2Players)
       deployRegPlacements(Regional2Placements, 1)
       deployTops(regional2Players)
-      deployRegMatchups(Regional2Matchups)
+      deployMatchups(Regional2Matchups)
     } else if(evt === 'Regional 3'){
-      deployReg(Regional3, Sums, 3)
+      document.getElementById('titlePage').innerHTML = 'Regional 3'
+      deployReg(Regional3, Sums, 3, regional3Players)
       deployRegPlacements(Regional3Placements, 1)
       deployTops(regional3Players)
-      deployRegMatchups(Regional3Matchups)
+      deployMatchups(Regional3Matchups)
     } else if(evt === 'Regional 4'){
-      deployReg(Regional4, Sums, 4)
+      document.getElementById('titlePage').innerHTML = 'Regional 4'
+      deployReg(Regional4, Sums, 4, regional4Players)
       deployRegPlacements(Regional4Placements, 2)
       deployTops(regional4Players)
-      deployRegMatchups(Regional4Matchups)
+      deployMatchups(Regional4Matchups)
     } else if(evt === 'Regional 5'){
-      deployReg(Regional5, Sums, 5)
+      document.getElementById('titlePage').innerHTML = 'Regional 5'
+      deployReg(Regional5, Sums, 5, regional5Players)
       deployRegPlacements(Regional5Placements, 2)
       deployTops(regional5Players)
-      deployRegMatchups(Regional5Matchups)
+      deployMatchups(Regional5Matchups)
     } else if(evt === 'Regional 6'){
-      deployReg(Regional6, Sums, 6)
+      document.getElementById('titlePage').innerHTML = 'Regional 6'
+      deployReg(Regional6, Sums, 6, regional6Players)
       deployRegPlacements(Regional6Placements, 2)
       deployTops(regional6Players)
-      deployRegMatchups(Regional6Matchups)
+      deployMatchups(Regional6Matchups)
     }
   } else if (window.location.pathname === `${path}/major.html`) {
     determineTotalScores()
     document.getElementById('event').innerHTML = `${evt}`
+    document.getElementById('titlePage').innerHTML = `${evt}`
     if(evt === 'Major 1'){
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x3 Multiplier)'
       deployMaj(Rounds, 1)
       deployMajPlacements(Major1Placements, 1)
       deployTops(major1Players)
+      deployMatchups(Major1Matchups)
     } else if(evt === 'Major 2'){
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x3 Multiplier)'
       deployMaj(Rounds, 4)
       deployMajPlacements(Major2Placements, 2)
       deployTops(major2Players)
-    }
-  } else if (window.location.pathname === `${path}/kickoff_lan.html`) {
-    determineTotalScores()
-    document.getElementById('event').innerHTML = `${evt}`
-    if(evt === 'Kickoff LAN'){
-      deploykickoff(Rounds, 0)
+      deployMatchups(Major2Matchups)
+    } else if(evt === 'Kickoff LAN'){
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x2 Multiplier)'
+      deploykickoff(Rounds)
       deploykickoffPlacements(kickoffLANPlacements, 0)
       deployTops(kickoffLANPlayers)
+      deployMatchups(KickoffMatchups)
+    } else if(evt === 'Championship') {
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x5 Multiplier)'
+      deployChamp(Rounds)
+      deployChampPlacements(ChampionshipPlacements)
+      deployTops(championshipPlayers)
+      deployMatchups(ChampionshipMatchups)
     }
-  } else if (window.location.pathname === `${path}/championship.html`) {
-    determineTotalScores()
-    deployChamp(Rounds)
-    deployChampPlacements(ChampionshipPlacements)
-    deployTops(championshipPlayers)
   }
 });
 
@@ -219,8 +245,19 @@ function getMemberDetails(searchTerm){
   ];
   return details;
 }
+function getPlayerScore(searchTerm, eventName){
+  const player = eventName.find(p => p.player === searchTerm);
+  if (!player) {
+    return 0;
+  }
+  let score = 0
+  if(player.gp > 0){
+    score = ((player.score/100 + player.goals + player.assists + player.saves + player.shots) * (player.wins/player.gp));
+  }
+  return score;
+}
 
-function deployReg(event, event2, eventNumber){
+function deployReg(event, event2, eventNumber, playersArray){
   members.forEach((id) =>{
     for (let i = 0; i < event[id.shortname].length; i += 2){
       if (i === 0){
@@ -254,7 +291,8 @@ function deployReg(event, event2, eventNumber){
         
         Region.textContent = getTeamDetails(teamLink.textContent)[0]
         
-        Points.textContent = event[id.shortname][i+1]
+        // Points.textContent = event[id.shortname][i+1]
+        Points.textContent = getPlayerScore(event[id.shortname][i], playersArray)
         Total.textContent = event2[id.shortname][eventNumber-1] //EventSums[0]
         
         teamName.appendChild(memberLink)
@@ -270,6 +308,7 @@ function deployReg(event, event2, eventNumber){
         newRow.appendChild(Total);
         
         tableBody.appendChild(newRow);
+
       } else {
         const tableBody = document.getElementById('regionalScoreCard');
         const newRow = document.createElement('tr');
@@ -310,8 +349,8 @@ function deployReg(event, event2, eventNumber){
     }
   })
 }
-function deployRegMatchups(event){
-  for (let i = 0; i < 8; i += 2){
+function deployMatchups(event){
+  for (let i = 0; i < 10; i += 2){
     const tableBody = document.getElementById('matchups');
     const newRow = document.createElement('tr');
     const team1Link = document.createElement('a');
@@ -319,14 +358,21 @@ function deployRegMatchups(event){
     const team1 = document.createElement('td');
     const vs = document.createElement('td');
     const team2 = document.createElement('td');
-
-    team1.id = getMemberDetails(event[i])[1]
-    team1Link.textContent = getMemberDetails(event[i])[0]
-    team1Link.href = `${path}/profile.html?name=${encodeURIComponent(getMemberDetails(event[i])[0])}`
+    if(event[i] != 'TBD'){
+      team1.id = getMemberDetails(event[i])[1]
+      team1Link.textContent = getMemberDetails(event[i])[0]
+      team1Link.href = `${path}/profile.html?name=${encodeURIComponent(getMemberDetails(event[i])[0])}`
+    } else {
+      team1Link.textContent = event[i]
+    }
     vs.textContent = 'vs'
-    team2.id = getMemberDetails(event[i+1])[1]
-    team2Link.textContent = getMemberDetails(event[i+1])[0]
-    team2Link.href = `${path}/profile.html?name=${encodeURIComponent(getMemberDetails(event[i+1])[0])}`
+    if(event[i+1] != 'TBD' && event[i+1] != 'Bye'){
+      team2.id = getMemberDetails(event[i+1])[1]
+      team2Link.textContent = getMemberDetails(event[i+1])[0]
+      team2Link.href = `${path}/profile.html?name=${encodeURIComponent(getMemberDetails(event[i+1])[0])}`
+    } else {
+      team2Link.textContent = event[i+1]
+    }
             
     team1.appendChild(team1Link)
     team2.appendChild(team2Link)
@@ -362,8 +408,9 @@ function deployRegPlacements(event, eventNumber){
 }
 
 function deploykickoff(event){
+  document.getElementById('ScoreCard').innerHTML = kickofftable
   members.forEach((id) =>{
-    const tableBody = document.getElementById('majorScoreCard');
+    const tableBody = document.getElementById('ScoreCard');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
     const memberLink = document.createElement('a');
@@ -379,13 +426,12 @@ function deploykickoff(event){
     teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
     newRow.appendChild(total);
-    
     tableBody.appendChild(newRow);
   })
 }
 function deploykickoffPlacements(event, eventNumber){
   for (let i = 0; i < event['Major'].length; i ++){
-    const tableBody = document.getElementById('Major-placements');
+    const tableBody = document.getElementById('placements');
     const newRow = document.createElement('tr');
     const teamLink = document.createElement('a');
     const team = document.createElement('td');
@@ -414,8 +460,9 @@ function deploykickoffPlacements(event, eventNumber){
 }
 
 function deployMaj(event, start){
+  document.getElementById('ScoreCard').innerHTML = majortable
   members.forEach((id) =>{
-    const tableBody = document.getElementById('majorScoreCard');
+    const tableBody = document.getElementById('ScoreCard');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
     const memberLink = document.createElement('a');
@@ -439,13 +486,13 @@ function deployMaj(event, start){
     newRow.appendChild(swissStage);
     newRow.appendChild(playoffs);
     newRow.appendChild(total);
-    
+
     tableBody.appendChild(newRow);
   })
 }
 function deployMajPlacements(event, eventNumber){
   for (let i = 0; i < event['Major'].length; i ++){
-    const tableBody = document.getElementById('Major-placements');
+    const tableBody = document.getElementById('placements');
     const newRow = document.createElement('tr');
     const teamLink = document.createElement('a');
     const team = document.createElement('td');
@@ -474,8 +521,9 @@ function deployMajPlacements(event, eventNumber){
 }
 
 function deployChamp(event){
+  document.getElementById('ScoreCard').innerHTML = champtable
   members.forEach((id)=>{
-    const tableBody = document.getElementById('championshipScoreCard');
+    const tableBody = document.getElementById('ScoreCard');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
     const memberLink = document.createElement('a');
@@ -503,13 +551,13 @@ function deployChamp(event){
     newRow.appendChild(groupsCell);
     newRow.appendChild(playoffCell);
     newRow.appendChild(totalCell);
-    
+
     tableBody.appendChild(newRow);
   })
 }
 function deployChampPlacements(event){
   for (let i = 0; i < event['Champ'].length; i += 2){
-    const tableBody = document.getElementById('champ-placements');
+    const tableBody = document.getElementById('placements');
     const newRow = document.createElement('tr');
     const teamLink = document.createElement('a');
     const team = document.createElement('td');

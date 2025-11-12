@@ -43,6 +43,7 @@ a{color: currentColor; text-decoration: none;}
 #pots{color: black; background-color: #f47702;}
 #maht{color: white; background-color: #0059ff;}
 #devv{color: black; background-color: #ff00ff;}
+#plac{color: white; background-color: black;}
 
 /* Media Screens */
 @media screen and (max-width: 1593px){}
