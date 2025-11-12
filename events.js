@@ -2,9 +2,8 @@ import { path, deployLinks, menu, regions, getTeamDetails, determineTotalScores 
 import { deployTops } from "./stats.js";
 import { year, members, players, EventPoints, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, 
   Regional1Matchups, Regional2Matchups, Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups, 
-  Rounds,
-  Sums} from "./current-fantasy-members.js";
-import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, kickoffLANPlacements, Major1Placements, Major2Placements,ChampionshipPlacements } from "./placements.js";
+  Rounds, Sums} from "./current-fantasy-members.js";
+import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, kickoffLANPlacements, Major1Placements, Major2Placements,ChampionshipPlacements } from "./rankings.js";
 
 let regional1Players = [
 {player: 'TBD', score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
@@ -130,12 +129,12 @@ let championshipPlayers = [
 window.addEventListener('load', function() {
   deployLinks()
   menu()
-  determineTotalScores()
   document.getElementById('year').innerHTML = `RLCS ${year}`
   const urlParams = new URLSearchParams(window.location.search);
   const evt = urlParams.get('name');
   console.log(`${evt} page has loaded!`);
   if (window.location.pathname === `${path}/regional.html`) {
+    determineTotalScores()
     document.getElementById('event').innerHTML = `${evt}`
     if(evt === 'Regional 1'){
       deployReg(Regional1, Sums, 1)
@@ -169,6 +168,7 @@ window.addEventListener('load', function() {
       deployRegMatchups(Regional6Matchups)
     }
   } else if (window.location.pathname === `${path}/major.html`) {
+    determineTotalScores()
     document.getElementById('event').innerHTML = `${evt}`
     if(evt === 'Major 1'){
       deployMaj(Rounds, 1)
@@ -180,6 +180,7 @@ window.addEventListener('load', function() {
       deployTops(major2Players)
     }
   } else if (window.location.pathname === `${path}/kickoff_lan.html`) {
+    determineTotalScores()
     document.getElementById('event').innerHTML = `${evt}`
     if(evt === 'Kickoff LAN'){
       deploykickoff(Rounds, 0)
@@ -187,21 +188,23 @@ window.addEventListener('load', function() {
       deployTops(kickoffLANPlayers)
     }
   } else if (window.location.pathname === `${path}/championship.html`) {
-      deployChamp(Rounds, Sums, 8)
-      deployChampPlacements(ChampionshipPlacements)
-      deployTops(championshipPlayers)
+    determineTotalScores()
+    deployChamp(Rounds)
+    deployChampPlacements(ChampionshipPlacements)
+    deployTops(championshipPlayers)
   }
 });
 
-function getPlayerDetails(searchTerm, playersArray){
+export function getPlayerDetails(searchTerm, playersArray){
   const player = playersArray.find(p => p.player === searchTerm);
   if (!player) {
     return [];
   }
   const details = [
-    player.team || 'N/A',
-    player.name || 'N/A',
-    player.shortname || 'N/A',
+    player.team || 'N/A', //0
+    player.name || 'N/A', //1
+    player.shortname || 'N/A', //2
+    player.team.toLowerCase().replaceAll(' ', '_').replaceAll('.', '') || 'N/A', //3
   ];
   return details;
 }
@@ -224,6 +227,7 @@ function deployReg(event, event2, eventNumber){
         const tableBody = document.getElementById('regionalScoreCard');
         const newRow = document.createElement('tr');
         const teamName = document.createElement('td');
+        const memberLink = document.createElement('a');
         const playerLink = document.createElement('a');
         const teamLink = document.createElement('a');
         const Player = document.createElement('td');
@@ -241,7 +245,8 @@ function deployReg(event, event2, eventNumber){
         teamName.rowSpan = event[id.shortname].length/2
         Total.rowSpan = event[id.shortname].length/2
         
-        teamName.textContent = id.name
+        memberLink.textContent = id.name
+        memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
         playerLink.textContent = event[id.shortname][i]
         playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.shortname][i])}`
         teamLink.textContent = getPlayerDetails(event[id.shortname][i], players)[0]
@@ -250,8 +255,9 @@ function deployReg(event, event2, eventNumber){
         Region.textContent = getTeamDetails(teamLink.textContent)[0]
         
         Points.textContent = event[id.shortname][i+1]
-        Total.textContent = event2[id.shortname][eventNumber] //EventSums[0]
+        Total.textContent = event2[id.shortname][eventNumber-1] //EventSums[0]
         
+        teamName.appendChild(memberLink)
         Player.appendChild(playerLink)
         Team.appendChild(teamLink)
         
@@ -267,6 +273,7 @@ function deployReg(event, event2, eventNumber){
       } else {
         const tableBody = document.getElementById('regionalScoreCard');
         const newRow = document.createElement('tr');
+        const memberLink = document.createElement('a');
         const playerLink = document.createElement('a');
         const teamLink = document.createElement('a');
         const Player = document.createElement('td');
@@ -307,16 +314,22 @@ function deployRegMatchups(event){
   for (let i = 0; i < 8; i += 2){
     const tableBody = document.getElementById('matchups');
     const newRow = document.createElement('tr');
+    const team1Link = document.createElement('a');
+    const team2Link = document.createElement('a');
     const team1 = document.createElement('td');
     const vs = document.createElement('td');
     const team2 = document.createElement('td');
 
     team1.id = getMemberDetails(event[i])[1]
-    team1.textContent = getMemberDetails(event[i])[0]
+    team1Link.textContent = getMemberDetails(event[i])[0]
+    team1Link.href = `${path}/profile.html?name=${encodeURIComponent(getMemberDetails(event[i])[0])}`
     vs.textContent = 'vs'
     team2.id = getMemberDetails(event[i+1])[1]
-    team2.textContent = getMemberDetails(event[i+1])[0]
+    team2Link.textContent = getMemberDetails(event[i+1])[0]
+    team2Link.href = `${path}/profile.html?name=${encodeURIComponent(getMemberDetails(event[i+1])[0])}`
             
+    team1.appendChild(team1Link)
+    team2.appendChild(team2Link)
     newRow.appendChild(team1);
     newRow.appendChild(vs);
     newRow.appendChild(team2);
@@ -353,14 +366,17 @@ function deploykickoff(event){
     const tableBody = document.getElementById('majorScoreCard');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
+    const memberLink = document.createElement('a');
     const total = document.createElement('td');
     
     teamName.id = id.shortname
     total.id = id.shortname
     
-    teamName.textContent = id.name
+    memberLink.textContent = id.name
+    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     total.textContent = event[id.shortname][0]
     
+    teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
     newRow.appendChild(total);
     
@@ -402,6 +418,7 @@ function deployMaj(event, start){
     const tableBody = document.getElementById('majorScoreCard');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
+    const memberLink = document.createElement('a');
     const swissStage = document.createElement('td');
     const playoffs = document.createElement('td');
     const total = document.createElement('td');
@@ -411,11 +428,13 @@ function deployMaj(event, start){
     playoffs.id = id.shortname
     total.id = id.shortname
     
-    teamName.textContent = id.name
+    memberLink.textContent = id.name
+    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     swissStage.textContent = event[id.shortname][start]
     playoffs.textContent = event[id.shortname][start+1]
     total.textContent = event[id.shortname][start+2]
     
+    teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
     newRow.appendChild(swissStage);
     newRow.appendChild(playoffs);
@@ -454,11 +473,12 @@ function deployMajPlacements(event, eventNumber){
   }
 }
 
-function deployChamp(event, event2, start){
+function deployChamp(event){
   members.forEach((id)=>{
     const tableBody = document.getElementById('championshipScoreCard');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
+    const memberLink = document.createElement('a');
     const playinCell = document.createElement('td');
     const groupsCell = document.createElement('td');
     const playoffCell = document.createElement('td');
@@ -469,12 +489,15 @@ function deployChamp(event, event2, start){
     groupsCell.id = id.shortname
     playoffCell.id = id.shortname
     totalCell.id = id.shortname
-    teamName.textContent = id.name
+
+    memberLink.textContent = id.name
+    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     playinCell.textContent = event[id.shortname][7]
     groupsCell.textContent = event[id.shortname][8]
     playoffCell.textContent = event[id.shortname][9]
     totalCell.textContent = event[id.shortname][10]
     
+    teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
     newRow.appendChild(playinCell);
     newRow.appendChild(groupsCell);

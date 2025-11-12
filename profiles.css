@@ -3,5 +3,10 @@
 .player-profiles{margin: 0 auto; width: fit-content;}
 .profile-card {color: black; background: #fff;border: 1px solid #ccc;border-radius: 8px;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px #0000001a;}
 .player-name {margin-top: 0; padding: 5px; border-radius: 10px;}
+
 .profile-details p {margin: 5px 0;}
-.profile-details a {display: inline-block;margin-top: 10px;padding: 8px 12px;text-decoration: none;border-radius: 5px;}
+.profile-details a {display: inline-block;margin: 5px 0;text-decoration: none;border-radius: 5px;}
+
+#member{text-align: center;}
+#rank{padding: 5px 0;}
+#notfound{color: white;}

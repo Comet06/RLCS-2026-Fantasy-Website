@@ -1,6 +1,6 @@
 import { path, deployLinks, menu, regions, getTeamDetails } from "./main.js";
 import { year, players, teams, EventPoints, members } from "./current-fantasy-members.js";
-import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./placements.js";
+import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./rankings.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
 
@@ -63,10 +63,10 @@ const legacyPlayerTableHeader = `
 `
 const playerTableHeader = `
 <tr>
-  <th colspan="4" id="name">Player Information</th><th colspan="5" id="perGame">Player Stats: Per Game</th><th colspan="2" id="teamStats">Team Stats</th>
+  <th colspan="5" id="name">Player Information</th><th colspan="5" id="perGame">Player Stats: Per Game</th><th colspan="2" id="teamStats">Team Stats</th>
 </tr>
 <tr>
-  <th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th><th>Team</th><th>Region</th>
+  <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th><th>Team</th><th>Region</th>
 </tr>
 `
 const teamTableHeader = `
@@ -495,10 +495,13 @@ function populatePlayersTable(Players) {
   const tableBody = document.getElementById('data_table');
   tableBody.innerHTML = '';
   tableBody.innerHTML = playerTableHeader
+  let i = 0
   Players.forEach((id) => {
     const newRow = document.createElement('tr');
 
+    const num = document.createElement('td');
     const nameCell = document.createElement('td');
+    const memberLink = document.createElement('a');
     const availCell = document.createElement('td');
     const ratingCell = document.createElement('td');
     const teamCell = document.createElement('td');
@@ -518,6 +521,7 @@ function populatePlayersTable(Players) {
 
     const roleID = id.role.toLowerCase()
     const teamId = (id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","");
+    num.textContent = i += 1
 
     let availID = ''
     
@@ -550,6 +554,7 @@ function populatePlayersTable(Players) {
     teamRegion.textContent = getTeamDetails(id.team)[0]
     
     nameCell.appendChild(nameLink);
+    newRow.appendChild(num);
     newRow.appendChild(nameCell);
 
     // Draft check
@@ -557,8 +562,10 @@ function populatePlayersTable(Players) {
       newRow.appendChild(availCell);
     } else {
       const draftedBy = members.find(m => m.shortname === id.drafted);
-      drafted.textContent = draftedBy.name
+      memberLink.textContent = draftedBy.name
+      memberLink.href = `${path}/profile.html?name=${encodeURIComponent(draftedBy.name)}`
       drafted.style = 'color: red;'
+      drafted.appendChild(memberLink)
       newRow.appendChild(drafted);
     }
     

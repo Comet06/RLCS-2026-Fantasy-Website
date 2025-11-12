@@ -1,5 +1,5 @@
-import { playerScores, members, teams, prizes, year, players, 
-  Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Rounds, majorEvents, Sums} from "./current-fantasy-members.js";
+import { playerScores, members, teams, prizes, year, players, Regional1, Regional2, Regional3, 
+  Regional4, Regional5, Regional6, Rounds, majorEvents, Sums} from "./current-fantasy-members.js";
 import { deployTops } from "./stats.js";
 
 
@@ -7,16 +7,18 @@ export const path = `/RLCS-${year}-Fantasy-Website`
 export const path1 = ``// used for Mac dev
 window.addEventListener('load', function() {
   deployLinks()
-  document.getElementById('year').innerHTML = `RLCS ${year}`
   menu()
-  determineTotalScores()
+  document.getElementById('year').innerHTML = `RLCS ${year}`
   if (window.location.pathname === `${path}/index.html`) {
     document.getElementById('titleYear').innerHTML = `RLCS Fantasy ${year}`
+    determineTotalScores()
     deployHome(prizes)
     deployTops(players)
   } else if (window.location.pathname === `${path}/form_major.html`){
+    determineTotalScores()
     console.log('Major Bracket form page has loaded!')
   } else if (window.location.pathname === `${path}/form_championship.html`) {
+    determineTotalScores()
     console.log('Championship Bracket form page has loaded!')
   }
 });
@@ -25,7 +27,7 @@ window.addEventListener('load', function() {
 // Info Page
 export const tops = ['score', 'goals', 'assists', 'saves', 'shots']
 export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'TopShots']
-export const points = {'kickoff': [100],'groups': [400], 'playin' : [100, 200], 'playoff' : [400, 600]}
+export const points = {'matchups': [500], 'kickoff': [100],'groups': [400], 'playin' : [100, 200], 'playoff' : [400, 600]}
 export const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
 export const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
 // Homepage
@@ -39,8 +41,8 @@ export function determineTotalScores(){
       Sums[id.shortname][4] += Regional5[id.shortname][i];
       Sums[id.shortname][5] += Regional6[id.shortname][i];
     }
-    Sums[id.shortname][6] += Sums[id.shortname][0] + Sums[id.shortname][1] + Sums[id.shortname][2]
-    Sums[id.shortname][7] += Sums[id.shortname][3] + Sums[id.shortname][4] + Sums[id.shortname][5]
+    Sums[id.shortname][6] += Sums[id.shortname][0] + Sums[id.shortname][1] + Sums[id.shortname][2] + id.split1wins * points['matchups'][0]
+    Sums[id.shortname][7] += Sums[id.shortname][3] + Sums[id.shortname][4] + Sums[id.shortname][5] + id.split2wins * points['matchups'][0]
   })
   members.forEach((id) =>{//Majors and kickoff
     Rounds[id.shortname][0] = majorEvents[`${id.shortname}`][0]*points['kickoff'][0]*2
@@ -76,6 +78,7 @@ function deployHome(pool){
     const tableBody = document.getElementById('split1');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
+    const memberLink = document.createElement('a');
     const reg1Total = document.createElement('td');
     const koffTotal = document.createElement('td');
     const reg2Total = document.createElement('td');
@@ -89,14 +92,15 @@ function deployHome(pool){
     reg3Total.id = id.shortname
     maj1Total.id = id.shortname
 
-    teamName.textContent = id.name
+    memberLink.textContent = id.name
+    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     reg1Total.textContent = playerScores[id.shortname][0]
     koffTotal.textContent = playerScores[id.shortname][12]
     reg2Total.textContent = playerScores[id.shortname][1]
     reg3Total.textContent = playerScores[id.shortname][2]
     maj1Total.textContent = playerScores[id.shortname][3]
     
-
+    teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
     newRow.appendChild(reg1Total)
     newRow.appendChild(koffTotal)
@@ -107,10 +111,10 @@ function deployHome(pool){
     tableBody.appendChild(newRow);
   })
   members.forEach((id)=>{
-    // deploying scores to table
     const tableBody = document.getElementById('split2');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
+    const memberLink = document.createElement('a');
     const reg4Total = document.createElement('td');
     const reg5Total = document.createElement('td');
     const reg6Total = document.createElement('td');
@@ -122,13 +126,15 @@ function deployHome(pool){
     reg6Total.id = id.shortname
     maj2Total.id = id.shortname
 
-    teamName.textContent = id.name
+    memberLink.textContent = id.name
+    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     reg4Total.textContent = playerScores[id.shortname][5]
     reg5Total.textContent = playerScores[id.shortname][6]
     reg6Total.textContent = playerScores[id.shortname][7]
     maj2Total.textContent = playerScores[id.shortname][8]
     
 
+    teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
     newRow.appendChild(reg4Total)
     newRow.appendChild(reg5Total)
@@ -142,25 +148,36 @@ function deployHome(pool){
     const tableBody = document.getElementById('totals');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
+    const memberLink = document.createElement('a');
+    const matchWins = document.createElement('td');
+    const matchLosses = document.createElement('td');
     const split1Total = document.createElement('td');
     const split2Total = document.createElement('td');
     const championshipTotal = document.createElement('td');
     const total = document.createElement('td');
     
     teamName.id = id.shortname
+    matchWins.id = id.shortname
+    matchLosses.id = id.shortname
     split1Total.id = id.shortname
     split2Total.id = id.shortname
     championshipTotal.id = id.shortname
     total.id = id.shortname
 
-    teamName.textContent = id.name
+    memberLink.textContent = id.name
+    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
+    matchWins.textContent = id.split1wins + id.split2wins
+    matchLosses.textContent = id.split1loss + id.split2loss
     split1Total.textContent = playerScores[id.shortname][4]
     split2Total.textContent = playerScores[id.shortname][9]
     championshipTotal.textContent = playerScores[id.shortname][10]
     total.textContent = playerScores[id.shortname][11]
     
 
+    teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
+    newRow.appendChild(matchWins);
+    newRow.appendChild(matchLosses);
     newRow.appendChild(split1Total)
     newRow.appendChild(split2Total)
     newRow.appendChild(championshipTotal)
@@ -172,24 +189,32 @@ function deployHome(pool){
     const tableBody = document.getElementById('prizeTable');
     const newRow = document.createElement('tr');
     const teamName = document.createElement('td');
+    const matchupWins = document.createElement('td')
+    const memberLink = document.createElement('a');
     const split1Winnings = document.createElement('td');
     const split2Winnings = document.createElement('td');
     const championshipWinnings = document.createElement('td');
     const totalWinnings = document.createElement('td');
     
     teamName.id = id.shortname
+    matchupWins.id = id.shortname
     split1Winnings.id = id.shortname
     split2Winnings.id = id.shortname
     championshipWinnings.id = id.shortname
     totalWinnings.id = id.shortname
-    teamName.textContent = id.name
+    
+    memberLink.textContent = id.name
+    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
+    matchupWins.textContent = '$' + ((id.split1wins * 10) + (id.split2wins * 10)).toFixed(2)
     split1Winnings.textContent = "$" + (pool[id.shortname][0]).toFixed(2)
     split2Winnings.textContent = "$" + (pool[id.shortname][1]).toFixed(2)
     championshipWinnings.textContent = "$" + (pool[id.shortname][2]).toFixed(2)
     totalWinnings.textContent = "$" + (pool[id.shortname][0] +pool[id.shortname][1] +pool[id.shortname][2]).toFixed(2)
     
 
+    teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
+    newRow.appendChild(matchupWins);
     newRow.appendChild(split1Winnings);
     newRow.appendChild(split2Winnings);
     newRow.appendChild(championshipWinnings);

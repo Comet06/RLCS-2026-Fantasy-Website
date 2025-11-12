@@ -1,5 +1,3 @@
-td{font-size: 1.2em;}
-
 /* Availability */
 #no{color: black; color: red;}
 
@@ -18,6 +16,7 @@ td{font-size: 1.2em;}
 #startpoint{color: black; background-color: #a52f2f;}
 #the_ultimates{color: white;background-color: #700000;}
 #nrg{color: black; background-color: orangered;}
+#g2_esports{color: red; background-color: black;}
 #twisted_minds{color: black; background-color: #e48494;}
 #dignitas{color: #94316b;background-color: yellow;}
 #team_falcons{color:white;background-color: green;}
