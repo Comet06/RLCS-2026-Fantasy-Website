@@ -1,9 +1,10 @@
 import { path, deployLinks, menu, regions, getTeamDetails } from "./main.js";
-import { year, players, teams, EventPoints, members } from "./current-fantasy-members.js";
+import { year, players, teams, EventPoints, members, Regional1 } from "./current-fantasy-members.js";
 import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./rankings.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
 
+const eventName = Regional1
 // Stats Page
 const weight = [
   {region: "EU", weight: 1},
@@ -513,7 +514,6 @@ function populatePlayersTable(Players) {
     const shots = document.createElement('td');
     const noStats = document.createElement('td');
     const teamRegion = document.createElement('td');
-    const drafted = document.createElement('td');
     
 
     const nameLink = document.createElement('a');
@@ -522,8 +522,6 @@ function populatePlayersTable(Players) {
     const roleID = id.role.toLowerCase()
     const teamId = (id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","");
     num.textContent = i += 1
-
-    let availID = ''
     
     // Adding a link to their team profile only if its a registered team
     nameLink.href = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
@@ -533,40 +531,71 @@ function populatePlayersTable(Players) {
     
 
     // Checking availability if they are on a team and are a player
-    if(id.team === 'F/A'){
-      availCell.textContent = 'No';
-      availID = 'no'
-    } else if(id.role === 'coach' || id.role === 'inactive' || id.role === 'retired' || id.role === 'sub'){
-      availCell.textContent = "No";
-      availID = 'no'
-    } else {
-      availCell.textContent = "Yes";
-      availID = 'yes'
-    }
+    let drafted = false
+    let memberName = ''
 
     nameCell.id = roleID;
     teamCell.id = teamId;
     const rank = id.rank
     nameLink.textContent = id.player + " (" + rank + ")";
-    availCell.id = availID;
     ratingCell.textContent = id.rating
     teamLink.textContent = id.team;
     teamRegion.textContent = getTeamDetails(id.team)[0]
     
-    nameCell.appendChild(nameLink);
     newRow.appendChild(num);
+    nameCell.appendChild(nameLink);
     newRow.appendChild(nameCell);
 
     // Draft check
-    if(id.drafted === ''){
+    members.forEach((id2)=>{
+      const playerSpot1 = players.find(p => p.player === eventName[id2.shortname][0])
+      const playerSpot2 = players.find(p => p.player === eventName[id2.shortname][2])
+      const playerSpot3 = players.find(p => p.player === eventName[id2.shortname][4])
+      const playerSpot4 = players.find(p => p.player === eventName[id2.shortname][6])
+      if(playerSpot1){
+        if(playerSpot1.player === id.player){
+          drafted = true
+          memberName = id2.name
+        }
+      }
+      if(playerSpot2){
+        if(playerSpot2.player === id.player){
+          drafted = true
+          memberName = id2.name
+        }
+      }
+      if(playerSpot3){
+        if(playerSpot3.player === id.player){
+          drafted = true
+          memberName = id2.name
+        }
+      }
+      if(playerSpot4){
+        if(playerSpot4.player === id.player){
+          drafted = true
+          memberName = id2.name
+        }
+      }
+    })
+    if(drafted){
+      memberLink.textContent = memberName
+      memberLink.href = `${path}/profile.html?name=${encodeURIComponent(memberName)}`
+      availCell.style = 'color: red;'
+      availCell.appendChild(memberLink)
       newRow.appendChild(availCell);
+
     } else {
-      const draftedBy = members.find(m => m.shortname === id.drafted);
-      memberLink.textContent = draftedBy.name
-      memberLink.href = `${path}/profile.html?name=${encodeURIComponent(draftedBy.name)}`
-      drafted.style = 'color: red;'
-      drafted.appendChild(memberLink)
-      newRow.appendChild(drafted);
+      if(id.team === 'F/A'){
+        availCell.textContent = 'No';
+        availCell.id = 'no'
+      } else if(id.role === 'coach' || id.role === 'inactive' || id.role === 'retired' || id.role === 'sub'){
+        availCell.textContent = "No";
+        availCell.id = 'no'
+      } else {
+        availCell.textContent = "Yes";
+        availCell.id = 'yes'
+      }
+      newRow.appendChild(availCell);
     }
     
     // If they havent played
@@ -595,7 +624,7 @@ function populatePlayersTable(Players) {
     newRow.appendChild(teamCell);
     newRow.appendChild(teamRegion)
     // adding the player if theyre available
-    if(availID != 'no'){
+    if(availCell.id != 'no'){
       tableBody.appendChild(newRow);
     }
   });
