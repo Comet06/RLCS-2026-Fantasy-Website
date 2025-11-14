@@ -10,3 +10,9 @@
 #member{text-align: center;}
 #rank{padding: 5px 0;}
 #notfound{color: white;}
+
+#sub{color: white;background-color: #005700;padding: 0 5px}
+#coach{color: black;background-color: #00ffdd;padding: 0 5px}
+#rookie{color: black; background-color: gold;padding: 0 5px}
+#inactive{color: white; background-color: #880101;padding: 0 5px}
+#retired{color: white; background-color: #3d3daa;padding: 0 5px}

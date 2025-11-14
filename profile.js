@@ -1,7 +1,7 @@
 import { path, deployLinks, menu } from "./main.js";
 import { year, players, teams, members, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./current-fantasy-members.js";
-import { determineTeamsRanks } from "./stats.js";
-import { getPlayerDetails } from "./events.js";
+import { determineTeamsRanks, eventName } from "./stats.js";
+import { getPlayerDetails, getPlayerScore, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
 
 window.addEventListener('load', function(){
   if(window.location.pathname === `${path}/profile.html`){
@@ -33,12 +33,12 @@ window.addEventListener('load', function(){
             })
         } else if(memberName){
             document.getElementById('member').innerHTML = `<h2 class="player-name" id="">${member.name} | Wins: ${member.split1wins + member.split2wins} | Losses ${member.split1loss + member.split2loss}</h2>`
-            createMember(member, Regional1, 1)
-            createMember(member, Regional2, 2)
-            createMember(member, Regional3, 3)
-            createMember(member, Regional4, 4)
-            createMember(member, Regional5, 5)
-            createMember(member, Regional6, 6)
+            createMember(member, Regional1, 1, regional1Players)
+            createMember(member, Regional2, 2, regional2Players)
+            createMember(member, Regional3, 3, regional3Players)
+            createMember(member, Regional4, 4, regional4Players)
+            createMember(member, Regional5, 5, regional5Players)
+            createMember(member, Regional6, 6, regional6Players)
             const profilesTitle = document.getElementById('player-profiles-title');
             profilesTitle.innerHTML = member.name
         }
@@ -49,45 +49,63 @@ window.addEventListener('load', function(){
   }
 });
 
-
 function createPlayer(id, index) {
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
     const Playerlink = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
     const Teamlink = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
-    let ranking = `(Rank: ${id.rank})`
-    let role = ''
-
-    if(id.role === 'coach'){ranking = ``}
+    let drafted = false
+    let draftedBy = 'Available'
+    let memberName = ''
+    let memberlink = ''
     if(id.gp < 1){id.gp = 1}
-    if(id.role === ''){role = ``} else {role =`(${id.role})`}
+
+    members.forEach((id2)=>{
+        const playerSpot1 = players.find(p => p.player === eventName[id2.shortname][0])
+        const playerSpot2 = players.find(p => p.player === eventName[id2.shortname][1])
+        const playerSpot3 = players.find(p => p.player === eventName[id2.shortname][2])
+        const playerSpot4 = players.find(p => p.player === eventName[id2.shortname][3])
+        if(playerSpot1){if(playerSpot1.player === id.player){drafted = true; memberName = id2.name}}
+        if(playerSpot2){if(playerSpot2.player === id.player){drafted = true; memberName = id2.name}}
+        if(playerSpot3){if(playerSpot3.player === id.player){drafted = true; memberName = id2.name}}
+        if(playerSpot4){if(playerSpot4.player === id.player){drafted = true; memberName = id2.name}}
+    })
+    if(drafted){
+      draftedBy = memberName
+      memberlink = `${path}/profile.html?name=${encodeURIComponent(memberName)}`
+    }
+
     const profileHTML = `
         <div class="profile-card">
-            <h2 class="player-name"><a href="${Playerlink}">${id.player}<span id="${id.role}">${role}</a></span></h2>
-            <h2>${ranking}</h2>
+            <h2 class="player-name"><a href="${Playerlink}">${id.player}<span id="${id.role}">${id.role}</a></span></h2>
+            <p><strong>Team:</strong><span><a style="padding: 2px; border-radius:5px;" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}">${id.team}</a>   </p>
+            <br>
             <div class="profile-details">
-                <a style="padding: 5px;" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}"><strong>Team:</strong> ${id.team}</a>
                 <p><strong>Rating:</strong> ${id.rating}</p>
+                <p><strong>Rank: ${id.rank}</strong></p>
                 <p><strong>Win Percentage:</strong> ${(id.wins/id.gp*100).toFixed(2)}%</p>
                 <p><strong>Total Score:</strong> ${id.score}</p>
                 <p><strong>Total Goals:</strong> ${id.goals}</p>
                 <p><strong>Total Assists:</strong> ${id.assists}</p>
                 <p><strong>Total Saves:</strong> ${id.saves}</p>
-                <p><strong>Total Shots:</strong> ${id.shots}</p>
+                <p><strong>Total Shots:</strong> ${id.shots}</p><br>
+                <p><strong>Per Game</strong></p>
                 <div id="border_box">
                     <p><strong>Score per game:</strong> ${(id.score/id.gp).toFixed(2)}</p>
                     <p><strong>Goals per game:</strong> ${(id.goals/id.gp).toFixed(2)}</p>
                     <p><strong>Assists per game:</strong> ${(id.assists/id.gp).toFixed(2)}</p>
                     <p><strong>Saves per game:</strong> ${(id.saves/id.gp).toFixed(2)}</p>
-                    <p><strong>Shots per game:</strong> ${(id.shots/id.gp).toFixed(2)}</p>
+                    <p><strong>Shots per game:</strong> ${(id.shots/id.gp).toFixed(2)}</p><br>
                 </div>
+                
+                <h2><strong>Drafted By:</strong><a href="${memberlink}">${draftedBy}</a></h2>
             </div>
         </div>
     `;
     const profileCoachHTML = `
         <div class="profile-card">
-            <h2 class="player-name"><a href="${Playerlink}">${id.player} ${ranking}<span id="${id.role}">${role}</a></span></h2>
+            <h2 class="player-name"><a href="${Playerlink}">${id.player}<span id="${id.role}">${id.role}</a></span></h2>
             <div class="profile-details">
-                <a  style="padding: 5px;" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}"><strong>Team:</strong> ${id.team}</a>
+            <p><strong>Team:</strong><a style="padding: 2px; border-radius:5px;" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}">${id.team}</a></p>
             </div>
         </div>
     `;
@@ -99,21 +117,22 @@ function createPlayer(id, index) {
 }
 function createTeam(id, index) {
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
-    const rank = determineTeamsRanks(id.rating)
+    const ranking = determineTeamsRanks(id.rating)
     if (id.gp < 1){id.gp = 1}
     const profileTeamHTML = `
         <div class="profile-card">
-            <h2><span  class="player-name" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}">${id.team}</span></h2>
-            <h2 id="rank">(Rank:${rank})</h2>
+            <h2><span  class="player-name" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}">${id.team}</span></h2><br>
+            <p><strong>Region:</strong><span style="padding: 5px; border-radius:5px;" id="${(id.region).toLowerCase()}">${id.region}</span></p>
             <div class="profile-details">
-                <p><strong>Region:</strong><span style="padding: 5px; border-radius:5px;" id="${(id.region).toLowerCase()}">${id.region}</span></p>
                 <p><strong>Rating:</strong> ${id.rating}</p>
+                <p><strong>Rank: </strong>${ranking}</p>
                 <p><strong>Win Percentage:</strong> ${(id.wins/id.gp*100).toFixed(2)}%</p>
                 <p><strong>Total Score:</strong> ${id.score}</p>
                 <p><strong>Total Goals:</strong> ${id.goals}</p>
                 <p><strong>Total Assists:</strong> ${id.assists}</p>
                 <p><strong>Total Saves:</strong> ${id.saves}</p>
-                <p><strong>Total Shots:</strong> ${id.shots}</p>
+                <p><strong>Total Shots:</strong> ${id.shots}</p><br>
+                <p><strong>Per Game</strong></p>
                 <div id="border_box">
                     <p><strong>Score per game:</strong> ${(id.score/id.gp).toFixed(2)}</p>
                     <p><strong>Goals per game:</strong> ${(id.goals/id.gp).toFixed(2)}</p>
@@ -126,34 +145,35 @@ function createTeam(id, index) {
     `;
     profilesContainer.innerHTML += profileTeamHTML;
 }
-function createMember(id, eventNumber, index) {
+function createMember(id, eventNumber, index, playersArray) {
     const profilesContainer = document.getElementById(`player-profiles${index}`);
-    const player1 = [eventNumber[id.shortname][0], getPlayerDetails(eventNumber[id.shortname][0], players)[0], getPlayerDetails(eventNumber[id.shortname][0], players)[3]]
-    const player2 = [eventNumber[id.shortname][2], getPlayerDetails(eventNumber[id.shortname][2], players)[0], getPlayerDetails(eventNumber[id.shortname][2], players)[3]]
-    const player3 = [eventNumber[id.shortname][4], getPlayerDetails(eventNumber[id.shortname][4], players)[0], getPlayerDetails(eventNumber[id.shortname][4], players)[3]]
-    const sub = [eventNumber[id.shortname][6], getPlayerDetails(eventNumber[id.shortname][6], players)[0], getPlayerDetails(eventNumber[id.shortname][6], players)[3]]
+    const player1 = [eventNumber[id.shortname][0], getPlayerDetails(eventNumber[id.shortname][0], players)[0], getPlayerDetails(eventNumber[id.shortname][0], players)[3], getPlayerScore(eventNumber[id.shortname][0], playersArray)]
+    const player2 = [eventNumber[id.shortname][1], getPlayerDetails(eventNumber[id.shortname][1], players)[0], getPlayerDetails(eventNumber[id.shortname][1], players)[3], getPlayerScore(eventNumber[id.shortname][1], playersArray)]
+    const player3 = [eventNumber[id.shortname][2], getPlayerDetails(eventNumber[id.shortname][2], players)[0], getPlayerDetails(eventNumber[id.shortname][2], players)[3], getPlayerScore(eventNumber[id.shortname][2], playersArray)]
+    const sub = [eventNumber[id.shortname][3], getPlayerDetails(eventNumber[id.shortname][3], players)[0], getPlayerDetails(eventNumber[id.shortname][3], players)[3], getPlayerScore(eventNumber[id.shortname][3], playersArray)]
     let roster = []
-    if(eventNumber[id.shortname][0] != ''){roster.push(player1[0], player1[1], player1[2])} else {roster.push('', '', '')}//roster[0-2]
-    if(eventNumber[id.shortname][2] != ''){roster.push(player2[0], player2[1], player2[2])} else {roster.push('', '', '')}//roster[3-5]
-    if(eventNumber[id.shortname][4] != ''){roster.push(player3[0], player3[1], player3[2])} else {roster.push('', '', '')}//roster[6-8]
-    if(eventNumber[id.shortname][6] != ''){roster.push(sub[0], sub[1], sub[2])} else {roster.push('', '', '')}//roster[9-11]
-    console.log(roster)
+    if(eventNumber[id.shortname][0] != ''){roster.push(player1[0], player1[1], player1[2], player1[3])} else {roster.push('', '', '', '')}//roster[0-3]
+    if(eventNumber[id.shortname][1] != ''){roster.push(player2[0], player2[1], player2[2], player2[3])} else {roster.push('', '', '', '')}//roster[4-7]
+    if(eventNumber[id.shortname][2] != ''){roster.push(player3[0], player3[1], player3[2], player3[3])} else {roster.push('', '', '', '')}//roster[8-11]
+    if(eventNumber[id.shortname][3] != ''){roster.push(sub[0], sub[1], sub[2], sub[3])} else {roster.push('', '', '', '')}//roster[12-15]
     const profileTeamHTML = `
         <div class="profile-card">
-            <div class="profile-details">
+            <div>
                 <h2>Regional ${index}</h2>
-                <h3>Player 1:<span style="padding: 5px; border-radius:5px;" id="${roster[2]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[0])}">${roster[0]}</a></span></h3>
-                <h3>Team :<span style="padding: 5px; border-radius:5px;" id="${roster[2]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[1])}">${roster[1]}</a></span></h3>
-                <h3>Points: ${eventNumber[id.shortname][1]}</h3><br>
-                <h3>Player 2:<span style="padding: 5px; border-radius:5px;" id="${roster[5]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[3])}">${roster[3]}</a></span></h3>
-                <h3>Team :<span style="padding: 5px; border-radius:5px;" id="${roster[5]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[4])}">${roster[4]}</a></span></h3>
-                <h3>Points: ${eventNumber[id.shortname][1]}</h3><br>
-                <h3>Player 3:<span style="padding: 5px; border-radius:5px;" id="${roster[8]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[6])}">${roster[6]}</a></span></h3>
-                <h3>Team :<span style="padding: 5px; border-radius:5px;" id="${roster[8]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[7])}">${roster[7]}</a></span></h3>
-                <h3>Points: ${eventNumber[id.shortname][1]}</h3><br>
-                <h3>Sub:<span style="padding: 5px; border-radius:5px;" id="${roster[11]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[9])}">${roster[9]}</a></span></h3>
-                <h3>Team :<span style="padding: 5px; border-radius:5px;" id="${roster[11]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[10])}">${roster[10]}</a></span></h3>
-                <h3>Points: ${eventNumber[id.shortname][1]}</h3><br>
+                <ul id="hide_list">
+                    <li>Player 1: <a href="${path}/profile.html?name=${encodeURIComponent(roster[0])}">${roster[0]}</a></li>
+                    <li>Team: <span style="padding:2px; border-radius:5px;" id="${roster[2]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[1])}">${roster[1]}</a></span></li>
+                    <li>Points: ${roster[3]}</li>
+                    <li>Player 2: <a href="${path}/profile.html?name=${encodeURIComponent(roster[4])}">${roster[4]}</a></li>
+                    <li>Team: <span style="padding:2px; border-radius:5px;" id="${roster[6]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[5])}">${roster[5]}</a></span></li>
+                    <li>Points: ${roster[7]}</li>
+                    <li>Player 3: <a href="${path}/profile.html?name=${encodeURIComponent(roster[8])}">${roster[8]}</a></li>
+                    <li>Team: <span style="padding:2px; border-radius:5px;" id="${roster[10]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[9])}">${roster[9]}</a></span></li>
+                    <li>Points: ${roster[11]}</li>
+                    <li>Sub: <span><a href="${path}/profile.html?name=${encodeURIComponent(roster[12])}">${roster[12]}</a></span></li>
+                    <li>Team: <span style="padding:2px; border-radius:5px;" id="${roster[14]}"><a href="${path}/profile.html?name=${encodeURIComponent(roster[13])}">${roster[13]}</a></span></li>
+                    <li>Points: ${roster[15]}</li>
+                </ul>
             </div>
         </div>
     `;

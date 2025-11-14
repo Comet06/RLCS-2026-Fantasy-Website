@@ -1,6 +1,7 @@
-import { path, deployLinks, menu, regions, getTeamDetails } from "./main.js";
-import { year, players, teams, EventPoints, members, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./current-fantasy-members.js";
-import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./rankings.js";
+import { path, deployLinks, menu, regions } from "./main.js";
+import { getTeamDetails } from "./events.js";
+import { year, players, teams, EventPoints, members, Regional1 } from "./current-fantasy-members.js";
+import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./placements.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
 
@@ -62,12 +63,13 @@ const legacyPlayerTableHeader = `
   <th>Player Name</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
 </tr>
 `
+// <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th><th>Team</th><th>Region</th>
 const playerTableHeader = `
 <tr>
-  <th colspan="5" id="name">Player Information</th><th colspan="5" id="perGame">Player Stats: Per Game</th><th colspan="2" id="teamStats">Team Stats</th>
+  <th colspan="3" id="name">Player Information</th><th colspan="2" id="perGame">Player Stats: Per Game</th><th colspan="1" id="teamStats">Team Stats</th>
 </tr>
 <tr>
-  <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th><th>Team</th><th>Region</th>
+  <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Team</th>
 </tr>
 `
 const teamTableHeader = `
@@ -92,13 +94,13 @@ const weightedParagraph = `
   `
 
 window.addEventListener('load', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const evt = urlParams.get('name');
+  deployLinks()
+  menu()
+  document.getElementById('year').innerHTML = `RLCS ${year}`
   if (window.location.pathname === `${path}/stats.html`) {
-    deployLinks()
-    menu()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
     document.getElementById('last_updated').innerHTML = `UPDATED 11/7/25 Currently Showing 2025 Data`
-    const urlParams = new URLSearchParams(window.location.search);
-    const evt = urlParams.get('name');
     if(evt === 'player'){
       document.getElementById('table_type').innerHTML = playerTableType
       document.getElementById('title').innerHTML = 'Player Statistics'
@@ -122,110 +124,64 @@ window.addEventListener('load', function() {
       console.log('Team Stats page has loaded!');
     }
   } else if(window.location.pathname === `${path}/stats_legacy.html`){
-    deployLinks()
-    menu()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
-    document.getElementById('last_updated').innerHTML = `UPDATED 11/7/25 Currently Showing 2025 Data`
-    const urlParams = new URLSearchParams(window.location.search);
-    const evt = urlParams.get('name');
-    if(evt === 'season1'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 1'
+    document.getElementById('page_title').innerHTML = `${evt}`
+    document.getElementById('title').innerHTML = 'Player Statistics'
+    if(evt === 'Season 1'){
       playersSeason1.sort((a, b) => b.gp - a.gp)
       playersSeason1.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason1)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season2'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 2'
+    } else if(evt === 'Season 2'){
       playersSeason2.sort((a, b) => b.gp - a.gp)
       playersSeason2.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason2)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season3'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 3'
+    } else if(evt === 'Season 3'){
       playersSeason3.sort((a, b) => b.gp - a.gp)
       playersSeason3.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason3)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season4'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 4'
+    } else if(evt === 'Season 4'){
       playersSeason4.sort((a, b) => b.gp - a.gp)
       playersSeason4.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason4)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season5'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 5'
+    } else if(evt === 'Season 5'){
       playersSeason5.sort((a, b) => b.gp - a.gp)
       playersSeason5.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason5)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season6'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 6'
+    } else if(evt === 'Season 6'){
       playersSeason6.sort((a, b) => b.gp - a.gp)
       playersSeason6.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason6)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season7'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 7'
+    } else if(evt === 'Season 7'){
       playersSeason7.sort((a, b) => b.gp - a.gp)
       playersSeason7.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason7)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season8'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 8'
+    } else if(evt === 'Season 8'){
       playersSeason8.sort((a, b) => b.gp - a.gp)
       playersSeason8.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason8)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season9'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 9'
+    } else if(evt === 'Season 9'){
       playersSeason9.sort((a, b) => b.gp - a.gp)
       playersSeason9.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason9)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'seasonX'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season X'
+    } else if(evt === 'Season X'){
       playersSeasonX.sort((a, b) => b.gp - a.gp)
       playersSeasonX.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeasonX)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season21-22'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 21-22'
+    } else if(evt === 'Season 21-22'){
       playersSeason21.sort((a, b) => b.gp - a.gp)
       playersSeason21.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason21)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season22-23'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 22-23'
+    } else if(evt === 'Season 22-23'){
       playersSeason22.sort((a, b) => b.gp - a.gp)
       playersSeason22.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason22)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season24'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 24'
+    } else if(evt === 'Season 24'){
       playersSeason24.sort((a, b) => b.gp - a.gp)
       playersSeason24.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason24)
-      console.log('Team Stats page has loaded!');
-    } else if(evt === 'season25'){
-      document.getElementById('title').innerHTML = 'Player Statistics'
-      document.getElementById('page_title').innerHTML = 'Season 25'
+    } else if(evt === 'Season 25'){
       playersSeason25.sort((a, b) => b.gp - a.gp)
       playersSeason25.sort((a, b) => b.wins - a.wins)
       populateLegacyPlayersTable(playersSeason25)
-      console.log('Team Stats page has loaded!');
     }
   }
 });
@@ -239,32 +195,32 @@ export function deployTops(array){
   deployTopPerformers(array, 'TopShots', 'shots')
 }
 function deployTopPerformers(PlayersArray, where, type){
-  determineTops(PlayersArray)
+  if(PlayersArray.length > 1){
+    determineTops(PlayersArray)
+  }
   for(let i = 0; i < 20; i += 2){
     const tableBody = document.getElementById(where);
     const newRow = document.createElement('tr');
+    const player = document.createElement('td');
+    const stat = document.createElement('td');
     const playerLink1 = document.createElement('a');
-
-    const stat1 = document.createElement('th');
-    const newDiv2stat1 = document.createElement('div');
-    const newDiv3stat1 = document.createElement('div');
+    if(PlayersArray.length > 0){
+      playerLink1.textContent = Tops[type][i]
+      stat.textContent = Tops[type][i+1]
+    } else {
+      playerLink1.textContent = 'TBD'
+      stat.textContent = 0
+    }
     
-    newRow.id = 'inlineRows'
-
-    stat1.id = 'centerdivs'
-    newDiv2stat1.id = 'playerName'
-    playerLink1.textContent = Tops[type][i]
     if(Tops[type][i] != 'TBD'){
       playerLink1.href = `${path}/profile.html?name=${encodeURIComponent(Tops[type][i])}`
     }
-    newDiv2stat1.appendChild(playerLink1)
-    stat1.appendChild(newDiv2stat1)
-    newDiv3stat1.id = 'playerStat'
-    newDiv3stat1.textContent = Tops[type][i+1]
-    stat1.appendChild(newDiv3stat1)
+    
+    player.appendChild(playerLink1)
     
     
-    newRow.appendChild(stat1)
+    newRow.appendChild(player)
+    newRow.appendChild(stat)
     tableBody.appendChild(newRow);
   }
 }
@@ -446,7 +402,6 @@ function populateLegacyPlayersTable(Players) {
     const assists = document.createElement('td');
     const saves = document.createElement('td');
     const shots = document.createElement('td');
-    const noStats = document.createElement('td');
 
     const roleID = id.role.toLowerCase()
     
@@ -523,21 +478,23 @@ function populatePlayersTable(Players) {
     const teamId = (id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","");
     num.textContent = i += 1
     
-    // Adding a link to their team profile only if its a registered team
     nameLink.href = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
     if (id.team != "F/A" && id.team != "TBD"){
       teamLink.href = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
     }
     
 
-    // Checking availability if they are on a team and are a player
     let drafted = false
     let memberName = ''
 
     nameCell.id = roleID;
     teamCell.id = teamId;
     const rank = id.rank
-    nameLink.textContent = id.player + " (" + rank + ")";
+    if(id.rating != 0){
+      nameLink.textContent = id.player + " (" + rank + ")";
+    } else {
+      nameLink.textContent = id.player;
+    }
     ratingCell.textContent = id.rating
     teamLink.textContent = id.team;
     teamRegion.textContent = getTeamDetails(id.team)[0]
@@ -546,12 +503,11 @@ function populatePlayersTable(Players) {
     nameCell.appendChild(nameLink);
     newRow.appendChild(nameCell);
 
-    // Draft check
     members.forEach((id2)=>{
       const playerSpot1 = players.find(p => p.player === eventName[id2.shortname][0])
-      const playerSpot2 = players.find(p => p.player === eventName[id2.shortname][2])
-      const playerSpot3 = players.find(p => p.player === eventName[id2.shortname][4])
-      const playerSpot4 = players.find(p => p.player === eventName[id2.shortname][6])
+      const playerSpot2 = players.find(p => p.player === eventName[id2.shortname][1])
+      const playerSpot3 = players.find(p => p.player === eventName[id2.shortname][2])
+      const playerSpot4 = players.find(p => p.player === eventName[id2.shortname][3])
       if(playerSpot1){
         if(playerSpot1.player === id.player){
           drafted = true
@@ -580,50 +536,40 @@ function populatePlayersTable(Players) {
     if(drafted){
       memberLink.textContent = memberName
       memberLink.href = `${path}/profile.html?name=${encodeURIComponent(memberName)}`
-      availCell.style = 'color: red;'
+      availCell.style = 'color: yellowgreen;'
       availCell.appendChild(memberLink)
-      newRow.appendChild(availCell);
-
     } else {
-      if(id.team === 'F/A'){
+      if(id.team === 'F/A' || id.role === 'coach' || id.role === 'inactive' || id.role === 'retired' || id.role === 'sub'){
         availCell.textContent = 'No';
-        availCell.id = 'no'
-      } else if(id.role === 'coach' || id.role === 'inactive' || id.role === 'retired' || id.role === 'sub'){
-        availCell.textContent = "No";
         availCell.id = 'no'
       } else {
         availCell.textContent = "Yes";
         availCell.id = 'yes'
       }
-      newRow.appendChild(availCell);
     }
+    newRow.appendChild(availCell);
     
-    // If they havent played
-    if (id.gp > 0){
-      newRow.appendChild(ratingCell);
-      winPercCell.textContent = (id.wins/id.gp*100).toFixed(2) + "%";
-      score.textContent = (id.score/id.gp).toFixed(0)
-      goals.textContent = (id.goals/id.gp).toFixed(2)
-      assists.textContent = (id.assists/id.gp).toFixed(2)
-      saves.textContent = (id.saves/id.gp).toFixed(2)
-      shots.textContent = (id.shots/id.gp).toFixed(2)
-      newRow.appendChild(winPercCell);
-      newRow.appendChild(score);
-      newRow.appendChild(goals);
-      newRow.appendChild(assists);
-      newRow.appendChild(saves);
-      newRow.appendChild(shots);
-    } else {
-      noStats.textContent = 'No Data'
-      noStats.style = 'color: red;'
-      noStats.colSpan = 7
-      newRow.appendChild(noStats);
+    if (id.gp < 1){
+      id.gp = 1
     }
+    newRow.appendChild(ratingCell);
+    winPercCell.textContent = (id.wins/id.gp*100).toFixed(2) + "%";
+    score.textContent = (id.score/id.gp).toFixed(0)
+    goals.textContent = (id.goals/id.gp).toFixed(2)
+    assists.textContent = (id.assists/id.gp).toFixed(2)
+    saves.textContent = (id.saves/id.gp).toFixed(2)
+    shots.textContent = (id.shots/id.gp).toFixed(2)
+    newRow.appendChild(winPercCell);
+    // newRow.appendChild(score);
+    // newRow.appendChild(goals);
+    // newRow.appendChild(assists);
+    // newRow.appendChild(saves);
+    // newRow.appendChild(shots);
 
     teamCell.appendChild(teamLink);
     newRow.appendChild(teamCell);
-    newRow.appendChild(teamRegion)
-    // adding the player if theyre available
+    // newRow.appendChild(teamRegion)
+
     if(availCell.id != 'no'){
       tableBody.appendChild(newRow);
     }
@@ -706,10 +652,21 @@ function populateTeamsTable(Teams) {
       newRow.appendChild(saves);
       newRow.appendChild(shots);
     } else {
-      noStats.textContent = 'No Data'
-      noStats.style = 'color: red;'
-      noStats.colSpan = 8
-      newRow.appendChild(noStats);
+      id.gp = 1
+      ratingCell.textContent = id.rating
+      winPercCell.textContent = (id.wins/id.gp*100).toFixed(2);
+      score.textContent = (id.score/id.gp).toFixed(0)
+      goals.textContent = (id.goals/id.gp).toFixed(2)
+      assists.textContent = (id.assists/id.gp).toFixed(2)
+      saves.textContent = (id.saves/id.gp).toFixed(2)
+      shots.textContent = (id.shots/id.gp).toFixed(2)
+      newRow.appendChild(ratingCell);
+      newRow.appendChild(winPercCell);
+      newRow.appendChild(score);
+      newRow.appendChild(goals);
+      newRow.appendChild(assists);
+      newRow.appendChild(saves);
+      newRow.appendChild(shots);
     }
 
     if (numOfPlayersCell.textContent > 0 && id.region != ""){

@@ -1,5 +1,5 @@
-import { playerScores, members, teams, prizes, year, players, Regional1, Regional2, Regional3, 
-  Regional4, Regional5, Regional6, Rounds, majorEvents, Sums} from "./current-fantasy-members.js";
+import { playerScores, members, teams, prizes, year, players, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Rounds, majorEvents, Sums} from "./current-fantasy-members.js";
+import { getPlayerScore, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
 import { deployTops } from "./stats.js";
 
 
@@ -33,13 +33,13 @@ export const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
 // Homepage
 export function determineTotalScores(){
   members.forEach((id) =>{//Regionals
-    for (let i = 1; i < Regional1[id.shortname].length-1; i += 2){//Regional sum of all your players not including sub(-1)
-      Sums[id.shortname][0] += Regional1[id.shortname][i];
-      Sums[id.shortname][1] += Regional2[id.shortname][i];
-      Sums[id.shortname][2] += Regional3[id.shortname][i];
-      Sums[id.shortname][3] += Regional4[id.shortname][i];
-      Sums[id.shortname][4] += Regional5[id.shortname][i];
-      Sums[id.shortname][5] += Regional6[id.shortname][i];
+    for (let i = 0; i < Regional1[id.shortname].length-1; i++){//Regional sum of all your players not including sub(-1)
+      Sums[id.shortname][0] += getPlayerScore(Regional1[id.shortname][i], regional1Players);
+      Sums[id.shortname][1] += getPlayerScore(Regional2[id.shortname][i], regional2Players);
+      Sums[id.shortname][2] += getPlayerScore(Regional3[id.shortname][i], regional3Players);
+      Sums[id.shortname][3] += getPlayerScore(Regional4[id.shortname][i], regional4Players);
+      Sums[id.shortname][4] += getPlayerScore(Regional5[id.shortname][i], regional5Players);
+      Sums[id.shortname][5] += getPlayerScore(Regional6[id.shortname][i], regional6Players);
     }
     Sums[id.shortname][6] += Sums[id.shortname][0] + Sums[id.shortname][1] + Sums[id.shortname][2] + id.split1wins * points['matchups'][0]
     Sums[id.shortname][7] += Sums[id.shortname][3] + Sums[id.shortname][4] + Sums[id.shortname][5] + id.split2wins * points['matchups'][0]
@@ -80,33 +80,25 @@ function deployHome(pool){
     const teamName = document.createElement('td');
     const memberLink = document.createElement('a');
     const reg1Total = document.createElement('td');
-    const koffTotal = document.createElement('td');
     const reg2Total = document.createElement('td');
     const reg3Total = document.createElement('td');
-    const maj1Total = document.createElement('td');
     
     teamName.id = id.shortname
     reg1Total.id = id.shortname
-    koffTotal.id = id.shortname
     reg2Total.id = id.shortname
     reg3Total.id = id.shortname
-    maj1Total.id = id.shortname
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     reg1Total.textContent = playerScores[id.shortname][0]
-    koffTotal.textContent = playerScores[id.shortname][12]
     reg2Total.textContent = playerScores[id.shortname][1]
     reg3Total.textContent = playerScores[id.shortname][2]
-    maj1Total.textContent = playerScores[id.shortname][3]
     
     teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
     newRow.appendChild(reg1Total)
-    newRow.appendChild(koffTotal)
     newRow.appendChild(reg2Total)
     newRow.appendChild(reg3Total)
-    newRow.appendChild(maj1Total)
     tableBody.appendChild(newRow);
   })
   members.forEach((id)=>{
@@ -117,28 +109,56 @@ function deployHome(pool){
     const reg4Total = document.createElement('td');
     const reg5Total = document.createElement('td');
     const reg6Total = document.createElement('td');
-    const maj2Total = document.createElement('td');
     
     teamName.id = id.shortname
     reg4Total.id = id.shortname
     reg5Total.id = id.shortname
     reg6Total.id = id.shortname
-    maj2Total.id = id.shortname
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     reg4Total.textContent = playerScores[id.shortname][5]
     reg5Total.textContent = playerScores[id.shortname][6]
     reg6Total.textContent = playerScores[id.shortname][7]
-    maj2Total.textContent = playerScores[id.shortname][8]
     
 
     teamName.appendChild(memberLink)
-    newRow.appendChild(teamName);
+    // newRow.appendChild(teamName);
     newRow.appendChild(reg4Total)
     newRow.appendChild(reg5Total)
     newRow.appendChild(reg6Total)
+    tableBody.appendChild(newRow);
+  })
+  members.forEach((id)=>{
+    const tableBody = document.getElementById('lans');
+    const newRow = document.createElement('tr');
+    const teamName = document.createElement('td');
+    const memberLink = document.createElement('a');
+    const koffTotal = document.createElement('td');
+    const maj1Total = document.createElement('td');
+    const maj2Total = document.createElement('td');
+    const championshipTotal = document.createElement('td');
+    
+    teamName.id = id.shortname
+    koffTotal.id = id.shortname
+    maj1Total.id = id.shortname
+    maj2Total.id = id.shortname
+    championshipTotal.id = id.shortname
+
+    memberLink.textContent = id.name
+    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
+    koffTotal.textContent = playerScores[id.shortname][12]
+    maj1Total.textContent = playerScores[id.shortname][3]
+    maj2Total.textContent = playerScores[id.shortname][8]
+    championshipTotal.textContent = playerScores[id.shortname][10]
+    
+
+    teamName.appendChild(memberLink)
+    // newRow.appendChild(teamName);
+    newRow.appendChild(koffTotal)
+    newRow.appendChild(maj1Total)
     newRow.appendChild(maj2Total)
+    newRow.appendChild(championshipTotal)
     tableBody.appendChild(newRow);
   })
   members.forEach((id)=>{
@@ -152,7 +172,6 @@ function deployHome(pool){
     const split1Total = document.createElement('td');
     const split2Total = document.createElement('td');
     const championshipTotal = document.createElement('td');
-    const total = document.createElement('td');
     
     teamName.id = id.shortname
     matchWins.id = id.shortname
@@ -160,26 +179,21 @@ function deployHome(pool){
     split1Total.id = id.shortname
     split2Total.id = id.shortname
     championshipTotal.id = id.shortname
-    total.id = id.shortname
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     matchWins.textContent = id.split1wins + id.split2wins
-    matchLosses.textContent = id.split1loss + id.split2loss
     split1Total.textContent = playerScores[id.shortname][4]
     split2Total.textContent = playerScores[id.shortname][9]
     championshipTotal.textContent = playerScores[id.shortname][10]
-    total.textContent = playerScores[id.shortname][11]
     
 
     teamName.appendChild(memberLink)
-    newRow.appendChild(teamName);
+    // newRow.appendChild(teamName);
     newRow.appendChild(matchWins);
-    newRow.appendChild(matchLosses);
     newRow.appendChild(split1Total)
     newRow.appendChild(split2Total)
     newRow.appendChild(championshipTotal)
-    newRow.appendChild(total)
     tableBody.appendChild(newRow);
   })
   members.forEach((id) =>{
@@ -210,7 +224,7 @@ function deployHome(pool){
     
 
     teamName.appendChild(memberLink)
-    newRow.appendChild(teamName);
+    // newRow.appendChild(teamName);
     newRow.appendChild(matchupWins);
     newRow.appendChild(split1Winnings);
     newRow.appendChild(split2Winnings);
@@ -232,40 +246,40 @@ export function deployLinks(){
         <li class="dropdown">
           <a href="#">Main Events</a>
             <div class="dropdown-content">
-              <a href="regional.html?name=${encodeURIComponent('Regional 1')}">Regional 1</a>
-              <a href="major.html?name=${encodeURIComponent('Kickoff LAN')}">Kickoff LAN</a>
-              <a href="regional.html?name=${encodeURIComponent('Regional 2')}">Regional 2</a>
-              <a href="regional.html?name=${encodeURIComponent('Regional 3')}">Regional 3</a>
-              <a href="major.html?name=${encodeURIComponent('Major 1')}">Major 1</a>
-              <a href="regional.html?name=${encodeURIComponent('Regional 4')}">Regional 4</a>
-              <a href="regional.html?name=${encodeURIComponent('Regional 5')}">Regional 5</a>
-              <a href="regional.html?name=${encodeURIComponent('Regional 6')}">Regional 6</a>
-              <a href="major.html?name=${encodeURIComponent('Major 2')}">Major 2</a>
-              <a href="major.html?name=${encodeURIComponent('Championship')}">Championship</a>
+              <a href="event.html?name=${encodeURIComponent('Regional 1')}">Regional 1</a>
+              <a href="event.html?name=${encodeURIComponent('Kickoff LAN')}">Kickoff LAN</a>
+              <a href="event.html?name=${encodeURIComponent('Regional 2')}">Regional 2</a>
+              <a href="event.html?name=${encodeURIComponent('Regional 3')}">Regional 3</a>
+              <a href="event.html?name=${encodeURIComponent('Major 1')}">Major 1</a>
+              <a href="event.html?name=${encodeURIComponent('Regional 4')}">Regional 4</a>
+              <a href="event.html?name=${encodeURIComponent('Regional 5')}">Regional 5</a>
+              <a href="event.html?name=${encodeURIComponent('Regional 6')}">Regional 6</a>
+              <a href="event.html?name=${encodeURIComponent('Major 2')}">Major 2</a>
+              <a href="event.html?name=${encodeURIComponent('Championship')}">Championship</a>
             </div>
         </li>
         <li class="dropdown">
           <a href="#">Seasons 1-9</a>
             <div class="dropdown-content">
-              <a href="stats_legacy.html?name=${encodeURIComponent('season1')}">Season 1</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season2')}">Season 2</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season3')}">Season 3</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season4')}">Season 4</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season5')}">Season 5</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season6')}">Season 6</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season7')}">Season 7</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season8')}">Season 8</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season9')}">Season 9</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 1')}">Season 1</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 2')}">Season 2</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 3')}">Season 3</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 4')}">Season 4</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 5')}">Season 5</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 6')}">Season 6</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 7')}">Season 7</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 8')}">Season 8</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 9')}">Season 9</a>
             </div>
         </li>
         <li class="dropdown">
           <a href="#">Seasons X+</a>
             <div class="dropdown-content">
-              <a href="stats_legacy.html?name=${encodeURIComponent('seasonX')}">Season X</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season21-22')}">Season 21-22</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season22-23')}">Season 22-23</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season24')}">Season 24</a>
-              <a href="stats_legacy.html?name=${encodeURIComponent('season25')}">Season 25</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season X')}">Season X</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 21-22')}">Season 21-22</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 22-23')}">Season 22-23</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 24')}">Season 24</a>
+              <a href="stats_legacy.html?name=${encodeURIComponent('Season 25')}">Season 25</a>
             </div>
         </li>
         <li class="dropdown">
@@ -297,20 +311,4 @@ export function menu(){
   }
   const menu_button = document.getElementById('menuButton');
   menu_button.addEventListener('click', function() {toggleMenu()});
-}
-export function getTeamDetails(searchTerm){
-  const team = teams.find(t => t.team === searchTerm);
-
-  if (!team) {
-    return []; // Or handle the case where no team is found
-  }
-
-  const details = [
-    team.region || 'N/A',
-    team.split1Pts,
-    team.split2Pts,
-    team.totalSeasonPts,
-    team.team
-  ];
-  return details;
 }

@@ -33,16 +33,18 @@ a{color: currentColor; text-decoration: none;}
 .verical_container{display: flex; flex-direction: column;}
 .center_horizontal_container{display: flex;justify-content: center; flex-wrap: wrap; gap: 20px;}
 .center_vertical_container{display: flex;flex-direction: column;align-items: center;text-align: center;}
+.home_tables{margin:0 auto;width: fit-content;color: black; background-color: #e1e1e1e6;}
+.home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
 
 #come{color: white; background-color: #037120;}
 #squi{color: black; background-color: #c59700;}
-#vinn{color: white; background-color: #710303;}
+#vinn{color: black; background-color: limegreen;}
 #jimm{color: black; background-color: #d8db4b;}
 #ecof{color: black; background-color: #32d2d7;}
-#gale{color: black; background-color: #c062ff;}
+#gale{color: white; background-color: #D80621;}
 #pots{color: black; background-color: #f47702;}
 #maht{color: white; background-color: #0059ff;}
-#devv{color: black; background-color: #ff00ff;}
+#devv{color: white; background-color: #710303;}
 #plac{color: white; background-color: black;}
 
 /* Media Screens */

@@ -75,40 +75,16 @@ export let split1QualifiedTeams = [
     'SSA', 'EU/NA #5',
 ]
 // If EU Win kickoff
-// NA1
-// EU1
-// MENA1
-// EU2
-// NA2
-// EU3
-// OCE1
-// SAM1
-// NA3
-// EU4
-// SAM2
-// MENA2
-// EU5
-// NA4
-// APAC1
-// SSA1
+// NA1, EU1, MENA1, EU2
+// NA2, EU3, OCE1, SAM1
+// NA3, EU4, SAM2, MENA2
+// EU5, NA4, APAC1, SSA1
 
 // IF NA Win Kickoff
-// NA1
-// EU1
-// MENA1
-// EU2
-// NA2
-// EU3
-// OCE1
-// SAM1
-// NA3
-// EU4
-// SAM2
-// MENA2
-// NA4
-// APAC1
-// SSA1
-// NA5
+// NA1, EU1, MENA1, EU2
+// NA2, EU3, OCE1, SAM1
+// NA3, EU4, SAM2, MENA2
+// NA4, APAC1, SSA1, NA5
 export let Major1Placements = {
     'Major' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
 }
@@ -132,16 +108,7 @@ export let championshipQualifiedTeams = [
     'LCQ Region #3', 'LCQ Region #4',
 ]
 export let ChampionshipPlacements = {
-    'Champ' : [
-        '1st', 'TBD', '2nd', 'TBD', 
-        '3rd-4th', 'TBD', '3rd-4th', 'TBD', 
-        '5th-6th', 'TBD', '5th-6th', 'TBD', 
-        '7th-8th', 'TBD', '7th-8th', 'TBD', 
-        '9th-12th', 'TBD', '9th-12th', 'TBD', 
-        '9th-12th', 'TBD', '9th-12th', 'TBD', 
-        '13th-16th', 'TBD', '13th-16th', 'TBD', 
-        '13th-16th', 'TBD', '13th-16th', 'TBD', 
-        '17th-18th', 'TBD', '17th-18th', 'TBD', 
-        '19th-20th', 'TBD', '19th-20th', 'TBD']
+    'Major' : ['NRG', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 
+        'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD']
 }
 
