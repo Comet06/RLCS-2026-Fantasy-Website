@@ -512,32 +512,33 @@ function populatePlayersTable(Players) {
       if(playerSpot1){
         if(playerSpot1.player === id.player){
           drafted = true
-          memberName = id2.name
+          memberName = [id2.name, id2.shortname]
         }
       }
       if(playerSpot2){
         if(playerSpot2.player === id.player){
           drafted = true
-          memberName = id2.name
+          memberName = [id2.name, id2.shortname]
         }
       }
       if(playerSpot3){
         if(playerSpot3.player === id.player){
           drafted = true
-          memberName = id2.name
+          memberName = [id2.name, id2.shortname]
         }
       }
       if(playerSpot4){
         if(playerSpot4.player === id.player){
           drafted = true
-          memberName = id2.name
+          memberName = [id2.name, id2.shortname]
         }
       }
     })
     if(drafted){
-      memberLink.textContent = memberName
+      memberLink.textContent = memberName[0]
       memberLink.href = `${path}/profile.html?name=${encodeURIComponent(memberName)}`
-      availCell.style = 'color: yellowgreen;'
+      memberLink.id = memberName[1]
+      // availCell.style = 'color: yellowgreen;'
       availCell.appendChild(memberLink)
     } else {
       if(id.team === 'F/A' || id.role === 'coach' || id.role === 'inactive' || id.role === 'retired' || id.role === 'sub'){
