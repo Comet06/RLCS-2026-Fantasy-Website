@@ -108,7 +108,7 @@ export let championshipQualifiedTeams = [
     'LCQ Region #3', 'LCQ Region #4',
 ]
 export let ChampionshipPlacements = {
-    'Major' : ['NRG', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 
+    'Major' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 
         'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD']
 }
 

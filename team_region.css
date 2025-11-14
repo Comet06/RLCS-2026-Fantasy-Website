@@ -1,74 +1,76 @@
 /* Availability */
 #no{color: black; color: red;}
 
-#na{color: black; background-color: #ff5b5b;}
-#eu{color: black; background-color: #73ffa9;}
-#mena{color: black; background-color: orange;}
-#sam{color: black; background-color: #01f401;}
-#oce{color: black; background-color: #0079ea;}
-#apac{color: black; background-color: #d500d5;}
-#ssa{color: black; background-color: yellow;}
+#na{color: black; background-color: #ff5b5b; padding:2px; border-radius: 5px;}
+#eu{color: black; background-color: #73ffa9; padding:2px; border-radius: 5px;}
+#mena{color: black; background-color: orange; padding:2px; border-radius: 5px;}
+#sam{color: black; background-color: #01f401; padding:2px; border-radius: 5px;}
+#oce{color: black; background-color: #0079ea; padding:2px; border-radius: 5px;}
+#apac{color: black; background-color: #d500d5; padding:2px; border-radius: 5px;}
+#ssa{color: black; background-color: yellow; padding:2px; border-radius: 5px;}
 
-#hey{color: black; background-color: #ffd95b;}
+#hey{color: black; background-color: #ffd95b; padding:2px; border-radius: 5px;}
 
 
 /* Teams */
-#startpoint{color: black; background-color: #a52f2f;}
-#the_ultimates{color: white;background-color: #700000;}
-#nrg{color: black; background-color: orangered;}
-#g2_esports{color: red; background-color: black;}
-#twisted_minds{color: black; background-color: #e48494;}
-#dignitas{color: #94316b;background-color: yellow;}
-#team_falcons{color:white;background-color: green;}
-#team_vitality{color: black; background-color: yellow;}
-#geng_mobil1_racing{color: black; background-color: gold;}
-#karmine_corp{color: black; background-color: #0787ff;}
-#team_secret{color: white;background-color: #242020;}
-#geekay_esports{color: yellow;background-color: #262677;}
-#spacestation_gaming{color: black; background-color: #ffc400;}
-#nine{color: black; background-color: #b8b8b8;} /**/
-#onehun{color: black; background-color: lightblue;}/**/
-#sevenblocks{color: yellow; background-color: orangered;}/**/
-#tsm{color: white;background-color: black;}
-#furia_esports{color: white;background-color: black;}
-#pwr{color: black; background-color: yellow;}
-#wildcard{color: #ff9090; background-color: #191994;}
-#gentle_mates_alpine{color: black; background-color: #ff0095;}
-#shopify_rebellion{color: white;background-color: black;}
-#complexity_gaming{color: white;background-color: #700000;}
-#helfie_chiefs{color: black; background-color: lightblue;}
-#al_qadsiah{color: black; background-color: #d32c2c;}
-#sleeping{color: black; background-color: #9e9e9e;}
-#ninjas_in_pyjamas{color: black; background-color: #cbf11e;}
-#team_reds{color: white;background-color: red;}
-#deleted_gaming{color: white;background-color: purple;}
-#godfidence{color: black; background-color: orange;}
-#team_evo{color: black; background-color: #ff7b00;}
-#fut_esports{color: white;background-color: black;}
-#corinthians_esports{color: white; background-color: red;}
-#skrimzworld{color: #0000a1; background-color: #ff73dc;}
-#limitless{color: white;background-color: black;}
-#moonrise{color: white; background-color: grey;}
-#le_bosh{color: black; background-color: #ffd95b;}
-#virtuspro{color: black; background-color: orange;}
-#caliente{color: #00d300; background-color: orangered;}
-#pirates_on_a_boat{color: white;background-color: blue;}
-#elevate{color: red;background-color: black;}
-#kinotrope_gaming{color: red; background-color: black;}
-#f4wd{color: black; background-color: greenyellow;}
-#god_speed{color:white;background-color: #b39800;}
-#synergy{color: black; background-color: #ffd95b;}
-#team_bds{color: white; background-color: #ff126d;}
-#mibr{color: white; background-color: #000000;}
-#project_delacruz{color: black; background-color: #8d8d8d;}
-#pioneers{color: white; background-color: #998200;}
-#netherlamericanada{color: white; background-color: #7a0000;}
-#lotus_8_esports{color: white; background-color: black;}
-#redemption{color: white; background-color:#7a0000;}
-#roc_esports{color: white; background-color: purple;}
-#ground_zero_gaming{color:white;background-color: green;}
-#luminosity_gaming{color: black; background-color: lightblue;}
-#hogan_mode{color: black; background-color: gold;}
+#startpoint{color: black; background-color: #a52f2f; padding:2px; border-radius: 5px;}
+#the_ultimates{color: white;background-color: #700000; padding:2px; border-radius: 5px;}
+#nrg{color: black; background-color: orangered; padding:2px; border-radius: 5px;}
+#g2_esports{color: red; background-color: black; padding:2px; border-radius: 5px;}
+#twisted_minds{color: black; background-color: #e48494; padding:2px; border-radius: 5px;}
+#dignitas{color: #94316b;background-color: yellow; padding:2px; border-radius: 5px;}
+#team_falcons{color:white;background-color: green; padding:2px; border-radius: 5px;}
+#team_vitality{color: black; background-color: yellow; padding:2px; border-radius: 5px;}
+#geng_mobil1_racing{color: black; background-color: gold; padding:2px; border-radius: 5px;}
+#karmine_corp{color: black; background-color: #0787ff; padding:2px; border-radius: 5px;}
+#team_secret{color: white;background-color: #242020; padding:2px; border-radius: 5px;}
+#geekay_esports{color: yellow;background-color: #262677; padding:2px; border-radius: 5px;}
+#spacestation_gaming{color: black; background-color: #ffc400; padding:2px; border-radius: 5px;}
+#nine{color: black; background-color: #b8b8b8; padding:2px; border-radius: 5px;} /**/
+#onehun{color: black; background-color: lightblue; padding:2px; border-radius: 5px;}/**/
+#sevenblocks{color: yellow; background-color: orangered; padding:2px; border-radius: 5px;}/**/
+#tsm{color: white;background-color: black; padding:2px; border-radius: 5px;}
+#furia_esports{color: white;background-color: black; padding:2px; border-radius: 5px;}
+#pwr{color: black; background-color: yellow; padding:2px; border-radius: 5px;}
+#wildcard{color: #ff9090; background-color: #191994; padding:2px; border-radius: 5px;}
+#gentle_mates_alpine{color: black; background-color: #ff0095; padding:2px; border-radius: 5px;}
+#shopify_rebellion{color: white;background-color: black; padding:2px; border-radius: 5px;}
+#complexity_gaming{color: white;background-color: #700000; padding:2px; border-radius: 5px;}
+#helfie_chiefs{color: black; background-color: lightblue; padding:2px; border-radius: 5px;}
+#al_qadsiah{color: black; background-color: #d32c2c; padding:2px; border-radius: 5px;}
+#sleeping{color: black; background-color: #9e9e9e; padding:2px; border-radius: 5px;}
+#ninjas_in_pyjamas{color: black; background-color: #cbf11e; padding:2px; border-radius: 5px;}
+#team_reds{color: white;background-color: red; padding:2px; border-radius: 5px;}
+#deleted_gaming{color: white;background-color: purple; padding:2px; border-radius: 5px;}
+#godfidence{color: black; background-color: orange; padding:2px; border-radius: 5px;}
+#team_evo{color: black; background-color: #ff7b00; padding:2px; border-radius: 5px;}
+#fut_esports{color: white;background-color: black; padding:2px; border-radius: 5px;}
+#corinthians_esports{color: white; background-color: red; padding:2px; border-radius: 5px;}
+#skrimzworld{color: #0000a1; background-color: #ff73dc; padding:2px; border-radius: 5px;}
+#limitless{color: white;background-color: black; padding:2px; border-radius: 5px;}
+#moonrise{color: white; background-color: grey; padding:2px; border-radius: 5px;}
+#le_bosh{color: black; background-color: #ffd95b; padding:2px; border-radius: 5px;}
+#virtuspro{color: black; background-color: orange; padding:2px; border-radius: 5px;}
+#caliente{color: #00d300; background-color: orangered; padding:2px; border-radius: 5px;}
+#pirates_on_a_boat{color: white;background-color: blue; padding:2px; border-radius: 5px;}
+#elevate{color: red;background-color: black; padding:2px; border-radius: 5px;}
+#kinotrope_gaming{color: red; background-color: black; padding:2px; border-radius: 5px;}
+#f4wd{color: black; background-color: greenyellow; padding:2px; border-radius: 5px;}
+#god_speed{color:white;background-color: #b39800; padding:2px; border-radius: 5px;}
+#synergy{color: black; background-color: #ffd95b; padding:2px; border-radius: 5px;}
+#team_bds{color: white; background-color: #ff126d; padding:2px; border-radius: 5px;}
+#mibr{color: white; background-color: #000000; padding:2px; border-radius: 5px;}
+#project_delacruz{color: black; background-color: #8d8d8d; padding:2px; border-radius: 5px;}
+#pioneers{color: white; background-color: #998200; padding:2px; border-radius: 5px;}
+#netherlamericanada{color: white; background-color: #7a0000; padding:2px; border-radius: 5px;}
+#lotus_8_esports{color: white; background-color: black; padding:2px; border-radius: 5px;}
+#redemption{color: white; background-color:#7a0000; padding:2px; border-radius: 5px;}
+#roc_esports{color: white; background-color: #c400c4; padding:2px; border-radius: 5px;}
+#ground_zero_gaming{color:white;background-color: green; padding:2px; border-radius: 5px;}
+#luminosity_gaming{color: black; background-color: lightblue; padding:2px; border-radius: 5px;}
+#hogan_mode{color: black; background-color: gold; padding:2px; border-radius: 5px;}
+#amethyst{color: white; background-color: #460046; padding:2px; border-radius: 5px;}
+#m80{color: black; background-color: #a5ec17; padding:2px; border-radius: 5px;}
 
 /* 
 #fortnite_flick{}
@@ -79,7 +81,6 @@
 #hey_bro{}
 #psycho_rangers{}
 #aka_hero{}
-#amethyst{}
 #austrian_force{}
 #big_dawgs{}
 #chippy_chips{}
@@ -108,7 +109,6 @@
 #shmoo{}
 #stromboli{}
 #sunset{}
-#tbd{}
 #team_silenced{}
 #team_vision{}
 #the_backseat_lovers{}
@@ -138,7 +138,7 @@
 #ctrl_alt_defeat{}
 #death_cloud_esports{}
 #doodle_bangers{}
-#eighty6_esports{}
+#eighty6_esports{}/**//*
 #ekw{}
 #empty_space{}
 #endless{}

@@ -1,4 +1,4 @@
-#data_table{color: white; background-color: #08043d;width: fit-content;border: solid 5px blue;}
+#data_table{width: fit-content;border: solid 5px blue; border-radius: 5px;}
 #table_type{width: 200px;}
 
 #tableFilter{display: flex; gap: 20px;}
@@ -17,17 +17,10 @@
     z-index: 100;
 }
 
-#name{border-bottom: solid #ff0000 2px;}
-#teamStats{border-bottom: solid #0011ff 2px;}
-#perGame{border-bottom: solid #ff9100ff 2px;}
-#standings{border-bottom: solid #48ff00 2px;}
-
-/* Watch Tags */
-#sub{color: white;background-color: #005700;padding: 0 5px}
-#coach{color: black;background-color: #00ffdd;padding: 0 5px}
-#rookie{color: black; background-color: gold;padding: 0 5px}
-#inactive{color: white; background-color: #880101;padding: 0 5px}
-#retired{color: white; background-color: #3d3daa;padding: 0 5px}
+#name{border-bottom: solid #ff0000 5px;}
+#teamStats{border-bottom: solid #0011ff 5px;}
+#perGame{border-bottom: solid #ff9100ff 5px;}
+#standings{border-bottom: solid #48ff00 5px;}
 
 @media screen and (max-width:1340px){
   #data_table tr {font-size: .7em;}

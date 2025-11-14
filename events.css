@@ -1,11 +1,11 @@
 /* regionals Page */
-.regional_home_tables{margin:0 auto;width: fit-content;color: black; background-color: #e1e1e1e6;}
+.regional_home_tables{margin:0 auto;width: fit-content;}
 .regional_home_tables td{padding: 0 20px;}
 .placements_horizontal_container{display: flex; flex-wrap: wrap;justify-content: center;}
 .section{width:250px;text-align: left;margin: 10px;padding: 0 5px;}
 .champ_section{width:330px;text-align: left;margin: 10px;padding: 0 5px;}
 .tops_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center; gap: 20px;}
-.tops_section{width:180px;text-align: left;margin: 10px;padding: 0 5px;color: black; background-color: #e1e1e1e6;} /* Data within the tops boxes */
+.tops_section{width:180px;text-align: left;margin: 10px;padding: 0 5px;} /* Data within the tops boxes */
 #team{position: relative; overflow: hidden; padding-left: 5px;}
 #points{float: right;position: relative;right: 5px;}
 #data_box{border: solid black 2px; justify-content: center;}

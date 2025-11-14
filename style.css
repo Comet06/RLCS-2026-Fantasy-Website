@@ -26,26 +26,26 @@ button :hover{color: white; background-color: #525252;}
 td, th{font-size: 1em; padding: 0 5px;}
 a{color: currentColor; text-decoration: none;}
 #hide_list{list-style-type: none;}
-#border_box{border: black solid 2px;}
+#border_box{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
 
 /* Multipage styles */
 .horizontal_container{display: flex; flex-wrap: wrap; width: fit-content; gap: 20px;}
 .verical_container{display: flex; flex-direction: column;}
 .center_horizontal_container{display: flex;justify-content: center; flex-wrap: wrap; gap: 20px;}
 .center_vertical_container{display: flex;flex-direction: column;align-items: center;text-align: center;}
-.home_tables{margin:0 auto;width: fit-content;color: black; background-color: #e1e1e1e6;}
+.home_tables{margin:0 auto;width: fit-content;}
 .home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
 
-#come{color: white; background-color: #037120;}
-#squi{color: black; background-color: #c59700;}
-#vinn{color: black; background-color: limegreen;}
-#jimm{color: black; background-color: #d8db4b;}
-#ecof{color: black; background-color: #32d2d7;}
-#gale{color: white; background-color: #D80621;}
-#pots{color: black; background-color: #f47702;}
-#maht{color: white; background-color: #0059ff;}
-#devv{color: white; background-color: #710303;}
-#plac{color: white; background-color: black;}
+#come{color: white; background-color: #037120; padding: 2px; border-radius: 5px;}
+#squi{color: black; background-color: #c59700; padding: 2px; border-radius: 5px;}
+#vinn{color: black; background-color: limegreen; padding: 2px; border-radius: 5px;}
+#jimm{color: black; background-color: #d8db4b; padding: 2px; border-radius: 5px;}
+#ecof{color: black; background-color: #32d2d7; padding: 2px; border-radius: 5px;}
+#gale{color: white; background-color: #D80621; padding: 2px; border-radius: 5px;}
+#pots{color: black; background-color: #f47702; padding: 2px; border-radius: 5px;}
+#maht{color: white; background-color: #0059ff; padding: 2px; border-radius: 5px;}
+#devv{color: white; background-color: #710303; padding: 2px; border-radius: 5px;}
+#plac{color: white; background-color: black; padding: 2px; border-radius: 5px;}
 
 /* Media Screens */
 @media screen and (max-width: 1593px){}

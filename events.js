@@ -368,6 +368,7 @@ function deployRegPlacements(event, eventNumber){
       const pts = document.createElement('td');
       if(event[id][i].length > 0){
         teamLink.textContent = event[id][i]
+        teamLink.id = (getTeamDetails(event[id][i])[4]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
         teamLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id][i])}`
         team.appendChild(teamLink)
       } else {
@@ -400,6 +401,7 @@ function deployMajPlacements(event, eventNumber, length){
     const pts = document.createElement('td');
     teamLink.textContent = event['Major'][i]
     if (event['Major'][i] != 'TBD'){
+      teamLink.id = (getTeamDetails(event['Major'][i])[4]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
       teamLink.href = `${path}/profile.html?name=${encodeURIComponent(event['Major'][i])}`
     }
     team.appendChild(teamLink)

@@ -72,12 +72,13 @@ const playerTableHeader = `
   <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Team</th>
 </tr>
 `
+// <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th># of players</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
 const teamTableHeader = `
 <tr>
-  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStats">Team Stats</th><th colspan="5" id="perGame">Per Game</th>
+  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStats">Team Stats</th>
 </tr>
 <tr>
-  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th># of players</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
+  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th>Rating</th><th>Win %</th>
 </tr>
 `
 const weightedParagraph = `
@@ -100,7 +101,7 @@ window.addEventListener('load', function() {
   menu()
   document.getElementById('year').innerHTML = `RLCS ${year}`
   if (window.location.pathname === `${path}/stats.html`) {
-    document.getElementById('last_updated').innerHTML = `UPDATED 11/7/25 Currently Showing 2025 Data`
+    // document.getElementById('last_updated').innerHTML = `UPDATED 11/7/25 Currently Showing 2025 Data`
     if(evt === 'player'){
       document.getElementById('table_type').innerHTML = playerTableType
       document.getElementById('title').innerHTML = 'Player Statistics'
@@ -212,7 +213,7 @@ function deployTopPerformers(PlayersArray, where, type){
       stat.textContent = 0
     }
     
-    if(Tops[type][i] != 'TBD'){
+    if(Tops[type][i] != 'TBD' && playerLink1.textContent != 'TBD'){
       playerLink1.href = `${path}/profile.html?name=${encodeURIComponent(Tops[type][i])}`
     }
     
@@ -451,7 +452,7 @@ function populatePlayersTable(Players) {
   const tableBody = document.getElementById('data_table');
   tableBody.innerHTML = '';
   tableBody.innerHTML = playerTableHeader
-  let i = 0
+  let i = 1
   Players.forEach((id) => {
     const newRow = document.createElement('tr');
 
@@ -476,7 +477,7 @@ function populatePlayersTable(Players) {
 
     const roleID = id.role.toLowerCase()
     const teamId = (id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","");
-    num.textContent = i += 1
+    num.textContent = i
     
     nameLink.href = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
     if (id.team != "F/A" && id.team != "TBD"){
@@ -549,9 +550,8 @@ function populatePlayersTable(Players) {
     }
     newRow.appendChild(availCell);
     
-    if (id.gp < 1){
-      id.gp = 1
-    }
+    if (id.gp < 1){id.gp = 1}
+    
     newRow.appendChild(ratingCell);
     winPercCell.textContent = (id.wins/id.gp*100).toFixed(2) + "%";
     score.textContent = (id.score/id.gp).toFixed(0)
@@ -570,7 +570,8 @@ function populatePlayersTable(Players) {
     newRow.appendChild(teamCell);
     // newRow.appendChild(teamRegion)
 
-    if(availCell.id != 'no'){
+    if(availCell.id != 'no' && i < 101){
+      i += 1
       tableBody.appendChild(newRow);
     }
   });
@@ -629,7 +630,7 @@ function populateTeamsTable(Teams) {
     newRow.appendChild(S1points);
     newRow.appendChild(S2points);
     newRow.appendChild(seasonPoints);
-    newRow.appendChild(numOfPlayersCell);
+    // newRow.appendChild(numOfPlayersCell);
     let regionWeight = .5
     weight.forEach((amt)=>{
       if(amt.region === id.region){
@@ -662,11 +663,11 @@ function populateTeamsTable(Teams) {
       shots.textContent = (id.shots/id.gp).toFixed(2)
       newRow.appendChild(ratingCell);
       newRow.appendChild(winPercCell);
-      newRow.appendChild(score);
-      newRow.appendChild(goals);
-      newRow.appendChild(assists);
-      newRow.appendChild(saves);
-      newRow.appendChild(shots);
+      // newRow.appendChild(score);
+      // newRow.appendChild(goals);
+      // newRow.appendChild(assists);
+      // newRow.appendChild(saves);
+      // newRow.appendChild(shots);
     }
 
     if (numOfPlayersCell.textContent > 0 && id.region != ""){
