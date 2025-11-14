@@ -54,6 +54,7 @@ function createPlayer(id, index) {
     const Playerlink = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
     const Teamlink = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
     let drafted = false
+    let draftID = ''
     let draftedBy = 'Available'
     let memberName = ''
     let memberlink = ''
@@ -64,13 +65,14 @@ function createPlayer(id, index) {
         const playerSpot2 = players.find(p => p.player === eventName[id2.shortname][1])
         const playerSpot3 = players.find(p => p.player === eventName[id2.shortname][2])
         const playerSpot4 = players.find(p => p.player === eventName[id2.shortname][3])
-        if(playerSpot1){if(playerSpot1.player === id.player){drafted = true; memberName = id2.name}}
-        if(playerSpot2){if(playerSpot2.player === id.player){drafted = true; memberName = id2.name}}
-        if(playerSpot3){if(playerSpot3.player === id.player){drafted = true; memberName = id2.name}}
-        if(playerSpot4){if(playerSpot4.player === id.player){drafted = true; memberName = id2.name}}
+        if(playerSpot1){if(playerSpot1.player === id.player){drafted = true; memberName = [id2.name, id2.shortname]}}
+        if(playerSpot2){if(playerSpot2.player === id.player){drafted = true; memberName = [id2.name, id2.shortname]}}
+        if(playerSpot3){if(playerSpot3.player === id.player){drafted = true; memberName = [id2.name, id2.shortname]}}
+        if(playerSpot4){if(playerSpot4.player === id.player){drafted = true; memberName = [id2.name, id2.shortname]}}
     })
     if(drafted){
-      draftedBy = memberName
+      draftedBy = memberName[0]
+      draftID = memberName[1]
       memberlink = `${path}/profile.html?name=${encodeURIComponent(memberName)}`
     }
 
@@ -97,7 +99,7 @@ function createPlayer(id, index) {
                     <p><strong>Shots per game:</strong> ${(id.shots/id.gp).toFixed(2)}</p><br>
                 </div>
                 
-                <h2><strong>Drafted By:</strong><a href="${memberlink}">${draftedBy}</a></h2>
+                <h2><strong>Drafted By:</strong><a href="${memberlink}" id="${draftID}">${draftedBy}</a></h2>
             </div>
         </div>
     `;
