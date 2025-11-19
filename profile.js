@@ -53,6 +53,7 @@ function createPlayer(id, index) {
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
     const Playerlink = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
     const Teamlink = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
+
     let drafted = false
     let draftID = ''
     let draftedBy = 'Available'
@@ -73,7 +74,7 @@ function createPlayer(id, index) {
     if(drafted){
       draftedBy = memberName[0]
       draftID = memberName[1]
-      memberlink = `${path}/profile.html?name=${encodeURIComponent(memberName)}`
+      memberlink = `${path}/profile.html?name=${encodeURIComponent(memberName[0])}`
     }
 
     const profileHTML = `
@@ -99,7 +100,7 @@ function createPlayer(id, index) {
                     <p><strong>Shots per game:</strong> ${(id.shots/id.gp).toFixed(2)}</p><br>
                 </div>
                 
-                <h2><strong>Drafted By:</strong><a href="${memberlink}" id="${draftID}">${draftedBy}</a></h2>
+                <p><strong>Drafted By:</strong><a href="${memberlink}" id="${draftID}">${draftedBy}</a></p>
             </div>
         </div>
     `;

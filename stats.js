@@ -1,11 +1,10 @@
-import { path, deployLinks, menu, regions } from "./main.js";
+import { path, deployLinks, menu } from "./main.js";
 import { getTeamDetails } from "./events.js";
-import { year, players, teams, EventPoints, members, Regional1 } from "./current-fantasy-members.js";
-import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./placements.js";
+import { year, players, teams, members, Regional1 } from "./current-fantasy-members.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
-
-export const eventName = Regional1
+import { determineSeasonPoints } from "./rankings.js"
+export const eventName = Regional1 //Current event where the player tables should draw availability from
 // Stats Page
 const weight = [
   {region: "EU", weight: 1},
@@ -225,53 +224,6 @@ function deployTopPerformers(PlayersArray, where, type){
     tableBody.appendChild(newRow);
   }
 }
-export function determineSeasonPoints() {
-  teams.forEach((id) => {
-    regions.forEach((reg) => {
-        const regional1Teams = Regional1Placements[reg];
-        const team1Index = regional1Teams.indexOf(id.team);
-        if (team1Index !== -1) {
-          id.split1Pts += EventPoints['Regional1'][team1Index];
-        }
-        const regional2Teams = Regional2Placements[reg];
-        const team2Index = regional2Teams.indexOf(id.team);
-        if (team2Index !== -1) {
-          id.split1Pts += EventPoints['Regional1'][team2Index];
-        }
-        const regional3Teams = Regional3Placements[reg];
-        const team3Index = regional3Teams.indexOf(id.team);
-        if (team3Index !== -1) {
-          id.split1Pts += EventPoints['Regional1'][team3Index];
-        }
-        const regional4Teams = Regional4Placements[reg];
-        const team4Index = regional4Teams.indexOf(id.team);
-        if (team4Index !== -1) {
-          id.split2Pts += EventPoints['Regional2'][team4Index];
-        }
-        const regional5Teams = Regional5Placements[reg];
-        const team5Index = regional5Teams.indexOf(id.team);
-        if (team5Index !== -1) {
-          id.split2Pts += EventPoints['Regional2'][team5Index];
-        }
-        const regional6Teams = Regional6Placements[reg];
-        const team6Index = regional6Teams.indexOf(id.team);
-        if (team6Index !== -1) {
-          id.split2Pts += EventPoints['Regional2'][team6Index];
-        }
-    });
-    const major1Teams = Major1Placements['Major'];
-    const team7Index = major1Teams.indexOf(id.team);
-    if (team7Index !== -1) {
-      id.split1Pts += EventPoints['Major1'][team7Index];
-    }
-    const major2Teams = Major2Placements['Major'];
-    const team8Index = major2Teams.indexOf(id.team);
-    if (team8Index !== -1) {
-      id.split2Pts += EventPoints['Major2'][team8Index];
-    }
-    id.totalSeasonPts += id.split1Pts + id.split2Pts;
-  });
-}
 export function determineTeamsRanks(rating){
   teams.sort((a,b) => b.rating - a.rating)
   let high = teams[0].rating
@@ -468,7 +420,6 @@ function populatePlayersTable(Players) {
     const assists = document.createElement('td');
     const saves = document.createElement('td');
     const shots = document.createElement('td');
-    const noStats = document.createElement('td');
     const teamRegion = document.createElement('td');
     
 
@@ -536,7 +487,7 @@ function populatePlayersTable(Players) {
     })
     if(drafted){
       memberLink.textContent = memberName[0]
-      memberLink.href = `${path}/profile.html?name=${encodeURIComponent(memberName)}`
+      memberLink.href = `${path}/profile.html?name=${encodeURIComponent(memberName[0])}`
       memberLink.id = memberName[1]
       // availCell.style = 'color: yellowgreen;'
       availCell.appendChild(memberLink)
@@ -599,7 +550,6 @@ function populateTeamsTable(Teams) {
     const assists = document.createElement('td');
     const saves = document.createElement('td');
     const shots = document.createElement('td');
-    const noStats = document.createElement('td');
     
     const playersOnTeam = players.filter(p => p.team === id.team);
     let countOfPlayers = 0

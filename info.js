@@ -4,6 +4,7 @@ const numOfMembers = members.length-1
 const amountPerMajor = ((amtAdded*dist[1])+majorPrize)/2;
 const amountForChampionship = (amtAdded*dist[2])+champPrize;
 
+const kickoff = 7
 const groups = 8 // How many available guesses
 const champgroups = 12 // How many available guesses
 const semiFinal = 6
@@ -11,6 +12,7 @@ const qualify = 4
 const POsemiFinal = 8
 const final = 3
 
+let kickoffTotal = points['kickoff'][0]*kickoff * 2
 let playinTotal = points['playin'][0]*semiFinal + points['playin'][1]*qualify
 let groupsTotal = points['groups'][0]*groups
 let champgroupsTotal = points['groups'][0]*champgroups
@@ -38,6 +40,7 @@ window.addEventListener('load', function() {
     document.getElementById('amount_added').innerHTML = "$" + amtAdded
     determineSpread()
     deployPrizePoolInfo()
+    deployKickoffPointsInfo()
     deployMajorPointsInfo()
     deployChampPointsInfo()
     console.log('Info page has loaded!');
@@ -114,6 +117,45 @@ function deployPrizePoolInfo(){
     tableBody.appendChild(newRow);
     
 }
+function deployKickoffPointsInfo(){
+  const tableBody = document.getElementById('Kickoff_points');
+  const newRow1 = document.createElement('tr');
+  const round = document.createElement('td');
+  const picks = document.createElement('td');
+  const points1 = document.createElement('td');
+  const totalPoints = document.createElement('td');
+  
+  round.textContent = 'Bracket'
+  picks.textContent = `${kickoff}`
+  points1.textContent = points['kickoff'][0]
+  totalPoints.textContent = kickoff * points['kickoff'][0]
+
+  newRow1.appendChild(round);
+  newRow1.appendChild(picks);
+  newRow1.appendChild(points1);
+  newRow1.appendChild(totalPoints);
+  
+  tableBody.appendChild(newRow1);
+
+  const newRow3 = document.createElement('tr');
+  const multiplierText = document.createElement('td');
+  const multiplier = document.createElement('td');
+  const totalPoints1Text = document.createElement('td');
+  const totalPoints1 = document.createElement('td');
+  
+  multiplierText.textContent = "Kickoff Multiplier"
+  multiplier.textContent = "2X"
+  totalPoints1Text.textContent = "Total Kickoff Points"
+  totalPoints1.textContent = kickoffTotal
+
+  newRow3.appendChild(multiplierText);
+  newRow3.appendChild(multiplier);
+  newRow3.appendChild(totalPoints1Text);
+  newRow3.appendChild(totalPoints1);
+  
+  tableBody.appendChild(newRow3);
+
+}
 function deployMajorPointsInfo(){
   const tableBody = document.getElementById('Major_points');
   const newRow3 = document.createElement('tr');
@@ -122,7 +164,7 @@ function deployMajorPointsInfo(){
   const placements2 = document.createElement('th');
   const titletotalPoints = document.createElement('th');
 
-  title.textContent = ''
+  title.textContent = 'Round'
   placements1.textContent = '(Picks) Points'
   placements2.textContent = '(Picks) Points'
   titletotalPoints.textContent = ''
@@ -167,7 +209,6 @@ function deployMajorPointsInfo(){
   
   round1.textContent = "Major Multiplier"
   quarter1.textContent = "3X"
-  quarter1.style = 'text-align: left;'
   qualified1.textContent = "Total Major Points"
   totalPoints1.textContent = majorTotal
 
@@ -187,7 +228,7 @@ function deployChampPointsInfo(){
   const placements2 = document.createElement('th');
   const titletotalPoints = document.createElement('th');
 
-  title.textContent = ''
+  title.textContent = 'Round'
   placements1.textContent = '(Picks) Points'
   placements2.textContent = '(Picks) Points'
   titletotalPoints.textContent = ''
@@ -237,7 +278,6 @@ function deployChampPointsInfo(){
 
   round.textContent = "Championship Multiplier"
   quarter.textContent = "5X"
-  quarter.style = 'text-align: left;'
   qualified.textContent = "Total Championship Points"
   totalPoints.textContent = champTotal
 

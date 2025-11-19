@@ -45,7 +45,7 @@ a{color: currentColor; text-decoration: none;}
 #pots{color: black; background-color: #f47702; padding: 2px; border-radius: 5px;}
 #maht{color: white; background-color: #0059ff; padding: 2px; border-radius: 5px;}
 #devv{color: white; background-color: #710303; padding: 2px; border-radius: 5px;}
-#plac{color: white; background-color: black; padding: 2px; border-radius: 5px;}
+#plac{color: black; background-color: #d1cfcf; padding: 2px; border-radius: 5px;}
 
 /* Media Screens */
 @media screen and (max-width: 1593px){}

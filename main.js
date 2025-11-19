@@ -1,7 +1,7 @@
 import { playerScores, members, teams, prizes, year, players, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Rounds, majorEvents, Sums} from "./current-fantasy-members.js";
 import { getPlayerScore, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
 import { deployTops } from "./stats.js";
-
+const CurrentForm = 'championship' // next form page for major event
 
 export const path = `/RLCS-${year}-Fantasy-Website`
 export const path1 = ``// used for Mac dev
@@ -14,12 +14,6 @@ window.addEventListener('load', function() {
     determineTotalScores()
     deployHome(prizes)
     deployTops(players)
-  } else if (window.location.pathname === `${path}/form_major.html`){
-    determineTotalScores()
-    console.log('Major Bracket form page has loaded!')
-  } else if (window.location.pathname === `${path}/form_championship.html`) {
-    determineTotalScores()
-    console.log('Championship Bracket form page has loaded!')
   }
 });
 
@@ -27,9 +21,17 @@ window.addEventListener('load', function() {
 // Info Page
 export const tops = ['score', 'goals', 'assists', 'saves', 'shots']
 export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'TopShots']
-export const points = {'matchups': [500], 'kickoff': [100],'groups': [400], 'playin' : [100, 200], 'playoff' : [400, 600]}
+export const points = {'matchups': [500], 'kickoff': [200],'groups': [400], 'playin' : [100, 200], 'playoff' : [400, 600]}
 export const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
-export const regions = ['eu', 'na', 'oce', 'sam', 'mena', 'apac', 'ssa']
+export const regions = [
+  {reg: 'eu', spots: 4, chspots: 5},
+  {reg: 'na', spots: 5, chspots: 6},
+  {reg: 'oce', spots: 1, chspots: 1},
+  {reg: 'sam', spots: 2, chspots: 2},
+  {reg: 'mena', spots: 2, chspots: 3},
+  {reg: 'apac', spots: 1, chspots: 1},
+  {reg: 'ssa', spots: 1, chspots: 1},
+]
 // Homepage
 export function determineTotalScores(){
   members.forEach((id) =>{//Regionals
@@ -289,7 +291,7 @@ export function deployLinks(){
                 <a href="https://comet06.github.io/RLCS-2026-Fantasy-Website/index.html">2026</a>
             </div>
         </li>
-        <li><a href="form_major.html">Bracket Form</a></li>
+        <li><a href="form_${CurrentForm}.html?name=${encodeURIComponent(`${CurrentForm}`)}"">Bracket Form</a></li>
         <li><a href="stats.html?name=${encodeURIComponent('player')}">Player Stats</a></li>
         <li><a href="stats.html?name=${encodeURIComponent('team')}">Team Stats</a></li>
         <li><a href="teams_rankings.html">Rankings</a></li>

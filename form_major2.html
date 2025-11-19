@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="team_region.css"/>
-  <link rel="stylesheet" href="bracket.css"/>
+  <link rel="stylesheet" href="bracket_major2.css"/>
   <title>RLCS Bracket Form</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
           <h1 class="bracket_titles">Group A</h1>
           <table id="groupA">
             <tbody>
-              <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+              <tr><th>Team</th><th>Series</th></tr>
             </tbody>
           </table>
         </div>
@@ -28,7 +28,7 @@
           <h1 class="bracket_titles">Group B</h1>
           <table id="groupB">
             <tbody>
-              <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+              <tr><th>Team</th><th>Series</th></tr>
             </tbody>
           </table>
         </div>
@@ -36,7 +36,7 @@
           <h1 class="bracket_titles">Group C</h1>
           <table id="groupC">
             <tbody>
-              <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+              <tr><th>Team</th><th>Series</th></tr>
             </tbody>
           </table>
         </div>
@@ -44,72 +44,90 @@
           <h1 class="bracket_titles">Group D</h1>
           <table id="groupD">
             <tbody>
-              <tr><th>Team</th><th>Series</th><th>Games</th><th>Game Diff.</th></tr>
+              <tr><th>Team</th><th>Series</th></tr>
             </tbody>
           </table>
         </div>
       </div>
       <button id="submitBracket">Submit Groups</button>
-      <div class="stage" id="border_box">
+      <div class="stage">
         <h1 class="bracket_titles">Playoffs</h1>
         <div class="lower" id="Playoff-upper">
             <div class="finals_upper_quarterfinals">
               <div class="round-details">Upper Quarterfinals<br/><span class="date">TBD</span></div>
               <ul class="matchup" data-match-id="1UQ" id="hide_list">
                 <li class="playoffTeam" id="PO1"></li>
-                <li class="playoffTeam" id="PO5"></li>
+                <li class="playoffTeam" id="PO10"></li>
               </ul>
               <ul class="matchup" data-match-id="2UQ" id="hide_list">
-                <li class="playoffTeam" id="PO3"></li>
+                <li class="playoffTeam" id="PO4"></li>
                 <li class="playoffTeam" id="PO7"></li>
               </ul>
             </div>
         </div>
         <div class="lower" id="Playoff-lower">
+            <div class="finals_upper_quarterfinals">
+            </div>
             <div class="major_roundOne">
               <div class="round-details">Round 1<br/><span class="date">TBD</span></div>
-              <ul class="matchup" data-match-id="1LR1">
+              <ul class="matchup" data-match-id="1R1">
                 <li class="playoffTeam" id="PO2"></li>
+                <li class="playoffTeam" id="PO12"></li>
+              </ul>
+              <ul class="matchup" data-match-id="2R1">
+                <li class="playoffTeam" id="PO5"></li>
+                <li class="playoffTeam" id="PO9"></li>
+              </ul>
+              <ul class="matchup" data-match-id="3R1">
+                <li class="playoffTeam" id="PO11"></li>
+                <li class="playoffTeam" id="PO3"></li>
+              </ul>
+              <ul class="matchup" data-match-id="4R1">
+                <li class="playoffTeam" id="PO8"></li>
                 <li class="playoffTeam" id="PO6"></li>
               </ul>
-              <ul class="matchup" data-match-id="2LR1">
-                <li class="playoffTeam" id="PO4"></li>
-                <li class="playoffTeam" id="PO8"></li>
+            </div>
+            <div class="major_roundTwo">
+              <div class="round-details">Round 2<br/><span class="date">TBD</span></div>
+              <ul class="matchup" data-match-id="1R2">
+                <li class="bracket_team" data-team-id=""></li>
+                <li class="bracket_team" data-team-id=""></li>
+              </ul>
+              <ul class="matchup" data-match-id="2R2">
+                <li class="bracket_team" data-team-id=""></li>
+                <li class="bracket_team" data-team-id=""></li>
               </ul>
             </div>
             <div class="major_finals_lower_quarterfinals">
               <div class="round-details">Quarterfinals<br/><span class="date">TBD</span></div>
               <ul class="matchup" data-match-id="1LQ">
-                <li class="bracket_team" data-team-id="" style="font-style: italic;">Loser of UQF 1</li>
+                <li class="bracket_team" data-team-id=""></li>
                 <li class="bracket_team" data-team-id=""></li>
               </ul>
               <ul class="matchup" data-match-id="2LQ">
-                <li class="bracket_team" data-team-id="" style="font-style: italic;">Loser of UQF 2</li>
+                <li class="bracket_team" data-team-id=""></li>
                 <li class="bracket_team" data-team-id=""></li>
               </ul>
             </div>
             <div class="major_finals_lower_semis">
               <div class="round-details">Semifinals<br/><span class="date">TBD</span></div>
-              <ul class="matchup" data-match-id="1LS">
-                <li class="bracket_team" data-team-id="" style="font-style: italic;">Winner of UQF 2</li>
+              <ul class="matchup" data-match-id="1S">
+                <li class="bracket_team" data-team-id=""></li>
                 <li class="bracket_team" data-team-id=""></li>
               </ul>
-              <ul class="matchup" data-match-id="2LS">
-                <li class="bracket_team" data-team-id="" style="font-style: italic;">Winner of UQF 1</li>
+              <ul class="matchup" data-match-id="2S">
+                <li class="bracket_team" data-team-id=""></li>
                 <li class="bracket_team" data-team-id=""></li>
               </ul>
             </div>
-        </div>
-        <div class="major_final" id="Playoff-lower">
             <div class="grand_finals">
-                <div class="round-details">Grand Finals<br/><span class="date">TBD</span></div>
+              <div class="round-details">Grand Finals<br/><span class="date">TBD</span></div>
               <ul class="matchup" data-match-id="1GF">
                 <li class="bracket_team" data-team-id=""></li>
                 <li class="bracket_team" data-team-id=""></li>
               </ul>
-                <div class="round-details">Winner</div>
               <ul class="matchup" data-match-id="W">
-                <li class="bracket_team" data-team-id="" id="win"></li>
+                <li class="bracket_team" data-team-id="" id="win">Winner</li>
               </ul>
             </div>
         </div>

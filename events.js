@@ -360,16 +360,16 @@ function deployRegPlacements(event, eventNumber){
   `
   document.getElementById('placements').innerHTML = placements
   regions.forEach((id) => {
-    for (let i = 0; i < event[id].length; i ++){
-      const tableBody = document.getElementById(`${id}`);
+    for (let i = 0; i < event[id.reg].length; i ++){
+      const tableBody = document.getElementById(`${id.reg}`);
       const newRow = document.createElement('tr');
       const teamLink = document.createElement('a');
       const team = document.createElement('td');
       const pts = document.createElement('td');
-      if(event[id][i].length > 0){
-        teamLink.textContent = event[id][i]
-        teamLink.id = (getTeamDetails(event[id][i])[4]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
-        teamLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id][i])}`
+      if(event[id.reg][i].length > 0){
+        teamLink.textContent = event[id.reg][i]
+        teamLink.id = (getTeamDetails(event[id.reg][i])[4]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
+        teamLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.reg][i])}`
         team.appendChild(teamLink)
       } else {
         team.textContent = "TBD"

@@ -4,10 +4,10 @@
 .bracketsKickoff {display: flex; justify-content: center;}
 .bracket_titles{text-align: center; margin-bottom: 10px;}
 
-#border_box{border: solid 2px black;}
-.stage{padding:20px 10px;width: fit-content;height: fit-content; color: black; background-color: #e1e1e1e6;}
+/* #border_box{border: solid 2px black;height: 700px;} */
+.stage{padding:20px 10px;width: fit-content;height: 600px; color: black; background-color: #e1e1e1e6; border: solid 2px black;}
 .matchup{margin: 0 2.5% 0 0;height: 60px;}
-.upper {height:350px;justify-content: center;display: flex;} /* All upper sections */
+.upper {height: 350px;justify-content: center;display: flex;} /* All upper sections */
 .lower {height: 200px;justify-content: center;display: flex;} /* All lower sections */
 .final{margin-top: 100px; height: 150px;justify-content: center;display: flex;}
 .major_final{height: 150px;justify-content: center;display: flex;}
@@ -20,8 +20,6 @@
 
 .finals_upper_quarterfinals{width: fit-content;}
 .finals_upper_quarterfinals .matchup {margin: 0;}
-.roundOne .matchup{padding: 20px 0px;}
-.roundTwo .matchup{padding: 55px 0px;}
 .finals_lower_quarterfinals{display:flex;flex-direction:column;width: 80%;}
 .finals_lower_semis{display:flex;flex-direction:column;width: 80%;}
 .finals_lower_quarterfinals .matchup{padding: 55px 0px;}
@@ -30,14 +28,14 @@
 .major_finals_upper_quarterfinals{width: fit-content;}
 .major_finals_upper_quarterfinals .matchup {margin: 0;}
 .major_roundOne .matchup{padding: 20px 0px;}
-.major_roundTwo .matchup{padding: 20px 0px;}
+.major_roundTwo .matchup{padding: 55px 0px;}
 .major_finals_lower_quarterfinals{display:flex;flex-direction:column;width: 80%;}
 .major_finals_lower_semis{display:flex;flex-direction:column;width: 80%;}
-.major_finals_lower_quarterfinals .matchup{padding: 20px 0px;}
-.major_finals_lower_semis .matchup{padding: 20px 0px;}
+.major_finals_lower_quarterfinals .matchup{padding: 55px 0px;}
+.major_finals_lower_semis .matchup{padding: 55px 0px;}
 
 .grand_finals{width: fit-content;}
-.grand_finals .matchup {margin: 0;}
+.grand_finals .matchup {margin: 0;padding: 55px 0px;}
 
 .bracket_team {padding: 0 5px;margin: 3px 0;line-height: 25px;white-space: nowrap;overflow: hidden;
     position: relative;color: white;background-color: #1e1e2f;}
@@ -53,7 +51,7 @@
 
 #playinUpper{width: 600px;}
 
-#submitPlayins{height: fit-content;}
+
 #submitBracket{height: fit-content;}
 .GroupStage{display: flex; gap: 5px; flex-wrap: wrap; justify-content: center;}
-.group{display: flex; flex-direction: column;height: fit-content; border: black 2px solid; color: black; background-color: #e1e1e1e6;}
+.group{display: flex; flex-direction: column; height: fit-content; border: black 2px solid; color: black; background-color: #e1e1e1e6;}
