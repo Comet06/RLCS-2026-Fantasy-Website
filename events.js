@@ -1,10 +1,11 @@
 import { path, deployLinks, menu, regions, determineTotalScores } from "./main.js";
 import { deployTops } from "./stats.js";
 import { year, members, teams, EventPoints, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Regional1Matchups, Regional2Matchups, 
-  Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups, Rounds, Sums, KickoffMatchups, Major1Matchups, Major2Matchups, ChampionshipMatchups} from "./current-fantasy-members.js";
+  Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups, KickoffMatchups, Major1Matchups, Major2Matchups, ChampionshipMatchups} from "./current-fantasy-members.js";
 import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, kickoffLANPlacements, Major1Placements, Major2Placements, ChampionshipPlacements } from "./placements.js";
 
 // {player: 'TBD', gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+let iden = ''
 export let regional1Players = []
 let kickoffLANPlayers = []
 export let regional2Players = []
@@ -50,60 +51,60 @@ window.addEventListener('load', function() {
     if(evt === 'Regional 1'){
       document.getElementById('scoresMultiplier').innerHTML = 'Scores'
       deployRegPlacements(Regional1Placements, 1)
-      deployReg(Regional1, Sums, 1, regional1Players)
+      deployReg(Regional1, 1, regional1Players)
       deployMatchups(Regional1Matchups)
       deployTops(regional1Players)
     } else if(evt === 'Regional 2'){
       document.getElementById('scoresMultiplier').innerHTML = 'Scores'
       deployRegPlacements(Regional2Placements, 1)
-      deployReg(Regional2, Sums, 2, regional2Players)
+      deployReg(Regional2, 2, regional2Players)
       deployMatchups(Regional2Matchups)
       deployTops(regional2Players)
     } else if(evt === 'Regional 3'){
       document.getElementById('scoresMultiplier').innerHTML = 'Scores'
       deployRegPlacements(Regional3Placements, 1)
-      deployReg(Regional3, Sums, 3, regional3Players)
+      deployReg(Regional3, 3, regional3Players)
       deployMatchups(Regional3Matchups)
       deployTops(regional3Players)
     } else if(evt === 'Regional 4'){
       document.getElementById('scoresMultiplier').innerHTML = 'Scores'
       deployRegPlacements(Regional4Placements, 2)
-      deployReg(Regional4, Sums, 4, regional4Players)
+      deployReg(Regional4, 4, regional4Players)
       deployMatchups(Regional4Matchups)
       deployTops(regional4Players)
     } else if(evt === 'Regional 5'){
       document.getElementById('scoresMultiplier').innerHTML = 'Scores'
       deployRegPlacements(Regional5Placements, 2)
-      deployReg(Regional5, Sums, 5, regional5Players)
+      deployReg(Regional5, 5, regional5Players)
       deployMatchups(Regional5Matchups)
       deployTops(regional5Players)
     } else if(evt === 'Regional 6'){
       document.getElementById('scoresMultiplier').innerHTML = 'Scores'
       deployRegPlacements(Regional6Placements, 2)
-      deployReg(Regional6, Sums, 6, regional6Players)
+      deployReg(Regional6, 6, regional6Players)
       deployMatchups(Regional6Matchups)
       deployTops(regional6Players)
     } else if(evt === 'Major 1'){
-      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x3 Multiplier)'
-      deployMaj(Rounds, 1, 'major')
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x3)'
+      deployMaj('major1')
       deployMajPlacements(Major1Placements, 1, EventPoints['Major1'].length)
       deployTops(major1Players)
       deployMatchups(Major1Matchups)
     } else if(evt === 'Major 2'){
-      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x3 Multiplier)'
-      deployMaj(Rounds, 4, 'major')
-      deployMajPlacements(Major2Placements, 2, EventPoints['Major1'].length)
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x3)'
+      deployMaj('major2')
+      deployMajPlacements(Major2Placements, 2, EventPoints['Major2'].length)
       deployTops(major2Players)
       deployMatchups(Major2Matchups)
     } else if(evt === 'Kickoff LAN'){
-      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x2 Multiplier)'
-      deployMaj(Rounds, 0, 'kickoff')
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x2)'
+      deployMaj('kickoff')
       deployMajPlacements(kickoffLANPlacements, 0, EventPoints[`Kickoff`].length)
       deployTops(kickoffLANPlayers)
       deployMatchups(KickoffMatchups)
     } else if(evt === 'Championship') {
-      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x5 Multiplier)'
-      deployMaj(Rounds, 0, 'champ')
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(x5)'
+      deployMaj('champ')
       deployTops(championshipPlayers)
       deployMatchups(ChampionshipMatchups)
       deployMajPlacements(ChampionshipPlacements, 3, EventPoints['Champ'].length)
@@ -163,9 +164,30 @@ export function getPlayerScore(searchTerm, eventName){
   return score;
 }
 
-function deployReg(event, event2, eventNumber, playersArray){
+function deployReg(event, eventNumber, playersArray){
   document.getElementById('ScoreCard').innerHTML = regionalTable
+
   members.forEach((id) =>{
+      switch (eventNumber){
+        case 1:
+          iden = id.R1
+          break
+        case 2:
+          iden = id.R2
+          break
+        case 3:
+          iden = id.R3
+          break
+        case 4:
+          iden = id.R4
+          break
+        case 5:
+          iden = id.R5
+          break
+        case 6:
+          iden = id.R6
+          break
+      }
     for (let i = 0; i < event[id.shortname].length; i++){
       if (i === 0){
         const tableBody = document.getElementById('ScoreCard');
@@ -190,7 +212,7 @@ function deployReg(event, event2, eventNumber, playersArray){
         playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.shortname][i])}`
 
         Points.textContent = getPlayerScore(event[id.shortname][i], playersArray)
-        Total.textContent = event2[id.shortname][eventNumber-1]
+        Total.textContent = iden
         
         memberName.appendChild(memberLink)
         Player.appendChild(playerLink)
@@ -230,10 +252,10 @@ function deployReg(event, event2, eventNumber, playersArray){
     }
   })
 }
-function deployMaj(event, start, type){
-  if(type === 'major'){
+function deployMaj(iden){
+  if(iden.includes('major')){
     document.getElementById('ScoreCard').innerHTML = majortable
-  } else if(type === 'champ'){
+  } else if(iden === 'champ'){
     document.getElementById('ScoreCard').innerHTML = champtable
   } else {
     document.getElementById('ScoreCard').innerHTML = kickofftable
@@ -262,22 +284,28 @@ function deployMaj(event, start, type){
     teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
 
-    if(type === 'major'){
-      groupsCell.textContent = event[id.shortname][start]
-      playoffsCell.textContent = event[id.shortname][start+1]
-      totalCell.textContent = event[id.shortname][start+2]
+    if(iden === 'major1'){
+      groupsCell.textContent = id.M1G
+      playoffsCell.textContent = id.M1P
+      totalCell.textContent = id.M1T
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
-    } else if(type === 'champ'){
-      playinCell.textContent = event[id.shortname][7]
-      groupsCell.textContent = event[id.shortname][8]
-      playoffsCell.textContent = event[id.shortname][9]
-      totalCell.textContent = event[id.shortname][10]
+    } else if(iden === 'major2'){
+      groupsCell.textContent = id.M2G
+      playoffsCell.textContent = id.M2P
+      totalCell.textContent = id.M2T
+      newRow.appendChild(groupsCell);
+      newRow.appendChild(playoffsCell);
+    } else if(iden === 'champ'){
+      playinCell.textContent = id.CHPI
+      groupsCell.textContent = id.CHG
+      playoffsCell.textContent = id.CHP
+      totalCell.textContent = id.CHT
       newRow.appendChild(playinCell);
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
     } else {
-      totalCell.textContent = event[id.shortname][0]
+      totalCell.textContent = id.KO
     }
     newRow.appendChild(totalCell);
 

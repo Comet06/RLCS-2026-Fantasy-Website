@@ -5,17 +5,17 @@ export const majorPrize = 200
 export const champPrize = 500
 export const dist = [.0, .4, .6]
 export const members = [
-  {name: 'Flip Lord', shortname: 'come', split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: 'Doofenschmirtz', shortname: 'squi',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: 'Nut Busters', shortname: 'vinn',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: '24 Karat Gold', shortname: 'jimm',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: 'Skibbideeznuts', shortname: 'ecof',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: 'Team Canada', shortname: 'gale',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: 'Streets 1:12', shortname: 'pots',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: 'Slightly Stoopid', shortname: 'maht',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: 'Ball Spikers', shortname: 'devv',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-  {name: 'Little Giants', shortname: 'plac',  split1wins: 0, split1loss: 0, split2wins: 0, split2loss: 0},
-]
+  {name: 'Flip Lord', shortname: 'come', split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: 'Doofenschmirtz', shortname: 'squi',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: 'Nut Busters', shortname: 'vinn',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: '24 Karat Gold', shortname: 'jimm',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: 'Skibbideeznuts', shortname: 'ecof',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: 'Team Canada', shortname: 'gale',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: 'Streets 1:12', shortname: 'pots',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: 'Slightly Stoopid', shortname: 'maht',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: 'Ball Spikers', shortname: 'devv',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+  {name: 'Little Giants', shortname: 'plac',  split1wins: 0, split2wins: 0, champwins: 0, KO: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, M1G: 0, M1PS: 0, M1PF: 0, M1T: 0, M2G: 0, M2PS: 0, M2PF: 0, M2T: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0, CHT: 0, S1: 0, S2: 0},
+]// kickoffLAN(7), major1[groupstage(8), POSemi(8), POFinals(3)], major2[groupstage(8), POSemi(8), POFinals(3)], championship[PISemi(10), Groups(12), POSemi(8), POFinals(3)]
 
 
 export let EventPoints = {
@@ -38,50 +38,6 @@ export let Regional6Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD',
 export let Major2Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
 export let ChampionshipMatchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
 
-export let Sums = { //*****Do not manipulate this data*****
-  //     R: 1, 2, 3, 4, 5, 6 |S1|S2|C|GT
-  'come' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'squi' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'vinn' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'jimm' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'ecof' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'gale' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'pots' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'devv' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'plac' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-}
-export let Rounds = { //*****Do not manipulate this data*****
-  // Takes majorEvents x points per pickem
-  //       0-K|1- M1 -3|4-M2 -6| 7-Champ-10
-  'come' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'squi' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'vinn' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'jimm' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'ecof' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'gale' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'pots' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'devv' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'plac' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-}
-export let majorEvents = {// Edit this one with correct Pick-ems
-  // kickoffLAN(7)
-  // major1[groupstage(8), POSemi(8), POFinals(3)]
-  // major2[groupstage(8), POSemi(8), POFinals(3)]
-  // championship[PISemi(6), PIQuals(4), Groups(12), POSemi(8), POFinals(3)]
-  //       0-K|1- M1-3 |4- M2-6| 7-  Champ -11
-  'come' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'squi' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'vinn' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'jimm' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'ecof' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'gale' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'pots' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'maht' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'devv' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  'plac' : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-}
 export let Regional1 = {
   'come' : ['Daniel', 'Beastmode', 'Kv1', 'Chronic'],
   'squi' : ['Trk511', 'M0nkey m00n', 'Motta', 'Atomik'],
@@ -343,7 +299,7 @@ export let players = [
 {player: 'Weins', rank: 'F', rating: 0, team: 'Zen Esports' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
 {player: 'Risk', rank: 'F', rating: 0, team: 'Ground Zero Gaming' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
 {player: 'Dapz', rank: 'F', rating: 0, team: 'Synthesis' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
-{player: 'Kaydop', rank: 'F', rating: 0, team: 'F/A' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
+{player: 'Kaydop', rank: 'F', rating: 0, team: 'The Last Dance' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
 {player: 'Blue', rank: 'F', rating: 0, team: 'F/A' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
 {player: 'Hxll0', rank: 'F', rating: 0, team: 'F/A' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
 {player: 'Vops1', rank: 'F', rating: 0, team: 'F/A' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
@@ -676,9 +632,9 @@ export let players = [
 {player: 'Violentpanda', rank: 'F', rating: 0, team: 'Shopify Rebellion' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'coach'},
 {player: 'Shuffleverse', rank: 'F', rating: 0, team: 'Shuffles Kittens' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'coach'},
 {player: 'Xpére', rank: 'F', rating: 0, team: 'Spacestation Gaming' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'coach'},
-{player: 'Chausette45', rank: 'F', rating: 0, team: 'Super Team' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'retired'},
-{player: 'Fairy peak!', rank: 'F', rating: 0, team: 'Super Team' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'retired'},
-{player: 'Kérian', rank: 'F', rating: 0, team: 'Super Team' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
+{player: 'Chausette45', rank: 'F', rating: 0, team: 'The Last Dance' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'retired'},
+{player: 'Fairy peak!', rank: 'F', rating: 0, team: 'The Last Dance' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'retired'},
+{player: 'Kérian', rank: 'F', rating: 0, team: 'TKS' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
 {player: 'Rizex', rank: 'F', rating: 0, team: 'Synergy' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: ''},
 {player: 'Greenwarrior', rank: 'F', rating: 0, team: 'Synthesis' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'coach'},
 {player: 'D7oom-24', rank: 'F', rating: 0, team: 'Team Falcons' , gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0, role: 'coach'},
@@ -981,6 +937,7 @@ export let teams = [
 {team: 'Daybreak Frontline', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Compact-Rysfox-Mat', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Gameward', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{team: 'The Last Dance', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Zenulous-Vult-Euxsy', region: 'OCE', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Astronic Esports', region: 'SSA', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Tokyo Tigers', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},

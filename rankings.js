@@ -1,25 +1,14 @@
 import { path, deployLinks, menu, regions } from "./main.js";
 import { getTeamDetails } from "./events.js";
 import { EventPoints, year, teams } from "./current-fantasy-members.js";
-import { determineIndex, kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams,
-  Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements, major1QualifiedTeamsUnsorted, major2QualifiedTeamsUnsorted, championshipQualifiedTeamsUnsorted, 
-  determineQualSpots} from "./placements.js";
-const eventNum = 3
+import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams,
+  Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./placements.js";
+
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/teams_rankings.html`) {
     deployLinks()
     menu()
     determineSeasonPoints()
-    // if(eventNum === 1){
-    //   determineQualSpots(1, major1QualifiedTeamsUnsorted, split1QualifiedTeams)
-    // } else if(eventNum === 2){
-    //   determineQualSpots(1, major1QualifiedTeamsUnsorted, split1QualifiedTeams)
-    //   determineQualSpots(2, major2QualifiedTeamsUnsorted, split2QualifiedTeams)
-    // } else if(eventNum === 3){
-    //   determineQualSpots(1, major1QualifiedTeamsUnsorted, split1QualifiedTeams)
-    //   determineQualSpots(2, major2QualifiedTeamsUnsorted, split2QualifiedTeams)
-    //   determineQualSpots(3, championshipQualifiedTeamsUnsorted, championshipQualifiedTeams)
-    // }
     document.getElementById('year').innerHTML = `RLCS ${year}`
     deploySplitPoints(1)
     deploySplitPoints(2)

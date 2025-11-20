@@ -1,7 +1,7 @@
-import { playerScores, members, teams, prizes, year, players, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Rounds, majorEvents, Sums} from "./current-fantasy-members.js";
+import { members, prizes, year, players, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6} from "./current-fantasy-members.js";
 import { getPlayerScore, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
 import { deployTops } from "./stats.js";
-const CurrentForm = 'championship' // next form page for major event
+const CurrentForm = 'kickoff' // next form page for major event
 
 export const path = `/RLCS-${year}-Fantasy-Website`
 export const path1 = ``// used for Mac dev
@@ -24,10 +24,10 @@ export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'T
 export const points = {'matchups': [500], 'kickoff': [200],'groups': [400], 'playin' : [100, 200], 'playoff' : [400, 600]}
 export const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
 export const regions = [
-  {reg: 'eu', spots: 4, chspots: 5},
-  {reg: 'na', spots: 5, chspots: 6},
+  {reg: 'eu', spots: 4, chspots: 6},
+  {reg: 'na', spots: 5, chspots: 5},
   {reg: 'oce', spots: 1, chspots: 1},
-  {reg: 'sam', spots: 2, chspots: 2},
+  {reg: 'sam', spots: 2, chspots: 3},
   {reg: 'mena', spots: 2, chspots: 3},
   {reg: 'apac', spots: 1, chspots: 1},
   {reg: 'ssa', spots: 1, chspots: 1},
@@ -35,47 +35,44 @@ export const regions = [
 // Homepage
 export function determineTotalScores(){
   members.forEach((id) =>{//Regionals
-    for (let i = 0; i < Regional1[id.shortname].length-1; i++){//Regional sum of all your players not including sub(-1)
-      Sums[id.shortname][0] += getPlayerScore(Regional1[id.shortname][i], regional1Players);
-      Sums[id.shortname][1] += getPlayerScore(Regional2[id.shortname][i], regional2Players);
-      Sums[id.shortname][2] += getPlayerScore(Regional3[id.shortname][i], regional3Players);
-      Sums[id.shortname][3] += getPlayerScore(Regional4[id.shortname][i], regional4Players);
-      Sums[id.shortname][4] += getPlayerScore(Regional5[id.shortname][i], regional5Players);
-      Sums[id.shortname][5] += getPlayerScore(Regional6[id.shortname][i], regional6Players);
+    for (let i = 0; i < Regional1[id.shortname].length-1; i++){
+      id.R1 += getPlayerScore(Regional1[id.shortname][i], regional1Players);
+      id.R2 += getPlayerScore(Regional2[id.shortname][i], regional2Players);
+      id.R3 += getPlayerScore(Regional3[id.shortname][i], regional3Players);
+      id.R4 += getPlayerScore(Regional4[id.shortname][i], regional4Players);
+      id.R5 += getPlayerScore(Regional5[id.shortname][i], regional5Players);
+      id.R6 += getPlayerScore(Regional6[id.shortname][i], regional6Players);
     }
-    Sums[id.shortname][6] += Sums[id.shortname][0] + Sums[id.shortname][1] + Sums[id.shortname][2] + id.split1wins * points['matchups'][0]
-    Sums[id.shortname][7] += Sums[id.shortname][3] + Sums[id.shortname][4] + Sums[id.shortname][5] + id.split2wins * points['matchups'][0]
+    id.S1 += (id.R1 + id.R2 + id.R3)
+    id.S2 += (id.R4 + id.R5 + id.R6)
   })
   members.forEach((id) =>{//Majors and kickoff
-    Rounds[id.shortname][0] = majorEvents[`${id.shortname}`][0]*points['kickoff'][0]*2
+    id.KO += id.KO*points['kickoff'][0]*2
 
-    Rounds[id.shortname][1] = majorEvents[`${id.shortname}`][1] * points['groups'][0] //Groups (take index of event picks and multiplies the point value)
-    Rounds[id.shortname][2] = majorEvents[`${id.shortname}`][2] * points['playoff'][0] + majorEvents[`${id.shortname}`][3] * points['playoff'][1] //Second number is the points worth per guess
-    Rounds[id.shortname][3] = (Rounds[id.shortname][1] + Rounds[id.shortname][2])*3 //Total
+    id.M1G += id.M1G * points['groups'][0]
+    id.M1PS += id.M1PS * points['playoff'][0]
+    id.M1PF += id.M1PF * points['playoff'][1]
+    id.M1T += (id.M1G + id.M1PS + id.M1PF)*3
 
-    Rounds[id.shortname][4] = majorEvents[`${id.shortname}`][4] * points['groups'][0] //Groups
-    Rounds[id.shortname][5] = majorEvents[`${id.shortname}`][5] * points['playoff'][0] + majorEvents[`${id.shortname}`][6] * points['playoff'][1] //Second number is the points worth per guess
-    Rounds[id.shortname][6] = (Rounds[id.shortname][4] + Rounds[id.shortname][5])*3//Total
+    id.M2G += id.M2G * points['groups'][0]
+    id.M2PS += id.M2PS * points['playoff'][0]
+    id.M2PF += id.M2PF * points['playoff'][1]
+    id.M1T += (id.M2G + id.M2PS + id.M2PF)*3
 
-    Sums[id.shortname][6] += Rounds[id.shortname][0] + Rounds[id.shortname][3] //Split 1 Total
-    Sums[id.shortname][7] += Rounds[id.shortname][6] //Split 2 Total
+    id.S1 += id.M1T + id.KO
+    id.S1 += id.M2T
   })
   members.forEach((id)=>{//Championship
-    Rounds[id.shortname][7] = majorEvents[`${id.shortname}`][7] * points['playin'][0] + majorEvents[`${id.shortname}`][8] * points['playin'][1] //playins
-    Rounds[id.shortname][8] = majorEvents[`${id.shortname}`][9] * points['groups'][0] //Groups(switch from group stage to 4 groups)
-    Rounds[id.shortname][9] = majorEvents[`${id.shortname}`][10] * points['playoff'][0] + majorEvents[`${id.shortname}`][11] * points['playoff'][1] //playoffs
-    Rounds[id.shortname][10] = (Rounds[id.shortname][7] + Rounds[id.shortname][8] + Rounds[id.shortname][9])*5 //Total of all championship rounds
-
-    Sums[id.shortname][8] += Rounds[id.shortname][10] //Total of all championship rounds
-  })
-  members.forEach((id)=>{//Totals
-    Sums[id.shortname][9] += Sums[id.shortname][6] + Sums[id.shortname][7] + Sums[id.shortname][8] // Grand Total
-
-    playerScores[id.shortname] = [Sums[id.shortname][0], Sums[id.shortname][1], Sums[id.shortname][2], Rounds[id.shortname][3], Sums[id.shortname][6], 
-                                  Sums[id.shortname][3], Sums[id.shortname][4], Sums[id.shortname][5], Rounds[id.shortname][6], Sums[id.shortname][7], Sums[id.shortname][8], Sums[id.shortname][9], Rounds[id.shortname][0]];
+    id.CHPI = id.CHPI * points['playin'][0]
+    id.CHG += id.CHG * points['groups'][0] //Groups(switch from group stage to 4 groups)
+    id.CHPS += id.CHPS * points['playoff'][0]
+    id.CHPF += id.CHPF * points['playoff'][1] //playoffs
+    id.CHT += (id.CHPI + id.CHG + id.CHPS + id.CHPF)*6
   })
 }
 function deployHome(pool){
+  members.sort((a,b)=> a.split1loss - b.split1loss)
+  members.sort((a,b)=> b.split1wins - a.split1wins)
   members.forEach((id)=>{
     const tableBody = document.getElementById('split1');
     const newRow = document.createElement('tr');
@@ -92,9 +89,9 @@ function deployHome(pool){
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
-    reg1Total.textContent = playerScores[id.shortname][0]
-    reg2Total.textContent = playerScores[id.shortname][1]
-    reg3Total.textContent = playerScores[id.shortname][2]
+    reg1Total.textContent = id.R1
+    reg2Total.textContent = id.R2
+    reg3Total.textContent = id.R3
     
     teamName.appendChild(memberLink)
     newRow.appendChild(teamName);
@@ -119,9 +116,9 @@ function deployHome(pool){
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
-    reg4Total.textContent = playerScores[id.shortname][5]
-    reg5Total.textContent = playerScores[id.shortname][6]
-    reg6Total.textContent = playerScores[id.shortname][7]
+    reg4Total.textContent = id.R4
+    reg5Total.textContent = id.R5
+    reg6Total.textContent = id.R6
     
 
     teamName.appendChild(memberLink)
@@ -149,10 +146,10 @@ function deployHome(pool){
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
-    koffTotal.textContent = playerScores[id.shortname][12]
-    maj1Total.textContent = playerScores[id.shortname][3]
-    maj2Total.textContent = playerScores[id.shortname][8]
-    championshipTotal.textContent = playerScores[id.shortname][10]
+    koffTotal.textContent = id.KO
+    maj1Total.textContent = id.M1T
+    maj2Total.textContent = id.M2T
+    championshipTotal.textContent = id.CHT
     
 
     teamName.appendChild(memberLink)
@@ -184,10 +181,10 @@ function deployHome(pool){
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
-    matchWins.textContent = id.split1wins + id.split2wins
-    split1Total.textContent = playerScores[id.shortname][4]
-    split2Total.textContent = playerScores[id.shortname][9]
-    championshipTotal.textContent = playerScores[id.shortname][10]
+    matchWins.textContent = id.split1wins + id.split2wins + id.champwins
+    split1Total.textContent = id.S1
+    split2Total.textContent = id.S2
+    championshipTotal.textContent = id.CHT
     
 
     teamName.appendChild(memberLink)

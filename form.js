@@ -1,9 +1,6 @@
-import { kickoffLANQualifiedTeams, split1QualifiedTeams, championshipQualifiedTeams, determineQualSpots, championshipQualifiedTeamsUnsorted, major1QualifiedTeamsUnsorted, major2QualifiedTeamsUnsorted, split2QualifiedTeams } from "./placements.js"
+import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams } from "./placements.js"
 // Seeding Average of 2nd major starting seed and ending seed then region rank
 
-determineQualSpots(1, major1QualifiedTeamsUnsorted, split1QualifiedTeams)
-determineQualSpots(2, major2QualifiedTeamsUnsorted, split2QualifiedTeams)
-determineQualSpots(3, championshipQualifiedTeamsUnsorted, championshipQualifiedTeams)
 let PlayinTeams = [
     {team: championshipQualifiedTeams[12], wins: 0, losses: 0, playinSeed: 1}, //Qualified seed 1
     {team: championshipQualifiedTeams[13], wins: 0, losses: 0, playinSeed: 2}, //Qualified seed 2
@@ -45,8 +42,6 @@ let groupD = [
 let kickoffTeams = [kickoffLANQualifiedTeams[0], kickoffLANQualifiedTeams[1], kickoffLANQualifiedTeams[2], kickoffLANQualifiedTeams[3], kickoffLANQualifiedTeams[4], kickoffLANQualifiedTeams[5], kickoffLANQualifiedTeams[6], kickoffLANQualifiedTeams[7]]
 let playoffTeams = ['', '', '', '', '', '', '', '', '', '', '', '']
 
-// const path = `/RLCS-2026-Fantasy-Website`
-// const path1 = ``// used for Mac dev
 const bracketContainer = document.getElementById('bracket-container');
 const urlParams = new URLSearchParams(window.location.search);
 const evt = urlParams.get('name');

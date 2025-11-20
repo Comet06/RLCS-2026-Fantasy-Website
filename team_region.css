@@ -1,13 +1,13 @@
 /* Availability */
 #no{color: black; color: red;}
 
-#na{color: black; background-color: #ff5b5b; padding:2px; border-radius: 5px;}
-#eu{color: black; background-color: #73ffa9; padding:2px; border-radius: 5px;}
-#mena{color: black; background-color: orange; padding:2px; border-radius: 5px;}
-#sam{color: black; background-color: #01f401; padding:2px; border-radius: 5px;}
-#oce{color: black; background-color: #0079ea; padding:2px; border-radius: 5px;}
-#apac{color: black; background-color: #d500d5; padding:2px; border-radius: 5px;}
-#ssa{color: black; background-color: yellow; padding:2px; border-radius: 5px;}
+#na{border: solid 5px #ff5b5b; padding:2px; border-radius: 5px;}
+#eu{border: solid 5px #73ffa9; padding:2px; border-radius: 5px;}
+#mena{border: solid 5px orange; padding:2px; border-radius: 5px;}
+#sam{border: solid 5px #01f401; padding:2px; border-radius: 5px;}
+#oce{border: solid 5px #0079ea; padding:2px; border-radius: 5px;}
+#apac{border: solid 5px #d500d5; padding:2px; border-radius: 5px;}
+#ssa{border: solid 5px yellow; padding:2px; border-radius: 5px;}
 
 #hey{color: black; background-color: #ffd95b; padding:2px; border-radius: 5px;}
 

@@ -1,7 +1,7 @@
 /* Player profiles */
-.profiles{display: flex; flex-wrap: wrap; justify-content: center;}
+.profiles{display: flex;flex-wrap: wrap; justify-content: space-between;}
 .player-profiles{margin: 0 auto; width: fit-content;}
-.profile-card {color: black; background: #fff;border: 1px solid #ccc;border-radius: 8px;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px #0000001a;}
+.profile-card {border: 5px solid #ccc;border-radius: 8px;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px #0000001a;}
 .player-name {margin-top: 0; padding: 5px; border-radius: 10px;}
 
 .profile-details p {margin: 5px 0;}

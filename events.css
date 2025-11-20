@@ -8,4 +8,5 @@
 .tops_section{width:180px;text-align: left;margin: 10px;padding: 0 5px;} /* Data within the tops boxes */
 #team{position: relative; overflow: hidden; padding-left: 5px;}
 #points{float: right;position: relative;right: 5px;}
-#data_box{border: solid black 2px; justify-content: center;}
+
+#lose{border: solid red 2px;}

@@ -65,7 +65,7 @@ const legacyPlayerTableHeader = `
 // <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th><th>Team</th><th>Region</th>
 const playerTableHeader = `
 <tr>
-  <th colspan="3" id="name">Player Information</th><th colspan="2" id="perGame">Player Stats: Per Game</th><th colspan="1" id="teamStats">Team Stats</th>
+  <th colspan="3" id="name">Player Information</th><th colspan="2" id="perGame">Player Stats: Per Game</th><th colspan="1" id="teamStatsTitle">Team Stats</th>
 </tr>
 <tr>
   <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Team</th>
@@ -74,7 +74,7 @@ const playerTableHeader = `
 // <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th># of players</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
 const teamTableHeader = `
 <tr>
-  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStats">Team Stats</th>
+  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStatsTitle">Team Stats</th>
 </tr>
 <tr>
   <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th>Rating</th><th>Win %</th>
