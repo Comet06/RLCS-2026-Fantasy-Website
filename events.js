@@ -286,7 +286,7 @@ function deployMaj(iden){
 
     if(iden === 'major1'){
       groupsCell.textContent = id.M1G
-      playoffsCell.textContent = id.M1P
+      playoffsCell.textContent = id.M1PS + id.M1PF
       totalCell.textContent = id.M1T
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
@@ -294,7 +294,7 @@ function deployMaj(iden){
 
     } else if(iden === 'major2'){
       groupsCell.textContent = id.M2G
-      playoffsCell.textContent = id.M2P
+      playoffsCell.textContent = id.M2PS + id.M2PF
       totalCell.textContent = id.M2T
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
@@ -303,7 +303,7 @@ function deployMaj(iden){
     } else if(iden === 'champ'){
       playinCell.textContent = id.CHPI
       groupsCell.textContent = id.CHG
-      playoffsCell.textContent = id.CHP
+      playoffsCell.textContent = id.CHPS + id.CHPF
       totalCell.textContent = id.CHT
       newRow.appendChild(playinCell);
       newRow.appendChild(groupsCell);
