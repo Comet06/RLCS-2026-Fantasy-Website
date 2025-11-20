@@ -290,12 +290,16 @@ function deployMaj(iden){
       totalCell.textContent = id.M1T
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
+	   newRow.appendChild(totalCell);
+
     } else if(iden === 'major2'){
       groupsCell.textContent = id.M2G
       playoffsCell.textContent = id.M2P
       totalCell.textContent = id.M2T
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
+	   newRow.appendChild(totalCell);
+
     } else if(iden === 'champ'){
       playinCell.textContent = id.CHPI
       groupsCell.textContent = id.CHG
@@ -304,10 +308,12 @@ function deployMaj(iden){
       newRow.appendChild(playinCell);
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
+	   newRow.appendChild(totalCell);
+
     } else {
       totalCell.textContent = id.KO
+	   newRow.appendChild(totalCell);
     }
-    newRow.appendChild(totalCell);
 
     tableBody.appendChild(newRow);
   })
