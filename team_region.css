@@ -1,13 +1,21 @@
 /* Availability */
 #no{color: black; color: red;}
 
-#na{border: solid 5px #ff5b5b; padding:2px; border-radius: 5px;}
-#eu{border: solid 5px #73ffa9; padding:2px; border-radius: 5px;}
-#mena{border: solid 5px orange; padding:2px; border-radius: 5px;}
-#sam{border: solid 5px #01f401; padding:2px; border-radius: 5px;}
-#oce{border: solid 5px #0079ea; padding:2px; border-radius: 5px;}
-#apac{border: solid 5px #d500d5; padding:2px; border-radius: 5px;}
-#ssa{border: solid 5px yellow; padding:2px; border-radius: 5px;}
+#NA{border: solid 5px #ff5b5b; padding:2px; border-radius: 5px;}
+#EU{border: solid 5px #73ffa9; padding:2px; border-radius: 5px;}
+#MENA{border: solid 5px orange; padding:2px; border-radius: 5px;}
+#SAM{border: solid 5px #01f401; padding:2px; border-radius: 5px;}
+#OCE{border: solid 5px #0079ea; padding:2px; border-radius: 5px;}
+#APAC{border: solid 5px #d500d5; padding:2px; border-radius: 5px;}
+#SSA{border: solid 5px yellow; padding:2px; border-radius: 5px;}
+
+#na{color:black; background-color: #ff5b5b; padding:2px; border-radius: 5px;}
+#eu{color:black; background-color: #73ffa9; padding:2px; border-radius: 5px;}
+#mena{color:black; background-color: orange; padding:2px; border-radius: 5px;}
+#sam{color:black; background-color: #01f401; padding:2px; border-radius: 5px;}
+#oce{color:black; background-color: #0079ea; padding:2px; border-radius: 5px;}
+#apac{color:black; background-color: #d500d5; padding:2px; border-radius: 5px;}
+#ssa{color:black; background-color: yellow; padding:2px; border-radius: 5px;}
 
 #hey{color: black; background-color: #ffd95b; padding:2px; border-radius: 5px;}
 
@@ -24,7 +32,7 @@
 #geng_mobil1_racing{color: black; background-color: gold; padding:2px; border-radius: 5px;}
 #karmine_corp{color: black; background-color: #0787ff; padding:2px; border-radius: 5px;}
 #team_secret{color: white;background-color: #242020; padding:2px; border-radius: 5px;}
-#geekay_esports{color: yellow;background-color: #262677; padding:2px; border-radius: 5px;}
+#geekay_esports{color: yellow;background-color: #0e0e3a; padding:2px; border-radius: 5px;}
 #spacestation_gaming{color: black; background-color: #ffc400; padding:2px; border-radius: 5px;}
 #nine{color: black; background-color: #b8b8b8; padding:2px; border-radius: 5px;} /**/
 #onehun{color: black; background-color: lightblue; padding:2px; border-radius: 5px;}/**/

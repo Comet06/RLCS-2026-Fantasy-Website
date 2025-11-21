@@ -1,8 +1,8 @@
 /* Info page */
 .rules{text-align: left;margin-left: 30px;}
 .rules ol{margin-left: 30px;}
-#prize_pool{width: 750px;border: white solid 2px; border-radius: 5px;}
-#Kickoff_points{width: 750px;border: white solid 2px; border-radius: 5px}
-#Major_points{width: 750px;border: white solid 2px; border-radius: 5px}
-#Champ_points{width: 750px;border: white solid 2px; border-radius: 5px}
+#prize_pool{width: 750px;border: white solid 5px; border-radius: 5px;}
+#Kickoff_points{width: 750px;border: white solid 5px; border-radius: 5px}
+#Major_points{width: 750px;border: white solid 5px; border-radius: 5px}
+#Champ_points{width: 750px;border: white solid 5px; border-radius: 5px}
 ol{font-size: 1.3em;}

@@ -1,8 +1,9 @@
 import { path, deployLinks, menu, regions } from "./main.js";
 import { getTeamDetails } from "./events.js";
 import { EventPoints, year, teams } from "./current-fantasy-members.js";
-import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams,
-  Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements, Major2Placements } from "./placements.js";
+import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams, Regional1Placements,
+  Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements,
+  Major2Placements, determineSpots, split1QualifiedTeamsUnsorted, split2QualifiedTeamsUnsorted, championshipQualifiedTeamsUnsorted} from "./placements.js";
 
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/teams_rankings.html`) {
@@ -10,6 +11,9 @@ window.addEventListener('load', function() {
     menu()
     determineSeasonPoints()
     document.getElementById('year').innerHTML = `RLCS ${year}`
+    determineSpots(split1QualifiedTeams, split1QualifiedTeamsUnsorted, 1)
+    determineSpots(split2QualifiedTeams, split2QualifiedTeamsUnsorted, 2)
+    determineSpots(championshipQualifiedTeams, championshipQualifiedTeamsUnsorted, 3)
     deploySplitPoints(1)
     deploySplitPoints(2)
     deploySplitQuals(kickoffLANQualifiedTeams, 0)
@@ -44,7 +48,7 @@ function deploySplitQuals(event, index){
     const region = document.createElement('td');
     const team = document.createElement('td');
     const pts = document.createElement('td');
-    if (id.includes('EU') || id.includes('NA') || id.includes('OCE') || id.includes('SAM') || id.includes('MENA') || id.includes('APAC') || id.includes('SSA') || id.includes('LCQ')){
+    if (id.includes('EU') || id.includes('NA') || id.includes('OCE') || id.includes('SAM') || id.includes('MENA') || id.includes('APAC') || id.includes('SSA') || id.includes('LCQ') || id.includes('TBD')){
       region.textContent = id
       team.textContent = 'TBD'
       pts.textContent = 0

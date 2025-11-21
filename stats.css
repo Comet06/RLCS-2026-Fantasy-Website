@@ -2,20 +2,6 @@
 #table_type{width: 200px;}
 
 #tableFilter{display: flex; gap: 20px;}
-.filterList {position: relative;}
-.filterList:hover .filterList-content {display: flex; flex-direction: column;}
-.filterList-content {
-    display: none;
-    text-align: left;
-    position: relative;
-    margin: 4px auto;
-    padding: 10px;
-    background-color: #1f1f7a;
-    box-shadow: 0px 8px 16px black;
-    border-radius: 5px;
-    width: fit-content;
-    z-index: 100;
-}
 
 #name{border-bottom: solid #ff0000 5px;}
 #teamStatsTitle{border-bottom: solid #0011ff 5px;}

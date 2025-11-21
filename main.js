@@ -12,7 +12,7 @@ window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/index.html`) {
     document.getElementById('titleYear').innerHTML = `RLCS Fantasy ${year}`
     determineTotalScores()
-    deployHome(prizes)
+    deployHome()
     deployTops(players)
   }
 });
@@ -34,8 +34,9 @@ export const regions = [
 ]
 // Homepage
 export function determineTotalScores(){
-  members.forEach((id) =>{//Regionals
-    for (let i = 0; i < Regional1[id.shortname].length-1; i++){
+  members.forEach((id) =>{
+    //Regionals
+    for (let i = 0; i < Regional1[id.shortname].length-2; i++){
       id.R1 += getPlayerScore(Regional1[id.shortname][i], regional1Players);
       id.R2 += getPlayerScore(Regional2[id.shortname][i], regional2Players);
       id.R3 += getPlayerScore(Regional3[id.shortname][i], regional3Players);
@@ -43,34 +44,30 @@ export function determineTotalScores(){
       id.R5 += getPlayerScore(Regional5[id.shortname][i], regional5Players);
       id.R6 += getPlayerScore(Regional6[id.shortname][i], regional6Players);
     }
-    id.S1 += (id.R1 + id.R2 + id.R3)
-    id.S2 += (id.R4 + id.R5 + id.R6)
-  })
-  members.forEach((id) =>{//Majors and kickoff
-    id.KO += id.KO*points['kickoff'][0]*2
-
+    //Kickoff
+    id.KO += id.KO * points['kickoff'][0]*2
+    //Major 1
     id.M1G += id.M1G * points['groups'][0]
     id.M1PS += id.M1PS * points['playoff'][0]
     id.M1PF += id.M1PF * points['playoff'][1]
     id.M1T += (id.M1G + id.M1PS + id.M1PF)*3
-
+    //Major 2
     id.M2G += id.M2G * points['groups'][0]
     id.M2PS += id.M2PS * points['playoff'][0]
     id.M2PF += id.M2PF * points['playoff'][1]
     id.M1T += (id.M2G + id.M2PS + id.M2PF)*3
-
-    id.S1 += id.M1T + id.KO
-    id.S1 += id.M2T
-  })
-  members.forEach((id)=>{//Championship
+    //Championship
     id.CHPI = id.CHPI * points['playin'][0]
     id.CHG += id.CHG * points['groups'][0] //Groups(switch from group stage to 4 groups)
     id.CHPS += id.CHPS * points['playoff'][0]
     id.CHPF += id.CHPF * points['playoff'][1] //playoffs
     id.CHT += (id.CHPI + id.CHG + id.CHPS + id.CHPF)*6
+    //Split 1 and 2
+    id.S1 += (id.R1 + id.R2 + id.R3 + id.M1T + id.KO)
+    id.S2 += (id.R4 + id.R5 + id.R6 + id.M2T)
   })
 }
-function deployHome(pool){
+function deployHome(){
   members.sort((a,b)=> a.split1loss - b.split1loss)
   members.sort((a,b)=> b.split1wins - a.split1wins)
   members.forEach((id)=>{
@@ -81,48 +78,32 @@ function deployHome(pool){
     const reg1Total = document.createElement('td');
     const reg2Total = document.createElement('td');
     const reg3Total = document.createElement('td');
-    
-    teamName.id = id.shortname
-    reg1Total.id = id.shortname
-    reg2Total.id = id.shortname
-    reg3Total.id = id.shortname
-
-    memberLink.textContent = id.name
-    memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
-    reg1Total.textContent = id.R1
-    reg2Total.textContent = id.R2
-    reg3Total.textContent = id.R3
-    
-    teamName.appendChild(memberLink)
-    newRow.appendChild(teamName);
-    newRow.appendChild(reg1Total)
-    newRow.appendChild(reg2Total)
-    newRow.appendChild(reg3Total)
-    tableBody.appendChild(newRow);
-  })
-  members.forEach((id)=>{
-    const tableBody = document.getElementById('split2');
-    const newRow = document.createElement('tr');
-    const teamName = document.createElement('td');
-    const memberLink = document.createElement('a');
     const reg4Total = document.createElement('td');
     const reg5Total = document.createElement('td');
     const reg6Total = document.createElement('td');
     
     teamName.id = id.shortname
+    reg1Total.id = id.shortname
+    reg2Total.id = id.shortname
+    reg3Total.id = id.shortname
     reg4Total.id = id.shortname
     reg5Total.id = id.shortname
     reg6Total.id = id.shortname
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
+    reg1Total.textContent = id.R1
+    reg2Total.textContent = id.R2
+    reg3Total.textContent = id.R3
     reg4Total.textContent = id.R4
     reg5Total.textContent = id.R5
     reg6Total.textContent = id.R6
     
-
     teamName.appendChild(memberLink)
-    // newRow.appendChild(teamName);
+    newRow.appendChild(teamName);
+    newRow.appendChild(reg1Total)
+    newRow.appendChild(reg2Total)
+    newRow.appendChild(reg3Total)
     newRow.appendChild(reg4Total)
     newRow.appendChild(reg5Total)
     newRow.appendChild(reg6Total)
@@ -216,10 +197,10 @@ function deployHome(pool){
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
     matchupWins.textContent = '$' + ((id.split1wins * 10) + (id.split2wins * 10)).toFixed(2)
-    split1Winnings.textContent = "$" + (pool[id.shortname][0]).toFixed(2)
-    split2Winnings.textContent = "$" + (pool[id.shortname][1]).toFixed(2)
-    championshipWinnings.textContent = "$" + (pool[id.shortname][2]).toFixed(2)
-    totalWinnings.textContent = "$" + (pool[id.shortname][0] +pool[id.shortname][1] +pool[id.shortname][2]).toFixed(2)
+    split1Winnings.textContent = "$" + (prizes[id.shortname][0]).toFixed(2)
+    split2Winnings.textContent = "$" + (prizes[id.shortname][1]).toFixed(2)
+    championshipWinnings.textContent = "$" + (prizes[id.shortname][2]).toFixed(2)
+    totalWinnings.textContent = "$" + (prizes[id.shortname][0] +prizes[id.shortname][1] +prizes[id.shortname][2]).toFixed(2)
     
 
     teamName.appendChild(memberLink)

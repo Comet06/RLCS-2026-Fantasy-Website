@@ -1,4 +1,4 @@
-import { path, deployLinks, menu, regions, determineTotalScores } from "./main.js";
+import { path, deployLinks, menu, regions, determineTotalScores, points } from "./main.js";
 import { deployTops } from "./stats.js";
 import { year, members, teams, EventPoints, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Regional1Matchups, Regional2Matchups, 
   Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups, KickoffMatchups, Major1Matchups, Major2Matchups, ChampionshipMatchups} from "./current-fantasy-members.js";
@@ -18,7 +18,7 @@ let major2Players = []
 let championshipPlayers = []
 const regionalTable = `
 <tr>
-  <th>Team Name</th><th>Player</th><th>Points</th><th>Total</th>
+  <th>Team Name</th><th>Position</th><th>Player</th><th>Points</th><th>Total</th>
 </tr>
 `
 const kickofftable = `
@@ -154,13 +154,9 @@ function getMemberDetails(searchTerm){
 }
 export function getPlayerScore(searchTerm, eventName){
   const player = eventName.find(p => p.player === searchTerm);
-  if (!player) {
-    return 0;
-  }
-  let score = 0
-  if(player.gp > 0){
-    score = Math.round(((player.score/100) + player.goals + player.assists + player.saves + player.shots ) * (player.wins/player.gp));
-  }
+  if (!player) {return 0;}
+  if(player.gp > 0){player.gp = 1}
+  const score = Math.round(((player.score/100) + player.goals + player.assists + player.saves + player.shots ) * player.wins * (player.wins/player.gp))
   return score;
 }
 
@@ -168,87 +164,73 @@ function deployReg(event, eventNumber, playersArray){
   document.getElementById('ScoreCard').innerHTML = regionalTable
 
   members.forEach((id) =>{
-      switch (eventNumber){
-        case 1:
-          iden = id.R1
-          break
-        case 2:
-          iden = id.R2
-          break
-        case 3:
-          iden = id.R3
-          break
-        case 4:
-          iden = id.R4
-          break
-        case 5:
-          iden = id.R5
-          break
-        case 6:
-          iden = id.R6
-          break
-      }
+    switch (eventNumber){
+      case 1:
+        iden = id.R1
+        break
+      case 2:
+        iden = id.R2
+        break
+      case 3:
+        iden = id.R3
+        break
+      case 4:
+        iden = id.R4
+        break
+      case 5:
+        iden = id.R5
+        break
+      case 6:
+        iden = id.R6
+        break
+    }
     for (let i = 0; i < event[id.shortname].length; i++){
-      if (i === 0){
         const tableBody = document.getElementById('ScoreCard');
         const newRow = document.createElement('tr');
         const memberName = document.createElement('td');
-        const Player = document.createElement('td');
         const memberLink = document.createElement('a');
+        const position = document.createElement('td')
+        const Player = document.createElement('td');
         const playerLink = document.createElement('a');
         const Points = document.createElement('td');
         const Total = document.createElement('td');
 
-        memberName.id = id.shortname
+        position.id = id.shortname
         Player.id = id.shortname
         Points.id = id.shortname
-        Total.id = id.shortname
-        memberName.rowSpan = event[id.shortname].length
-        Total.rowSpan = event[id.shortname].length
+        if(i === 0 || i === 1 || i === 2){
+          position.textContent = 'Player'
+        } else {
+          position.textContent = 'Sub'
+        }
+        Points.textContent = getPlayerScore(event[id.shortname][i], playersArray)
+        if(i === 0){
+          memberName.rowSpan = event[id.shortname].length
+          
+          memberName.id = id.shortname
+          memberLink.textContent = id.name
+          memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
+          
+          memberName.appendChild(memberLink)
+          newRow.appendChild(memberName);
+          
+          Total.id = id.shortname
+          Total.textContent = iden
+          Total.rowSpan = event[id.shortname].length
+        }
         
-        memberLink.textContent = id.name
-        memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
         playerLink.textContent = event[id.shortname][i]
         playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.shortname][i])}`
-
-        Points.textContent = getPlayerScore(event[id.shortname][i], playersArray)
-        Total.textContent = iden
         
-        memberName.appendChild(memberLink)
         Player.appendChild(playerLink)
-        
-        
-        newRow.appendChild(memberName);
+                
+        newRow.appendChild(position);
         newRow.appendChild(Player);
         newRow.appendChild(Points);
-        newRow.appendChild(Total);
-        
-        tableBody.appendChild(newRow);
-
-      } else {
-        const tableBody = document.getElementById('ScoreCard');
-        const newRow = document.createElement('tr');
-        const Player = document.createElement('td');
-        const playerLink = document.createElement('a');
-        const Points = document.createElement('td');
-        if(i === (event[id.shortname].length)-1){
-          playerLink.textContent = `${event[id.shortname][i]} (sub)`
-        } else {
-          playerLink.textContent = event[id.shortname][i]
+        if(i === 0){
+          newRow.appendChild(Total);
         }
-        Player.id = id.shortname
-        Points.id = id.shortname
-        playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.shortname][i])}`
-        Points.textContent = getPlayerScore(event[id.shortname][i], playersArray)
-        
-        Player.appendChild(playerLink)
-        
-        
-        newRow.appendChild(Player);
-        newRow.appendChild(Points);
-        
         tableBody.appendChild(newRow);
-      }
     }
   })
 }
@@ -290,16 +272,14 @@ function deployMaj(iden){
       totalCell.textContent = id.M1T
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
-	   newRow.appendChild(totalCell);
-
+      newRow.appendChild(totalCell);
     } else if(iden === 'major2'){
       groupsCell.textContent = id.M2G
       playoffsCell.textContent = id.M2PS + id.M2PF
       totalCell.textContent = id.M2T
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
-	   newRow.appendChild(totalCell);
-
+      newRow.appendChild(totalCell);
     } else if(iden === 'champ'){
       playinCell.textContent = id.CHPI
       groupsCell.textContent = id.CHG
@@ -308,11 +288,10 @@ function deployMaj(iden){
       newRow.appendChild(playinCell);
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
-	   newRow.appendChild(totalCell);
-
+      newRow.appendChild(totalCell);
     } else {
       totalCell.textContent = id.KO
-	   newRow.appendChild(totalCell);
+      newRow.appendChild(totalCell);
     }
 
     tableBody.appendChild(newRow);
@@ -356,37 +335,37 @@ function deployMatchups(event){
 
 function deployRegPlacements(event, eventNumber){
   const placements = `
-    <table class="section" id="eu">
+    <table class="section" id="EU">
       <tbody>
         <tr><th colspan="2">EU</th></tr>
       </tbody>
     </table>
-    <table class="section" id="na">
+    <table class="section" id="NA">
       <tbody>
         <tr><th colspan="2">NA</th></tr>
       </tbody>
     </table>
-    <table class="section" id="oce">
+    <table class="section" id="OCE">
       <tbody>
         <tr><th colspan="2">OCE</th></tr>
       </tbody>
     </table>
-    <table class="section" id="sam">
+    <table class="section" id="SAM">
       <tbody>
         <tr><th colspan="2">SAM</th></tr>
       </tbody>
     </table>
-    <table class="section" id="mena">
+    <table class="section" id="MENA">
       <tbody>
         <tr><th colspan="2">MENA</th></tr>
       </tbody>
     </table>
-    <table class="section" id="apac">
+    <table class="section" id="APAC">
       <tbody>
         <tr><th colspan="2">APAC</th></tr>
       </tbody>
     </table>
-    <table class="section" id="ssa">
+    <table class="section" id="SSA">
       <tbody>
         <tr><th colspan="2">SSA</th></tr>
       </tbody>
@@ -395,7 +374,7 @@ function deployRegPlacements(event, eventNumber){
   document.getElementById('placements').innerHTML = placements
   regions.forEach((id) => {
     for (let i = 0; i < event[id.reg].length; i ++){
-      const tableBody = document.getElementById(`${id.reg}`);
+      const tableBody = document.getElementById(`${id.reg.toUpperCase()}`);
       const newRow = document.createElement('tr');
       const teamLink = document.createElement('a');
       const team = document.createElement('td');

@@ -24,6 +24,7 @@ export let Tops = { //Do not edit
 }
 const playerTableType = `
 <p id="retired">Retired</p><p id="rookie">Rookie</p><p id="inactive">Inactive</p><p id="sub">Sub</p><p id="coach">Coach</p><br>
+<p><input type="checkbox" id="availability">Include Unavailable Players</p><br>
 <label>Sort By:</label>
 <select id="playerStats">
     <option value="name">Name</option>
@@ -107,6 +108,9 @@ window.addEventListener('load', function() {
 
       const playerSort = document.getElementById('playerStats')
       playerSort.addEventListener('change', handleDropdownPlayer);
+
+      const includeUnavailable = document.getElementById('availability')
+      // includeUnavailable.addEventListener('change');
 
       populatePlayersTable(players)
       console.log('Player Stats page has loaded!');
@@ -407,89 +411,49 @@ function populatePlayersTable(Players) {
   let i = 1
   Players.forEach((id) => {
     const newRow = document.createElement('tr');
-
     const num = document.createElement('td');
     const nameCell = document.createElement('td');
-    const memberLink = document.createElement('a');
+    const nameLink = document.createElement('a');
     const availCell = document.createElement('td');
+    const memberLink = document.createElement('a');
     const ratingCell = document.createElement('td');
     const teamCell = document.createElement('td');
-    const winPercCell = document.createElement('td');
-    const score = document.createElement('td');
-    const goals = document.createElement('td');
-    const assists = document.createElement('td');
-    const saves = document.createElement('td');
-    const shots = document.createElement('td');
-    const teamRegion = document.createElement('td');
-    
-
-    const nameLink = document.createElement('a');
     const teamLink = document.createElement('a');
-
+    const winPercCell = document.createElement('td');
     const roleID = id.role.toLowerCase()
     const teamId = (id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","");
+    
     num.textContent = i
+    newRow.appendChild(num);
     
     nameLink.href = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
-    if (id.team != "F/A" && id.team != "TBD"){
-      teamLink.href = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
-    }
-    
-
-    let drafted = false
-    let memberName = ''
-
-    nameCell.id = roleID;
-    teamCell.id = teamId;
     const rank = id.rank
     if(id.rating != 0){
       nameLink.textContent = id.player + " (" + rank + ")";
     } else {
       nameLink.textContent = id.player;
     }
-    ratingCell.textContent = id.rating
-    teamLink.textContent = id.team;
-    teamRegion.textContent = getTeamDetails(id.team)[0]
-    
-    newRow.appendChild(num);
+    nameCell.id = roleID;
     nameCell.appendChild(nameLink);
     newRow.appendChild(nameCell);
 
+    let drafted = false
+    let memberName = ''
     members.forEach((id2)=>{
-      const playerSpot1 = players.find(p => p.player === eventName[id2.shortname][0])
-      const playerSpot2 = players.find(p => p.player === eventName[id2.shortname][1])
-      const playerSpot3 = players.find(p => p.player === eventName[id2.shortname][2])
-      const playerSpot4 = players.find(p => p.player === eventName[id2.shortname][3])
-      if(playerSpot1){
-        if(playerSpot1.player === id.player){
-          drafted = true
-          memberName = [id2.name, id2.shortname]
-        }
-      }
-      if(playerSpot2){
-        if(playerSpot2.player === id.player){
-          drafted = true
-          memberName = [id2.name, id2.shortname]
-        }
-      }
-      if(playerSpot3){
-        if(playerSpot3.player === id.player){
-          drafted = true
-          memberName = [id2.name, id2.shortname]
-        }
-      }
-      if(playerSpot4){
-        if(playerSpot4.player === id.player){
-          drafted = true
-          memberName = [id2.name, id2.shortname]
-        }
+      const playerInSpot = players.find(p =>
+        eventName[id2.shortname].includes(p.player) && p.player === id.player
+      );
+  
+      if (playerInSpot) {
+        drafted = true;
+        memberName = [id2.name, id2.shortname];
       }
     })
     if(drafted){
       memberLink.textContent = memberName[0]
       memberLink.href = `${path}/profile.html?name=${encodeURIComponent(memberName[0])}`
-      memberLink.id = memberName[1]
-      // availCell.style = 'color: yellowgreen;'
+      memberLink.style = 'padding:6px;'
+      availCell.id = memberName[1]
       availCell.appendChild(memberLink)
     } else {
       if(id.team === 'F/A' || id.role === 'coach' || id.role === 'inactive' || id.role === 'retired' || id.role === 'sub'){
@@ -502,27 +466,22 @@ function populatePlayersTable(Players) {
     }
     newRow.appendChild(availCell);
     
-    if (id.gp < 1){id.gp = 1}
-    
+    ratingCell.textContent = id.rating
     newRow.appendChild(ratingCell);
-    winPercCell.textContent = (id.wins/id.gp*100).toFixed(2) + "%";
-    score.textContent = (id.score/id.gp).toFixed(0)
-    goals.textContent = (id.goals/id.gp).toFixed(2)
-    assists.textContent = (id.assists/id.gp).toFixed(2)
-    saves.textContent = (id.saves/id.gp).toFixed(2)
-    shots.textContent = (id.shots/id.gp).toFixed(2)
-    newRow.appendChild(winPercCell);
-    // newRow.appendChild(score);
-    // newRow.appendChild(goals);
-    // newRow.appendChild(assists);
-    // newRow.appendChild(saves);
-    // newRow.appendChild(shots);
 
+    if (id.gp < 1){id.gp = 1}
+    winPercCell.textContent = (id.wins/id.gp*100).toFixed(2) + "%";
+    newRow.appendChild(winPercCell);
+
+    if (id.team != "F/A" && id.team != "TBD"){
+      teamLink.href = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
+    }
+    teamLink.textContent = id.team;
+    teamCell.id = teamId;
     teamCell.appendChild(teamLink);
     newRow.appendChild(teamCell);
-    // newRow.appendChild(teamRegion)
 
-    if(availCell.id != 'no' && i < 101){
+    if(availCell.id === 'yes' && i < 1010){
       i += 1
       tableBody.appendChild(newRow);
     }

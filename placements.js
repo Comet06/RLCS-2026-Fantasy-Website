@@ -1,3 +1,6 @@
+import { teams } from "./current-fantasy-members.js"
+import { getTeamDetails } from "./events.js"
+import { regions } from "./main.js"
 export let Regional1Placements = {
     'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -72,6 +75,7 @@ export let kickoffLANPlacements = {
     ],
 }
 
+export let split1QualifiedTeamsUnsorted = []
 export let split1QualifiedTeams = [
 'NA #1',
 'EU #1',
@@ -86,7 +90,7 @@ export let split1QualifiedTeams = [
 'SAM #2',
 'MENA #2',
 // 'EU #5', //If EU Wins
-'NA/EU #5',//hide
+'NA/EU #5',//Change when known(hide)
 'NA #4',
 'APAC #1',
 'SSA #1',
@@ -100,7 +104,7 @@ export let Major1Placements = {
     'TBD', 'TBD', 'TBD', 'TBD',
     ],
 }
-
+export let split2QualifiedTeamsUnsorted = []
 export let split2QualifiedTeams = [
 'NA #1',
 'EU #1',
@@ -115,7 +119,7 @@ export let split2QualifiedTeams = [
 'SAM #2',
 'MENA #2',
 // 'EU #5', //If EU Wins
-'NA/EU #5',//hide
+'NA/EU #5',//Change when known(hide)
 'NA #4',
 'APAC #1',
 'SSA #1',
@@ -129,7 +133,7 @@ export let Major2Placements = {
     'TBD', 'TBD', 'TBD', 'TBD',
     ],
 }
-
+export let championshipQualifiedTeamsUnsorted = []
 export let championshipQualifiedTeams = [
 'NA #1',
 'EU #1',
@@ -144,15 +148,15 @@ export let championshipQualifiedTeams = [
 'SAM #2',
 'MENA #2',
 // 'EU #5', //If EU Wins
-'NA/EU #5',//hide
+'NA/EU #5',//Change when known(hide)
 'NA #4',
 'APAC #1',
 'SSA #1',
 // 'NA #5', //If NA Wins
-'LCQ Region #1',
-'LCQ Region #2',
-'LCQ Region #3',
-'LCQ Region #4',
+'LCQ Region #1',//Change when known
+'LCQ Region #2',//Change when known
+'LCQ Region #3',//Change when known
+'LCQ Region #4',//Change when known
 ]
 export let ChampionshipPlacements = {
     'Major' : [
@@ -162,4 +166,41 @@ export let ChampionshipPlacements = {
     'TBD', 'TBD', 'TBD', 'TBD',
     'TBD', 'TBD', 'TBD', 'TBD',
     ]
+}
+
+export function determineSpots(quals, unsorted, num){
+    let spotType = ''
+    if(num === 1){
+        teams.sort((a,b)=> b.split1Pts - a.split1Pts)
+    } else if(num === 2){
+        teams.sort((a,b)=> b.split2Pts - a.split2Pts)
+    } else if(num === 3){
+        teams.sort((a,b)=> b.totalSeasonPts - a.totalSeasonPts)
+    }
+    regions.forEach((id)=>{
+        if(num === 1 || num === 2){
+            spotType = id.spots
+        } else {
+            spotType = id.chspots
+        }
+        const teamsFiltered = teams.filter(t => t.region.toLowerCase() === id.reg);
+        for(let i = 0; i < spotType; i++){
+            unsorted.push({teamname: teamsFiltered[i].team, placementNum: i+1})
+        }
+    })
+    unsorted.forEach((id)=>{
+        //team, region, index in quals
+        const team = [id.teamname, getTeamDetails(id.teamname)[0], id.placementNum, unsorted.indexOf(id)]
+        quals.forEach((id2) => {
+            const placementLength = id2.length-3
+            const placementOfRegion = id2.substring(0, placementLength) //Find the placement region
+            const placementPosition = id2.at(-1) //placement position
+            const indexOfID2 = quals.indexOf(id2)
+            const fullPosition = (placementOfRegion + ' #' + placementPosition)
+            if(placementOfRegion === team[1] && fullPosition.includes(team[2])){
+                quals[indexOfID2] = team[0]
+            }
+        })
+    })
+    console.log(quals)
 }

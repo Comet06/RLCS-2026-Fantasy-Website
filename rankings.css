@@ -3,7 +3,7 @@
 table{border: solid 2px white; border-spacing: 1px;width: 100%;}
 #split1{width: fit-content; height: fit-content; padding: 10px;}
 #split2{width: fit-content; height: fit-content; padding: 10px;}
-#split0quals{width: 400px; height: fit-content; padding: 10px;}
+#split0quals{width: 300px; height: fit-content; padding: 10px;}
 #split1quals{width: 400px; height: fit-content; padding: 10px;}
 #split2quals{width: 400px; height: fit-content; padding: 10px;}
 #split3quals{width: 400px; height: fit-content; padding: 10px;}
