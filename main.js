@@ -1,6 +1,6 @@
 import { members, prizes, year, players, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6} from "./current-fantasy-members.js";
-import { getPlayerScore, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
-import { deployTops } from "./stats.js";
+import { getPlayerScore, getTeamDetails, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
+import { deployTops, determineLegacyRanks } from "./stats.js";
 const CurrentForm = 'kickoff' // next form page for major event
 
 export const path = `/RLCS-${year}-Fantasy-Website`
@@ -12,6 +12,7 @@ window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/index.html`) {
     document.getElementById('titleYear').innerHTML = `RLCS Fantasy ${year}`
     determineTotalScores()
+    determinePlayerRating()
     deployHome()
     deployTops(players)
   }
@@ -24,16 +25,28 @@ export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'T
 export const points = {'matchups': [500], 'kickoff': [200],'groups': [400], 'playin' : [100, 200], 'playoff' : [400, 600]}
 export const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
 export const regions = [
-  {reg: 'eu', spots: 4, chspots: 6},
-  {reg: 'na', spots: 5, chspots: 5},
-  {reg: 'oce', spots: 1, chspots: 1},
-  {reg: 'sam', spots: 2, chspots: 3},
-  {reg: 'mena', spots: 2, chspots: 3},
-  {reg: 'apac', spots: 1, chspots: 1},
-  {reg: 'ssa', spots: 1, chspots: 1},
+  {reg: 'eu', spots: 4, chspots: 5, multiplier: 1},
+  {reg: 'na', spots: 5, chspots: 6, multiplier: 1},
+  {reg: 'sam', spots: 2, chspots: 3, multiplier: .9},
+  {reg: 'mena', spots: 2, chspots: 3, multiplier: .9},
+  {reg: 'oce', spots: 1, chspots: 1, multiplier: .8},
+  {reg: 'apac', spots: 1, chspots: 1, multiplier: .7},
+  {reg: 'ssa', spots: 1, chspots: 1, multiplier: .6},
 ]
 // Homepage
 export function determineTotalScores(){
+  regional1Players.forEach((id)=>{
+    const findPlayer = players.find(x => x.player === id.player)
+    if(findPlayer){
+      findPlayer.gp += id.gp
+      findPlayer.wins += id.wins
+      findPlayer.score += id.score
+      findPlayer.goals += id.goals
+      findPlayer.assists += id.assists
+      findPlayer.saves += id.saves
+      findPlayer.shots += id.shots
+    }
+  })
   members.forEach((id) =>{
     //Regionals
     for (let i = 0; i < Regional1[id.shortname].length-2; i++){
@@ -65,6 +78,18 @@ export function determineTotalScores(){
     //Split 1 and 2
     id.S1 += (id.R1 + id.R2 + id.R3 + id.M1T + id.KO)
     id.S2 += (id.R4 + id.R5 + id.R6 + id.M2T)
+  })
+}
+export function determinePlayerRating(){
+  players.forEach((id)=>{
+    const regionSearch = getTeamDetails(id.team)[0]
+    let regMultiplier = .5
+    if(regionSearch){
+      const regionFind = regions.find(r => r.reg === regionSearch.toLowerCase())
+      regMultiplier = regionFind.multiplier
+    }
+    id.rating = Math.round(getPlayerScore(id.player, players)*regMultiplier/100)
+    id.rank = determineLegacyRanks(players, id.rating)
   })
 }
 function deployHome(){

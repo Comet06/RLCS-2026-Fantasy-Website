@@ -1,5 +1,5 @@
-import { path, deployLinks, menu } from "./main.js";
-import { getTeamDetails } from "./events.js";
+import { path, deployLinks, menu, determineTotalScores, determinePlayerRating } from "./main.js";
+import { getPlayerDetails } from "./events.js";
 import { year, players, teams, members, Regional1 } from "./current-fantasy-members.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
@@ -24,7 +24,7 @@ export let Tops = { //Do not edit
 }
 const playerTableType = `
 <p id="retired">Retired</p><p id="rookie">Rookie</p><p id="inactive">Inactive</p><p id="sub">Sub</p><p id="coach">Coach</p><br>
-<p><input type="checkbox" id="availability">Include Unavailable Players</p><br>
+<p><input type="checkbox" id="availability"> Include Unavailable Players</p><br>
 <label>Sort By:</label>
 <select id="playerStats">
     <option value="name">Name</option>
@@ -93,7 +93,6 @@ const weightedParagraph = `
   <li>${weight[6].region} multiplier: ${weight[6].weight}</li>
   </ul>
   `
-
 window.addEventListener('load', function() {
   const urlParams = new URLSearchParams(window.location.search);
   const evt = urlParams.get('name');
@@ -101,6 +100,8 @@ window.addEventListener('load', function() {
   menu()
   document.getElementById('year').innerHTML = `RLCS ${year}`
   if (window.location.pathname === `${path}/stats.html`) {
+    determineTotalScores()
+    determinePlayerRating()
     // document.getElementById('last_updated').innerHTML = `UPDATED 11/7/25 Currently Showing 2025 Data`
     if(evt === 'player'){
       document.getElementById('table_type').innerHTML = playerTableType
@@ -109,8 +110,16 @@ window.addEventListener('load', function() {
       const playerSort = document.getElementById('playerStats')
       playerSort.addEventListener('change', handleDropdownPlayer);
 
-      const includeUnavailable = document.getElementById('availability')
-      // includeUnavailable.addEventListener('change');
+      const checkboxUnavailable = document.getElementById('availability')
+      checkboxUnavailable.addEventListener('change', function() {
+        if (this.checked) {
+            availabilityCheck = true
+            populatePlayersTable(players)
+        } else {
+            availabilityCheck = false
+            populatePlayersTable(players)
+        }
+      });
 
       populatePlayersTable(players)
       console.log('Player Stats page has loaded!');
@@ -189,7 +198,6 @@ window.addEventListener('load', function() {
     }
   }
 });
-
 
 export function deployTops(array){
   deployTopPerformers(array, 'TopScores', 'score')
@@ -387,9 +395,9 @@ function populateLegacyPlayersTable(Players) {
     }
   });
 }
-function determineLegacyRanks(Players, rating){
+export function determineLegacyRanks(Players, rating){
   Players.sort((a,b) => b.rating - a.rating)
-  let high = Players[0].rating()
+  let high = Players[0].rating
   if(rating > (high/6*5)){
     return 'S'
   } else if(rating > (high/6*4)){
@@ -404,6 +412,7 @@ function determineLegacyRanks(Players, rating){
     return "F"
   }
 }
+let availabilityCheck = false
 function populatePlayersTable(Players) {
   const tableBody = document.getElementById('data_table');
   tableBody.innerHTML = '';
@@ -460,7 +469,7 @@ function populatePlayersTable(Players) {
         availCell.textContent = 'No';
         availCell.id = 'no'
       } else {
-        availCell.textContent = "Yes";
+        availCell.textContent = 'Yes';
         availCell.id = 'yes'
       }
     }
@@ -481,9 +490,14 @@ function populatePlayersTable(Players) {
     teamCell.appendChild(teamLink);
     newRow.appendChild(teamCell);
 
-    if(availCell.id === 'yes' && i < 1010){
+    if(availabilityCheck){
       i += 1
       tableBody.appendChild(newRow);
+    } else {
+      if(availCell.id === 'yes'){
+        i += 1
+        tableBody.appendChild(newRow);
+      }
     }
   });
 }

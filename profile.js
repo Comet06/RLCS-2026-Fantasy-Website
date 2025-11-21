@@ -1,10 +1,12 @@
-import { path, deployLinks, menu } from "./main.js";
+import { path, deployLinks, menu, determineTotalScores, determinePlayerRating } from "./main.js";
 import { year, players, teams, members, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./current-fantasy-members.js";
 import { determineTeamsRanks, eventName } from "./stats.js";
 import { getPlayerDetails, getPlayerScore, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
 
 window.addEventListener('load', function(){
   if(window.location.pathname === `${path}/profile.html`){
+    determineTotalScores()
+    determinePlayerRating()
     deployLinks()
     menu()
     document.getElementById('year').innerHTML = `RLCS ${year}`

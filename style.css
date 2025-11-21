@@ -1,6 +1,6 @@
 /* Sitewide Styles */
 * {margin: 0;padding: 0;box-sizing: border-box;}
-body {width: 100vw; color: white;background-color:#282375;font-family: 'Istok Web', sans-serif;min-height: 100%;margin: 0;}
+body {width: 100vw; color: white;background-color:#51515c;font-family: 'Istok Web', sans-serif;min-height: 100%;margin: 0;}
 main {text-align: center;}
 
 .navbar {display: flex; background-color: #1e1e2f; justify-content: space-between; align-items: center; width: 100vw; padding: 20px; margin-bottom: 10px;}
@@ -36,8 +36,8 @@ a{color: currentColor; text-decoration: none;}
 .home_tables{margin:0 auto;width: fit-content;}
 .home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
 
-#come{color: white; background-color: #037120; padding: 2px; border-radius: 5px;}
-#squi{color: black; background-color: #c59700; padding: 2px; border-radius: 5px;}
+#come{color: white; background-color: #1b1bac; padding: 2px; border-radius: 5px;}
+#squi{color: black; background-color: #FF2400; padding: 2px; border-radius: 5px;}
 #vinn{color: black; background-color: limegreen; padding: 2px; border-radius: 5px;}
 #jimm{color: black; background-color: #d8db4b; padding: 2px; border-radius: 5px;}
 #ecof{color: black; background-color: #32d2d7; padding: 2px; border-radius: 5px;}

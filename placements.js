@@ -202,5 +202,4 @@ export function determineSpots(quals, unsorted, num){
             }
         })
     })
-    console.log(quals)
 }

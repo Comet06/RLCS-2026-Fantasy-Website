@@ -1,4 +1,4 @@
-import { path, deployLinks, menu, regions, determineTotalScores, points } from "./main.js";
+import { path, deployLinks, menu, regions, determineTotalScores, points, determinePlayerRating } from "./main.js";
 import { deployTops } from "./stats.js";
 import { year, members, teams, EventPoints, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Regional1Matchups, Regional2Matchups, 
   Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups, KickoffMatchups, Major1Matchups, Major2Matchups, ChampionshipMatchups} from "./current-fantasy-members.js";
@@ -48,6 +48,7 @@ window.addEventListener('load', function() {
     document.getElementById('event').innerHTML = `${evt}`
     document.getElementById('titlePage').innerHTML = `${evt}`
     determineTotalScores()
+    determinePlayerRating()
     if(evt === 'Regional 1'){
       document.getElementById('scoresMultiplier').innerHTML = 'Scores'
       deployRegPlacements(Regional1Placements, 1)
@@ -122,6 +123,13 @@ export function getPlayerDetails(searchTerm, playersArray){
     player.name || 'N/A', //1
     player.shortname || 'N/A', //2
     player.team.toLowerCase().replaceAll(' ', '_').replaceAll('.', '') || 'N/A', //3
+    player.gp || 'N/A', //4
+    player.wins || 'N/A', //5
+    player.score || 'N/A', //6
+    player.goals || 'N/A', //7
+    player.assists || 'N/A', //8
+    player.saves || 'N/A', //9
+    player.shots || 'N/A', //10
   ];
   return details;
 }
@@ -155,7 +163,7 @@ function getMemberDetails(searchTerm){
 export function getPlayerScore(searchTerm, eventName){
   const player = eventName.find(p => p.player === searchTerm);
   if (!player) {return 0;}
-  if(player.gp > 0){player.gp = 1}
+  if(player.gp === 0){player.gp = 1}
   const score = Math.round(((player.score/100) + player.goals + player.assists + player.saves + player.shots ) * player.wins * (player.wins/player.gp))
   return score;
 }

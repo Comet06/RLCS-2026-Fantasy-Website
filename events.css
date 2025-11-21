@@ -10,3 +10,12 @@
 #points{float: right;position: relative;right: 5px;}
 
 #lose{border: solid red 2px;}
+#majplacements{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
+#matchups{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
+#ScoreCard{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
+
+#TopScores{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
+#TopGoals{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
+#TopAssists{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
+#TopSaves{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
+#TopShots{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
