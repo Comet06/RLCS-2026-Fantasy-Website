@@ -970,4 +970,3 @@ export let teams = [
 {team: 'Cloud Esports', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 
 ]
-

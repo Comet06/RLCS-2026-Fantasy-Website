@@ -3,9 +3,9 @@ import { getTeamDetails } from "./events.js"
 import { regions } from "./main.js"
 export let Regional1Placements = {
     'eu' : ['', '', '', '', '', '', '', '', 'Pina Low Driven', 'Dreifach-Reset', 'Geekay Esports', 'GHT', 'Sonics', 'Hogan Mode', 'Cloud Esports', 'TKS'],
-    'na' : ['', '', '', '', '', '', '', '', 'Ciel', 'Lotus 8 Esports', 'NRG', 'Top Leh', 'G.A.S.', 'Unreal Nightmare', 'M80', 'Feastaboniam'],
+    'na' : ['', '', '', '', '', '', 'Shuffles Kittens', 'Team Silenced', 'Ciel', 'Lotus 8 Esports', 'NRG', 'Top Leh', 'G.A.S.', 'Unreal Nightmare', 'M80', 'Feastaboniam'],
     'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'sam' : ['', '', '', '', '', '', 'Sanificados', 'Emerald', 'Aelix', 'NoTime', 'Enosis eSports', 'Fear Of God', 'bandoleiros', 'NoPlanB', 'Changuitos FC', 'Overlooked'],
     'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     'apac' : ['', '', '', '', '', '', '', '', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
     'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -68,7 +68,7 @@ export let kickoffLANQualifiedTeams = [
 ]
 export let kickoffLANPlacements = {
     'Major' : [
-        'TBD', 'TBD',
+        'Spacestation Gaming', 'Redacted',
         'TBD', 'TBD',
         'TBD', 'TBD',
         'TBD', 'TBD',
