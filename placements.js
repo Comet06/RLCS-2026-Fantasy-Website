@@ -2,12 +2,12 @@ import { teams } from "./current-fantasy-members.js"
 import { getTeamDetails } from "./events.js"
 import { regions } from "./main.js"
 export let Regional1Placements = {
-    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'eu' : ['', '', '', '', '', '', '', '', 'Pina Low Driven', 'Dreifach-Reset', 'Geekay Esports', 'GHT', 'Sonics', 'Hogan Mode', 'Cloud Esports', 'TKS'],
+    'na' : ['', '', '', '', '', '', '', '', 'Ciel', 'Lotus 8 Esports', 'NRG', 'Top Leh', 'G.A.S.', 'Unreal Nightmare', 'M80', 'Feastaboniam'],
     'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'apac' : ['', '', '', '', '', '', '', '', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
     'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional2Placements = {

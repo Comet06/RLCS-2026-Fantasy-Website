@@ -42,12 +42,12 @@ export let Regional1 = {
   'come' : ['Daniel', 'Beastmode', 'Kv1', 'Chronic', ''],
   'squi' : ['Trk511', 'M0nkey m00n', 'Motta', 'Atomik', ''],
   'vinn' : ['Firstkiller', 'Lostt', 'Lj', 'Jknaps', '2die4'],
-  'jimm' : ['Dralii', 'Atow', 'Rise', 'Exotiik', ''],
+  'jimm' : ['Dralii', 'Atow', 'Rise', 'Exotiik', 'Justin'],
   'ecof' : ['Nwpo', 'Yanxnz', 'Apparentlyjack', 'Bananahead', ''],
-  'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', ''],
-  'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', ''],
-  'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', ''],
-  'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', ''],
+  'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', 'Sphinx'],
+  'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', 'Torsos'],
+  'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', 'Seikoo'],
+  'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', 'Crr'],
   'plac' : ['Majicbear', 'Oaly', 'Cheese', 'Superlachie', ''],
 }
 export let Regional2 = {
@@ -936,7 +936,6 @@ export let teams = [
 {team: 'Daybreak Frontline', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Compact-Rysfox-Mat', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Gameward', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
-{team: 'The Last Dance', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Zenulous-Vult-Euxsy', region: 'OCE', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Astronic Esports', region: 'SSA', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Tokyo Tigers', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
@@ -963,5 +962,11 @@ export let teams = [
 {team: 'Uhuh', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Rapier', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 {team: 'Xing Xi Xooters', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{team: 'HHM', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{team: 'Sailing Esports', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{team: 'Instant', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{team: 'Lamb Munchers', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{team: 'Bajak Laut Digital', region: 'APAC', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
+{team: 'Cloud Esports', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 
 ]
