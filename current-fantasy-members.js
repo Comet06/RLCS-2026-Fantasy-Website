@@ -39,16 +39,16 @@ export let Major2Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'T
 export let ChampionshipMatchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
 
 export let Regional1 = {
-  'come' : ['Daniel', 'Beastmode', 'Kv1', 'Chronic', ''],
-  'squi' : ['Trk511', 'M0nkey m00n', 'Motta', 'Atomik', ''],
+  'come' : ['Daniel', 'Beastmode', 'Kv1', 'Chronic', 'Catalysm'],
+  'squi' : ['Trk511', 'M0nkey m00n', 'Motta', 'Atomik', 'Tawk'],
   'vinn' : ['Firstkiller', 'Lostt', 'Lj', 'Jknaps', '2die4'],
   'jimm' : ['Dralii', 'Atow', 'Rise', 'Exotiik', 'Justin'],
-  'ecof' : ['Nwpo', 'Yanxnz', 'Apparentlyjack', 'Bananahead', ''],
+  'ecof' : ['Nwpo', 'Yanxnz', 'Apparentlyjack', 'Bananahead', 'Oski'],
   'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', 'Sphinx'],
   'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', 'Torsos'],
   'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', 'Seikoo'],
   'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', 'Crr'],
-  'plac' : ['Majicbear', 'Oaly', 'Cheese', 'Superlachie', ''],
+  'plac' : ['Majicbear', 'Oaly', 'Cheese', '', ''],
 }
 export let Regional2 = {
   'come' : [Regional1['come'][0], Regional1['come'][1], Regional1['come'][2], Regional1['come'][3], Regional1['come'][4]],
@@ -970,3 +970,4 @@ export let teams = [
 {team: 'Cloud Esports', region: 'EU', rating: 0, split1Pts: 0 , split2Pts: 0, totalSeasonPts: 0, gp: 0, wins: 0, score: 0, goals: 0, assists: 0, saves: 0, shots: 0},
 
 ]
+
