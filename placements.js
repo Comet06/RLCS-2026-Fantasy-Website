@@ -7,7 +7,7 @@ export let Regional1Placements = {
     'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     'sam' : ['', '', '', '', '', '', 'Sanificados', 'Emerald', 'Aelix', 'NoTime', 'Enosis eSports', 'Fear Of God', 'bandoleiros', 'NoPlanB', 'Changuitos FC', 'Overlooked'],
     'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'apac' : ['', '', '', '', '', '', '', '', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
+    'apac' : ['', '', '', '', '', '', 'Xing Xi Xooters', 'Praise', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
     'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional2Placements = {
@@ -202,4 +202,5 @@ export function determineSpots(quals, unsorted, num){
             }
         })
     })
+
 }
