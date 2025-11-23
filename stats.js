@@ -75,10 +75,10 @@ const playerTableHeader = `
 // <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th># of players</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
 const teamTableHeader = `
 <tr>
-  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStatsTitle">Team Stats</th>
+  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStatsTitle">Team Stats</th><th colspan="5" id="teamStatsTitle">Stats: Per Game</th>
 </tr>
 <tr>
-  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th>Rating</th><th>Win %</th>
+  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
 </tr>
 `
 const weightedParagraph = `
@@ -598,4 +598,5 @@ function populateTeamsTable(Teams) {
       tableBody.appendChild(newRow);
     }
   });
+
 }
