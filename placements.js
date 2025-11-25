@@ -2,12 +2,12 @@ import { teams } from "./current-fantasy-members.js"
 import { getTeamDetails } from "./events.js"
 import { regions } from "./main.js"
 export let Regional1Placements = {
-    'eu' : ['', '', '', '', '', '', '', '', 'Pina Low Driven', 'Dreifach-Reset', 'Geekay Esports', 'GHT', 'Sonics', 'Hogan Mode', 'Cloud Esports', 'TKS'],
+    'eu' : ['', '', '', '', '', '', 'Magnifico', 'Gentlebench', 'Pina Low Driven', 'Dreifach-Reset', 'Geekay Esports', 'GHT', 'Sonics', 'Hogan Mode', 'Cloud Esports', 'TKS'],
     'na' : ['', '', '', '', '', '', 'Shuffles Kittens', 'Team Silenced', 'Ciel', 'Lotus 8 Esports', 'NRG', 'Top Leh', 'G.A.S.', 'Unreal Nightmare', 'M80', 'Feastaboniam'],
     'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'sam' : ['', '', '', '', '', '', 'Sanificados', 'Emerald', 'Aelix', 'NoTime', 'Enosis eSports', 'Fear Of God', 'bandoleiros', 'NoPlanB', 'Changuitos FC', 'Overlooked'],
+    'sam' : ['Furia Esports', 'MIBR', 'Amethyst', 'Team Secret', 'Novadrift', 'Three Point Shooters', 'Sanificados', 'Emerald', 'Aelix', 'NoTime', 'Enosis eSports', 'Fear Of God', 'bandoleiros', 'NoPlanB', 'Changuitos FC', 'Overlooked'],
     'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'apac' : ['', '', '', '', '', '', 'Xing Xi Xooters', 'Praise', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
+    'apac' : ['Project Delacruz', 'Kinotrope Gaming', 'Ground Zero Gaming', 'Daybreak Frontline', 'Northstar Gaming', 'Rapier', 'Xing Xi Xooters', 'Praise', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
     'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Regional2Placements = {
@@ -57,18 +57,18 @@ export let Regional6Placements = {
 }
 
 export let kickoffLANQualifiedTeams = [
-'EU #1',
-'EU #2',
+'Karmine Corp',
+'Ninjas in Pyjamas',
 'EU #3',
 'EU #4',
-'NA #1',
-'NA #2',
+'Redacted',
+'Spacestation Gaming',
 'NA #3',
 'NA #4',
 ]
 export let kickoffLANPlacements = {
     'Major' : [
-        'Spacestation Gaming', 'Redacted',
+        'TBD', 'TBD',
         'TBD', 'TBD',
         'TBD', 'TBD',
         'TBD', 'TBD',
@@ -202,5 +202,4 @@ export function determineSpots(quals, unsorted, num){
             }
         })
     })
-
 }

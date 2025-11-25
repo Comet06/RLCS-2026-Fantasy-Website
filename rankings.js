@@ -61,7 +61,7 @@ function deploySplitQuals(event, index){
         pts.textContent = getTeamDetails(id)[1]
       } else if (event === kickoffLANQualifiedTeams){
         if(0 === event.indexOf(id)){
-          pts.textContent = 'Qual. to Maj.1'
+          // pts.textContent = 'Qual. to Maj.1'
         }
       } else if(event === split2QualifiedTeams){
         pts.textContent = getTeamDetails(id)[2]
