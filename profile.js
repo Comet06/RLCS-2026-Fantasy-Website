@@ -1,15 +1,12 @@
-import { path, deployLinks, menu, determineTotalScores, determinePlayerRating } from "./main.js";
-import { year, players, teams, members, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./current-fantasy-members.js";
+import { path, determineTotalScores, determinePlayerRating } from "./main.js";
+import { players, teams, members, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./members.js";
 import { determineTeamsRanks, eventName } from "./stats.js";
-import { getPlayerDetails, getPlayerScore, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
+import { getPlayerDetails, getPlayerScore, getTeamDetails, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
 
 window.addEventListener('load', function(){
   if(window.location.pathname === `${path}/profile.html`){
     determineTotalScores()
     determinePlayerRating()
-    deployLinks()
-    menu()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get('name');
     const teamName = urlParams.get('name');
@@ -34,7 +31,7 @@ window.addEventListener('load', function(){
                 }
             })
         } else if(memberName){
-            document.getElementById('member').innerHTML = `<h2 class="player-name" id="">${member.name} | Wins: ${member.split1wins + member.split2wins} | Losses ${member.split1loss + member.split2loss}</h2>`
+            document.getElementById('member').innerHTML = `<h2 class="player-name" id="">${member.name} | Wins: ${member.split1wins + member.split2wins}</h2>`
             createMember(member, Regional1, 1, regional1Players)
             createMember(member, Regional2, 2, regional2Players)
             createMember(member, Regional3, 3, regional3Players)
@@ -46,8 +43,6 @@ window.addEventListener('load', function(){
         }
     }
     console.log('Profile page has loaded!')
-  } else {
-    console.log("main event listener is working but nothing else is")
   }
 });
 
@@ -55,6 +50,7 @@ function createPlayer(id, index) {
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
     const Playerlink = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
     const Teamlink = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
+    const teamRegion = getTeamDetails(id.team)[0]
 
     let drafted = false
     let draftID = ''
@@ -81,7 +77,7 @@ function createPlayer(id, index) {
     const profileHTML = `
         <div class="profile-card">
             <h2 class="player-name"><a href="${Playerlink}">${id.player}<span id="${id.role}">${id.role}</a></span></h2>
-            <p><strong>Team:</strong><span><a style="padding: 2px; border-radius:5px;" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}">${id.team}</a>   </p>
+            <p><strong>Team:</strong><span><a style="padding: 2px; border-radius:5px;" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}">${id.team} | ${teamRegion}</a>   </p>
             <br>
             <div class="profile-details">
                 <p><strong>Rating:</strong> ${id.rating}</p>
@@ -164,7 +160,7 @@ function createMember(id, eventNumber, index, playersArray) {
       playersHtml += `
         <li>Player ${i + 1}: <a href="${path}/profile.html?name=${encodeURIComponent(playerID)}">${playerID}</a></li>
         <li>Team: <span style="padding:2px; border-radius:5px;" id="${playerTeamId}"><a href="${path}/profile.html?name=${encodeURIComponent(playerName)}">${playerName}</a></span></li>
-        <li>Points: ${playerScore}</li>
+        <li>Points: ${playerScore}</li><br>
       `;
     }
   });

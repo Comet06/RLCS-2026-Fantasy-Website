@@ -1,4 +1,4 @@
-import { teams } from "./current-fantasy-members.js"
+import { teams } from "./members.js"
 import { getTeamDetails } from "./events.js"
 import { regions } from "./main.js"
 export let Regional1Placements = {
@@ -55,27 +55,23 @@ export let Regional6Placements = {
     'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
+export let Placements = {
+    'Kickoff' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
+    'Major1' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
+    'Major2' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
+    'Champ' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
+}
 
 export let kickoffLANQualifiedTeams = [
-'Karmine Corp',
 'Ninjas in Pyjamas',
+'Karmine Corp',
 'EU #3',
 'EU #4',
-'Redacted',
 'Spacestation Gaming',
+'Redacted',
 'NA #3',
 'NA #4',
 ]
-export let kickoffLANPlacements = {
-    'Major' : [
-        'TBD', 'TBD',
-        'TBD', 'TBD',
-        'TBD', 'TBD',
-        'TBD', 'TBD',
-    ],
-}
-
-export let split1QualifiedTeamsUnsorted = []
 export let split1QualifiedTeams = [
 'NA #1',
 'EU #1',
@@ -90,21 +86,12 @@ export let split1QualifiedTeams = [
 'SAM #2',
 'MENA #2',
 // 'EU #5', //If EU Wins
-'NA/EU #5',//Change when known(hide)
 'NA #4',
 'APAC #1',
 'SSA #1',
 // 'NA #5', //If NA Wins
+'NA/EU #5',//Change when known(hide)
 ]
-export let Major1Placements = {
-    'Major' : [
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    ],
-}
-export let split2QualifiedTeamsUnsorted = []
 export let split2QualifiedTeams = [
 'NA #1',
 'EU #1',
@@ -119,21 +106,12 @@ export let split2QualifiedTeams = [
 'SAM #2',
 'MENA #2',
 // 'EU #5', //If EU Wins
-'NA/EU #5',//Change when known(hide)
 'NA #4',
 'APAC #1',
 'SSA #1',
 // 'NA #5', //If NA Wins
+'NA/EU #5',//Change when known(hide)
 ]
-export let Major2Placements = {
-    'Major' : [
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    ],
-}
-export let championshipQualifiedTeamsUnsorted = []
 export let championshipQualifiedTeams = [
 'NA #1',
 'EU #1',
@@ -148,25 +126,19 @@ export let championshipQualifiedTeams = [
 'SAM #2',
 'MENA #2',
 // 'EU #5', //If EU Wins
-'NA/EU #5',//Change when known(hide)
 'NA #4',
 'APAC #1',
 'SSA #1',
 // 'NA #5', //If NA Wins
+'NA/EU #5',//Change when known(hide)
 'LCQ Region #1',//Change when known
 'LCQ Region #2',//Change when known
 'LCQ Region #3',//Change when known
 'LCQ Region #4',//Change when known
 ]
-export let ChampionshipPlacements = {
-    'Major' : [
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    'TBD', 'TBD', 'TBD', 'TBD',
-    ]
-}
+export let split1QualifiedTeamsUnsorted = []
+export let split2QualifiedTeamsUnsorted = []
+export let championshipQualifiedTeamsUnsorted = []
 
 export function determineSpots(quals, unsorted, num){
     let spotType = ''

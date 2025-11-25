@@ -23,7 +23,7 @@
       </ol><br>
       <h2>Drafting Rules</h2>
       <ol>
-        <li><span style="color: red;">New Rule: </span>Draft will occur at the beginning of the season, a total of 4  will be drafted. 3 active players and 1 inactive sub</li>
+        <li><span style="color: red;">New Rule: </span>Draft will occur at the beginning of the season, a total of 5  will be drafted. 3 active players and 2 inactive subs</li>
         <li>Redraft may occur due to additional members joining the league after Each major and before worlds.</li>
         <li>Player trades, swaps and all other changes must be made <u><strong>before</strong></u> both of the regions in question have already played, or have not played yet.</li>
         <li>Team and positions will need to be submitted <u><strong>before</strong></u> the regionals have started in order for the changes to take effect, if no submission is made, previous submissions will be in effect.</li>
@@ -56,15 +56,47 @@
       <table id="Kickoff_points">
         <tbody>
           <tr>
-            <th>Points Distribution</th><th>Picks</th><th>Points</th><th>Total Points</th>
+            <th>Round</th><th>Picks</th><th>Points</th><th>Total Points</th>
+          </tr>
+          <tr>
+            <td>Bracket</td><td id="kickoffPicks"></td><td id="kickoffPoints"></td><td id="kickoffTotal"></td>
+          </tr>
+          <tr>
+            <td>Kickoff Multiplier</td><td>2X</td><td>Total Kickoff Points</td><td id="kickoffTotalMulti"></td>
           </tr>
         </tbody>
       </table><br>
-      <h3>Major Max Points</h3>
+      <h3>Major 1 Max Points</h3>
       <table id="Major_points">
         <tbody>
           <tr>
-            <th>Points Distribution</th><th>Quarter/Semifinals</th><th>Qualified/Finals</th><th>Total Points</th>
+            <th>Round</th><th>(Picks)Points(QF/SF)</th><th>(Picks)Points(F/GF)</th><th>Total Points</th>
+          </tr>
+          <tr>
+            <td>Groups</td><td id="M1groupsQPicks"></td><td></td><td id="M1groupsTotal"></td>
+          </tr>
+          <tr>
+            <td>Playoffs</td><td id="M1playoffsQPicks"></td><td id="M1playoffsFPicks"></td><td id="M1playoffsTotal"></td>
+          </tr>
+          <tr>
+            <td>Major Multiplier</td><td>3X</td><td>Total Major 1 Points</td><td id="M1totalMulti"></td>
+          </tr>
+        </tbody>
+      </table><br>
+      <h3>Major 2 Max Points</h3>
+      <table id="Major_points">
+        <tbody>
+          <tr>
+            <th>Round</th><th>(Picks)Points(QF/SF)</th><th>(Picks)Points(F/GF)</th><th>Total Points</th>
+          </tr>
+          <tr>
+            <td>Groups</td><td id="M2groupsQPicks"></td><td></td><td id="M2groupsTotal"></td>
+          </tr>
+          <tr>
+            <td>Playoffs</td><td id="M2playoffsQPicks"></td><td id="M2playoffsFPicks"></td><td id="M2playoffsTotal"></td>
+          </tr>
+          <tr>
+            <td>Major Multiplier</td><td>3X</td><td>Total Major 2 Points</td><td id="M2totalMulti"></td>
           </tr>
         </tbody>
       </table><br>
@@ -72,14 +104,26 @@
       <table id="Champ_points">
         <tbody>
           <tr>
-            <th>Points Distribution</th><th>Quarter/Semifinals</th><th>Qualified/Finals</th><th>Total Points</th>
+            <th>Round</th><th>(Picks)Points(QF/SF)</th><th>(Picks)Points(F/GF)</th><th>Total Points</th>
+          </tr>
+          <tr>
+            <td>Playins</td><td id="CPQPicks"></td><td id="CPFPicks"></td><td id="CPTotal"></td>
+          </tr>
+          <tr>
+            <td>Groups</td><td id="CgroupsQPicks"></td><td></td><td id="CgroupsTotal"></td>
+          </tr>
+          <tr>
+            <td>Playoffs</td><td id="CplayoffsQPicks"></td><td id="CplayoffsFPicks"></td><td id="CplayoffsTotal"></td>
+          </tr>
+          <tr>
+            <td>Championship Multiplier</td><td>5X</td><td>Total Championship Points</td><td id="CtotalMulti"></td>
           </tr>
         </tbody>
       </table>
     </div>
   </main>
 </body>
-<script type="module" src="info.js"></script>
+<script type="module" src="main.js"></script>
 <footer>
   <p>©Comet Productions.</p>
   <div id="socials">

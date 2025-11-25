@@ -1,108 +1,28 @@
-import { path, deployLinks, menu, determineTotalScores, determinePlayerRating } from "./main.js";
-import { getPlayerDetails } from "./events.js";
-import { year, players, teams, members, Regional1 } from "./current-fantasy-members.js";
+import { path, determineTotalScores, determinePlayerRating, determineRanks, regions } from "./main.js";
+import { players, teams, members, Regional1 } from "./members.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
 import { determineSeasonPoints } from "./rankings.js"
-export const eventName = Regional1 //Current event where the player tables should draw availability from
-// Stats Page
-const weight = [
-  {region: "EU", weight: 1},
-  {region: "NA", weight: 1},
-  {region: "OCE", weight: .8},
-  {region: "SAM", weight: .9},
-  {region: "MENA", weight: .9},
-  {region: "APAC", weight: .7},
-  {region: "SSA", weight: .6},
-]
-export let Tops = { //Do not edit
-    'score' :   [],
-    'goals' :   [],
-    'assists' : [],
-    'saves' :   [],
-    'shots' :   [],
-}
-const playerTableType = `
-<p id="retired">Retired</p><p id="rookie">Rookie</p><p id="inactive">Inactive</p><p id="sub">Sub</p><p id="coach">Coach</p><br>
-<p><input type="checkbox" id="availability"> Include Unavailable Players</p><br>
-<label>Sort By:</label>
-<select id="playerStats">
-    <option value="name">Name</option>
-    <option value="rating">Rating</option>
-    <option value="team">Team</option>
-    <option value="winPerc">Win Percentage</option>
-    <option value="score">Score</option>
-    <option value="goals">Goals</option>
-    <option value="assists">Assists</option>
-    <option value="saves">Saves</option>
-    <option value="shots">Shots</option>
-</select>
-`
-const teamTableType = `
-<label>Sort By:</label>
-<select id="teamStats">
-    <option value="name">Team</option>
-    <option value="region">Region</option>
-    <option value="rating">Rating</option>
-    <option value="split1">Split 1 Points</option>
-    <option value="split2">Split 2 Points</option>
-    <option value="seasonTotal">Total Season Points</option>
-    <option value="winPerc">Win Percentage</option>
-    <option value="score">Score</option>
-    <option value="goals">Goals</option>
-    <option value="assists">Assists</option>
-    <option value="saves">Saves</option>
-    <option value="shots">Shots</option>
-</select>
-`
-const legacyPlayerTableHeader = `
-<tr>
-  <th colspan="3" id="name">Player Information</th><th colspan="5" id="perGame">Player Stats: Per Game</th>
-</tr>
-<tr>
-  <th>Player Name</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
-</tr>
-`
-// <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th><th>Team</th><th>Region</th>
-const playerTableHeader = `
-<tr>
-  <th colspan="3" id="name">Player Information</th><th colspan="2" id="perGame">Player Stats: Per Game</th><th colspan="1" id="teamStatsTitle">Team Stats</th>
-</tr>
-<tr>
-  <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Team</th>
-</tr>
-`
-// <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th># of players</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
-const teamTableHeader = `
-<tr>
-  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStatsTitle">Team Stats</th><th colspan="5" id="teamStatsTitle">Stats: Per Game</th>
-</tr>
-<tr>
-  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
-</tr>
-`
-const weightedParagraph = `
-<ul id="hide_list">
-  <li><strong>Region Weighting</strong></li>
-  <li>${weight[0].region} multiplier: ${weight[0].weight}</li>
-  <li>${weight[1].region} multiplier: ${weight[1].weight}</li>
-  <li>${weight[2].region} multiplier: ${weight[2].weight}</li>
-  <li>${weight[3].region} multiplier: ${weight[3].weight}</li>
-  <li>${weight[4].region} multiplier: ${weight[4].weight}</li>
-  <li>${weight[5].region} multiplier: ${weight[5].weight}</li>
-  <li>${weight[6].region} multiplier: ${weight[6].weight}</li>
-  </ul>
-  `
+
+// const weighted_multiplier = `
+// <ul id="hide_list">
+//   <li><strong>Region Weighting</strong></li>
+//   <li>EU multiplier: ${regions[0].multiplier}</li>
+//   <li>NA multiplier: ${regions[1].multiplier}</li>
+//   <li>SAM multiplier: ${regions[2].multiplier}</li>
+//   <li>MENA multiplier: ${regions[3].multiplier}</li>
+//   <li>OCE multiplier: ${regions[4].multiplier}</li>
+//   <li>APAC multiplier: ${regions[5].multiplier}</li>
+//   <li>SSA multiplier: ${regions[6].multiplier}</li>
+// </ul>
+// `
+
 window.addEventListener('load', function() {
   const urlParams = new URLSearchParams(window.location.search);
   const evt = urlParams.get('name');
-  deployLinks()
-  menu()
-  document.getElementById('year').innerHTML = `RLCS ${year}`
   if (window.location.pathname === `${path}/stats.html`) {
     determineTotalScores()
     determinePlayerRating()
-    // document.getElementById('last_updated').innerHTML = `UPDATED 11/7/25 Currently Showing 2025 Data`
     if(evt === 'player'){
       document.getElementById('table_type').innerHTML = playerTableType
       document.getElementById('title').innerHTML = 'Player Statistics'
@@ -124,7 +44,18 @@ window.addEventListener('load', function() {
       populatePlayersTable(players)
       console.log('Player Stats page has loaded!');
     } else if(evt === 'team'){
-      document.getElementById('weighted_multiplier').innerHTML = weightedParagraph
+      document.getElementById('weighted_multiplier').innerHTML =  `
+        <ul id="hide_list">
+          <li><strong>Region Weighting</strong></li>
+          <li>EU multiplier: ${regions[0].multiplier}</li>
+          <li>NA multiplier: ${regions[1].multiplier}</li>
+          <li>SAM multiplier: ${regions[2].multiplier}</li>
+          <li>MENA multiplier: ${regions[3].multiplier}</li>
+          <li>OCE multiplier: ${regions[4].multiplier}</li>
+          <li>APAC multiplier: ${regions[5].multiplier}</li>
+          <li>SSA multiplier: ${regions[6].multiplier}</li>
+        </ul>
+      `
       document.getElementById('table_type').innerHTML = teamTableType
       document.getElementById('title').innerHTML = 'Team Statistics'
 
@@ -198,7 +129,14 @@ window.addEventListener('load', function() {
     }
   }
 });
-
+export const eventName = Regional1 //Current event where the player tables should draw availability from
+export let Tops = { //Do not edit
+    'score' :   [],
+    'goals' :   [],
+    'assists' : [],
+    'saves' :   [],
+    'shots' :   [],
+}
 export function deployTops(array){
   deployTopPerformers(array, 'TopScores', 'score')
   deployTopPerformers(array, 'TopGoals', 'goals')
@@ -206,6 +144,81 @@ export function deployTops(array){
   deployTopPerformers(array, 'TopSaves', 'saves')
   deployTopPerformers(array, 'TopShots', 'shots')
 }
+export function determineTeamsRanks(rating){
+  teams.sort((a,b) => b.rating - a.rating)
+  let high = teams[0].rating
+  if(rating > (high/6*5)){
+    return 'S'
+  } else if(rating > (high/6*4)){
+    return 'A'
+  } else if(rating > (high/6*3)){
+    return 'B'
+  } else if(rating > (high/6*2)){
+    return 'C'
+  } else if(rating > (high/6)){
+    return 'D'
+  } else {
+    return "F"
+  }
+}
+const playerTableType = `
+<p id="retired">Retired</p><p id="rookie">Rookie</p><p id="inactive">Inactive</p><p id="sub">Sub</p><p id="coach">Coach</p><br>
+<p><input type="checkbox" id="availability"> Remove Unavailable</p><br>
+<label>Sort By:</label>
+<select id="playerStats">
+    <option value="name">Name</option>
+    <option value="rating">Rating</option>
+    <option value="team">Team</option>
+    <option value="winPerc">Win Percentage</option>
+    <option value="score">Score</option>
+    <option value="goals">Goals</option>
+    <option value="assists">Assists</option>
+    <option value="saves">Saves</option>
+    <option value="shots">Shots</option>
+</select>
+`
+const teamTableType = `
+<label>Sort By:</label>
+<select id="teamStats">
+    <option value="name">Team</option>
+    <option value="region">Region</option>
+    <option value="rating">Rating</option>
+    <option value="split1">Split 1 Points</option>
+    <option value="split2">Split 2 Points</option>
+    <option value="seasonTotal">Total Season Points</option>
+    <option value="winPerc">Win Percentage</option>
+    <option value="score">Score</option>
+    <option value="goals">Goals</option>
+    <option value="assists">Assists</option>
+    <option value="saves">Saves</option>
+    <option value="shots">Shots</option>
+</select>
+`
+const legacyPlayerTableHeader = `
+<tr>
+  <th colspan="3" id="name">Player Information</th><th colspan="5" id="perGame">Player Stats: Per Game</th>
+</tr>
+<tr>
+  <th>Player Name</th><th>Rating</th><th>Win %</th><th>Score</th><th>Goals</th><th>Assists</th><th>Saves</th><th>Shots</th>
+</tr>
+`
+const playerTableHeader = `
+<tr>
+  <th colspan="3" id="name">Player Information</th><th colspan="2" id="perGame">Player Stats: Per Game</th><th colspan="1" id="teamStatsTitle">Team Stats</th>
+</tr>
+<tr>
+  <th>#</th><th>Player Name</th><th>Available</th><th>Rating</th><th>Win %</th><th>Team</th>
+</tr>
+`
+const teamTableHeader = `
+<tr>
+  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStatsTitle">Team Stats</th>
+</tr>
+<tr>
+  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th>Rating</th><th>Win %</th>
+</tr>
+`
+
 function deployTopPerformers(PlayersArray, where, type){
   if(PlayersArray.length > 1){
     determineTops(PlayersArray)
@@ -234,23 +247,6 @@ function deployTopPerformers(PlayersArray, where, type){
     newRow.appendChild(player)
     newRow.appendChild(stat)
     tableBody.appendChild(newRow);
-  }
-}
-export function determineTeamsRanks(rating){
-  teams.sort((a,b) => b.rating - a.rating)
-  let high = teams[0].rating
-  if(rating > (high/6*5)){
-    return 'S'
-  } else if(rating > (high/6*4)){
-    return 'A'
-  } else if(rating > (high/6*3)){
-    return 'B'
-  } else if(rating > (high/6*2)){
-    return 'C'
-  } else if(rating > (high/6)){
-    return 'D'
-  } else {
-    return "F"
   }
 }
 function determineTops(PlayersArray){
@@ -371,7 +367,7 @@ function populateLegacyPlayersTable(Players) {
     const roleID = id.role.toLowerCase()
     
     nameCell.id = roleID;
-    const rank = determineLegacyRanks(Players, id.rating())
+    const rank = determineRanks(Players, id.rating())
     nameCell.textContent = id.player + " (" + rank + ")";
     ratingCell.textContent = id.rating()
     
@@ -395,24 +391,7 @@ function populateLegacyPlayersTable(Players) {
     }
   });
 }
-export function determineLegacyRanks(Players, rating){
-  Players.sort((a,b) => b.rating - a.rating)
-  let high = Players[0].rating
-  if(rating > (high/6*5)){
-    return 'S'
-  } else if(rating > (high/6*4)){
-    return 'A'
-  } else if(rating > (high/6*3)){
-    return 'B'
-  } else if(rating > (high/6*2)){
-    return 'C'
-  } else if(rating > (high/6)){
-    return 'D'
-  } else {
-    return "F"
-  }
-}
-let availabilityCheck = false
+let availabilityCheck = false //Change to false if want functionality restored
 function populatePlayersTable(Players) {
   const tableBody = document.getElementById('data_table');
   tableBody.innerHTML = '';
@@ -491,13 +470,13 @@ function populatePlayersTable(Players) {
     newRow.appendChild(teamCell);
 
     if(availabilityCheck){
-      i += 1
-      tableBody.appendChild(newRow);
-    } else {
       if(availCell.id === 'yes'){
         i += 1
         tableBody.appendChild(newRow);
       }
+    } else {
+      i += 1
+      tableBody.appendChild(newRow);
     }
   });
 }
@@ -555,12 +534,6 @@ function populateTeamsTable(Teams) {
     newRow.appendChild(S2points);
     newRow.appendChild(seasonPoints);
     // newRow.appendChild(numOfPlayersCell);
-    let regionWeight = .5
-    weight.forEach((amt)=>{
-      if(amt.region === id.region){
-        regionWeight = amt.weight
-      }
-    })
     if (id.gp > 0){
       ratingCell.textContent = id.rating
       winPercCell.textContent = (id.wins/id.gp*100).toFixed(2);
@@ -598,5 +571,4 @@ function populateTeamsTable(Teams) {
       tableBody.appendChild(newRow);
     }
   });
-
 }

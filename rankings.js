@@ -1,16 +1,14 @@
-import { path, deployLinks, menu, regions } from "./main.js";
+import { path, regions, EventPoints } from "./main.js";
 import { getTeamDetails } from "./events.js";
-import { EventPoints, year, teams } from "./current-fantasy-members.js";
-import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams, Regional1Placements,
-  Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Major1Placements,
-  Major2Placements, determineSpots, split1QualifiedTeamsUnsorted, split2QualifiedTeamsUnsorted, championshipQualifiedTeamsUnsorted} from "./placements.js";
+import { teams } from "./members.js";
+import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams, split1QualifiedTeamsUnsorted, split2QualifiedTeamsUnsorted, championshipQualifiedTeamsUnsorted,
+  Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, 
+  determineSpots, Placements} from "./placements.js";
 
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/teams_rankings.html`) {
-    deployLinks()
-    menu()
+    console.log('Rankings page has loaded!');
     determineSeasonPoints()
-    document.getElementById('year').innerHTML = `RLCS ${year}`
     determineSpots(split1QualifiedTeams, split1QualifiedTeamsUnsorted, 1)
     determineSpots(split2QualifiedTeams, split2QualifiedTeamsUnsorted, 2)
     determineSpots(championshipQualifiedTeams, championshipQualifiedTeamsUnsorted, 3)
@@ -20,7 +18,6 @@ window.addEventListener('load', function() {
     deploySplitQuals(split1QualifiedTeams, 1)
     deploySplitQuals(split2QualifiedTeams, 2)
     deploySplitQuals(championshipQualifiedTeams, 3)
-    console.log('Rankings page has loaded!');
   }
 });
 
@@ -59,10 +56,6 @@ function deploySplitQuals(event, index){
       teamLink.href = `${path}/profile.html?name=${encodeURIComponent(getTeamDetails(id)[4])}`;
       if (event === split1QualifiedTeams){
         pts.textContent = getTeamDetails(id)[1]
-      } else if (event === kickoffLANQualifiedTeams){
-        if(0 === event.indexOf(id)){
-          // pts.textContent = 'Qual. to Maj.1'
-        }
       } else if(event === split2QualifiedTeams){
         pts.textContent = getTeamDetails(id)[2]
       } else if (event === championshipQualifiedTeams){
@@ -112,12 +105,12 @@ export function determineSeasonPoints() {
           id.split2Pts += EventPoints['Regional2'][team6Index];
         }
     });
-    const major1Teams = Major1Placements['Major'];
+    const major1Teams = Placements['Major1'];
     const team7Index = major1Teams.indexOf(id.team);
     if (team7Index !== -1) {
       id.split1Pts += EventPoints['Major1'][team7Index];
     }
-    const major2Teams = Major2Placements['Major'];
+    const major2Teams = Placements['Major2'];
     const team8Index = major2Teams.indexOf(id.team);
     if (team8Index !== -1) {
       id.split2Pts += EventPoints['Major2'][team8Index];
