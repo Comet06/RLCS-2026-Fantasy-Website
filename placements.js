@@ -4,11 +4,11 @@ import { regions } from "./main.js"
 export let Regional1Placements = {
     'eu' : ['', '', '', '', '', '', 'Magnifico', 'Gentlebench', 'Pina Low Driven', 'Dreifach-Reset', 'Geekay Esports', 'GHT', 'Sonics', 'Hogan Mode', 'Cloud Esports', 'TKS'],
     'na' : ['', '', '', '', '', '', 'Shuffles Kittens', 'Team Silenced', 'Ciel', 'Lotus 8 Esports', 'NRG', 'Top Leh', 'G.A.S.', 'Unreal Nightmare', 'M80', 'Feastaboniam'],
-    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['PWR', 'Wildcard', 'Canterbury Bulldogs', 'Take Flyte', 'you not a champ', 'Almost Nuts', 'Team Freez', 'KekDubz', 'Vade Esports', 'Miami Metro', 'petrol money', '4Ever', 'Spliced', 'R.T.T.', 'Lethal Esports', 'Dumb Luck Esports'],
     'sam' : ['Furia Esports', 'MIBR', 'Amethyst', 'Team Secret', 'Novadrift', 'Three Point Shooters', 'Sanificados', 'Emerald', 'Aelix', 'NoTime', 'Enosis eSports', 'Fear Of God', 'bandoleiros', 'NoPlanB', 'Changuitos FC', 'Overlooked'],
-    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'mena' : ['Twisted Minds', 'Team Falcons', 'Sleeping', 'ROC Esports', 'dont disturb us', 'MMA', 'Awawa', 'Project S', 'Fearless', 'Nothing', 'Rural', 'SWC', 'The First', '100', 'Incindies', 'NRD Esports'],
     'apac' : ['Project Delacruz', 'Kinotrope Gaming', 'Ground Zero Gaming', 'Daybreak Frontline', 'Northstar Gaming', 'Rapier', 'Xing Xi Xooters', 'Praise', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
-    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'ssa' : ['Pioneers', 'Five Fears', 'Looking For Organization', 'CosmiCo Esports', 'Death Cloud Esports', 'Synthesis', 'Team10', 'The Punishers', 'Ox Gaming', 'Rounds', 'Team HSK', 'Unity', 'White Rabbit Gaming', 'Astronic Esports', 'Nkandla Style', 'spanish pap en wors'],
 }
 export let Regional2Placements = {
     'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -136,7 +136,7 @@ export let championshipQualifiedTeams = [
 'LCQ Region #3',//Change when known
 'LCQ Region #4',//Change when known
 ]
-export let split1QualifiedTeamsUnsorted = []
+export let split1QualifiedTeamsUnsorted = [] //used for pushing the number of teams going to the event sorting is done after
 export let split2QualifiedTeamsUnsorted = []
 export let championshipQualifiedTeamsUnsorted = []
 
@@ -164,8 +164,8 @@ export function determineSpots(quals, unsorted, num){
         //team, region, index in quals
         const team = [id.teamname, getTeamDetails(id.teamname)[0], id.placementNum, unsorted.indexOf(id)]
         quals.forEach((id2) => {
-            const placementLength = id2.length-3
-            const placementOfRegion = id2.substring(0, placementLength) //Find the placement region
+            const regionTextLength = id2.length-3 //determine the length of string ex. (NA) #3
+            const placementOfRegion = id2.substring(0, regionTextLength) //Find the placement region
             const placementPosition = id2.at(-1) //placement position
             const indexOfID2 = quals.indexOf(id2)
             const fullPosition = (placementOfRegion + ' #' + placementPosition)

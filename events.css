@@ -4,7 +4,7 @@
 .placements_horizontal_container{display: flex; flex-wrap: wrap;justify-content: center;}
 .section{width:250px;text-align: left;margin: 10px;padding: 0 5px;}
 .champ_section{width:330px;text-align: left;margin: 10px;padding: 0 5px;}
-.tops_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center; gap: 20px;}
+.tops_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center; gap: 40px;}
 .tops_section{width:180px;text-align: left;margin: 10px;padding: 0 5px;} /* Data within the tops boxes */
 #team{position: relative; overflow: hidden; padding-left: 5px;}
 #points{float: right;position: relative;right: 5px;}
@@ -14,8 +14,8 @@
 #matchups{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
 #ScoreCard{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
 
-#TopScores{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
-#TopGoals{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
-#TopAssists{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
-#TopSaves{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
-#TopShots{border: white solid 5px; width: fit-content; height: fit-content; padding:2px; border-radius: 5px;}
+#TopScores{border: white solid 5px; width: 200px; height: fit-content; padding:2px; border-radius: 5px;}
+#TopGoals{border: white solid 5px; width: 200px; height: fit-content; padding:2px; border-radius: 5px;}
+#TopAssists{border: white solid 5px; width: 200px; height: fit-content; padding:2px; border-radius: 5px;}
+#TopSaves{border: white solid 5px; width: 200px; height: fit-content; padding:2px; border-radius: 5px;}
+#TopShots{border: white solid 5px; width: 200px; height: fit-content; padding:2px; border-radius: 5px;}

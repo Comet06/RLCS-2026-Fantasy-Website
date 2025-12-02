@@ -1,5 +1,5 @@
-import { members, prizes, players, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./members.js";
 import { getPlayerScore, getTeamDetails, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
+import { members, prizes, players, teams, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./members.js";
 import { deployTops } from "./stats.js";
 
 export const year = '2026'
@@ -28,7 +28,7 @@ export let EventPoints = {
 }
 export const regions = [
   {reg: 'eu', spots: 4, chspots: 5, multiplier: 1},
-  {reg: 'na', spots: 5, chspots: 6, multiplier: 1},
+  {reg: 'na', spots: 4, chspots: 5, multiplier: 1},
   {reg: 'sam', spots: 2, chspots: 3, multiplier: .9},
   {reg: 'mena', spots: 2, chspots: 3, multiplier: .9},
   {reg: 'oce', spots: 1, chspots: 1, multiplier: .8},
@@ -37,7 +37,7 @@ export const regions = [
 ]
 
 window.addEventListener('load', function() {
-  deployLinks()
+  initialize()
   document.getElementById('year').innerHTML = `RLCS ${year}`
   if (window.location.pathname === `${path}/index.html`) {
     console.log('Home page has loaded!');
@@ -59,7 +59,7 @@ window.addEventListener('load', function() {
   }
 });
 
-export function deployLinks(){
+function initialize(){
   const profileHTML = `
     <nav class="navbar">
       <h1 id="year"></h1>
@@ -131,6 +131,36 @@ export function deployLinks(){
   }
   const menu_button = document.getElementById('menuButton');
   menu_button.addEventListener('click', function() {toggleMenu()});
+  teams.forEach(team => {
+    team.split1Pts = 0;
+    team.split2Pts = 0;
+    team.totalSeasonPts = 0;
+  });
+  players.forEach(player => {
+    player.gp = 0;
+    player.wins = 0;
+    player.score = 0;
+    player.goals = 0;
+    player.assists = 0;
+    player.saves = 0;
+    player.shots = 0;
+    player.rank = '';
+    player.rating = 0;
+  })
+  members.forEach(member => {
+    member.R1 = 0;
+    member.R2 = 0;
+    member.R3 = 0;
+    member.R4 = 0;
+    member.R5 = 0;
+    member.R6 = 0;
+    member.M1T = 0;
+    member.M2T = 0;
+    member.CHT = 0;
+    member.S1 = 0;
+    member.S2 = 0;
+  })
+
 }
 export function determineTotalScores(){
   addPlayersScore(regional1Players)
@@ -141,31 +171,42 @@ export function determineTotalScores(){
   addPlayersScore(regional6Players)
   members.forEach((id) =>{
     //Regionals
-    for (let i = 0; i < Regional1[id.shortname].length-2; i++){
-      id.R1 += getPlayerScore(Regional1[id.shortname][i], regional1Players);
-      id.R2 += getPlayerScore(Regional2[id.shortname][i], regional2Players);
-      id.R3 += getPlayerScore(Regional3[id.shortname][i], regional3Players);
-      id.R4 += getPlayerScore(Regional4[id.shortname][i], regional4Players);
-      id.R5 += getPlayerScore(Regional5[id.shortname][i], regional5Players);
-      id.R6 += getPlayerScore(Regional6[id.shortname][i], regional6Players);
+    if(id.shortname != 'plac'){
+      for (let i = 0; i < Regional1[id.shortname].length-2; i++){
+        id.R1 += getPlayerScore(Regional1[id.shortname][i], regional1Players);
+        id.R2 += getPlayerScore(Regional2[id.shortname][i], regional2Players);
+        id.R3 += getPlayerScore(Regional3[id.shortname][i], regional3Players);
+        id.R4 += getPlayerScore(Regional4[id.shortname][i], regional4Players);
+        id.R5 += getPlayerScore(Regional5[id.shortname][i], regional5Players);
+        id.R6 += getPlayerScore(Regional6[id.shortname][i], regional6Players);
+      }
+    } else {
+      for (let i = 0; i < Regional1[id.shortname].length; i++){
+        id.R1 += getPlayerScore(Regional1[id.shortname][i], regional1Players);
+        id.R2 += getPlayerScore(Regional2[id.shortname][i], regional2Players);
+        id.R3 += getPlayerScore(Regional3[id.shortname][i], regional3Players);
+        id.R4 += getPlayerScore(Regional4[id.shortname][i], regional4Players);
+        id.R5 += getPlayerScore(Regional5[id.shortname][i], regional5Players);
+        id.R6 += getPlayerScore(Regional6[id.shortname][i], regional6Players);
+      }
     }
     //Kickoff
-    id.KO += id.KO * points['kickoff'][0]*2
+    id.KO *= points['kickoff'][0]*2
     //Major 1
-    id.M1G += id.M1G * points['groups'][0]
-    id.M1PS += id.M1PS * points['playoff'][0]
-    id.M1PF += id.M1PF * points['playoff'][1]
+    id.M1G *= points['groups'][0]
+    id.M1PS *= points['playoff'][0]
+    id.M1PF *= points['playoff'][1]
     id.M1T += (id.M1G + id.M1PS + id.M1PF)*3
     //Major 2
-    id.M2G += id.M2G * points['groups'][0]
-    id.M2PS += id.M2PS * points['playoff'][0]
-    id.M2PF += id.M2PF * points['playoff'][1]
+    id.M2G *= points['groups'][0]
+    id.M2PS *= points['playoff'][0]
+    id.M2PF *= points['playoff'][1]
     id.M1T += (id.M2G + id.M2PS + id.M2PF)*3
     //Championship
-    id.CHPI = id.CHPI * points['playin'][0]
-    id.CHG += id.CHG * points['groups'][0] //Groups(switch from group stage to 4 groups)
-    id.CHPS += id.CHPS * points['playoff'][0]
-    id.CHPF += id.CHPF * points['playoff'][1] //playoffs
+    id.CHPI *= points['playin'][0]
+    id.CHG *= points['groups'][0] //Groups(switch from group stage to 4 groups)
+    id.CHPS *= points['playoff'][0]
+    id.CHPF *= points['playoff'][1] //playoffs
     id.CHT += (id.CHPI + id.CHG + id.CHPS + id.CHPF)*6
     //Split 1 and 2
     id.S1 += (id.R1 + id.R2 + id.R3 + id.M1T + id.KO)
