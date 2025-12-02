@@ -389,7 +389,7 @@ function deployHome(){
 
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
-    matchWins.textContent = id.split1wins + id.split2wins + id.champwins
+    matchWins.textContent = id.wins
     split1Total.textContent = id.S1
     split2Total.textContent = id.S2
     championshipTotal.textContent = id.CHT
