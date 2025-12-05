@@ -413,7 +413,7 @@ function deployHome(){
     
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
-    matchupWins.textContent = '$' + ((id.split1wins * 10) + (id.split2wins * 10)).toFixed(2)
+    matchupWins.textContent = '$' + (id.wins * 10).toFixed(2)
     split1Winnings.textContent = "$" + (prizes[id.shortname][0]).toFixed(2)
     split2Winnings.textContent = "$" + (prizes[id.shortname][1]).toFixed(2)
     championshipWinnings.textContent = "$" + (prizes[id.shortname][2]).toFixed(2)
