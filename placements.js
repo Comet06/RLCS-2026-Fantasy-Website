@@ -8,7 +8,7 @@ export let Regional1Placements = {
     'sam' : ['Furia Esports', 'MIBR', 'Amethyst', 'Team Secret', 'Novadrift', 'Three Point Shooters', 'Sanificados', 'Emerald', 'Aelix', 'NoTime', 'Enosis eSports', 'Fear Of God', 'bandoleiros', 'NoPlanB', 'Changuitos FC', 'Overlooked'],
     'mena' : ['Twisted Minds', 'Team Falcons', 'Sleeping', 'ROC Esports', 'dont disturb us', 'MMA', 'Awawa', 'Project S', 'Fearless', 'Nothing', 'Rural', 'SWC', 'The First', '100', 'Incindies', 'NRD Esports'],
     'apac' : ['Project Delacruz', 'Kinotrope Gaming', 'Ground Zero Gaming', 'Daybreak Frontline', 'Northstar Gaming', 'Rapier', 'Xing Xi Xooters', 'Praise', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
-    'ssa' : ['Pioneers', 'Five Fears', 'Looking For Organization', 'CosmiCo Esports', 'Death Cloud Esports', 'Synthesis', 'Team10', 'The Punishers', 'Ox Gaming', 'Rounds', 'Team HSK', 'Unity', 'White Rabbit Gaming', 'Astronic Esports', 'Nkandla Style', 'spanish pap en wors'],
+    'ssa' : ['Pioneers', 'Five Fears', 'Looking for organization', 'CosmiCo Esports', 'Death Cloud Esports', 'Synthesis', 'Team10', 'The Punishers', 'Ox Gaming', 'Rounds', 'Team HSK', 'Unity', 'White Rabbit Gaming', 'Astronic Esports', 'Nkandla Style', 'spanish pap en wors'],
 }
 export let Regional2Placements = {
     'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],

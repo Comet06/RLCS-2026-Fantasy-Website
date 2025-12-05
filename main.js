@@ -160,7 +160,6 @@ function initialize(){
     member.S1 = 0;
     member.S2 = 0;
   })
-
 }
 export function determineTotalScores(){
   addPlayersScore(regional1Players)
@@ -232,13 +231,7 @@ export function determineRanks(arrayName, rating){
 }
 export function determinePlayerRating(){
   players.forEach((id)=>{
-    const regionSearch = getTeamDetails(id.team)[0]
-    let regMultiplier = .5
-    if(regionSearch){
-      const regionFind = regions.find(r => r.reg === regionSearch.toLowerCase())
-      regMultiplier = regionFind.multiplier
-    }
-    id.rating = Math.round(getPlayerScore(id.player, players)*regMultiplier)
+    id.rating = getPlayerScore(id.player, players)
     id.rank = determineRanks(players, id.rating)
   })
 }

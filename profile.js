@@ -1,7 +1,7 @@
-import { path, determineTotalScores, determinePlayerRating } from "./main.js";
-import { players, teams, members, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./members.js";
-import { determineTeamsRanks, eventName } from "./stats.js";
 import { getPlayerDetails, getPlayerScore, getTeamDetails, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
+import { players, teams, members, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./members.js";
+import { path, determineTotalScores, determinePlayerRating } from "./main.js";
+import { determineTeamsRanks, eventName } from "./stats.js";
 
 window.addEventListener('load', function(){
   if(window.location.pathname === `${path}/profile.html`){
@@ -51,6 +51,7 @@ function createPlayer(id, index) {
     const Playerlink = `${path}/profile.html?name=${encodeURIComponent(id.player)}`;
     const Teamlink = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
     const teamRegion = getTeamDetails(id.team)[0]
+    const teamID = getTeamDetails(id.team)[4]
 
     let drafted = false
     let draftID = ''
@@ -77,11 +78,13 @@ function createPlayer(id, index) {
     const profileHTML = `
         <div class="profile-card">
             <h2 class="player-name"><a href="${Playerlink}">${id.player}<span id="${id.role}">${id.role}</a></span></h2>
-            <p><strong>Team:</strong><span><a style="padding: 2px; border-radius:5px;" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}">${id.team} | ${teamRegion}</a>   </p>
+            <p><strong>Team:</strong><span><a style="padding: 2px; border-radius:5px;" id="${teamID}" href="${Teamlink}">${id.team} | ${teamRegion}</a>   </p>
             <br>
             <div class="profile-details">
-                <p><strong>Rating:</strong> ${id.rating}</p>
+                <p><strong>Rating:</strong> ${getPlayerScore(id.player, players)}</p>
                 <p><strong>Rank: ${id.rank}</strong></p>
+                <p><strong>Games Played:</strong> ${id.gp}</p>
+                <p><strong>Wins:</strong> ${id.wins}</p>
                 <p><strong>Win Percentage:</strong> ${(id.wins/id.gp*100).toFixed(2)}%</p>
                 <p><strong>Total Score:</strong> ${id.score}</p>
                 <p><strong>Total Goals:</strong> ${id.goals}</p>
@@ -105,7 +108,7 @@ function createPlayer(id, index) {
         <div class="profile-card">
             <h2 class="player-name"><a href="${Playerlink}">${id.player}<span id="${id.role}">${id.role}</a></span></h2>
             <div class="profile-details">
-            <p><strong>Team:</strong><a style="padding: 2px; border-radius:5px;" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}" href="${Teamlink}">${id.team}</a></p>
+            <p><strong>Team:</strong><a style="padding: 2px; border-radius:5px;" id="${teamID}" href="${Teamlink}">${id.team}</a></p>
             </div>
         </div>
     `;
@@ -118,28 +121,14 @@ function createPlayer(id, index) {
 function createTeam(id, index) {
     const profilesContainer = document.getElementById(`player-profiles${index+1}`);
     const ranking = determineTeamsRanks(id.rating)
-    if (id.gp < 1){id.gp = 1}
+    const teamID = getTeamDetails(id.team)[4]
     const profileTeamHTML = `
         <div class="profile-card">
-            <h2><span  class="player-name" id="${(id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","")}">${id.team}</span></h2><br>
+            <h2><span  class="player-name" id="${teamID}">${id.team}</span></h2><br>
             <p><strong>Region:</strong><span id="${(id.region).toLowerCase()}">${id.region}</span></p>
             <div class="profile-details">
                 <p><strong>Rating:</strong> ${id.rating}</p>
                 <p><strong>Rank: </strong>${ranking}</p>
-                <p><strong>Win Percentage:</strong> ${(id.wins/id.gp*100).toFixed(2)}%</p>
-                <p><strong>Total Score:</strong> ${id.score}</p>
-                <p><strong>Total Goals:</strong> ${id.goals}</p>
-                <p><strong>Total Assists:</strong> ${id.assists}</p>
-                <p><strong>Total Saves:</strong> ${id.saves}</p>
-                <p><strong>Total Shots:</strong> ${id.shots}</p><br>
-                <p><strong>Per Game</strong></p>
-                <div id="border_box">
-                    <p><strong>Score per game:</strong> ${(id.score/id.gp).toFixed(2)}</p>
-                    <p><strong>Goals per game:</strong> ${(id.goals/id.gp).toFixed(2)}</p>
-                    <p><strong>Assists per game:</strong> ${(id.assists/id.gp).toFixed(2)}</p>
-                    <p><strong>Saves per game:</strong> ${(id.saves/id.gp).toFixed(2)}</p>
-                    <p><strong>Shots per game:</strong> ${(id.shots/id.gp).toFixed(2)}</p>
-                </div>
             </div>
         </div>
     `;

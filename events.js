@@ -360,7 +360,7 @@ let major2Players = []
 let championshipPlayers = []
 const regionalTable = `
 <tr>
-  <th>Team Name</th><th>Position</th><th>Player</th><th>Team</th><th>Points</th><th>Total</th>
+  <th>Team Name</th><th>Player</th><th>Team</th><th>Points</th><th>Total</th>
 </tr>
 `
 const kickofftable = `
@@ -571,8 +571,8 @@ export function getTeamDetails(searchTerm){
   ];
   return details;
 }
-export function getPlayerScore(searchTerm, eventName){
-  const player = eventName.find(p => p.player === searchTerm);
+export function getPlayerScore(searchTerm, searchArray){
+  const player = searchArray.find(p => p.player === searchTerm);
   if (!player) {return 0;}
   if(player.gp === 0){player.gp = 1}
   const score = Math.round(((player.score/10) + player.goals + player.assists + player.saves + player.shots ) * player.wins / player.gp)
@@ -610,21 +610,18 @@ function deployReg(event, eventNumber, playersArray){
         const teamName = document.createElement('td');
         const teamLink = document.createElement('a');
         const teamRegion = document.createElement('td');
-        const position = document.createElement('td')
         const Player = document.createElement('td');
         const playerLink = document.createElement('a');
         const Points = document.createElement('td');
         const Total = document.createElement('td');
         const team = getPlayerDetails(event[id.shortname][i], players)[0]
         const region = getTeamDetails(team)[0]
+        let position = ''
 
-        position.id = id.shortname
         Player.id = id.shortname
         Points.id = id.shortname
-        if(i < 3){
-          position.textContent = 'Player'
-        } else {
-          position.textContent = 'Sub'
+        if(i > 2){
+          position = '(Sub)'
         }
         Points.textContent = getPlayerScore(event[id.shortname][i], playersArray)
         if(i === 0){
@@ -642,21 +639,18 @@ function deployReg(event, eventNumber, playersArray){
           Total.rowSpan = event[id.shortname].length
         }
         
-        playerLink.textContent = event[id.shortname][i]
+        playerLink.textContent = `${event[id.shortname][i]} ${position}`
         playerLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.shortname][i])}`
         teamName.id = id.shortname
         teamRegion.id = id.shortname
-        teamLink.textContent = team
+        teamLink.textContent = `${team} (${region})`
         teamRegion.textContent = region
         teamLink.href = `${path}/profile.html?name=${encodeURIComponent(team)}`
         
         Player.appendChild(playerLink)
         teamName.appendChild(teamLink)
-                
-        newRow.appendChild(position);
         newRow.appendChild(Player);
         newRow.appendChild(teamName);
-        // newRow.appendChild(teamRegion);
         newRow.appendChild(Points);
         if(i === 0){
           newRow.appendChild(Total);
@@ -778,9 +772,9 @@ function deployPlacements(event, eventNumber, length){
       if(event[id.reg][i].length > 0){
         teamLink.textContent = event[id.reg][i]
         //checks to see if team is listed in teams list
-        const teamUppercase = getTeamDetails(event[id.reg][i])[4]
+        const teamUppercase = getTeamDetails(event[id.reg][i])[0]
         if(teamUppercase){
-          teamLink.id = teamUppercase
+          teamLink.id = (event[id.reg][i]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
           teamLink.href = `${path}/profile.html?name=${encodeURIComponent(event[id.reg][i])}`
         } else {
           teamLink.style = 'color: red;'

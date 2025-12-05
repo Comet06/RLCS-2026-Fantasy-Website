@@ -1,7 +1,8 @@
-import { path, determineTotalScores, determinePlayerRating, determineRanks, regions } from "./main.js";
-import { players, teams, members, Regional1 } from "./members.js";
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
+import { getPlayerScore, getTeamDetails } from "./events.js";
+import { path, determineTotalScores, determinePlayerRating, determineRanks, regions } from "./main.js";
+import { players, teams, members, Regional1 } from "./members.js";
 import { determineSeasonPoints } from "./rankings.js"
 
 // const weighted_multiplier = `
@@ -24,6 +25,18 @@ window.addEventListener('load', function() {
     determineTotalScores()
     determinePlayerRating()
     if(evt === 'player'){
+      document.getElementById('weighted_multiplier').innerHTML =  `
+        <ul id="hide_list">
+          <li><strong>Region Weighting</strong></li>
+          <li>EU multiplier: ${regions[0].multiplier}</li>
+          <li>NA multiplier: ${regions[1].multiplier}</li>
+          <li>SAM multiplier: ${regions[2].multiplier}</li>
+          <li>MENA multiplier: ${regions[3].multiplier}</li>
+          <li>OCE multiplier: ${regions[4].multiplier}</li>
+          <li>APAC multiplier: ${regions[5].multiplier}</li>
+          <li>SSA multiplier: ${regions[6].multiplier}</li>
+        </ul>
+      `
       document.getElementById('table_type').innerHTML = playerTableType
       document.getElementById('title').innerHTML = 'Player Statistics'
 
@@ -44,27 +57,15 @@ window.addEventListener('load', function() {
       populatePlayersTable(players)
       console.log('Player Stats page has loaded!');
     } else if(evt === 'team'){
-      document.getElementById('weighted_multiplier').innerHTML =  `
-        <ul id="hide_list">
-          <li><strong>Region Weighting</strong></li>
-          <li>EU multiplier: ${regions[0].multiplier}</li>
-          <li>NA multiplier: ${regions[1].multiplier}</li>
-          <li>SAM multiplier: ${regions[2].multiplier}</li>
-          <li>MENA multiplier: ${regions[3].multiplier}</li>
-          <li>OCE multiplier: ${regions[4].multiplier}</li>
-          <li>APAC multiplier: ${regions[5].multiplier}</li>
-          <li>SSA multiplier: ${regions[6].multiplier}</li>
-        </ul>
-      `
       document.getElementById('table_type').innerHTML = teamTableType
       document.getElementById('title').innerHTML = 'Team Statistics'
 
       const teamSort = document.getElementById('teamStats')
       teamSort.addEventListener('change', handleDropdownTeam);
 
-      teams.sort((a, b) => b.winPerc - a.winPerc)
+      teams.sort((a, b) => b.totalSeasonPts - a.totalSeasonPts)
       determineSeasonPoints()
-      populateTeamsTable(teams)
+      populateTeamsTable()
       console.log('Team Stats page has loaded!');
     }
   } else if(window.location.pathname === `${path}/stats_legacy.html`){
@@ -145,8 +146,8 @@ export function deployTops(array){
   deployTopPerformers(array, 'TopShots', 'shots')
 }
 export function determineTeamsRanks(rating){
-  teams.sort((a,b) => b.rating - a.rating)
-  let high = teams[0].rating
+  teams.sort((a,b) => b.totalSeasonPts - a.totalSeasonPts)
+  let high = teams[0].totalSeasonPts
   if(rating > (high/6*5)){
     return 'S'
   } else if(rating > (high/6*4)){
@@ -212,10 +213,10 @@ const playerTableHeader = `
 `
 const teamTableHeader = `
 <tr>
-  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th><th colspan="3" id="teamStatsTitle">Team Stats</th>
+  <th colspan="2" id="name">Team</th><th colspan="3" id="standings">Season Standings</th>
 </tr>
 <tr>
-  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Season Total</th><th>Rating</th><th>Win %</th>
+  <th>Team Name</th><th>Region</th><th>Split 1</th><th>Split 2</th><th>Total</th>
 </tr>
 `
 
@@ -409,7 +410,7 @@ function populatePlayersTable(Players) {
     const teamLink = document.createElement('a');
     const winPercCell = document.createElement('td');
     const roleID = id.role.toLowerCase()
-    const teamId = (id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","");
+    const teamId = getTeamDetails(id.team)[4];
     
     num.textContent = i
     newRow.appendChild(num);
@@ -454,7 +455,7 @@ function populatePlayersTable(Players) {
     }
     newRow.appendChild(availCell);
     
-    ratingCell.textContent = id.rating
+    ratingCell.textContent = getPlayerScore(id.player, players)
     newRow.appendChild(ratingCell);
 
     if (id.gp < 1){id.gp = 1}
@@ -480,44 +481,26 @@ function populatePlayersTable(Players) {
     }
   });
 }
-function populateTeamsTable(Teams) {
+function populateTeamsTable() {
   const tableBody = document.getElementById('data_table');
   tableBody.innerHTML = '';
   tableBody.innerHTML = teamTableHeader
-  Teams.forEach((id, index) => {
+  console.log(teams[0], teams)
+  teams.forEach((id) => {
     const newRow = document.createElement('tr');
     const teamCell = document.createElement('td');
     const teamLink = document.createElement('a');
-    const teamId = (id.team).toLowerCase().replaceAll(" ","_").replaceAll(".","");
+    const teamId = getTeamDetails(id.team)[4];
     const regionID = id.region.toLowerCase();
     const regionCell = document.createElement('td');
     const S1points = document.createElement('td');
     const S2points = document.createElement('td');
     const seasonPoints = document.createElement('td');
-    const ratingCell = document.createElement('td');
-    const winPercCell = document.createElement('td');
-    const numOfPlayersCell = document.createElement('td');
-    const score = document.createElement('td');
-    const goals = document.createElement('td');
-    const assists = document.createElement('td');
-    const saves = document.createElement('td');
-    const shots = document.createElement('td');
     
-    const playersOnTeam = players.filter(p => p.team === id.team);
-    let countOfPlayers = 0
-    
-    newRow.setAttribute('data-player', `player${index + 1}`);
-    const rank = determineTeamsRanks(id.rating)
+    const rank = determineTeamsRanks(id.totalSeasonPts)
     teamLink.textContent = id.team + " (" + rank + ")";
     teamLink.href = `${path}/profile.html?name=${encodeURIComponent(id.team)}`;
     
-    playersOnTeam.forEach((player) => {
-      if(player){
-        countOfPlayers += 1;
-      } else {
-      }
-    })
-
     teamCell.appendChild(teamLink);
     teamCell.id = teamId;
     regionCell.textContent = id.region;
@@ -526,48 +509,14 @@ function populateTeamsTable(Teams) {
     S1points.textContent = id.split1Pts;
     S2points.textContent = id.split2Pts;
     seasonPoints.textContent = id.totalSeasonPts;
-    numOfPlayersCell.textContent = countOfPlayers;
     
     newRow.appendChild(teamCell);
     newRow.appendChild(regionCell);
     newRow.appendChild(S1points);
     newRow.appendChild(S2points);
     newRow.appendChild(seasonPoints);
-    // newRow.appendChild(numOfPlayersCell);
-    if (id.gp > 0){
-      ratingCell.textContent = id.rating
-      winPercCell.textContent = (id.wins/id.gp*100).toFixed(2);
-      score.textContent = (id.score/id.gp).toFixed(0)
-      goals.textContent = (id.goals/id.gp).toFixed(2)
-      assists.textContent = (id.assists/id.gp).toFixed(2)
-      saves.textContent = (id.saves/id.gp).toFixed(2)
-      shots.textContent = (id.shots/id.gp).toFixed(2)
-      newRow.appendChild(ratingCell);
-      newRow.appendChild(winPercCell);
-      newRow.appendChild(score);
-      newRow.appendChild(goals);
-      newRow.appendChild(assists);
-      newRow.appendChild(saves);
-      newRow.appendChild(shots);
-    } else {
-      id.gp = 1
-      ratingCell.textContent = id.rating
-      winPercCell.textContent = (id.wins/id.gp*100).toFixed(2);
-      score.textContent = (id.score/id.gp).toFixed(0)
-      goals.textContent = (id.goals/id.gp).toFixed(2)
-      assists.textContent = (id.assists/id.gp).toFixed(2)
-      saves.textContent = (id.saves/id.gp).toFixed(2)
-      shots.textContent = (id.shots/id.gp).toFixed(2)
-      newRow.appendChild(ratingCell);
-      newRow.appendChild(winPercCell);
-      // newRow.appendChild(score);
-      // newRow.appendChild(goals);
-      // newRow.appendChild(assists);
-      // newRow.appendChild(saves);
-      // newRow.appendChild(shots);
-    }
 
-    if (numOfPlayersCell.textContent > 0 && id.region != ""){
+    if (id.region != ""){
       tableBody.appendChild(newRow);
     }
   });
