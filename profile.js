@@ -31,7 +31,7 @@ window.addEventListener('load', function(){
                 }
             })
         } else if(memberName){
-            document.getElementById('member').innerHTML = `<h2 class="player-name" id="">${member.name} | Wins: ${member.split1wins + member.split2wins}</h2>`
+            document.getElementById('member').innerHTML = `<h2 class="player-name" id="">${member.name} | Wins: ${member.wins}</h2>`
             createMember(member, Regional1, 1, regional1Players)
             createMember(member, Regional2, 2, regional2Players)
             createMember(member, Regional3, 3, regional3Players)
