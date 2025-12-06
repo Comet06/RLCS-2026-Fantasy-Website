@@ -3,7 +3,7 @@ import { getTeamDetails } from "./events.js"
 import { regions } from "./main.js"
 export let Regional1Placements = {
     'eu' : ['Karmine Corp', 'Ninjas in Pyjamas', 'Team Vitality', 'Novo Esports', 'Gentle Mates Alpine', 'Man City Esports', 'Magnifico', 'Gentlebench', 'Pina Low Driven', 'Dreifach-Reset', 'Geekay Esports', 'GHT', 'Sonics', 'Hogan Mode', 'Cloud Esports', 'TKS'],
-    'na' : ['', '', '', 'GenG Mobil1 Racing', 'FUT Esports', '100X35 Esports', 'Shuffles Kittens', 'Team Silenced', 'Ciel', 'Lotus 8 Esports', 'NRG', 'Top Leh', 'G.A.S.', 'Unreal Nightmare', 'M80', 'Feastaboniam'],
+    'na' : ['', '', 'Redacted', 'GenG Mobil1 Racing', 'FUT Esports', '100X35 Esports', 'Shuffles Kittens', 'Team Silenced', 'Ciel', 'Lotus 8 Esports', 'NRG', 'Top Leh', 'G.A.S.', 'Unreal Nightmare', 'M80', 'Feastaboniam'],
     'oce' : ['PWR', 'Wildcard', 'Canterbury Bulldogs', 'Take Flyte', 'you not a champ', 'Almost Nuts', 'Team Freez', 'KekDubz', 'Vade Esports', 'Miami Metro', 'petrol money', '4Ever', 'Spliced', 'R.T.T.', 'Lethal Esports', 'Dumb Luck Esports'],
     'sam' : ['Furia Esports', 'MIBR', 'Amethyst', 'Team Secret', 'Novadrift', 'Three Point Shooters', 'Sanificados', 'Emerald', 'Aelix', 'NoTime', 'Enosis eSports', 'Fear Of God', 'bandoleiros', 'NoPlanB', 'Changuitos FC', 'Overlooked'],
     'mena' : ['Twisted Minds', 'Team Falcons', 'Sleeping', 'ROC Esports', 'dont disturb us', 'MMA', 'Awawa', 'Project S', 'Fearless', 'Nothing', 'Rural', 'SWC', 'The First', '100', 'Incindies', 'NRD Esports'],
@@ -68,8 +68,8 @@ export let kickoffLANQualifiedTeams = [
 'Team Vitality',
 'Novo Esports',
 'Spacestation Gaming',
-'Redacted',
 'Shopify Rebellion',
+'Redacted',
 'GenG Mobil1 Racing',
 ]
 export let split1QualifiedTeams = [
