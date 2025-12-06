@@ -1,9 +1,9 @@
-import { path, regions, EventPoints } from "./main.js";
-import { getTeamDetails } from "./events.js";
-import { teams } from "./members.js";
 import { kickoffLANQualifiedTeams, split1QualifiedTeams, split2QualifiedTeams, championshipQualifiedTeams, split1QualifiedTeamsUnsorted, split2QualifiedTeamsUnsorted, championshipQualifiedTeamsUnsorted,
   Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, 
   determineSpots, Placements} from "./placements.js";
+import { path, regions, EventPoints } from "./main.js";
+import { getTeamDetails } from "./events.js";
+import { teams } from "./members.js";
 
 window.addEventListener('load', function() {
   if (window.location.pathname === `${path}/teams_rankings.html`) {
@@ -12,8 +12,6 @@ window.addEventListener('load', function() {
     determineSpots(split1QualifiedTeams, split1QualifiedTeamsUnsorted, 1)
     determineSpots(split2QualifiedTeams, split2QualifiedTeamsUnsorted, 2)
     determineSpots(championshipQualifiedTeams, championshipQualifiedTeamsUnsorted, 3)
-    deploySplitPoints(1)
-    deploySplitPoints(2)
     deploySplitQuals(kickoffLANQualifiedTeams, 0)
     deploySplitQuals(split1QualifiedTeams, 1)
     deploySplitQuals(split2QualifiedTeams, 2)
@@ -21,22 +19,6 @@ window.addEventListener('load', function() {
   }
 });
 
-function deploySplitPoints(index){
-  for(let i = 0; i < 16; i++){
-    const tableBody = document.getElementById(`split${index}`);
-    const newRow = document.createElement('tr');
-    const regionalPts = document.createElement('td');
-    const majorPts = document.createElement('td');
-
-    regionalPts.textContent = EventPoints[`Regional${index}`][i]
-    majorPts.textContent = EventPoints[`Major${index}`][i]
-    
-    newRow.appendChild(regionalPts);
-    newRow.appendChild(majorPts);
-    
-    tableBody.appendChild(newRow);
-  }
-}
 function deploySplitQuals(event, index){
   event.forEach((id) =>{
     const tableBody = document.getElementById(`split${index}quals`);
@@ -48,12 +30,12 @@ function deploySplitQuals(event, index){
     if (id.includes('EU') || id.includes('NA') || id.includes('OCE') || id.includes('SAM') || id.includes('MENA') || id.includes('APAC') || id.includes('SSA') || id.includes('LCQ') || id.includes('TBD')){
       region.textContent = id
       team.textContent = 'TBD'
-      pts.textContent = 0
+      pts.textContent = ''
     } else {
       region.textContent = getTeamDetails(id)[0]
-      team.id = (getTeamDetails(id)[4]).toLowerCase().replaceAll(" ","_").replaceAll(".","")
+      team.id = (getTeamDetails(id)[4])
       teamLink.textContent = id;
-      teamLink.href = `${path}/profile.html?name=${encodeURIComponent(getTeamDetails(id)[4])}`;
+      teamLink.href = `${path}/profile.html?name=${encodeURIComponent(id)}`;
       if (event === split1QualifiedTeams){
         pts.textContent = getTeamDetails(id)[1]
       } else if(event === split2QualifiedTeams){

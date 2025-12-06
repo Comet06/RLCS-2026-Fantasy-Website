@@ -1,6 +1,6 @@
 import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, playersSeason5, playersSeason6, playersSeason7, playersSeason8,
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
-import { getPlayerScore, getTeamDetails } from "./events.js";
+import { calculateTeamScore, getPlayerScore, getTeamDetails } from "./events.js";
 import { path, determineTotalScores, determinePlayerRating, determineRanks, regions } from "./main.js";
 import { players, teams, members, Regional1 } from "./members.js";
 import { determineSeasonPoints } from "./rankings.js"
@@ -23,6 +23,7 @@ window.addEventListener('load', function() {
   const evt = urlParams.get('name');
   if (window.location.pathname === `${path}/stats.html`) {
     determineTotalScores()
+    calculateTeamScore()
     determinePlayerRating()
     if(evt === 'player'){
       document.getElementById('weighted_multiplier').innerHTML =  `
@@ -485,7 +486,6 @@ function populateTeamsTable() {
   const tableBody = document.getElementById('data_table');
   tableBody.innerHTML = '';
   tableBody.innerHTML = teamTableHeader
-  console.log(teams[0], teams)
   teams.forEach((id) => {
     const newRow = document.createElement('tr');
     const teamCell = document.createElement('td');

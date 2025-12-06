@@ -132,6 +132,13 @@ function initialize(){
   const menu_button = document.getElementById('menuButton');
   menu_button.addEventListener('click', function() {toggleMenu()});
   teams.forEach(team => {
+    team.gp = 0;
+    team.wins = 0;
+    team.score = 0;
+    team.goals = 0;
+    team.assists = 0;
+    team.saves = 0;
+    team.shots = 0;
     team.split1Pts = 0;
     team.split2Pts = 0;
     team.totalSeasonPts = 0;

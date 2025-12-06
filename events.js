@@ -462,6 +462,7 @@ window.addEventListener('load', function() {
     document.getElementById('event').innerHTML = `${evt}`
     document.getElementById('titlePage').innerHTML = `${evt}`
     determineTotalScores()
+    calculateTeamScore()
     determinePlayerRating()
     if(evt === 'Regional 1'){
       document.getElementById('scoresMultiplier').innerHTML = 'Scores'
@@ -577,6 +578,31 @@ export function getPlayerScore(searchTerm, searchArray){
   if(player.gp === 0){player.gp = 1}
   const score = Math.round(((player.score/10) + player.goals + player.assists + player.saves + player.shots ) * player.wins / player.gp)
   return score;
+}
+export function getTeamScore(searchTerm, searchArray){
+  const team = searchArray.find(t => t.team === searchTerm);
+  if (!team) {return 0;}
+  if(team.gp === 0){team.gp = 1}
+  const score = Math.round(((team.score/10) + team.goals + team.assists + team.saves + team.shots ) * team.wins / team.gp)
+  return score;
+}
+export function calculateTeamScore(){
+  teams.forEach((id) =>{
+    const playersOnTeam = players.filter(p => p.team === id.team);
+    playersOnTeam.sort((a, b) => a.role.localeCompare(b.role))
+    playersOnTeam.forEach((player) => {
+      if(player.role === ''){
+        id.gp = player.gp
+        id.wins = player.wins
+        id.score += player.score
+        id.goals += player.goals
+        id.assists += player.assists
+        id.saves += player.saves
+        id.shots += player.shots
+      }
+    })
+    console.log(id)
+  })
 }
 
 function deployReg(event, eventNumber, playersArray){
