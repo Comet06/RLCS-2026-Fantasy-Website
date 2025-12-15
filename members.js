@@ -1,19 +1,19 @@
 export const members = [
-  {name: 'Flip Lord', shortname: 'come', wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Doofenschmirtz', shortname: 'squi',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Nut Busters', shortname: 'vinn',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: '24 Karat Gold', shortname: 'jimm',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Flip Lord', shortname: 'come', wins: 0, KO: 6, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Doofenschmirtz', shortname: 'squi',  wins: 0, KO: 3, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Nut Busters', shortname: 'vinn',  wins: 1, KO: 4, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: '24 Karat Gold', shortname: 'jimm',  wins: 1, KO: 4, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
   {name: 'Skibbideeznuts', shortname: 'ecof',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Team Canada', shortname: 'gale',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Streets 1:12', shortname: 'pots',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Slightly Stoopid', shortname: 'maht',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Ball Spikers', shortname: 'devv',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Little Giants', shortname: 'plac',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Team Canada', shortname: 'gale',  wins: 1, KO: 3, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Streets 1:12', shortname: 'pots',  wins: 1, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Slightly Stoopid', shortname: 'maht',  wins: 0, KO: 2, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Ball Spikers', shortname: 'devv',  wins: 0, KO: 5, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Little Giants', shortname: 'plac',  wins: 1, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
 ]// kickoffLAN(7), major1[groupstage(8), POSemi(8), POFinals(3)], major2[groupstage(8), POSemi(8), POFinals(3)], championship[PISemi(10), Groups(12), POSemi(8), POFinals(3)]
 
 export let Regional1Matchups = ['vinn', 'squi', 'jimm', 'come', 'gale', 'ecof', 'maht', 'pots', 'devv', 'plac']
 export let KickoffMatchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
-export let Regional2Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
+export let Regional2Matchups = ['vinn', 'pots', 'gale', 'jimm', 'come', 'ecof', 'maht', 'devv', 'squi', 'plac']
 export let Regional3Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
 export let Major1Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
 export let Regional4Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
@@ -35,16 +35,16 @@ export let Regional1 = {
   'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional2 = {
-  'come' : [Regional1['come'][0], Regional1['come'][1], Regional1['come'][2], Regional1['come'][3], 'Tehqoz'],
-  'squi' : [Regional1['squi'][0], Regional1['squi'][1], Regional1['squi'][2], Regional1['squi'][3], Regional1['squi'][4]],
-  'vinn' : [Regional1['vinn'][0], Regional1['vinn'][1], Regional1['vinn'][2], 'Chausette45', Regional1['vinn'][4]],
-  'jimm' : [Regional1['jimm'][0], Regional1['jimm'][1], Regional1['jimm'][2], Regional1['jimm'][3], Regional1['jimm'][4]],
-  'ecof' : [Regional1['ecof'][0], Regional1['ecof'][1], Regional1['ecof'][2], Regional1['ecof'][3], Regional1['ecof'][4]],
-  'gale' : [Regional1['gale'][0], Regional1['gale'][1], Regional1['gale'][2], Regional1['gale'][3], Regional1['gale'][4]],
-  'pots' : [Regional1['pots'][0], Regional1['pots'][1], Regional1['pots'][2], Regional1['pots'][3], Regional1['pots'][4]],
-  'maht' : [Regional1['maht'][0], Regional1['maht'][1], Regional1['maht'][2], Regional1['maht'][3], Regional1['maht'][4]],
-  'devv' : [Regional1['devv'][0], Regional1['devv'][1], Regional1['devv'][2], Regional1['devv'][3], Regional1['devv'][4]],
-  'plac' : [Regional1['plac'][0], Regional1['plac'][1], Regional1['plac'][2], Regional1['plac'][3], Regional1['plac'][4]],
+  'come' : ['Luiisp', 'Daniel', 'Chronic', 'Beastmode', 'Kv1'],
+  'squi' : ['Trk511', 'M0nkey m00n', 'Motta', 'Atomik', 'Tawk'],
+  'vinn' : ['Firstkiller', 'Lostt', 'Lj', 'Chausette45', '2die4'],
+  'jimm' : ['Dralii', 'Atow', 'Rise', 'Exotiik', 'Justin'],
+  'ecof' : ['Nwpo', 'Yanxnz', 'Apparentlyjack', 'Bananahead', 'Oski'],
+  'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', 'Sphinx'],
+  'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', 'Torsos'],
+  'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', 'Seikoo'],
+  'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', 'Crr'],
+  'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional3 = {
   'come' : [Regional2['come'][0], Regional2['come'][1], Regional2['come'][2], Regional2['come'][3], Regional2['come'][4]],
@@ -650,8 +650,8 @@ export let players = [
 
 ]
 export let teams = [
-{team: 'Team Falcons', region: 'MENA'},
 {team: 'Twisted Minds', region: 'MENA'},
+{team: 'Team Falcons', region: 'MENA'},
 {team: 'Karmine Corp', region: 'EU'},
 {team: 'NRG', region: 'NA'},
 {team: 'G2 Esports', region: 'NA'},
@@ -968,7 +968,6 @@ export let teams = [
 {team: 'Enosis eSports', region: 'SAM'},
 {team: 'Fear Of God', region: 'SAM'},
 {team: 'Fearless', region: 'MENA'},
-{team: 'Five Fears', region: 'SSA'},
 {team: 'Incindies', region: 'MENA'},
 {team: 'KekDubz', region: 'OCE'},
 {team: 'Lethal Esports', region: 'OCE'},

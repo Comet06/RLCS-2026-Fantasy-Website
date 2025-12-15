@@ -1,4 +1,4 @@
-import { getPlayerScore, getTeamDetails, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
+import { championshipPlayers, getPlayerScore, getTeamDetails, kickoffLANPlayers, major1Players, major2Players, regional1Players, regional2Players, regional3Players, regional4Players, regional5Players, regional6Players } from "./events.js";
 import { members, prizes, players, teams, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6 } from "./members.js";
 import { deployTops } from "./stats.js";
 
@@ -14,20 +14,20 @@ export const dist = [.0, .4, .6]
 export const amtAdded = 0;
 export const majorPrize = 200
 export const champPrize = 500
-const CurrentForm = 'kickoff' // next form page for major event
+const CurrentForm = 'major1' // next form page for major event
 const numOfMembers = members.length - 1
 const amountPerMajor = ((amtAdded * dist[1]) + majorPrize) / 2;
 const amountForChampionship = (amtAdded * dist[2]) + champPrize;
 export let EventPoints = {
     'Regional1': [15, 10, 7, 7, 5, 5, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1],
     'Regional2': [18, 12, 8, 8, 6, 6, 4, 4, 2, 2, 2, 2, 1, 1, 1, 1],
-    'Kickoff': ['Qualified to Major 1', '', '', '', '', '', '', ''],
+    'Kickoff': ['Qualifies to Major 1', '', '', '', '', '', '', ''],
     'Major1': [30, 20, 14, 14, 10, 10, 6, 6, 5, 5, 5, 5, 3, 3, 3, 3],
     'Major2': [36, 24, 16, 16, 12, 12, 8, 8, 6, 6, 6, 6, 4, 4, 4, 4],
     'Champ': ['1st', '2nd', '3rd-4th', '3rd-4th', '5th-6th', '5th-6th', '7th-8th', '7th-8th', '9th-12th', '9th-12th', '9th-12th', '9th-12th', '13th-16th', '13th-16th', '13th-16th', '13th-16th', '17th-18th', '17th-18th', '19th-20th', '19th-20th'],
 }
 export const regions = [
-  {reg: 'eu', spots: 4, chspots: 5, multiplier: 1},
+  {reg: 'eu', spots: 5, chspots: 6, multiplier: 1},
   {reg: 'na', spots: 4, chspots: 5, multiplier: 1},
   {reg: 'sam', spots: 2, chspots: 3, multiplier: .9},
   {reg: 'mena', spots: 2, chspots: 3, multiplier: .9},
@@ -170,11 +170,15 @@ function initialize(){
 }
 export function determineTotalScores(){
   addPlayersScore(regional1Players)
+  addPlayersScore(kickoffLANPlayers)
   addPlayersScore(regional2Players)
   addPlayersScore(regional3Players)
+  addPlayersScore(major1Players)
   addPlayersScore(regional4Players)
   addPlayersScore(regional5Players)
   addPlayersScore(regional6Players)
+  addPlayersScore(major2Players)
+  addPlayersScore(championshipPlayers)
   members.forEach((id) =>{
     //Regionals
     if(id.shortname != 'plac'){

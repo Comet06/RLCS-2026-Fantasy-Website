@@ -56,7 +56,7 @@ export let Regional6Placements = {
     'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 }
 export let Placements = {
-    'Kickoff' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
+    'Kickoff' : ['Karmine Corp', 'Shopify Rebellion', 'Redacted', 'Spacestation Gaming', 'Ninjas in Pyjamas', 'Team Vitality', 'Novo Esports', 'GenG Mobil1 Racing'],
     'Major1' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
     'Major2' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
     'Champ' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
@@ -85,12 +85,12 @@ export let split1QualifiedTeams = [
 'EU #4',
 'SAM #2',
 'MENA #2',
-// 'EU #5', //If EU Wins
+'EU #5', //If EU Wins
 'NA #4',
 'APAC #1',
 'SSA #1',
 // 'NA #5', //If NA Wins
-'NA/EU #5',//Change when known(hide)
+// 'NA/EU #5',//Change when known(hide)
 ]
 export let split2QualifiedTeams = [
 'NA #1',
@@ -105,12 +105,12 @@ export let split2QualifiedTeams = [
 'EU #4',
 'SAM #2',
 'MENA #2',
-// 'EU #5', //If EU Wins
+'EU #5', //If EU Wins
 'NA #4',
 'APAC #1',
 'SSA #1',
 // 'NA #5', //If NA Wins
-'NA/EU #5',//Change when known(hide)
+// 'NA/EU #5',//Change when known(hide)
 ]
 export let championshipQualifiedTeams = [
 'NA #1',
@@ -125,12 +125,12 @@ export let championshipQualifiedTeams = [
 'EU #4',
 'SAM #2',
 'MENA #2',
-// 'EU #5', //If EU Wins
+'EU #5', //If EU Wins
 'NA #4',
 'APAC #1',
 'SSA #1',
 // 'NA #5', //If NA Wins
-'NA/EU #5',//Change when known(hide)
+// 'NA/EU #5',//Change when known(hide)
 'LCQ Region #1',//Change when known
 'LCQ Region #2',//Change when known
 'LCQ Region #3',//Change when known

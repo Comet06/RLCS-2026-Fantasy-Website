@@ -346,15 +346,40 @@ export let regional1Players = [
 {player: 'Zombie', gp: 17, wins: 8, score: 5695, goals: 11, assists: 5, saves: 27, shots: 41},
 {player: 'Ztro', gp: 6, wins: 0, score: 2352, goals: 5, assists: 1, saves: 13, shots: 20},
 ]
-let kickoffLANPlayers = []
+export let kickoffLANPlayers = [
+{player: '2piece', gp: 12, wins: 7, score: 5586, goals: 8, assists: 10, saves: 29, shots: 39},
+{player: 'Acronik', gp: 4, wins: 1, score: 1076, goals: 1, assists: 0, saves: 9, shots: 2},
+{player: 'Atow', gp: 9, wins: 8, score: 3572, goals: 6, assists: 13, saves: 11, shots: 31},
+{player: 'Chronic', gp: 9, wins: 4, score: 4346, goals: 7, assists: 8, saves: 23, shots: 23},
+{player: 'Exotiik', gp: 7, wins: 4, score: 2700, goals: 6, assists: 5, saves: 9, shots: 24},
+{player: 'Firstkiller', gp: 9, wins: 4, score: 4520, goals: 10, assists: 5, saves: 18, shots: 28},
+{player: 'Giuk', gp: 4, wins: 1, score: 1963, goals: 4, assists: 2, saves: 11, shots: 11},
+{player: 'Joreuz', gp: 3, wins: 0, score: 1052, goals: 1, assists: 1, saves: 5, shots: 9},
+{player: 'Lj', gp: 9, wins: 4, score: 2980, goals: 2, assists: 5, saves: 18, shots: 16},
+{player: 'Nico', gp: 4, wins: 1, score: 1543, goals: 3, assists: 2, saves: 8, shots: 10},
+{player: 'Wahvey', gp: 12, wins: 7, score: 5248, goals: 15, assists: 4, saves: 19, shots: 41},
+{player: 'Crr', gp: 3, wins: 0, score: 1110, goals: 2, assists: 2, saves: 5, shots: 10},
+{player: 'Diaz', gp: 9, wins: 4, score: 5138, goals: 10, assists: 9, saves: 26, shots: 25},
+{player: 'Juicy', gp: 9, wins: 8, score: 3102, goals: 5, assists: 5, saves: 16, shots: 28},
+{player: 'Justin', gp: 3, wins: 0, score: 852, goals: 0, assists: 0, saves: 8, shots: 4},
+{player: 'Kofyr', gp: 9, wins: 4, score: 3738, goals: 5, assists: 4, saves: 22, shots: 28},
+{player: 'Majicbear', gp: 3, wins: 0, score: 696, goals: 0, assists: 1, saves: 5, shots: 7},
+{player: 'Oaly', gp: 3, wins: 0, score: 1442, goals: 3, assists: 3, saves: 7, shots: 20},
+{player: 'Reveal', gp: 9, wins: 4, score: 3427, goals: 6, assists: 1, saves: 19, shots: 24},
+{player: 'Rise', gp: 3, wins: 0, score: 1153, goals: 1, assists: 0, saves: 7, shots: 8},
+{player: 'Stizzy', gp: 7, wins: 4, score: 2466, goals: 7, assists: 3, saves: 7, shots: 32},
+{player: 'Tawk', gp: 12, wins: 7, score: 6328, goals: 14, assists: 13, saves: 25, shots: 58},
+{player: 'Vatira', gp: 9, wins: 8, score: 4509, goals: 16, assists: 2, saves: 12, shots: 47},
+{player: 'Zen', gp: 7, wins: 4, score: 3040, goals: 6, assists: 5, saves: 13, shots: 23},
+]
 export let regional2Players = []
 export let regional3Players = []
-let major1Players = []
+export let major1Players = []
 export let regional4Players = []
 export let regional5Players = []
 export let regional6Players = []
-let major2Players = []
-let championshipPlayers = []
+export let major2Players = []
+export let championshipPlayers = []
 const regionalTable = `
 <tr>
   <th>Team Name</th><th>Player</th><th>Team</th><th>Points</th><th>Total</th>
