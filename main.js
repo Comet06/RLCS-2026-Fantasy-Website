@@ -428,7 +428,7 @@ function deployHome(){
     split1Winnings.textContent = "$" + (prizes[id.shortname][0]).toFixed(2)
     split2Winnings.textContent = "$" + (prizes[id.shortname][1]).toFixed(2)
     championshipWinnings.textContent = "$" + (prizes[id.shortname][2]).toFixed(2)
-    totalWinnings.textContent = "$" + (prizes[id.shortname][0] +prizes[id.shortname][1] +prizes[id.shortname][2]).toFixed(2)
+    totalWinnings.textContent = "$" + (id.wins * 10 + prizes[id.shortname][0] +prizes[id.shortname][1] +prizes[id.shortname][2]).toFixed(2)
     
     newRow.appendChild(matchupWins);
     newRow.appendChild(split1Winnings);
