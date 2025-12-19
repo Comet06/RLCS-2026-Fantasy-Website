@@ -397,7 +397,7 @@ const majortable = `
 `
 const champtable = `
 <tr>
-  <th>Championship</th><th>Play-in</th><th>Groups</th><th>Playoffs</th><th>Total</th>
+  <th>Championship</th><th>Picks</th><th>Play-in</th><th>Groups</th><th>Playoffs</th><th>Total</th>
 </tr>
 `
 const kickoffPointsInfo = `
