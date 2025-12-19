@@ -1,6 +1,6 @@
 import { members, players, teams, Regional1, Regional2, Regional3, Regional4, Regional5, Regional6, Regional1Matchups, Regional2Matchups, 
   Regional3Matchups, Regional4Matchups, Regional5Matchups, Regional6Matchups, KickoffMatchups, Major1Matchups, Major2Matchups, ChampionshipMatchups} from "./members.js";
-import { path, regions, determineTotalScores, determinePlayerRating, ChampionshipPointsInfo, KickoffPointsInfo, Major1PointsInfo, Major2PointsInfo, EventPoints } from "./main.js";
+import { path, regions, determineTotalScores, determinePlayerRating, ChampionshipPointsInfo, KickoffPointsInfo, Major1PointsInfo, Major2PointsInfo, EventPoints, points } from "./main.js";
 import { Regional1Placements, Regional2Placements, Regional3Placements, Regional4Placements, Regional5Placements, Regional6Placements, Placements } from "./placements.js";
 import { deployTops } from "./stats.js";
 
@@ -387,12 +387,12 @@ const regionalTable = `
 `
 const kickofftable = `
 <tr>
-  <th>Team</th><th>Total</th>
+  <th>Team</th><th>Picks</th><th>Total</th>
 </tr>
 `
 const majortable = `
 <tr>
-  <th>Team</th><th>Group Stage</th><th>Playoffs</th><th>Total</th>
+  <th>Team</th><th>Picks</th><th>Group Stage</th><th>Playoffs</th><th>Total</th>
 </tr>
 `
 const champtable = `
@@ -527,7 +527,7 @@ window.addEventListener('load', function() {
       deployMaj('kickoff')
       deployPlacements(Placements, 7, EventPoints[`Kickoff`].length)
       deployTops(kickoffLANPlayers)
-      deployMatchups(KickoffMatchups, 7)
+      // deployMatchups(KickoffMatchups, 7)
       document.getElementById('pointsInfo').innerHTML = kickoffPointsInfo
       KickoffPointsInfo()
     } else if(evt === 'Major 1'){
@@ -724,6 +724,10 @@ function deployMaj(iden){
     const playinCell = document.createElement('td');
     const groupsCell = document.createElement('td');
     const playoffsCell = document.createElement('td');
+    const kickoffCell = document.createElement('td');
+    const maj1Cell = document.createElement('td');
+    const maj2Cell = document.createElement('td');
+    const champCell = document.createElement('td');
     const totalCell = document.createElement('td');
 
 
@@ -733,6 +737,10 @@ function deployMaj(iden){
     groupsCell.id = id.shortname
     playoffsCell.id = id.shortname
     totalCell.id = id.shortname
+    maj1Cell.id = id.shortname
+    maj2Cell.id = id.shortname
+    champCell.id = id.shortname
+    kickoffCell.id = id.shortname
     
     memberLink.textContent = id.name
     memberLink.href = `${path}/profile.html?name=${encodeURIComponent(id.name)}`
@@ -740,30 +748,38 @@ function deployMaj(iden){
     newRow.appendChild(teamName);
 
     if(iden === 'major1'){
+      maj1Cell.textContent = id.M1G/points['groups'][0] + id.M1PS/points['playoff'][0] + id.M1PF/points['playoff'][1]
       groupsCell.textContent = id.M1G
       playoffsCell.textContent = id.M1PS + id.M1PF
       totalCell.textContent = id.M1T
+      newRow.appendChild(maj1Cell);
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
       newRow.appendChild(totalCell);
     } else if(iden === 'major2'){
+      maj2Cell.textContent = id.M2G/points['groups'][0] + id.M2PS/points['playoff'][0] + id.M2PF/points['playoff'][1]
       groupsCell.textContent = id.M2G
       playoffsCell.textContent = id.M2PS + id.M2PF
       totalCell.textContent = id.M2T
+      newRow.appendChild(maj2Cell);
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
       newRow.appendChild(totalCell);
     } else if(iden === 'champ'){
+      champCell.textContent = id.CHPI/points['playin'][0] + id.CHG/points['groups'][0] + id.CHPS/points['playoff'][0] + id.CHPF/points['playoff'][1]
       playinCell.textContent = id.CHPI
       groupsCell.textContent = id.CHG
       playoffsCell.textContent = id.CHPS + id.CHPF
       totalCell.textContent = id.CHT
+      newRow.appendChild(champCell);
       newRow.appendChild(playinCell);
       newRow.appendChild(groupsCell);
       newRow.appendChild(playoffsCell);
       newRow.appendChild(totalCell);
     } else {
       totalCell.textContent = id.KO
+      kickoffCell.textContent = (id.KO/(points['kickoff'][0]*2))
+      newRow.appendChild(kickoffCell)
       newRow.appendChild(totalCell);
     }
 
