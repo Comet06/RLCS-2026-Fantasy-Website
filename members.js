@@ -35,7 +35,7 @@ export let Regional1 = {
   'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional2 = {
-  'come' : ['Luiisp', 'Daniel', 'Chronic', 'Beastmode', 'Kv1'],
+  'come' : ['Luiisp', 'Daniel', 'Juicy', 'Beastmode', 'Chronic'],
   'squi' : ['Trk511', 'M0nkey m00n', 'Motta', 'Atomik', 'Tawk'],
   'vinn' : ['Firstkiller', 'Lostt', 'Lj', 'Chausette45', '2die4'],
   'jimm' : ['Dralii', 'Atow', 'Rise', 'Exotiik', 'Justin'],

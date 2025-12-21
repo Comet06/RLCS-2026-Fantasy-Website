@@ -3,7 +3,7 @@ import { members, prizes, players, teams, Regional1, Regional2, Regional3, Regio
 import { deployTops } from "./stats.js";
 
 export const year = '2026'
-export const path = `/RLCS-${year}-Fantasy-Website`
+export const path = `/Website/RLCS-${year}-Fantasy-Website`
 export const path1 = ``// used for Mac dev
 export const tops = ['score', 'goals', 'assists', 'saves', 'shots']
 export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'TopShots']

@@ -860,8 +860,8 @@ function deployPlacements(event, eventNumber, length){
   })
   } else {
     const placements = `
-    <table class="section" id="majplacements">
-      <tbody>
+    <table id="border_box_white">
+      <tbody class="section" id="majplacements">
       </tbody>
     </table>
   `
