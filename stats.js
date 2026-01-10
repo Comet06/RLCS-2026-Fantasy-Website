@@ -64,7 +64,7 @@ window.addEventListener('load', function() {
       const teamSort = document.getElementById('teamStats')
       teamSort.addEventListener('change', handleDropdownTeam);
 
-      teams.sort((a, b) => b.totalSeasonPts - a.totalSeasonPts)
+      // teams.sort((a, b) => b.totalSeasonPts - a.totalSeasonPts)
       determineSeasonPoints()
       populateTeamsTable()
       console.log('Team Stats page has loaded!');

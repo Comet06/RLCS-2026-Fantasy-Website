@@ -37,7 +37,7 @@ a{color: currentColor; text-decoration: none;}
 .home_center_horizontal_container{display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
 
 #come{color: white; background-color: #1b1bac; padding: 2px; border-radius: 5px;}
-#squi{color: black; background-color: #FF2400; padding: 2px; border-radius: 5px;}
+#squi{color: white; background-color: #FF2400; padding: 2px; border-radius: 5px;}
 #vinn{color: black; background-color: limegreen; padding: 2px; border-radius: 5px;}
 #jimm{color: black; background-color: #d8db4b; padding: 2px; border-radius: 5px;}
 #ecof{color: black; background-color: #32d2d7; padding: 2px; border-radius: 5px;}

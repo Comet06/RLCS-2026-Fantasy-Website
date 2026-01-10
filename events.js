@@ -626,7 +626,6 @@ export function calculateTeamScore(){
     console.log(id)
   })
 }
-
 function deployReg(event, eventNumber, playersArray){
   document.getElementById('ScoreCard').innerHTML = regionalTable
   members.forEach((id) =>{
@@ -915,7 +914,6 @@ function deployPlacements(event, eventNumber, length){
   }
 }
 function deployMatchups(event, eventNumber){ //RegionalXMatchups
-  
   for (let i = 0; i < 10; i += 2){
     const tableBody = document.getElementById('matchups');
     const newRow = document.createElement('tr');
