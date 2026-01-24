@@ -7,7 +7,7 @@ export const path = `/RLCS-${year}-Fantasy-Website`
 export const path1 = ``// used for Mac dev
 export const tops = ['score', 'goals', 'assists', 'saves', 'shots']
 export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'TopShots']
-export const points = {'matchups': [500], 'kickoff': [200], 'groups': [400], 'playin' : [200], 'playoff' : [400, 600]}
+export const points = {'matchups': [5], 'kickoff': [20], 'groups': [40], 'playin' : [20], 'playoff' : [40, 60]}
 export const picks = {'kickoff': [7], 'major1': [8, 8, 3],  'major2': [12, 10, 3], 'championship': [10, 12, 8, 3]}
 export const spread = [.20, .13, .09, .08, .07, .06, .06, .05, .05, .04, .04, .03, .03, .03, .02, .02]
 export const dist = [.0, .4, .6]
@@ -508,5 +508,4 @@ function deployPrizePoolInfo(){
 
     tableBody.appendChild(newRow);
     
-
 }

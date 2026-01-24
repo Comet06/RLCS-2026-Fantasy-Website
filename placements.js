@@ -11,13 +11,13 @@ export let Regional1Placements = {
     'ssa' : ['Pioneers', 'Five Fears', 'Looking for organization', 'CosmiCo Esports', 'Death Cloud Esports', 'Synthesis', 'Team10', 'The Punishers', 'Ox Gaming', 'Rounds', 'Team HSK', 'Unity', 'White Rabbit Gaming', 'Astronic Esports', 'Nkandla Style', 'spanish pap en wors'],
 }
 export let Regional2Placements = {
-    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'eu' : ['Karmine Corp', 'Geekay Esports', 'Team Vitality', 'Gentle Mates', 'Ninjas in Pyjamas', 'Magnifico', 'WIP Esports', 'Man City Esports', 'FN', 'Gentlebench', 'Team BSK', 'Wylde', 'Selecao', 'Gameward', 'Dreifach-Reset', 'Triple T'],
     'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['Wildcard', 'PWR', 'Batman on Wheels', 'Canterbury Bulldogs', 'yeah bruv', 'aight', 'you not a champ', 'Team Freez', 'Miami Retro', 'R.T.T.', 'Take Flyte', 'FAC', 'Chopped uncs', 'The Babysitter', 'BDS', 'Karma Esports'],
+    'sam' : ['MIBR', 'Team Secret', 'Amethyst', 'Furia Esports', 'Chromax', 'Chinatown', 'Sandificados', 'Novadrift', 'Sunset', 'Dream Esports', 'Enosis Esports', 'Three Point Shooters', 'bandoleiros', 'timezin', 'Fear of God', 'aurafarm'],
+    'mena' : ['Team Falcons', 'Twisted Minds', 'MMA', 'DOS', 'alyom w ana', 'R8 Esports', 'Nothing', 'DNS', 'Sleeping', 'Team Stallions', 'Buried', 'rbc', 'Echoe', 'Dfn', 'HTR', 'Hasta la Vista'],
+    'apac' : ['Project Delacruz', 'Ground Zero Gaming', 'Kinotrope Gaming', 'Northstar Gaming', 'Inarizaki', 'Sailing Esports', 'God speed', 'Big Dawgs', 'Overlooked', 'Kinoko Soup', 'Xing Xi Xooters', 'Reunited uncs', 'Goblin Barrel', 'Retirement Home', 'J. Chicken Esports', 'Bearclaw Gaming'],
+    'ssa' : ['Five Fears', 'Pioneers', 'Amapiano', 'Astronic Esports', 'Brocrocros', 'White Rabbit Gaming', 'Death Cloud Esports', 'Synthesis', 'The Punishers', 'Rounds', 'Project One', 'Looking for Organization', 'new dogs old tricks', 'Unity', 'The Wave', 'Str1ve Esports'],
 }
 export let Regional3Placements = {
     'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],

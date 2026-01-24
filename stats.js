@@ -2,7 +2,7 @@ import { playersSeason1, playersSeason2, playersSeason3, playersSeason4, players
   playersSeason9, playersSeasonX, playersSeason21, playersSeason22, playersSeason24, playersSeason25 } from "./Previous-Seasons.js";
 import { calculateTeamScore, getPlayerScore, getTeamDetails } from "./events.js";
 import { path, determineTotalScores, determinePlayerRating, determineRanks, regions } from "./main.js";
-import { players, teams, members, Regional2 } from "./members.js";
+import { players, teams, members, Regional1 } from "./members.js";
 import { determineSeasonPoints } from "./rankings.js"
 
 // const weighted_multiplier = `
@@ -131,7 +131,7 @@ window.addEventListener('load', function() {
     }
   }
 });
-export const eventName = Regional2 //Current event where the player tables should draw availability from
+export const eventName = Regional1 //Current event where the player tables should draw availability from
 export let Tops = { //Do not edit
     'score' :   [],
     'goals' :   [],
@@ -520,5 +520,4 @@ function populateTeamsTable() {
       tableBody.appendChild(newRow);
     }
   });
-
 }
