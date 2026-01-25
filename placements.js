@@ -12,7 +12,7 @@ export let Regional1Placements = {
 }
 export let Regional2Placements = {
     'eu' : ['Karmine Corp', 'Geekay Esports', 'Team Vitality', 'Gentle Mates', 'Ninjas in Pyjamas', 'Magnifico', 'WIP Esports', 'Man City Esports', 'FN', 'Gentlebench', 'Team BSK', 'Wylde', 'Selecao', 'Gameward', 'Dreifach-Reset', 'Triple T'],
-    'na' : ['', '', '', '', 'Dignitas', 'M80', 'Spacestation Gaming', 'Lotus 8 Esports', 'GenG Mobil1 Racing', 'Ciel', 'Apple Slices', 'Unreal Nightmare', 'Shuffles Kittens', '90210', '1', 'Team Silenced'],
+    'na' : ['NRG', 'Redacted', 'Shopify Rebellion', 'FUT Esports', 'Dignitas', 'M80', 'Spacestation Gaming', 'Lotus 8 Esports', 'GenG Mobil1 Racing', 'Ciel', 'Apple Slices', 'Unreal Nightmare', 'Shuffles Kittens', '90210', '1', 'Team Silenced'],
     'oce' : ['Wildcard', 'PWR', 'Batman on Wheels', 'Canterbury Bulldogs', 'yeah bruv', 'aight', 'you not a champ', 'Team Freez', 'Miami Retro', 'R.T.T.', 'Take Flyte', 'FAC', 'Chopped uncs', 'The Babysitter', 'BDS', 'Karma Esports'],
     'sam' : ['MIBR', 'Team Secret', 'Amethyst', 'Furia Esports', 'Chromax', 'Chinatown', 'Sandificados', 'Novadrift', 'Sunset', 'Dream Esports', 'Enosis Esports', 'Three Point Shooters', 'bandoleiros', 'timezin', 'Fear of God', 'aurafarm'],
     'mena' : ['Team Falcons', 'Twisted Minds', 'MMA', 'DOS', 'alyom w ana', 'R8 Esports', 'Nothing', 'DNS', 'Sleeping', 'Team Stallions', 'Buried', 'rbc', 'Echoe', 'Dfn', 'HTR', 'Hasta la Vista'],
