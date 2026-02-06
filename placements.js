@@ -11,7 +11,7 @@ export let Regional1Placements = {
     'ssa' : ['Pioneers', 'Five Fears', 'Looking for organization', 'CosmiCo Esports', 'Death Cloud Esports', 'Synthesis', 'Team10', 'The Punishers', 'Ox Gaming', 'Rounds', 'Team HSK', 'Unity', 'White Rabbit Gaming', 'Astronic Esports', 'Nkandla Style', 'spanish pap en wors'],
 }
 export let Regional2Placements = {
-    'eu' : ['Karmine Corp', 'Geekay Esports', 'Team Vitality', 'Gentle Mates', 'Ninjas in Pyjamas', 'Magnifico', 'WIP Esports', 'Man City Esports', 'FN', 'Gentlebench', 'Team BSK', 'Wylde', 'Selecao', 'Gameward', 'Dreifach-Reset', 'Triple T'],
+    'eu' : ['Karmine Corp', 'Geekay Esports', 'Team Vitality', 'Gentle Mates Alpine', 'Ninjas in Pyjamas', 'Magnifico', 'WIP Esports', 'Man City Esports', 'FN', 'Gentlebench', 'Team BSK', 'Wylde', 'Selecao', 'Gameward', 'Dreifach-Reset', 'Triple T'],
     'na' : ['NRG', 'Redacted', 'Shopify Rebellion', 'FUT Esports', 'Dignitas', 'M80', 'Spacestation Gaming', 'Lotus 8 Esports', 'GenG Mobil1 Racing', 'Ciel', 'Apple Slices', 'Unreal Nightmare', 'Shuffles Kittens', '90210', '1', 'Team Silenced'],
     'oce' : ['Wildcard', 'PWR', 'Batman on Wheels', 'Canterbury Bulldogs', 'yeah bruv', 'aight', 'you not a champ', 'Team Freez', 'Miami Retro', 'R.T.T.', 'Take Flyte', 'FAC', 'Chopped uncs', 'The Babysitter', 'BDS', 'Karma Esports'],
     'sam' : ['MIBR', 'Team Secret', 'Amethyst', 'Furia Esports', 'Chromax', 'Chinatown', 'Sandificados', 'Novadrift', 'Sunset', 'Dream Esports', 'Enosis Esports', 'Three Point Shooters', 'bandoleiros', 'timezin', 'Fear of God', 'aurafarm'],
@@ -20,13 +20,13 @@ export let Regional2Placements = {
     'ssa' : ['Five Fears', 'Pioneers', 'Amapiano', 'Astronic Esports', 'Brocrocros', 'White Rabbit Gaming', 'Death Cloud Esports', 'Synthesis', 'The Punishers', 'Rounds', 'Project One', 'Looking for Organization', 'new dogs old tricks', 'Unity', 'The Wave', 'Str1ve Esports'],
 }
 export let Regional3Placements = {
-    'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'eu' : ['Gentle Mates Alpine', 'Karmine Corp', 'Team Vitality', 'Man City Esports', 'Magnifico', 'Ninjas in Pyjamas', 'Geekay Esports', 'TEam BSK', 'Caliente', 'GHT', 'Wylde', 'RST', 'Novo Esports', 'FN', 'Selaco', 'Cloud Esport'],
     'na' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'oce' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'sam' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'mena' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'apac' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'ssa' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    'oce' : ['Canterbury Bulldogs', 'PWR', 'Wildcard', 'Miami Metro', 'aight', 'you not a champ', 'Top 48', 'Dogged and Dangerous', 'Dumb Luck Esports', 'Vade Esports', 'Wild', 'The Babysitter', 'Power Puff Boys', 'Batman on Wheels', 'No Scrimmers', 'Team'],
+    'sam' : ['Furia Esports', 'MIBR', 'Team Secret', 'Amethyst', 'Emerald', 'Three Point Shooters', 'Novadrift', 'Enosis Esports', 'SDB', 'Chinatown', 'Sanificados', 'PAC', 'NoPlanB', 'Chromax', 'PDO', 'Bandoleiros'],
+    'mena' : ['Team Falcons', 'R8 Esports', 'Twisted Minds', 'DOS', 'Sleeping', 'Everything', 'Nightmare', 'MMT', 'Alyom W', 'Nothing', 'We dont know', 'ExciTinG1', 'DfN', 'Elite', 'RTK', 'Eternity'],
+    'apac' : ['Project Delacruz', 'Kinotrope Gaming', 'Ground Zero Gaming', 'Sailing Esports', 'God speed', 'BearClaw Gaming', 'Overlooked', 'J. Chicken Esports', 'Inarizaki', 'Charmy', 'We, Yes we are Asian', 'Random', 'Xing Xi Xooters', 'Big Dawgs', 'MGL Esports', 'Dreamstation'],
+    'ssa' : ['Five Fears', 'Pioneers', 'Amapiano', 'Brocrocros', 'Unity', 'St1ve Esports', 'Death Cloud Esports', 'Team HSK', 'Akimbo Esports', 'Astronic Esports', 'Looking for Organization', 'Supersonic Legends', 'SZ5', 'T2G Esports', 'Synthesis', 'Rounds'],
 }
 export let Regional4Placements = {
     'eu' : ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -74,23 +74,21 @@ export let kickoffLANQualifiedTeams = [
 ]
 export let split1QualifiedTeams = [
 'NA #1',
-'EU #1',
-'MENA #1',
-'EU #2',
+'Karmine Corp',
+'Team Falcons',
+'Gentle Mates Alpine',
 'NA #2',
-'EU #3',
-'OCE #1',
-'SAM #1',
+'Team Vitality',
+'PWR',
+'Furia Esports',
 'NA #3',
-'EU #4',
-'SAM #2',
-'MENA #2',
-'EU #5', //If EU Wins
+'Ninjas in Pyjamas',
+'MIBR',
+'Twisted Minds',
+'Geekay Esports',
 'NA #4',
-'APAC #1',
-'SSA #1',
-// 'NA #5', //If NA Wins
-// 'NA/EU #5',//Change when known(hide)
+'Project Delacruz',
+'Five Fears',
 ]
 export let split2QualifiedTeams = [
 'NA #1',
@@ -105,12 +103,10 @@ export let split2QualifiedTeams = [
 'EU #4',
 'SAM #2',
 'MENA #2',
-'EU #5', //If EU Wins
+'EU #5',
 'NA #4',
 'APAC #1',
 'SSA #1',
-// 'NA #5', //If NA Wins
-// 'NA/EU #5',//Change when known(hide)
 ]
 export let championshipQualifiedTeams = [
 'NA #1',
@@ -125,12 +121,10 @@ export let championshipQualifiedTeams = [
 'EU #4',
 'SAM #2',
 'MENA #2',
-'EU #5', //If EU Wins
+'EU #5',
 'NA #4',
 'APAC #1',
 'SSA #1',
-// 'NA #5', //If NA Wins
-// 'NA/EU #5',//Change when known(hide)
 'LCQ Region #1',//Change when known
 'LCQ Region #2',//Change when known
 'LCQ Region #3',//Change when known

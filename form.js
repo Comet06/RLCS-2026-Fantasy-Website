@@ -394,7 +394,7 @@ function deployGroupStage(group, groupLetter){
     const seriesLose = document.createElement('button')
 
     team.textContent = id.team
-    team.style = 'text-align: center; font-style:italic;'
+    team.style = 'text-align: center;'
     series.textContent = id.seriesWins
     series.style = 'text-align: center;'
     seriesWin.textContent = "S+"

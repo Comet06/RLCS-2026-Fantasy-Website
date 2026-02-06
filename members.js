@@ -1,12 +1,12 @@
 export const members = [
-  {name: 'Flip Lord', shortname: 'come', wins: 0, KO: 6, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Doofenschmirtz', shortname: 'squi',  wins: 0, KO: 3, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Flip Lord', shortname: 'come', wins: 1, KO: 6, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Doofenschmirtz', shortname: 'squi',  wins: 1, KO: 3, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
   {name: 'Nut Busters', shortname: 'vinn',  wins: 1, KO: 4, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
   {name: '24 Karat Gold', shortname: 'jimm',  wins: 1, KO: 4, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
   {name: 'Skibbideeznuts', shortname: 'ecof',  wins: 0, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Team Canada', shortname: 'gale',  wins: 1, KO: 3, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Streets 1:12', shortname: 'pots',  wins: 1, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
-  {name: 'Slightly Stoopid', shortname: 'maht',  wins: 0, KO: 2, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Team Canada', shortname: 'gale',  wins: 2, KO: 3, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Streets 1:12', shortname: 'pots',  wins: 2, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
+  {name: 'Slightly Stoopid', shortname: 'maht',  wins: 1, KO: 2, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
   {name: 'Ball Spikers', shortname: 'devv',  wins: 0, KO: 5, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
   {name: 'Little Giants', shortname: 'plac',  wins: 1, KO: 0, M1G: 0, M1PS: 0, M1PF: 0, M2G: 0, M2PS: 0, M2PF: 0, CHPI: 0, CHG: 0, CHPS: 0, CHPF: 0},
 ]// kickoffLAN(7), major1[groupstage(8), POSemi(8), POFinals(3)], major2[groupstage(8), POSemi(8), POFinals(3)], championship[PISemi(10), Groups(12), POSemi(8), POFinals(3)]
@@ -14,7 +14,7 @@ export const members = [
 export let Regional1Matchups = ['vinn', 'squi', 'jimm', 'come', 'gale', 'ecof', 'maht', 'pots', 'devv', 'plac']
 export let KickoffMatchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
 export let Regional2Matchups = ['vinn', 'pots', 'gale', 'jimm', 'come', 'ecof', 'maht', 'devv', 'squi', 'plac']
-export let Regional3Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
+export let Regional3Matchups = ['pots', 'gale', 'come', 'maht', 'jimm', 'vinn', 'squi', 'devv', 'ecof', 'plac']
 export let Major1Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
 export let Regional4Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
 export let Regional5Matchups = ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'plac']
@@ -47,28 +47,28 @@ export let Regional2 = {
   'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional3 = {
-  'come' : [Regional2['come'][0], Regional2['come'][1], Regional2['come'][2], Regional2['come'][3], Regional2['come'][4]],
-  'squi' : [Regional2['squi'][0], Regional2['squi'][1], Regional2['squi'][2], Regional2['squi'][3], Regional2['squi'][4]],
-  'vinn' : [Regional2['vinn'][0], Regional2['vinn'][1], Regional2['vinn'][2], Regional2['vinn'][3], Regional2['vinn'][4]],
-  'jimm' : [Regional2['jimm'][0], Regional2['jimm'][1], Regional2['jimm'][2], Regional2['jimm'][3], Regional2['jimm'][4]],
-  'ecof' : [Regional2['ecof'][0], Regional2['ecof'][1], Regional2['ecof'][2], Regional2['ecof'][3], Regional2['ecof'][4]],
-  'gale' : [Regional2['gale'][0], Regional2['gale'][1], Regional2['gale'][2], Regional2['gale'][3], Regional2['gale'][4]],
-  'pots' : [Regional2['pots'][0], Regional2['pots'][1], Regional2['pots'][2], Regional2['pots'][3], Regional2['pots'][4]],
-  'maht' : [Regional2['maht'][0], Regional2['maht'][1], Regional2['maht'][2], Regional2['maht'][3], Regional2['maht'][4]],
-  'devv' : [Regional2['devv'][0], Regional2['devv'][1], Regional2['devv'][2], Regional2['devv'][3], Regional2['devv'][4]],
-  'plac' : [Regional2['plac'][0], Regional2['plac'][1], Regional2['plac'][2], Regional2['plac'][3], Regional2['plac'][4]],
+  'come' : ['Luiisp', 'Daniel', 'Juicy', 'Beastmode', 'Chronic'],
+  'squi' : ['Trk511', 'M0nkey m00n', 'Motta', 'Atomik', 'Tawk'],
+  'vinn' : ['Firstkiller', 'Lostt', 'Lj', 'Chausette45', '2die4'],
+  'jimm' : ['Dralii', 'Atow', 'Rise', 'Exotiik', 'Justin'],
+  'ecof' : ['Nwpo', 'Yanxnz', 'Apparentlyjack', 'Bananahead', 'Oski'],
+  'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', 'Sphinx'],
+  'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', 'Torsos'],
+  'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', 'Seikoo'],
+  'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', 'Crr'],
+  'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional4 = {
-  'come' : [Regional3['come'][0], Regional3['come'][1], Regional3['come'][2], Regional3['come'][3], Regional3['come'][4]],
-  'squi' : [Regional3['squi'][0], Regional3['squi'][1], Regional3['squi'][2], Regional3['squi'][3], Regional3['squi'][4]],
-  'vinn' : [Regional3['vinn'][0], Regional3['vinn'][1], Regional3['vinn'][2], Regional3['vinn'][3], Regional3['vinn'][4]],
-  'jimm' : [Regional3['jimm'][0], Regional3['jimm'][1], Regional3['jimm'][2], Regional3['jimm'][3], Regional3['jimm'][4]],
-  'ecof' : [Regional3['ecof'][0], Regional3['ecof'][1], Regional3['ecof'][2], Regional3['ecof'][3], Regional3['ecof'][4]],
-  'gale' : [Regional3['gale'][0], Regional3['gale'][1], Regional3['gale'][2], Regional3['gale'][3], Regional3['gale'][4]],
-  'pots' : [Regional3['pots'][0], Regional3['pots'][1], Regional3['pots'][2], Regional3['pots'][3], Regional3['pots'][4]],
-  'maht' : [Regional3['maht'][0], Regional3['maht'][1], Regional3['maht'][2], Regional3['maht'][3], Regional3['maht'][4]],
-  'devv' : [Regional3['devv'][0], Regional3['devv'][1], Regional3['devv'][2], Regional3['devv'][3], Regional3['devv'][4]],
-  'plac' : [Regional3['plac'][0], Regional3['plac'][1], Regional3['plac'][2], Regional3['plac'][3], Regional3['plac'][4]],
+  'come' : ['Beastmode', 'Daniel', 'Juicy', 'Luiisp', 'Chronic'],
+  'squi' : ['Trk511', 'M0nkey m00n', 'Motta', 'Atomik', 'Tawk'],
+  'vinn' : ['Firstkiller', 'Lostt', 'Lj', 'Chausette45', '2die4'],
+  'jimm' : ['Dralii', 'Atow', 'Rise', 'Exotiik', 'Justin'],
+  'ecof' : ['Nwpo', 'Yanxnz', 'Apparentlyjack', 'Bananahead', 'Oski'],
+  'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', 'Sphinx'],
+  'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', 'Torsos'],
+  'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', 'Seikoo'],
+  'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', 'Crr'],
+  'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional5 = {
   'come' : [Regional4['come'][0], Regional4['come'][1], Regional4['come'][2], Regional4['come'][3], Regional4['come'][4]],
@@ -732,7 +732,7 @@ export let teams = [
 {team: 'Novo Esports', region: 'EU'},
 {team: 'NXT', region: 'EU'},
 {team: 'PimpMyRide', region: 'EU'},
-{team: 'Pioneers', region: 'EU'},
+{team: 'Pioneers', region: 'SSA'},
 {team: 'Pirots 3', region: 'EU'},
 {team: 'Quick Esports', region: 'EU'},
 {team: 'Red Devils', region: 'EU'},
