@@ -43,7 +43,7 @@ export let Regional2 = {
   'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', 'Sphinx'],
   'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', 'Torsos'],
   'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', 'Seikoo'],
-  'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', 'Crr'],
+  'devv' : ['Crr', 'Diaz', 'Reveal', 'Swiftt', 'Archie'],
   'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional3 = {
@@ -55,7 +55,7 @@ export let Regional3 = {
   'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', 'Sphinx'],
   'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', 'Torsos'],
   'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', 'Seikoo'],
-  'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', 'Crr'],
+  'devv' : ['Crr', 'Diaz', 'Reveal', 'Swiftt', 'Archie'],
   'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional4 = {
@@ -67,7 +67,7 @@ export let Regional4 = {
   'gale' : ['Kiileerrz', 'Vatira', 'Kofyr', 'Nass', 'Sphinx'],
   'pots' : ['Zen', 'Atomic', 'Drufinho', 'Fever', 'Torsos'],
   'maht' : ['Rw9', 'Stizzy', 'Joyo', 'Joreuz', 'Seikoo'],
-  'devv' : ['Archie', 'Diaz', 'Reveal', 'Swiftt', 'Crr'],
+  'devv' : ['Archie', 'Wahvey', 'Reveal', 'Swiftt', 'Crr'],
   'plac' : ['Majicbear', 'Oaly', 'Cheese'],
 }
 export let Regional5 = {

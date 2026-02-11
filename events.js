@@ -850,6 +850,54 @@ export let regional3Players = [
 {player: 'Vatira', gp: 25, wins: 15, score: 9649, goals: 17, assists: 11, saves: 47, shots: 74},
 {player: 'Wozyen', gp: 8, wins: 2, score: 2842, goals: 5, assists: 1, saves: 17, shots: 16},
 {player: 'Zen', gp: 29, wins: 17, score: 10612, goals: 11, assists: 16, saves: 50, shots: 114},
+{player: '2piece', gp: 25, wins: 15, score: 10144, goals: 18, assists: 10, saves: 54, shots: 63},
+{player: 'Atomic', gp: 35, wins: 21, score: 10730, goals: 16, assists: 23, saves: 35, shots: 107},
+{player: 'Beastmode', gp: 35, wins: 21, score: 12676, goals: 27, assists: 11, saves: 52, shots: 115},
+{player: 'Cheese', gp: 15, wins: 7, score: 4866, goals: 6, assists: 6, saves: 25, shots: 33},
+{player: 'Chronic', gp: 18, wins: 12, score: 6449, goals: 11, assists: 8, saves: 28, shots: 43},
+{player: 'Creamz', gp: 18, wins: 8, score: 6496, goals: 9, assists: 8, saves: 34, shots: 42},
+{player: 'Crispy', gp: 8, wins: 2, score: 3259, goals: 4, assists: 2, saves: 16, shots: 25},
+{player: 'Daniel', gp: 35, wins: 21, score: 12419, goals: 26, assists: 18, saves: 46, shots: 124},
+{player: 'Evoh', gp: 23, wins: 13, score: 8307, goals: 13, assists: 13, saves: 38, shots: 58},
+{player: 'Firstkiller', gp: 27, wins: 18, score: 13468, goals: 26, assists: 18, saves: 56, shots: 112},
+{player: 'Fiv3up', gp: 23, wins: 13, score: 8643, goals: 15, assists: 7, saves: 46, shots: 64},
+{player: 'Frky', gp: 6, wins: 0, score: 1837, goals: 2, assists: 1, saves: 10, shots: 10},
+{player: 'Life', gp: 17, wins: 9, score: 6112, goals: 10, assists: 8, saves: 25, shots: 45},
+{player: 'Lj', gp: 27, wins: 18, score: 9615, goals: 15, assists: 16, saves: 45, shots: 62},
+{player: 'Majicbear', gp: 10, wins: 4, score: 4159, goals: 6, assists: 4, saves: 19, shots: 29},
+{player: 'Mech', gp: 17, wins: 9, score: 7573, goals: 10, assists: 10, saves: 46, shots: 40},
+{player: 'Nitrous', gp: 6, wins: 0, score: 1809, goals: 3, assists: 1, saves: 9, shots: 13},
+{player: 'Pndh', gp: 11, wins: 5, score: 4850, goals: 7, assists: 5, saves: 25, shots: 22},
+{player: 'S5-cosmic', gp: 18, wins: 8, score: 6823, goals: 13, assists: 5, saves: 32, shots: 38},
+{player: 'Shaykoz', gp: 6, wins: 0, score: 2074, goals: 2, assists: 1, saves: 14, shots: 14},
+{player: 'Speed', gp: 12, wins: 6, score: 4183, goals: 9, assists: 5, saves: 20, shots: 33},
+{player: 'Vesh', gp: 7, wins: 1, score: 1891, goals: 1, assists: 3, saves: 8, shots: 13},
+{player: 'Wahvey', gp: 25, wins: 15, score: 9698, goals: 19, assists: 17, saves: 43, shots: 69},
+{player: 'Yawnathon', gp: 6, wins: 0, score: 2429, goals: 2, assists: 2, saves: 14, shots: 16},
+{player: 'Aris', gp: 11, wins: 5, score: 4258, goals: 3, assists: 9, saves: 23, shots: 26},
+{player: 'Arju', gp: 12, wins: 6, score: 3607, goals: 4, assists: 4, saves: 12, shots: 32},
+{player: 'Bora', gp: 23, wins: 13, score: 7693, goals: 18, assists: 5, saves: 29, shots: 68},
+{player: 'Diaz', gp: 18, wins: 12, score: 6343, goals: 10, assists: 10, saves: 31, shots: 51},
+{player: 'Dvo', gp: 10, wins: 3, score: 2143, goals: 2, assists: 5, saves: 8, shots: 29},
+{player: 'Frosty', gp: 15, wins: 7, score: 6981, goals: 10, assists: 6, saves: 36, shots: 59},
+{player: 'Gman', gp: 7, wins: 1, score: 1643, goals: 1, assists: 2, saves: 8, shots: 11},
+{player: 'Hazo', gp: 18, wins: 8, score: 7688, goals: 13, assists: 10, saves: 43, shots: 38},
+{player: 'Justin', gp: 10, wins: 4, score: 2626, goals: 3, assists: 1, saves: 13, shots: 28},
+{player: 'Kahzii', gp: 7, wins: 1, score: 2958, goals: 4, assists: 1, saves: 19, shots: 18},
+{player: 'Kofyr', gp: 27, wins: 18, score: 11353, goals: 24, assists: 15, saves: 54, shots: 80},
+{player: 'Matt', gp: 10, wins: 3, score: 3234, goals: 3, assists: 3, saves: 16, shots: 27},
+{player: 'Monk', gp: 6, wins: 0, score: 1751, goals: 2, assists: 2, saves: 7, shots: 19},
+{player: 'Noly', gp: 17, wins: 9, score: 6132, goals: 12, assists: 4, saves: 31, shots: 40},
+{player: 'Patty', gp: 6, wins: 0, score: 2102, goals: 3, assists: 2, saves: 13, shots: 15},
+{player: 'Percy', gp: 11, wins: 5, score: 5419, goals: 13, assists: 5, saves: 27, shots: 43},
+{player: 'Pzy', gp: 8, wins: 2, score: 2317, goals: 5, assists: 1, saves: 7, shots: 25},
+{player: 'Relatingwave', gp: 12, wins: 6, score: 4630, goals: 8, assists: 9, saves: 19, shots: 33},
+{player: 'Reveal', gp: 18, wins: 12, score: 7105, goals: 12, assists: 5, saves: 36, shots: 67},
+{player: 'Rise', gp: 10, wins: 4, score: 3137, goals: 4, assists: 3, saves: 15, shots: 29},
+{player: 'Simas', gp: 8, wins: 2, score: 2306, goals: 2, assists: 3, saves: 11, shots: 19},
+{player: 'Sosa', gp: 15, wins: 7, score: 4185, goals: 5, assists: 6, saves: 27, shots: 30},
+{player: 'Tawk', gp: 25, wins: 15, score: 11517, goals: 20, assists: 20, saves: 56, shots: 83},
+{player: 'Xprt', gp: 10, wins: 3, score: 3938, goals: 6, assists: 1, saves: 27, shots: 24},
 ]
 export let major1Players = []
 export let regional4Players = []
@@ -976,7 +1024,7 @@ window.addEventListener('load', function() {
       deployMatchups(Regional2Matchups, 2)
       deployTops(regional2Players)
     } else if(evt === 'Regional 3'){
-      document.getElementById('scoresMultiplier').innerHTML = 'Scores(APAC, EU, & SSA Completed)'
+      document.getElementById('scoresMultiplier').innerHTML = 'Scores(APAC, EU, SSA, NA Completed)'
       deployPlacements(Regional3Placements, 1)
       deployReg(Regional3, 3, regional3Players)
       deployMatchups(Regional3Matchups, 3)
