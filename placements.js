@@ -7,7 +7,7 @@ export let Regional1Placements = {
     'oce' : ['PWR', 'Wildcard', 'Canterbury Bulldogs', 'Take Flyte', 'you not a champ', 'Almost Nuts', 'Team Freez', 'KekDubz', 'Vade Esports', 'Miami Metro', 'petrol money', '4Ever', 'Spliced', 'R.T.T.', 'Lethal Esports', 'Dumb Luck Esports'],
     'sam' : ['Furia Esports', 'MIBR', 'Amethyst', 'Team Secret', 'Novadrift', 'Three Point Shooters', 'Sanificados', 'Emerald', 'Aelix', 'NoTime', 'Enosis eSports', 'Fear Of God', 'bandoleiros', 'NoPlanB', 'Changuitos FC', 'Overlooked'],
     'mena' : ['Twisted Minds', 'Team Falcons', 'Sleeping', 'ROC Esports', 'dont disturb us', 'MMA', 'Awawa', 'Project S', 'Fearless', 'Nothing', 'Rural', 'SWC', 'The First', '100', 'Incindies', 'NRD Esports'],
-    'apac' : ['Project Delacruz', 'Kinotrope Gaming', 'Ground Zero Gaming', 'Daybreak Frontline', 'Northstar Gaming', 'Rapier', 'Xing Xi Xooters', 'Praise', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
+    'apac' : ['TSM', 'Kinotrope Gaming', 'Ground Zero Gaming', 'Daybreak Frontline', 'Northstar Gaming', 'Rapier', 'Xing Xi Xooters', 'Praise', 'HHM', 'Sailing Esports', 'Fernstella', 'Big Dawgs', 'Instant', 'Lamb Munchers', 'Bajak Laut Digital', 'Uhuh'],
     'ssa' : ['Pioneers', 'Five Fears', 'Looking for organization', 'CosmiCo Esports', 'Death Cloud Esports', 'Synthesis', 'Team10', 'The Punishers', 'Ox Gaming', 'Rounds', 'Team HSK', 'Unity', 'White Rabbit Gaming', 'Astronic Esports', 'Nkandla Style', 'spanish pap en wors'],
 }
 export let Regional2Placements = {
@@ -16,7 +16,7 @@ export let Regional2Placements = {
     'oce' : ['Wildcard', 'PWR', 'Batman on Wheels', 'Canterbury Bulldogs', 'yeah bruv', 'aight', 'you not a champ', 'Team Freez', 'Miami Retro', 'R.T.T.', 'Take Flyte', 'FAC', 'Chopped uncs', 'The Babysitter', 'BDS', 'Karma Esports'],
     'sam' : ['MIBR', 'Team Secret', 'Amethyst', 'Furia Esports', 'Chromax', 'Chinatown', 'Sandificados', 'Novadrift', 'Sunset', 'Dream Esports', 'Enosis Esports', 'Three Point Shooters', 'bandoleiros', 'timezin', 'Fear of God', 'aurafarm'],
     'mena' : ['Team Falcons', 'Twisted Minds', 'MMA', 'DOS', 'alyom w ana', 'R8 Esports', 'Nothing', 'DNS', 'Sleeping', 'Team Stallions', 'Buried', 'rbc', 'Echoe', 'Dfn', 'HTR', 'Hasta la Vista'],
-    'apac' : ['Project Delacruz', 'Ground Zero Gaming', 'Kinotrope Gaming', 'Northstar Gaming', 'Inarizaki', 'Sailing Esports', 'God speed', 'Big Dawgs', 'Overlooked', 'Kinoko Soup', 'Xing Xi Xooters', 'Reunited uncs', 'Goblin Barrel', 'Retirement Home', 'J. Chicken Esports', 'Bearclaw Gaming'],
+    'apac' : ['TSM', 'Ground Zero Gaming', 'Kinotrope Gaming', 'Northstar Gaming', 'Inarizaki', 'Sailing Esports', 'God speed', 'Big Dawgs', 'Overlooked', 'Kinoko Soup', 'Xing Xi Xooters', 'Reunited uncs', 'Goblin Barrel', 'Retirement Home', 'J. Chicken Esports', 'Bearclaw Gaming'],
     'ssa' : ['Five Fears', 'Pioneers', 'Amapiano', 'Astronic Esports', 'Brocrocros', 'White Rabbit Gaming', 'Death Cloud Esports', 'Synthesis', 'The Punishers', 'Rounds', 'Project One', 'Looking for Organization', 'new dogs old tricks', 'Unity', 'The Wave', 'Str1ve Esports'],
 }
 export let Regional3Placements = {
@@ -25,7 +25,7 @@ export let Regional3Placements = {
     'oce' : ['Canterbury Bulldogs', 'PWR', 'Wildcard', 'Miami Metro', 'aight', 'you not a champ', 'Top 48', 'Dogged and Dangerous', 'Dumb Luck Esports', 'Vade Esports', 'Wild', 'The Babysitter', 'Power Puff Boys', 'Batman on Wheels', 'No Scrimmers', 'Team'],
     'sam' : ['Furia Esports', 'MIBR', 'Team Secret', 'Amethyst', 'Emerald', 'Three Point Shooters', 'Novadrift', 'Enosis Esports', 'SDB', 'Chinatown', 'Sanificados', 'PAC', 'NoPlanB', 'Chromax', 'PDO', 'Bandoleiros'],
     'mena' : ['Team Falcons', 'R8 Esports', 'Twisted Minds', 'DOS', 'Sleeping', 'Everything', 'Nightmare', 'MMT', 'Alyom W', 'Nothing', 'We dont know', 'ExciTinG1', 'DfN', 'Elite', 'RTK', 'Eternity'],
-    'apac' : ['Project Delacruz', 'Kinotrope Gaming', 'Ground Zero Gaming', 'Sailing Esports', 'God speed', 'BearClaw Gaming', 'Overlooked', 'J. Chicken Esports', 'Inarizaki', 'Charmy', 'We, Yes we are Asian', 'Random', 'Xing Xi Xooters', 'Big Dawgs', 'MGL Esports', 'Dreamstation'],
+    'apac' : ['TSM', 'Kinotrope Gaming', 'Ground Zero Gaming', 'Sailing Esports', 'God speed', 'BearClaw Gaming', 'Overlooked', 'J. Chicken Esports', 'Inarizaki', 'Charmy', 'We, Yes we are Asian', 'Random', 'Xing Xi Xooters', 'Big Dawgs', 'MGL Esports', 'Dreamstation'],
     'ssa' : ['Five Fears', 'Pioneers', 'Amapiano', 'Brocrocros', 'Unity', 'St1ve Esports', 'Death Cloud Esports', 'Team HSK', 'Akimbo Esports', 'Astronic Esports', 'Looking for Organization', 'Supersonic Legends', 'SZ5', 'T2G Esports', 'Synthesis', 'Rounds'],
 }
 export let Regional4Placements = {
@@ -84,7 +84,7 @@ export let split1QualifiedTeams = [
 'Five Fears',
 'Geekay Esports',
 'Twisted Minds',
-'Project Delacruz',
+'TSM',
 'MIBR',
 'Spacestation Gaming',
 'Redacted',
