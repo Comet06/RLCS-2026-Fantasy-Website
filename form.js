@@ -415,11 +415,11 @@ function deployPlayoffs(){
   sortGroups(groupB)
   sortGroups(groupC)
   sortGroups(groupD)
-  for(let i = 0; i < groupA.length-1; i++){
+  for(let i = 0; i < 2; i++){
     playoffTeams[i] = groupA[i].team
-    playoffTeams[i+3] = groupB[i].team
-    playoffTeams[i+6] = groupC[i].team
-    playoffTeams[i+9] = groupD[i].team
+    playoffTeams[i+2] = groupB[i].team
+    playoffTeams[i+4] = groupC[i].team
+    playoffTeams[i+6] = groupD[i].team
   }
   for(let i = 0; i < playoffTeams.length-1; i++){
     document.getElementById(`PO${i+1}`).innerHTML = `<div class="bracket_team" data-team-id="${playoffTeams[i]}">${playoffTeams[i]}</div>`
@@ -442,8 +442,5 @@ function deployPlayoffsM2(){
   }
 }
 function sortGroups(group){
-  group.sort((a,b) => a.gameLosses - b.gameLosses)
-  group.sort((a,b) => b.gameWins - a.gameWins)
-  group.sort((a,b) => a.seriesLosses - b.seriesLosses)
   group.sort((a,b) => b.seriesWins - a.seriesWins)
 }
