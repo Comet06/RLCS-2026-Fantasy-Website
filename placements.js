@@ -57,7 +57,7 @@ export let Regional6Placements = {
 }
 export let Placements = {
     'Kickoff' : ['Karmine Corp', 'Shopify Rebellion', 'Virtus pro', 'Spacestation Gaming', 'Ninjas in Pyjamas', 'Team Vitality', 'Novo Esports', 'GenG Mobil1 Racing'],
-    'Major1' : ['Team Vitality', 'Gentle Mates Alpine', 'NRG', 'Team Falcons', 'Karmine Corp', 'Shopify Rebellion', 'Geekay Esports', 'Ninjas in Pyjamas', 'PWR', 'Virtus pro', 'Twisted Minds', 'MIBR', 'Five Fears', 'Furia Esports', 'Spacestation Gaming', 'TSM'],
+    'Major1' : ['Gentle Mates Alpine', 'Team Vitality', 'NRG', 'Team Falcons', 'Karmine Corp', 'Shopify Rebellion', 'Geekay Esports', 'Ninjas in Pyjamas', 'PWR', 'Virtus pro', 'Twisted Minds', 'MIBR', 'Five Fears', 'Furia Esports', 'Spacestation Gaming', 'TSM'],
     'Major2' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
     'Champ' : ['TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD'],
 }
