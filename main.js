@@ -3,8 +3,8 @@ import { members, prizes, players, teams, Regional1, Regional2, Regional3, Regio
 import { deployTops } from "./stats.js";
 
 export const year = '2026'
-export const path1 = `/Website/RLCS-${year}-Fantasy-Website`
-export const path = ``// used for Mac dev
+export const path = `/Website/RLCS-${year}-Fantasy-Website`
+export const path1 = ``// used for Mac dev
 export const tops = ['score', 'goals', 'assists', 'saves', 'shots']
 export const topsCharts = ['TopScores', 'TopGoals', 'TopAssists', 'TopSaves', 'TopShots']
 export const points = {'matchups': [5], 'kickoff': [20], 'groups': [40], 'playin' : [20], 'playoff' : [40, 60]}
@@ -508,4 +508,5 @@ function deployPrizePoolInfo(){
 
     tableBody.appendChild(newRow);
     
+
 }
